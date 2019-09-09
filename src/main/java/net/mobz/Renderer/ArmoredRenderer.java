@@ -1,5 +1,6 @@
-package net.mobz;
+package net.mobz.Renderer;
 
+import net.mobz.ArmoredEntity;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.entity.BipedEntityRenderer;
