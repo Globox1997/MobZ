@@ -1,0 +1,40 @@
+{
+    "required": true,
+    "package": "net.mobz.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [ 
+      "badlandglo",
+      "bamboglo",
+      "beachglo",
+      "birchglo",
+      "darkglo",
+      "desertglo"
+      ,"endglo",
+      "flowerglo",
+      "forestglo",
+      "jungleglo",
+      "riverglo",
+      "savannaglo",
+      "plainsglo",
+      "taigaglo",
+      "endislandsglo",
+      "endmidglo",
+      "endhighglo",
+      "frozenoceanglo",
+      "frozenriverglo",
+      "iceglo",
+      "snowyglo",
+      "swampglo",
+      "stoneglo",
+      "netherglo",
+      "badplatoglo",
+      "mountainglo"
+    ],
+    "client": [
+      
+    ],
+    "injectors": {
+      "defaultRequire": 1
+    }
+  }
+  

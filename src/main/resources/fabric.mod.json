@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "mobz",
+  "version": "1.4.0",
+
+  "name": "MobZ",
+  "description": "more vanilla style mobs",
+  "authors": [
+    "Globox"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/zmod.mobz.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.mobz.glomod"
+    ],
+    "client": [
+      "net.mobz.ClientInitializier"
+    ]
+  },
+  "mixins": [
+    "fabric.mixin.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}

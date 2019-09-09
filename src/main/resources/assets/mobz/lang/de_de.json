@@ -1,0 +1,23 @@
+{
+"entity.mobz.tank_entity":"Tank",
+"entity.mobz.fast_entity":"Zombie",
+"entity.mobz.spi_entity":"Spider",
+"entity.mobz.spo_entity":"Spider",
+"entity.mobz.creep_entity":"Creeper",
+"entity.mobz.armored_entity":"Armored Zombie",
+"entity.mobz.boss_entity":"Boss",
+"entity.mobz.test_entity":"Test",
+"entity.mobz.ender_entity":"Enderman",
+"entity.mobz.enderzombie_entity":"Ender Zombie",
+"entity.mobz.crip_entity":"Creeper",
+"item.mobz.boss_sword": "§6Verzabertes Schwert",
+"item.mobz.armored_sword": "§7Gepanzertes Schwert",
+"item.mobz.boss_boots": "§6Verzauberte Stiefel",
+"item.mobz.boss_chestplate": "§6Verzauberter Harnisch",
+"item.mobz.boss_helmet": "§6Verzauberter Helm",
+"item.mobz.boss_leggings": "§6Verzauberter Beinschutz",
+"item.mobz.boss_ingot": "§6Verzauberter Goldbarren",
+"item.mobz.boss_ingot.tooltip": "Seltenes Material",
+"entity.mobz.lavagolem_entity":"Lava Golem",
+"entity.mobz.icegolem_entity":"Ice Golem"
+}

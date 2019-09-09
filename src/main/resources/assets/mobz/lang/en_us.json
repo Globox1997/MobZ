@@ -1,0 +1,23 @@
+{
+    "entity.mobz.tank_entity":"Tank",
+    "entity.mobz.fast_entity":"Zombie",
+    "entity.mobz.spi_entity":"Spider",
+    "entity.mobz.spo_entity":"Spider",
+    "entity.mobz.creep_entity":"Creeper",
+    "entity.mobz.armored_entity":"Armored Zombie",
+    "entity.mobz.boss_entity":"Boss",
+    "entity.mobz.test_entity":"Test",
+    "entity.mobz.ender_entity":"Enderman",
+    "entity.mobz.enderzombie_entity":"Ender Zombie",
+    "entity.mobz.crip_entity":"Creeper",
+    "item.mobz.boss_sword": "§6Enchanted Golden Sword",
+    "item.mobz.armored_sword": "§7Armored Sword",
+    "item.mobz.boss_boots": "§6Enchanted Golden Boots",
+    "item.mobz.boss_chestplate": "§6Enchanted Golden Chestplate",
+    "item.mobz.boss_helmet": "§6Enchanted Golden Helmet",
+    "item.mobz.boss_leggings": "§6Enchanted Golden Leggings",
+    "item.mobz.boss_ingot": "§6Enchanted Gold Ingot",
+    "item.mobz.boss_ingot.tooltip": "Rare Material",
+    "entity.mobz.lavagolem_entity":"Lava Golem",
+    "entity.mobz.icegolem_entity":"Ice Golem"
+}
