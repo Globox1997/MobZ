@@ -1,6 +1,7 @@
 package net.mobz.Renderer;
 
-import net.mobz.BossEntity;
+import net.mobz.Entity.*;
+
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.entity.BipedEntityRenderer;

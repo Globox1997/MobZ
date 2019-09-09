@@ -1,4 +1,6 @@
-package net.mobz;
+package net.mobz.Renderer;
+
+import net.mobz.Entity.*;
 
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;

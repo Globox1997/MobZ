@@ -1,4 +1,6 @@
-package net.mobz;
+package net.mobz.Entity;
+
+import net.mobz.glomod;
 
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.sound.SoundEvent;
@@ -10,9 +12,9 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
-public class skeli1 extends SkeletonEntity {
+public class skeli3 extends SkeletonEntity {
 
-    public skeli1(EntityType<? extends SkeletonEntity> entityType, World world) {
+    public skeli3(EntityType<? extends SkeletonEntity> entityType, World world) {
         super(entityType, world);
     }
 
@@ -27,27 +29,27 @@ public class skeli1 extends SkeletonEntity {
     @Override
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(40D);
-        this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(2.0D);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(30D);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.26D);
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return glomod.SKELASAYEVENT;
+        return glomod.SKELISAYEVENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-        return glomod.SKELAHURTEVENT;
+        return glomod.SKELIHURTEVENT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return glomod.SKELADEATHEVENT;
+        return glomod.SKELIDEATHEVENT;
     }
 
     protected SoundEvent getStepSound() {
-        return glomod.SKELASTEPEVENT;
+        return glomod.SKELISTEPEVENT;
     }
 
 }

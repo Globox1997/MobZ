@@ -1,4 +1,4 @@
-package net.mobz;
+package net.mobz.Items;
 
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;

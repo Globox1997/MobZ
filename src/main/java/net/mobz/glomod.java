@@ -1,5 +1,8 @@
 package net.mobz;
 
+import net.mobz.Entity.*;
+import net.mobz.Items.*;
+
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.FabricEntityTypeBuilder;
 import net.minecraft.util.Identifier;

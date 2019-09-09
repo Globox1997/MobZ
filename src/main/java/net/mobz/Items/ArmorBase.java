@@ -1,4 +1,4 @@
-package net.mobz;
+package net.mobz.Items;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
@@ -10,5 +10,4 @@ public class ArmorBase extends ArmorItem {
     public ArmorBase(ArmorMaterial material, EquipmentSlot slot) {
         super(material, slot, new Item.Settings().group(ItemGroup.COMBAT));
     }
-    // It's a comment
 }

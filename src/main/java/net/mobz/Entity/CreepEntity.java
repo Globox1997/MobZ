@@ -1,4 +1,6 @@
-package net.mobz;
+package net.mobz.Entity;
+
+import net.mobz.glomod;
 
 import java.util.Collection;
 import java.util.Iterator;

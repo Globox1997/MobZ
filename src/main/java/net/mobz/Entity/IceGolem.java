@@ -1,4 +1,7 @@
-package net.mobz;
+package net.mobz.Entity;
+
+import net.mobz.glomod;
+import net.mobz.Entity.Attack.*;
 
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.block.BlockState;
@@ -8,6 +11,7 @@ import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.ZombiePigmanEntity;
 import net.minecraft.entity.passive.AbstractTraderEntity;
@@ -66,4 +70,16 @@ public class IceGolem extends IronGolemEntity {
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL;
     }
+
+    @Override
+    public boolean canImmediatelyDespawn(double double_1) {
+        return true;
+    }
+    @Override
+    protected void initAttributes() {
+        super.initAttributes();
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(52.0D);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.26D);
+        this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.5D);
+     }
 }

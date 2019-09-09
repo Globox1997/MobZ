@@ -1,5 +1,6 @@
-package net.mobz;
+package net.mobz.Items;
 
+import net.mobz.glomod;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;

@@ -1,4 +1,4 @@
-package net.mobz;
+package net.mobz.Entity.Attack;
 
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.passive.IronGolemEntity;

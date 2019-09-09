@@ -1,4 +1,6 @@
-package net.mobz;
+package net.mobz.Entity;
+
+import net.mobz.Items.*;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;

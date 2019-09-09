@@ -1,4 +1,4 @@
-package net.mobz;
+package net.mobz.Entity;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -8,17 +8,17 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
-public class SpiEntity extends SpiderEntity {
-    public SpiEntity(EntityType<? extends SpiderEntity> entityType, World world) {
+public class SpoEntity extends SpiderEntity {
+    public SpoEntity(EntityType<? extends SpiderEntity> entityType, World world) {
         super(entityType, world);
     }
 
     @Override
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(24.0D);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.31D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4D);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(5D);
     }
 
     @Override

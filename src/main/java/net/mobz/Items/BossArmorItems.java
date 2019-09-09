@@ -1,4 +1,4 @@
-package net.mobz;
+package net.mobz.Items;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;

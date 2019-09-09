@@ -1,26 +1,21 @@
-package net.mobz;
+package net.mobz.Entity;
 
+import net.mobz.glomod;
+
+import net.minecraft.entity.mob.SkeletonEntity;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.mob.ZombiePigmanEntity;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
-public class PigmanEntity extends ZombiePigmanEntity {
+public class skeli1 extends SkeletonEntity {
 
-    public PigmanEntity(EntityType<? extends ZombiePigmanEntity> entityType, World world) {
+    public skeli1(EntityType<? extends SkeletonEntity> entityType, World world) {
         super(entityType, world);
-    }
-
-    @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(24D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(6D);
     }
 
     @Override
@@ -32,18 +27,29 @@ public class PigmanEntity extends ZombiePigmanEntity {
     }
 
     @Override
+    protected void initAttributes() {
+        super.initAttributes();
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(40D);
+        this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(2.0D);
+    }
+
+    @Override
     protected SoundEvent getAmbientSound() {
-        return glomod.SAYPIGEVENT;
+        return glomod.SKELASAYEVENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-        return glomod.HURTPIGEVENT;
+        return glomod.SKELAHURTEVENT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return glomod.DEATHPIGEVENT;
+        return glomod.SKELADEATHEVENT;
+    }
+
+    protected SoundEvent getStepSound() {
+        return glomod.SKELASTEPEVENT;
     }
 
 }

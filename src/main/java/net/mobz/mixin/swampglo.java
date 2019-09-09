@@ -16,6 +16,7 @@ public class swampglo extends Biome {
 	private void init(CallbackInfo info) {
         this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.CREEP, 10, 1, 1));
         this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SPO, 10, 1, 2));
-        this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.FAST, 10, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.FAST, 10, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI2, 15, 1, 2));
 	}
 }

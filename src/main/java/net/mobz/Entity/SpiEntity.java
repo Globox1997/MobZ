@@ -1,17 +1,24 @@
-package net.mobz;
+package net.mobz.Entity;
 
-import net.minecraft.entity.mob.SkeletonEntity;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.mob.SpiderEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
-public class skeli2 extends SkeletonEntity {
-
-    public skeli2(EntityType<? extends SkeletonEntity> entityType, World world) {
+public class SpiEntity extends SpiderEntity {
+    public SpiEntity(EntityType<? extends SpiderEntity> entityType, World world) {
         super(entityType, world);
+    }
+
+    @Override
+    protected void initAttributes() {
+        super.initAttributes();
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.31D);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4D);
     }
 
     @Override
@@ -21,12 +28,4 @@ public class skeli2 extends SkeletonEntity {
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL;
     }
-
-    @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(24D);
-        this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(1.0D);
-    }
-
 }

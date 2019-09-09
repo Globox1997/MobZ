@@ -1,8 +1,8 @@
-package net.mobz;
+package net.mobz.Renderer;
 
+import net.mobz.Entity.*;
 
-import net.minecraft.client.render.entity.model.StrayEntityModel;
-
+import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.entity.BipedEntityRenderer;
@@ -12,10 +12,10 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 
-public class TryRenderer extends BipedEntityRenderer<Try, StrayEntityModel<Try>> {
+public class TryRenderer extends BipedEntityRenderer<Try, PlayerEntityModel<Try>> {
 
     public TryRenderer(EntityRenderDispatcher dispatcher) {
-        super(dispatcher, new StrayEntityModel(), 0.0F);
+        super(dispatcher, new PlayerEntityModel(0.0F, true), 0.0F);
     }
 
     @Override

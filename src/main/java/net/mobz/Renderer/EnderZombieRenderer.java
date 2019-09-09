@@ -1,4 +1,6 @@
-package net.mobz;
+package net.mobz.Renderer;
+
+import net.mobz.Entity.*;
 
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
@@ -15,7 +17,7 @@ public class EnderZombieRenderer extends BipedEntityRenderer<EnderZombieEntity, 
         super(dispatcher, new ZombieEntityModel<>(), 0.5F);
 
     }
-
+    
     @Override
     protected Identifier getTexture(EnderZombieEntity enderZombieEntity) {
         return new Identifier("mobz:textures/entity/enderzombie.png");

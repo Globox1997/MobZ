@@ -1,19 +1,26 @@
-package net.mobz;
+package net.mobz.Entity;
 
-import net.minecraft.entity.mob.SkeletonEntity;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.math.BlockPos;
+import net.mobz.glomod;
+
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.ZombieEntity;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
-public class skeli3 extends SkeletonEntity {
-
-    public skeli3(EntityType<? extends SkeletonEntity> entityType, World world) {
+public class EnderZombieEntity extends ZombieEntity {
+    public EnderZombieEntity(EntityType<? extends ZombieEntity> entityType, World world) {
         super(entityType, world);
+    }
+
+    @Override
+    protected void initAttributes() {
+        super.initAttributes();
+        this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(20.0D);
     }
 
     @Override
@@ -25,29 +32,22 @@ public class skeli3 extends SkeletonEntity {
     }
 
     @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(30D);
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.26D);
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() {
-        return glomod.SKELISAYEVENT;
+        return glomod.SAYENDEVENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-        return glomod.SKELIHURTEVENT;
+        return glomod.ENDHURTEVENT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return glomod.SKELIDEATHEVENT;
+        return glomod.DEATHENDEVENT;
     }
 
+    @Override
     protected SoundEvent getStepSound() {
-        return glomod.SKELISTEPEVENT;
+        return glomod.STEPTANKEVENT;
     }
-
 }

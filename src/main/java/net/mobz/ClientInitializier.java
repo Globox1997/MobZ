@@ -1,5 +1,7 @@
 package net.mobz;
 
+import net.mobz.Entity.*;
+import net.mobz.Renderer.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.render.EntityRendererRegistry;
 import net.minecraft.entity.EntityType;
