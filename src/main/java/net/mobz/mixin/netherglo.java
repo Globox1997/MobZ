@@ -14,8 +14,8 @@ public class netherglo extends Biome {
 	}
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.PIG, 10, 2, 4));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.PIG, 15, 2, 4));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.LAVAGOLEM, 3, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI3, 6, 1, 3));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI3, 10, 1, 3));
 	}
 }

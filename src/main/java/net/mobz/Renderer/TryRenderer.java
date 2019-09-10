@@ -7,7 +7,7 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.entity.BipedEntityRenderer;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
-
+import net.minecraft.client.render.entity.feature.ArmorBipedFeatureRenderer;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
@@ -15,7 +15,9 @@ import net.minecraft.util.Identifier;
 public class TryRenderer extends BipedEntityRenderer<Try, PlayerEntityModel<Try>> {
 
     public TryRenderer(EntityRenderDispatcher dispatcher) {
-        super(dispatcher, new PlayerEntityModel(0.0F, true), 0.0F);
+        super(dispatcher, new PlayerEntityModel(0.0F, false), 0.5F);
+        this.addFeature(new ArmorBipedFeatureRenderer(this, new PlayerEntityModel(0.5F, true),
+                new PlayerEntityModel(1.0F, true)));
     }
 
     @Override
