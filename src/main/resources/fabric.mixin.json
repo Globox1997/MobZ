@@ -28,7 +28,10 @@
       "stoneglo",
       "netherglo",
       "badplatoglo",
-      "mountainglo"
+      "mountainglo",
+      "deserthillglo",
+      "savannaplatoglo",
+      "woodedhillglo"
     ],
     "client": [
       

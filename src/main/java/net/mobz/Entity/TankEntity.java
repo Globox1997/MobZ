@@ -39,18 +39,14 @@ public class TankEntity extends ZombieEntity {
         return false;
     }
 
-    
     public boolean canSpawn(ViewableWorld viewableWorld_1) {
         BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && !this.world.isDaylight();
-            
-           
-       
-                
-    } 
+
+    }
 
     @Override
     protected SoundEvent getAmbientSound() {
@@ -71,5 +67,5 @@ public class TankEntity extends ZombieEntity {
     protected SoundEvent getStepSound() {
         return glomod.STEPTANKEVENT;
     }
-    
+
 }

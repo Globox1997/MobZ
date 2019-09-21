@@ -3,7 +3,6 @@ package net.mobz.Entity;
 import net.mobz.glomod;
 
 import net.minecraft.entity.mob.PillagerEntity;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
