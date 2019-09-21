@@ -1,0 +1,39 @@
+{
+	"type": "minecraft:entity",
+	"pools": [{
+		"rolls": 1,
+		"entries": [{
+			"type": "minecraft:item",
+			"functions": [{
+					"function": "minecraft:set_count",
+					"count": {
+						"n": 1,
+                        "p": 0.005,
+                        "type": "minecraft:iron_sword"
+					}
+				}
+
+			],
+			"name": "minecraft:experience_bottle"
+
+		}]
+	},{
+		"rolls": 1,
+		"entries": [{
+			"type": "minecraft:item",
+			"functions": [{
+					"function": "minecraft:set_count",
+					"count": {
+                        "n": 1,
+                        "p": 0.001,
+                        "type": "minecraft:binomial"
+					}
+				}
+
+			],
+			"name": "mobz:medivealdisc2"
+
+		}]
+	}]
+	
+}

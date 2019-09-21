@@ -14,8 +14,7 @@ import net.minecraft.util.Identifier;
 public class BossRenderer extends BipedEntityRenderer<BossEntity, ZombieEntityModel<BossEntity>> {
     public BossRenderer(EntityRenderDispatcher dispatcher) {
         super(dispatcher, new ZombieEntityModel<>(), 0.5F);
-        this.addFeature(new ArmorBipedFeatureRenderer(this, new ZombieEntityModel(0.5F, true),
-                new ZombieEntityModel(1.0F, true)));
+        this.addFeature(new ArmorBipedFeatureRenderer(this, new ZombieEntityModel(0.5F, true),new ZombieEntityModel(1.0F, true)));
     }
 
     @Override

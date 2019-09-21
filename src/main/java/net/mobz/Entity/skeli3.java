@@ -23,7 +23,8 @@ public class skeli3 extends SkeletonEntity {
         BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
-                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL;
+                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
+                && !this.world.isDaylight();
     }
 
     @Override

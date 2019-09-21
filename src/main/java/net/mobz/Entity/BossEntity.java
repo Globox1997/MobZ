@@ -4,8 +4,11 @@ import net.mobz.Items.*;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -41,13 +44,22 @@ public class BossEntity extends ZombieEntity {
     protected boolean burnsInDaylight() {
         return false;
     }
+    public boolean Damage(LivingEntity entity)
+    {
+        if(isGlowing() == true)
+        {StatusEffectInstance damage = new StatusEffectInstance(StatusEffect.byRawId(7), 5, 1, true, false);
+            entity.addPotionEffect(damage);}
 
-    @Override
+        return true;
+    }
+
+
     public boolean canSpawn(ViewableWorld viewableWorld_1) {
         BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
-                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL;
+                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
+                && !this.world.isDaylight();
     }
 
     @Override

@@ -20,6 +20,7 @@ public class jungleglo extends Biome {
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.FAST, 20, 2, 2));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.CRIP, 5, 1, 2));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI2, 15, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHT2ENTITY, 10, 1, 1));
 	}
 	
 }

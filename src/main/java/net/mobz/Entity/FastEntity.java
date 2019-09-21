@@ -3,7 +3,6 @@ package net.mobz.Entity;
 import net.mobz.glomod;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.sound.SoundEvent;
@@ -26,10 +25,11 @@ public class FastEntity extends ZombieEntity {
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4D);
     }
 
-    public boolean canSpawn(IWorld iWorld_1, SpawnType spawnType_1) {
+    public boolean canSpawn(IWorld iWorld_1) {
         BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
         return iWorld_1.intersectsEntities(this) && !iWorld_1.intersectsFluid(this.getBoundingBox())
-                && !iWorld_1.isAir(entityPos) && this.getPathfindingFavor(entityPos) >= 0.0F;
+                && !iWorld_1.isAir(entityPos) && this.getPathfindingFavor(entityPos) >= 0.0F
+                && !this.world.isDaylight();
     }
 
     @Override

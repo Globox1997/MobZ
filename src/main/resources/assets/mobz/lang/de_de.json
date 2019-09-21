@@ -2,20 +2,31 @@
 "entity.mobz.tank_entity":"Tank",
 "entity.mobz.fast_entity":"Zombie",
 "entity.mobz.spi_entity":"Spinne",
-"entity.mobz.spo_entity":"Spinne",
+"entity.mobz.spo_entity":"Spinne II",
 "entity.mobz.creep_entity":"Creeper",
 "entity.mobz.armored_entity":"Armored Zombie",
 "entity.mobz.boss_entity":"Boss Zombie",
 "entity.mobz.test_entity":"Test",
 "entity.mobz.ender_entity":"Enderman",
 "entity.mobz.enderzombie_entity":"Ender Zombie",
-"entity.mobz.crip_entity":"Creeper",
+"entity.mobz.crip_entity":"Creeper II",
 "entity.mobz.lavagolem_entity":"Lava Golem",
 "entity.mobz.icegolem_entity":"Ice Golem",
 "entity.mobz.skeli1_entity":"Boss Skelett",
 "entity.mobz.skeli2_entity":"Skelett",
-"entity.mobz.skeli3_entity":"Skelett",
+"entity.mobz.skeli3_entity":"Skelett II",
 "entity.mobz.pigman_entity":"Schweinezombie",
+
+"entity.mobz.archer_entity":"Bogenschütze",
+"entity.mobz.archer2_entity":"Bogenschütze II",
+"entity.mobz.bigboss_entity":"Big Boss Zombie",
+"entity.mobz.mage_entity":"Magier",
+"entity.mobz.mage2_entity":"Magier II",
+"entity.mobz.knight_entity":"Ritter",
+"entity.mobz.knight2_entity":"Ritter II",
+"entity.mobz.smallzombie_entity":"Kleiner Zombie",
+"entity.mobz.fulliron_entity":"Steve",
+
 "entity.mobz.try_entity":"§4Test§0Mob",
 
 "item.mobz.boss_sword": "§6Verzabertes Schwert",
@@ -26,6 +37,10 @@
 "item.mobz.boss_leggings": "§6Verzauberter Beinschutz",
 "item.mobz.boss_ingot": "§6Verzauberter Goldbarren",
 "item.mobz.boss_ingot.tooltip": "Seltenes Material",
+"item.mobz.medivealdisc": "§bMittelalterliche Schallplatte",
+"item.mobz.medivealdisc2": "§bMittelalterliche Schallplatte II",
+"item.mobz.medivealdisc.desc": "Z418 mittelalter",
+"item.mobz.medivealdisc2.desc": "Z418 mittelalter II",
 
 "item.mobz.spawn_tank": "Tank Spawn Ei",
 "item.mobz.spawn_fast": "Fast Zombie Spawn Ei",
@@ -42,8 +57,20 @@
 "item.mobz.spawn_icegolem": "Icegolem Spawn Ei",
 "item.mobz.spawn_skeli1": "Skeleton Boss Spawn Ei",
 "item.mobz.spawn_skeli2": "Skeleton Spawn Ei",
-"item.mobz.spawn_skeli3": "Skeleton Spawn Ei",
+"item.mobz.spawn_skeli3": "Skeleton II Spawn Ei",
 "item.mobz.spawn_try": "Try Spawn Ei",
-"item.mobz.spawn_pig": "Pigman Spawn Ei"
+"item.mobz.spawn_pig": "Schweinezombie Spawn Ei",
+
+"item.mobz.spawn_archer": "Bogenschütze Spawn Ei",
+"item.mobz.spawn_archer2": "Bogenschütze II Spawn Ei",
+"item.mobz.spawn_bigboss": "Big Boss Spawn Ei",
+"item.mobz.spawn_mage": "Magier Spawn Ei",
+"item.mobz.spawn_mage2": "Magier II Spawn Ei",
+"item.mobz.spawn_knight": "Ritter Spawn Ei",
+"item.mobz.spawn_knight2": "Ritter II Spawn Ei",
+"item.mobz.spawn_smallzombie": "Kleiner Zombie Spawn Ei",
+"item.mobz.spawn_fulliron": "Steve Spawn Egg",
+
+"itemGroup.mobz.glomod": "MobZ"
 
 }

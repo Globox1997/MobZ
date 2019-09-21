@@ -6,6 +6,7 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.render.entity.CreeperEntityRenderer;
 import net.minecraft.client.render.entity.model.CreeperEntityModel;
 import net.minecraft.util.Identifier;
 
@@ -14,6 +15,7 @@ public class CreepRenderer extends MobEntityRenderer<CreepEntity, CreeperEntityM
     public CreepRenderer(EntityRenderDispatcher dispatcher) {
         super(dispatcher, new CreeperEntityModel<>(), 0.5F);
     }
+    
 
     @Override
     protected Identifier getTexture(CreepEntity creepEntity) {

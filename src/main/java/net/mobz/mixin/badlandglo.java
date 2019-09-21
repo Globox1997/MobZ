@@ -25,5 +25,9 @@ public class badlandglo extends Biome {
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.BOSS, 3, 1, 2));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SPI, 15, 1, 2));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI1, 6, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHT2ENTITY, 10, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ARCHERENTITY, 10, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.MAGEENTITY, 10, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.MAGE2ENTITY, 5, 1, 1));
 }
 }

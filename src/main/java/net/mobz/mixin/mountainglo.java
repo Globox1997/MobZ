@@ -21,6 +21,7 @@ public class mountainglo extends Biome {
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.FAST, 15, 2, 3));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ARMORED, 5, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SPI, 10, 1, 3));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHTENTITY, 10, 1, 1));
 	}
 	
 }

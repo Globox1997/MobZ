@@ -21,11 +21,12 @@ public class SpiEntity extends SpiderEntity {
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4D);
     }
 
-    @Override
+
     public boolean canSpawn(ViewableWorld viewableWorld_1) {
         BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
-                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL;
+                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
+                && !this.world.isDaylight();
     }
 }

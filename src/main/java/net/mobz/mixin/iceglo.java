@@ -17,5 +17,6 @@ public class iceglo extends Biome {
 	private void init(CallbackInfo info) {
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.CREEP, 10, 1, 2));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ICEGOLEM, 13, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ARCHERENTITY, 10, 1, 1));
 	}
 }

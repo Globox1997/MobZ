@@ -181,6 +181,26 @@
         "mobz:skelastep3",
         "mobz:skelastep4"
       ]
+    },
+    "nothing": {
+      "sounds":[
+        "mobz:nothing"
+      ]
+    },
+    "angrybattlehorn": {
+      "sounds":[
+        "mobz:angrybattlehorn"
+      ]
+    },
+    "medivealsound": {
+      "sounds":[
+        "mobz:medivealsound"
+      ]
+    },
+    "medivealsound2": {
+      "sounds":[
+        "mobz:medivealsound2"
+      ]
     }
   }
 
