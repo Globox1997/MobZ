@@ -18,7 +18,6 @@ public class TankEntity extends ZombieEntity {
         super(entityType, world);
     }
 
-    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(60D);
@@ -29,12 +28,10 @@ public class TankEntity extends ZombieEntity {
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
     }
 
-    @Override
     public boolean isConvertingInWater() {
         return false;
     }
 
-    @Override
     protected boolean burnsInDaylight() {
         return false;
     }
@@ -48,22 +45,18 @@ public class TankEntity extends ZombieEntity {
 
     }
 
-    @Override
     protected SoundEvent getAmbientSound() {
         return glomod.AMBIENTTANKEVENT;
     }
 
-    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return glomod.HURTTANKEVENT;
     }
 
-    @Override
     protected SoundEvent getDeathSound() {
         return glomod.DEATHTANKEVENT;
     }
 
-    @Override
     protected SoundEvent getStepSound() {
         return glomod.STEPTANKEVENT;
     }

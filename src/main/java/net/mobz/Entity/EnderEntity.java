@@ -14,14 +14,12 @@ public class EnderEntity extends EndermanEntity {
         super(entityType, world);
     }
 
-    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(50D);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(11D);
     }
 
-    @Override
     public boolean canSpawn(ViewableWorld viewableWorld_1) {
         BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())

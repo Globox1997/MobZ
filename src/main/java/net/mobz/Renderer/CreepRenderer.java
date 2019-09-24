@@ -14,6 +14,7 @@ import net.minecraft.util.Identifier;
 public class CreepRenderer extends MobEntityRenderer<CreepEntity, CreeperEntityModel<CreepEntity>> {
     public CreepRenderer(EntityRenderDispatcher dispatcher) {
         super(dispatcher, new CreeperEntityModel<>(), 0.5F);
+        
     }
     
 

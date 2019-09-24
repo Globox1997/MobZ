@@ -23,12 +23,10 @@ public class SmallZombie extends ZombieEntity {
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.27600000417232513D);
     }
 
-    @Override
     public boolean isConvertingInWater() {
         return false;
     }
 
-    @Override
     protected boolean burnsInDaylight() {
         return false;
     }
@@ -40,20 +38,19 @@ public class SmallZombie extends ZombieEntity {
 
     }
 
-    @Override
     protected SoundEvent getAmbientSound() {
         return glomod.SAYSPEEDEVENT;
     }
 
-    @Override
     protected SoundEvent getStepSound() {
         return glomod.STEPSPEEDEVENT;
     }
 
-	public void setLifeTicks(int i) {
-    }
-    @Override
     protected boolean canDropLootAndXp() {
         return false;
-     }
+    }
+
+    public void setLifeTicks(int i) {
+        i = 20;
+    }
 }

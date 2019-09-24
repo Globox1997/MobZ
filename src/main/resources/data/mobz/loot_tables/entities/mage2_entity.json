@@ -9,7 +9,7 @@
 					"count": {
 						"n": 1,
                         "p": 0.005,
-                        "type": "minecraft:iron_sword"
+                        "type": "minecraft:binomial"
 					}
 				}
 
@@ -32,6 +32,24 @@
 
 			],
 			"name": "mobz:medivealdisc2"
+
+		}]
+	},
+	{
+		"rolls": 1,
+		"entries": [{
+			"type": "minecraft:item",
+			"functions": [{
+					"function": "minecraft:set_count",
+					"count": {
+                        "n": 1,
+                        "p": 0.6,
+                        "type": "minecraft:binomial"
+					}
+				}
+
+			],
+			"name": "minecraft:emerald"
 
 		}]
 	}]

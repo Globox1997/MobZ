@@ -18,7 +18,6 @@ public class skeli3 extends SkeletonEntity {
         super(entityType, world);
     }
 
-    @Override
     public boolean canSpawn(ViewableWorld viewableWorld_1) {
         BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
@@ -27,24 +26,20 @@ public class skeli3 extends SkeletonEntity {
                 && !this.world.isDaylight();
     }
 
-    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(30D);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.26D);
     }
 
-    @Override
     protected SoundEvent getAmbientSound() {
         return glomod.SKELISAYEVENT;
     }
 
-    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return glomod.SKELIHURTEVENT;
     }
 
-    @Override
     protected SoundEvent getDeathSound() {
         return glomod.SKELIDEATHEVENT;
     }

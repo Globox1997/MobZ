@@ -8,7 +8,6 @@ import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
@@ -19,7 +18,6 @@ public class FastEntity extends ZombieEntity {
 
     }
 
-    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(15D);
@@ -35,17 +33,14 @@ public class FastEntity extends ZombieEntity {
                 && !this.world.isDaylight();
     }
 
-    @Override
     public boolean canBreakDoors() {
         return false;
     }
 
-    @Override
     protected SoundEvent getStepSound() {
         return glomod.STEPSPEEDEVENT;
     }
 
-    @Override
     protected SoundEvent getAmbientSound() {
         return glomod.SAYSPEEDEVENT;
     }

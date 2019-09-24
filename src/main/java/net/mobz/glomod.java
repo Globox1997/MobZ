@@ -162,6 +162,19 @@ public class glomod implements ModInitializer {
         public static final Identifier MEDIVEALSOUND2 = new Identifier("mobz:medivealsound2");
         public static SoundEvent MEDIVEALSOUND2EVENT = new SoundEvent(MEDIVEALSOUND2);
 
+        public static final Identifier EVADEATH = new Identifier("mobz:evadeath");
+        public static SoundEvent EVADEATHEVENT = new SoundEvent(EVADEATH);
+        public static final Identifier EVAHURT = new Identifier("mobz:evahurt");
+        public static SoundEvent EVAHURTEVENT = new SoundEvent(EVAHURT);
+        public static final Identifier EVAIDLE = new Identifier("mobz:evaidle");
+        public static SoundEvent EVAIDLEEVENT = new SoundEvent(EVAIDLE);
+        public static final Identifier EVEDEATH = new Identifier("mobz:evedeath");
+        public static SoundEvent EVEDEATHEVENT = new SoundEvent(EVEDEATH);
+        public static final Identifier EVEHURT = new Identifier("mobz:evehurt");
+        public static SoundEvent EVEHURTEVENT = new SoundEvent(EVEHURT);
+        public static final Identifier EVEIDLE = new Identifier("mobz:eveidle");
+        public static SoundEvent EVEIDLEEVENT = new SoundEvent(EVEIDLE);
+
         public static final String MOD_ID = "mobz";
 
         public static final BossIngot BOSSBARREN = new BossIngot(new Item.Settings().group(glomod.MOBZ_GROUP));
@@ -246,6 +259,13 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.SOUND_EVENT, glomod.ANGRYBATTLEHORN, ANGRYBATTLEHORNEVENT);
                 Registry.register(Registry.SOUND_EVENT, glomod.MEDIVEALSOUND, MEDIVEALSOUNDEVENT);
                 Registry.register(Registry.SOUND_EVENT, glomod.MEDIVEALSOUND2, MEDIVEALSOUND2EVENT);
+
+                Registry.register(Registry.SOUND_EVENT, glomod.EVADEATH, EVADEATHEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.EVAHURT, EVAHURTEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.EVAIDLE, EVAIDLEEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.EVEDEATH, EVEDEATHEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.EVEHURT, EVEHURTEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.EVEIDLE, EVEIDLEEVENT);
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc"), MEDIVEAL_DISC);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc2"), MEDIVEAL_DISC2);

@@ -15,7 +15,7 @@ public class frozenriverglo extends Biome {
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.CREEP, 10, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ICEGOLEM, 3, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ICEGOLEM, 9, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ARCHERENTITY, 10, 1, 1));
 	}
 }

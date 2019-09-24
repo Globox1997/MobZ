@@ -18,14 +18,12 @@ public class PigmanEntity extends ZombiePigmanEntity {
         super(entityType, world);
     }
 
-    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(24D);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(6D);
     }
 
-    @Override
     public boolean canSpawn(ViewableWorld viewableWorld_1) {
         BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
@@ -33,17 +31,14 @@ public class PigmanEntity extends ZombiePigmanEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL;
     }
 
-    @Override
     protected SoundEvent getAmbientSound() {
         return glomod.SAYPIGEVENT;
     }
 
-    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return glomod.HURTPIGEVENT;
     }
 
-    @Override
     protected SoundEvent getDeathSound() {
         return glomod.DEATHPIGEVENT;
     }

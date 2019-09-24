@@ -18,9 +18,9 @@ public class jungleglo extends Biome {
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.FAST, 20, 2, 2));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.CRIP, 5, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.CRIP, 10, 1, 2));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI2, 15, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHT2ENTITY, 10, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHT2ENTITY, 15, 1, 1));
 	}
 	
 }

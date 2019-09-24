@@ -25,7 +25,6 @@ public class BossEntity extends ZombieEntity {
         super(entityType, world);
     }
 
-    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(400D);
@@ -44,15 +43,15 @@ public class BossEntity extends ZombieEntity {
     protected boolean burnsInDaylight() {
         return false;
     }
-    public boolean Damage(LivingEntity entity)
-    {
-        if(isGlowing() == true)
-        {StatusEffectInstance damage = new StatusEffectInstance(StatusEffect.byRawId(7), 5, 1, true, false);
-            entity.addPotionEffect(damage);}
+
+    public boolean Damage(LivingEntity entity) {
+        if (isGlowing() == true) {
+            StatusEffectInstance damage = new StatusEffectInstance(StatusEffect.byRawId(7), 5, 1, true, false);
+            entity.addPotionEffect(damage);
+        }
 
         return true;
     }
-
 
     public boolean canSpawn(ViewableWorld viewableWorld_1) {
         BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
@@ -73,7 +72,6 @@ public class BossEntity extends ZombieEntity {
         return this.experiencePoints = 100;
     }
 
-    @Override
     protected void initEquipment(LocalDifficulty localDifficulty_1) {
         super.initEquipment(localDifficulty_1);
         this.setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.BossSword));

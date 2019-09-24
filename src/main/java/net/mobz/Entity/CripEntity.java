@@ -23,13 +23,11 @@ public class CripEntity extends CreeperEntity {
       super(entityType, world);
    }
 
-   @Override
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(27D);
    }
-
 
    public boolean canSpawn(ViewableWorld viewableWorld_1) {
       BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
@@ -60,12 +58,10 @@ public class CripEntity extends CreeperEntity {
       }
    }
 
-   @Override
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
       return glomod.SAYCRIPEVENT;
    }
 
-   @Override
    protected SoundEvent getDeathSound() {
       return glomod.DEATHCRIPEVENT;
    }

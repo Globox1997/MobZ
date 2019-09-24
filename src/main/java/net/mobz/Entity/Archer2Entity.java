@@ -19,9 +19,6 @@ public class Archer2Entity extends PillagerEntity {
         super(entityType, world);
     }
 
-
-
-    @Override
     public boolean canSpawn(ViewableWorld viewableWorld_1) {
         BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
@@ -45,24 +42,22 @@ public class Archer2Entity extends PillagerEntity {
         return true;
     }
 
-    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(30.0D);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
-     }
-     @Override
-     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-         return SoundEvents.ENTITY_PLAYER_HURT;
-     }
- 
-     @Override
-     protected SoundEvent getDeathSound() {
-         return SoundEvents.ENTITY_PLAYER_DEATH;
-     }
-     @Override
-     protected SoundEvent getAmbientSound() {
-         return glomod.NOTHINGEVENT;
-     }
+    }
+
+    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
+        return SoundEvents.ENTITY_PLAYER_HURT;
+    }
+
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.ENTITY_PLAYER_DEATH;
+    }
+
+    protected SoundEvent getAmbientSound() {
+        return glomod.NOTHINGEVENT;
+    }
 
 }

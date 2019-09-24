@@ -15,9 +15,9 @@ public class stoneglo extends Biome {
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
         this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SPO, 10, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.FAST, 10, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.FAST, 20, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI1, 5, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHTENTITY, 10, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHTENTITY, 20, 1, 1));
 		
 	}
 }

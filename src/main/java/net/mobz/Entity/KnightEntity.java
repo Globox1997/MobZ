@@ -22,7 +22,6 @@ public class KnightEntity extends ZombieEntity {
         super(entityType, world);
     }
 
-    @Override
     protected void initEquipment(LocalDifficulty localDifficulty_1) {
         super.initEquipment(localDifficulty_1);
         if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
@@ -44,17 +43,14 @@ public class KnightEntity extends ZombieEntity {
         return;
     }
 
-    @Override
     protected SoundEvent getAmbientSound() {
         return glomod.NOTHINGEVENT;
     }
 
-    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return SoundEvents.ENTITY_PLAYER_HURT;
     }
 
-    @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENTITY_PLAYER_DEATH;
     }
@@ -64,7 +60,6 @@ public class KnightEntity extends ZombieEntity {
         return false;
     }
 
-    @Override
     protected SoundEvent getStepSound() {
         return SoundEvents.BLOCK_GRASS_STEP;
     }

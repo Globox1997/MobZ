@@ -5,17 +5,18 @@ import net.mobz.Entity.*;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
-import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.model.SpiderEntityModel;
+import net.minecraft.client.render.entity.SpiderEntityRenderer;
+import net.mobz.Renderer.Model.*;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
-public class SpoRenderer extends MobEntityRenderer<SpoEntity, SpiderEntityModel<SpoEntity>> {
+public class SpoRenderer extends SpiderEntityRenderer<SpoEntity> {
+
     public SpoRenderer(EntityRenderDispatcher dispatcher) {
-        super(dispatcher, new SpiderEntityModel(), 0.8F);
+        super(dispatcher);
+        this.addFeature(new SpoEye(this));
     }
 
-    @Override
     protected Identifier getTexture(SpoEntity spoEntity) {
         return new Identifier("mobz:textures/entity/spo.png");
     }

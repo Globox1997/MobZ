@@ -32,113 +32,109 @@ public class FullIronEntity extends ZombiePigmanEntity {
    private int angrySoundDelay;
    private UUID angerTarget;
 
-    public FullIronEntity(EntityType<? extends ZombiePigmanEntity> entityType_1, World world_1) {
-        super(entityType_1, world_1);
-        
+   public FullIronEntity(EntityType<? extends ZombiePigmanEntity> entityType_1, World world_1) {
+      super(entityType_1, world_1);
 
-    }
+   }
 
-    @Override
-    protected void initEquipment(LocalDifficulty localDifficulty_1) {
-        super.initEquipment(localDifficulty_1);
-        if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
-            this.setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
-            this.setEquippedStack(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
-            this.setEquippedStack(EquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
-            this.setEquippedStack(EquipmentSlot.FEET, new ItemStack(Items.IRON_BOOTS));
-            this.setEquippedStack(EquipmentSlot.LEGS, new ItemStack(Items.IRON_LEGGINGS));
-            this.setEquippedStack(EquipmentSlot.HEAD, new ItemStack(Items.IRON_HELMET));
-        }
-    }
+   protected void initEquipment(LocalDifficulty localDifficulty_1) {
+      super.initEquipment(localDifficulty_1);
+      if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
+         this.setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
+         this.setEquippedStack(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
+         this.setEquippedStack(EquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
+         this.setEquippedStack(EquipmentSlot.FEET, new ItemStack(Items.IRON_BOOTS));
+         this.setEquippedStack(EquipmentSlot.LEGS, new ItemStack(Items.IRON_LEGGINGS));
+         this.setEquippedStack(EquipmentSlot.HEAD, new ItemStack(Items.IRON_HELMET));
+      }
+   }
 
-    public boolean canSpawn(ViewableWorld viewableWorld_1) {
-        BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
-        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
-                && !viewableWorld_1.isAir(entityPos)
-                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.isDaylight();
-    }
+   public boolean canSpawn(ViewableWorld viewableWorld_1) {
+      BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
+      return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
+            && !viewableWorld_1.isAir(entityPos)
+            && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
+            && this.world.isDaylight();
+   }
 
-    @Override
-    protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
-        return;
-    }
+   protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
+      return;
+   }
 
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return glomod.NOTHINGEVENT;
-    }
+   protected SoundEvent getAmbientSound() {
+      return glomod.NOTHINGEVENT;
+   }
 
-    @Override
-    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-        return SoundEvents.ENTITY_PLAYER_HURT;
-    }
+   protected SoundEvent getHurtSound(DamageSource damageSource_1) {
+      return SoundEvents.ENTITY_PLAYER_HURT;
+   }
 
-    @Override
-    protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_PLAYER_DEATH;
-    }
+   protected SoundEvent getDeathSound() {
+      return SoundEvents.ENTITY_PLAYER_DEATH;
+   }
 
-    private boolean isAngry() {
-        return this.anger > 0;
-    }
+   private boolean isAngry() {
+      return this.anger > 0;
+   }
 
-    private boolean method_20804(Entity entity_1) {
-        this.anger = this.method_20806();
-        this.angrySoundDelay = this.random.nextInt(40);
-        if (entity_1 instanceof LivingEntity) {
-           this.setAttacker((LivingEntity)entity_1);
-        }
-  
-        return true;
-     }
-  
-     private int method_20806() {
-        return 400 + this.random.nextInt(400);
-     }
+   private boolean method_20804(Entity entity_1) {
+      this.anger = this.method_20806();
+      this.angrySoundDelay = this.random.nextInt(40);
+      if (entity_1 instanceof LivingEntity) {
+         this.setAttacker((LivingEntity) entity_1);
+      }
 
-     static {
-        ATTACKING_SPEED_BOOST = (new EntityAttributeModifier(ATTACKING_SPEED_BOOST_UUID, "Attacking speed boost", 0.05D, EntityAttributeModifier.Operation.ADDITION)).setSerialize(false);
-     }
-     
-     @Override
-    protected void mobTick() {
-        EntityAttributeInstance entityAttributeInstance_1 = this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED);
-        LivingEntity livingEntity_1 = this.getAttacker();
-        if (this.isAngry()) {
-           if (!this.isBaby() && !entityAttributeInstance_1.hasModifier(ATTACKING_SPEED_BOOST)) {
-              entityAttributeInstance_1.addModifier(ATTACKING_SPEED_BOOST);
-           }
-  
-           --this.anger;
-           LivingEntity livingEntity_2 = livingEntity_1 != null ? livingEntity_1 : this.getTarget();
-           if (!this.isAngry() && livingEntity_2 != null) {
-              if (!this.canSee(livingEntity_2)) {
-                 this.setAttacker((LivingEntity)null);
-                 this.setTarget((LivingEntity)null);
-              } else {
-                 this.anger = this.method_20806();
-              }
-           }
-        } else if (entityAttributeInstance_1.hasModifier(ATTACKING_SPEED_BOOST)) {
-           entityAttributeInstance_1.removeModifier(ATTACKING_SPEED_BOOST);
-        }
-  
-        if (this.angrySoundDelay > 0 && --this.angrySoundDelay == 0) {
-           this.playSound(glomod.ANGRYBATTLEHORNEVENT, this.getSoundVolume() * 2.0F, ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * 1.8F);
-        }
-  
-        if (this.isAngry() && this.angerTarget != null && livingEntity_1 == null) {
-           PlayerEntity playerEntity_1 = this.world.getPlayerByUuid(this.angerTarget);
-           this.setAttacker(playerEntity_1);
-           this.attackingPlayer = playerEntity_1;
-           this.playerHitTimer = this.getLastAttackedTime();
-        }
-  
-        super.mobTick();
-     }
-     @Override
-     protected SoundEvent getStepSound() {
+      return true;
+   }
+
+   private int method_20806() {
+      return 400 + this.random.nextInt(400);
+   }
+
+   static {
+      ATTACKING_SPEED_BOOST = (new EntityAttributeModifier(ATTACKING_SPEED_BOOST_UUID, "Attacking speed boost", 0.05D,
+            EntityAttributeModifier.Operation.ADDITION)).setSerialize(false);
+   }
+
+   protected void mobTick() {
+      EntityAttributeInstance entityAttributeInstance_1 = this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED);
+      LivingEntity livingEntity_1 = this.getAttacker();
+      if (this.isAngry()) {
+         if (!this.isBaby() && !entityAttributeInstance_1.hasModifier(ATTACKING_SPEED_BOOST)) {
+            entityAttributeInstance_1.addModifier(ATTACKING_SPEED_BOOST);
+         }
+
+         --this.anger;
+         LivingEntity livingEntity_2 = livingEntity_1 != null ? livingEntity_1 : this.getTarget();
+         if (!this.isAngry() && livingEntity_2 != null) {
+            if (!this.canSee(livingEntity_2)) {
+               this.setAttacker((LivingEntity) null);
+               this.setTarget((LivingEntity) null);
+            } else {
+               this.anger = this.method_20806();
+            }
+         }
+      } else if (entityAttributeInstance_1.hasModifier(ATTACKING_SPEED_BOOST)) {
+         entityAttributeInstance_1.removeModifier(ATTACKING_SPEED_BOOST);
+      }
+
+      if (this.angrySoundDelay > 0 && --this.angrySoundDelay == 0) {
+         this.playSound(glomod.ANGRYBATTLEHORNEVENT, this.getSoundVolume() * 2.0F,
+               ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * 1.8F);
+      }
+
+      if (this.isAngry() && this.angerTarget != null && livingEntity_1 == null) {
+         PlayerEntity playerEntity_1 = this.world.getPlayerByUuid(this.angerTarget);
+         this.setAttacker(playerEntity_1);
+         this.attackingPlayer = playerEntity_1;
+         this.playerHitTimer = this.getLastAttackedTime();
+      }
+
+      super.mobTick();
+   }
+
+   @Override
+   protected SoundEvent getStepSound() {
       return SoundEvents.BLOCK_GRASS_STEP;
    }
 

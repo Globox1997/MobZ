@@ -198,8 +198,49 @@
       ]
     },
     "medivealsound2": {
+      "sounds":[{
+        "name": "mobz:medivealsound2",
+        "stream": true }
+      ]
+    },
+    "evadeath": {
       "sounds":[
-        "mobz:medivealsound2"
+        "mobz:evadeath1",
+        "mobz:evadeath2"
+      ]
+    },
+    "evahurt": {
+      "sounds":[
+        "mobz:evahurt1",
+        "mobz:evahurt2"
+      ]
+    },
+    "evaidle": {
+      "sounds":[
+        "mobz:evaidle1",
+        "mobz:evaidle2",
+        "mobz:evaidle3",
+        "mobz:evaidle4"
+      ]
+    },
+    "evedeath": {
+      "sounds":[
+        "mobz:evedeath1",
+        "mobz:evedeath2"
+      ]
+    },
+    "evehurt": {
+      "sounds":[
+        "mobz:evehurt1",
+        "mobz:evehurt2"
+      ]
+    },
+    "eveidle": {
+      "sounds":[
+        "mobz:eveidle1",
+        "mobz:eveidle2",
+        "mobz:eveidle3",
+        "mobz:eveidle4"
       ]
     }
   }

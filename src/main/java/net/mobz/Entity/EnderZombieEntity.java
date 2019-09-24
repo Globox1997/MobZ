@@ -17,13 +17,11 @@ public class EnderZombieEntity extends ZombieEntity {
         super(entityType, world);
     }
 
-    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(20.0D);
     }
 
-    @Override
     public boolean canSpawn(ViewableWorld viewableWorld_1) {
         BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
@@ -31,22 +29,18 @@ public class EnderZombieEntity extends ZombieEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL;
     }
 
-    @Override
     protected SoundEvent getAmbientSound() {
         return glomod.SAYENDEVENT;
     }
 
-    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return glomod.ENDHURTEVENT;
     }
 
-    @Override
     protected SoundEvent getDeathSound() {
         return glomod.DEATHENDEVENT;
     }
 
-    @Override
     protected SoundEvent getStepSound() {
         return glomod.STEPTANKEVENT;
     }

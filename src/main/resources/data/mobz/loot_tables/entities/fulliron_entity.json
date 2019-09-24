@@ -9,7 +9,7 @@
 					"count": {
 						"n": 1,
                         "p": 0.005,
-                        "type": "minecraft:iron_sword"
+                        "type": "minecraft:binomial"
 					}
 				}
 

@@ -29,7 +29,6 @@ public class LavaGolem extends IronGolemEntity {
       super(entityType, world);
    }
 
-   @Override
    protected void initGoals() {
       this.goalSelector.add(2, new GolemAttack(this, 1.0D, false));
       this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
@@ -48,21 +47,17 @@ public class LavaGolem extends IronGolemEntity {
             new FollowTargetGoal(this, TurtleEntity.class, 10, true, false, TurtleEntity.BABY_TURTLE_ON_LAND_FILTER));
    }
 
-   @Override
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
       return glomod.GOLEMHITEVENT;
    }
 
-   @Override
    protected SoundEvent getDeathSound() {
       return glomod.GOLEMDEATHEVENT;
    }
 
-   @Override
    protected void playStepSound(BlockPos blockPos_1, BlockState blockState_1) {
       this.playSound(glomod.GOLEMWALKEVENT, 1.0F, 1.0F);
    }
-
 
    public boolean canSpawn(ViewableWorld viewableWorld_1) {
       BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
@@ -70,16 +65,17 @@ public class LavaGolem extends IronGolemEntity {
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL;
    }
+
    @Override
    public boolean canImmediatelyDespawn(double double_1) {
       return true;
    }
-   @Override
+
    protected void initAttributes() {
-       super.initAttributes();
-       this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(48.0D);
-       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
-       this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.5D);
-    }
+      super.initAttributes();
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(48.0D);
+      this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
+      this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.5D);
+   }
 
 }

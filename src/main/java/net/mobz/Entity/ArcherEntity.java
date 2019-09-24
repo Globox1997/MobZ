@@ -40,7 +40,6 @@ public class ArcherEntity extends SkeletonEntity {
                 && this.world.isDaylight();
     }
 
-    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.3499999940395355D);
@@ -49,17 +48,14 @@ public class ArcherEntity extends SkeletonEntity {
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
     }
 
-    @Override
     protected SoundEvent getAmbientSound() {
         return glomod.NOTHINGEVENT;
     }
 
-    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return SoundEvents.ENTITY_PLAYER_HURT;
     }
 
-    @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENTITY_PLAYER_DEATH;
     }
@@ -83,7 +79,6 @@ public class ArcherEntity extends SkeletonEntity {
         return EntityGroup.ILLAGER;
     }
 
-    @Override
     protected void initGoals() {
         this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0D));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));

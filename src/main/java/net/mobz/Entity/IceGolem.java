@@ -48,17 +48,17 @@ public class IceGolem extends IronGolemEntity {
                 TurtleEntity.BABY_TURTLE_ON_LAND_FILTER));
     }
 
-    @Override
+
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return glomod.GOLEMHITEVENT;
     }
 
-    @Override
+
     protected SoundEvent getDeathSound() {
         return glomod.GOLEMDEATHEVENT;
     }
 
-    @Override
+ 
     protected void playStepSound(BlockPos blockPos_1, BlockState blockState_1) {
         this.playSound(glomod.GOLEMWALKEVENT, 1.0F, 1.0F);
     }
@@ -76,7 +76,7 @@ public class IceGolem extends IronGolemEntity {
     public boolean canImmediatelyDespawn(double double_1) {
         return true;
     }
-    @Override
+
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(52.0D);

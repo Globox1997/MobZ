@@ -24,7 +24,6 @@ public class Knight2Entity extends VindicatorEntity {
         super(entityType, world);
     }
 
-    @Override
     protected void initEquipment(LocalDifficulty localDifficulty_1) {
         super.initEquipment(localDifficulty_1);
         if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
@@ -32,7 +31,7 @@ public class Knight2Entity extends VindicatorEntity {
             this.setEquippedStack(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
         }
     }
-    
+
     public boolean canSpawn(ViewableWorld viewableWorld_1) {
         BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
@@ -40,21 +39,20 @@ public class Knight2Entity extends VindicatorEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.isDaylight();
     }
+
     @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }
 
-    @Override
     protected SoundEvent getAmbientSound() {
         return glomod.NOTHINGEVENT;
     }
-    @Override
+
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return SoundEvents.ENTITY_PLAYER_HURT;
     }
 
-    @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENTITY_PLAYER_DEATH;
     }
