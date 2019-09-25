@@ -6,3 +6,5 @@ The author has yet been too lazy to provide installation instructions because:
 * he is lazy
 * he has to study more important stuff
 * he has no idea what he is doing
+
+Nevertheless here is a link to the mod's releases on [curseforge.com](https://www.curseforge.com/minecraft/mc-mods/mobz).
