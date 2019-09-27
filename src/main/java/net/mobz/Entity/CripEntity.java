@@ -66,3 +66,4 @@ public class CripEntity extends CreeperEntity {
       return glomod.DEATHCRIPEVENT;
    }
 }
+

@@ -1,7 +1,7 @@
 package net.mobz.Renderer;
 
 import net.mobz.Entity.*;
-
+import net.mobz.Renderer.Model.SmallModel;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.entity.BipedEntityRenderer;
@@ -18,15 +18,17 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 
-public class TestRenderer extends EvokerIllagerEntityRenderer<TestEntity>{
+public class TestRenderer extends BipedEntityRenderer<TestEntity, ZombieEntityModel<TestEntity>> {
 
     public TestRenderer(EntityRenderDispatcher dispatcher) {
-            super(dispatcher);
-        }
+        super(dispatcher, new ZombieEntityModel<>(), 0.5F);
+
+    }
 
     @Override
     protected Identifier getTexture(TestEntity testEntity) {
         return new Identifier("mobz:textures/entity/test.png");
     }
+
 
 }

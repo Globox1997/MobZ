@@ -9,7 +9,6 @@ import java.util.Random;
 import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.feature.EndermanEyesFeatureRenderer;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.entity.model.EndermanEntityModel;
 import net.minecraft.entity.mob.EndermanEntity;

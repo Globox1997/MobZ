@@ -16,7 +16,6 @@
     "entity.mobz.skeli2_entity":"Esqueleto",
     "entity.mobz.skeli3_entity":"Esqueleto II",
     "entity.mobz.pigman_entity":"Hombre cerdo",
-
     "entity.mobz.archer_entity":"Arquero",
     "entity.mobz.archer2_entity":"Arquero II",
     "entity.mobz.bigboss_entity":"Jefe grande",
@@ -26,6 +25,8 @@
     "entity.mobz.knight2_entity":"Caballero II",
     "entity.mobz.smallzombie_entity":"Zombi pequeño",
     "entity.mobz.fulliron_entity":"Steve",
+    "entity.mobz.frost_entity":"Frost Blaze",
+    "entity.mobz.dog_entity":"Hellhound",
 
     "entity.mobz.try_entity":"§4Test§0Mob",
 
@@ -60,7 +61,6 @@
     "item.mobz.spawn_skeli3": "Generar esqueleto II",
     "item.mobz.spawn_try": "Generar try",
     "item.mobz.spawn_pig": "Generar hombre cerdo",
-
     "item.mobz.spawn_archer": "Generar arquero",
     "item.mobz.spawn_archer2": "Generar arquero II",
     "item.mobz.spawn_bigboss": "Generar jefe grande",
@@ -70,6 +70,8 @@
     "item.mobz.spawn_knight2": "Generar caballero II",
     "item.mobz.spawn_smallzombie": "Generar zombi pequeño",
     "item.mobz.spawn_fulliron": "Generar steve",
+    "item.mobz.spawn_frost": "Generar frost",
+    "item.mobz.spawn_dog": "Hellhound Spawn Egg",
 
     "itemGroup.mobz.glomod": "MobZ"
 }

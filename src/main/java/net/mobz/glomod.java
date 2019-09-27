@@ -95,6 +95,11 @@ public class glomod implements ModInitializer {
         public static final EntityType<FullIronEntity> FULLIRONENTITY = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, FullIronEntity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
                         .build();
+        public static final EntityType<FrostEntity> FROSTENTITY = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, FrostEntity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
+                        .build();
+        public static final EntityType<Dog> DOG = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Dog::new)
+                        .size(EntityDimensions.fixed(0.6F, 0.85F)).build();
 
         public static final EntityType<Try> TRY = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Try::new)
                         .size(EntityDimensions.fixed(0.6F, 1.95F)).build();
@@ -225,6 +230,8 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "mage2_entity"), MAGE2ENTITY);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "smallzombie_entity"), SMALLZOMBIE);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "fulliron_entity"), FULLIRONENTITY);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "frost_entity"), FROSTENTITY);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "dog_entity"), DOG);
 
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "try_entity"), TRY);
 
@@ -326,12 +333,17 @@ public class glomod implements ModInitializer {
                                 4211261, 2375449, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_smallzombie"), new SpawnEggItem(
                                 SMALLZOMBIE, 3222535, 1116191, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_frost"), new SpawnEggItem(FROSTENTITY,
+                                8709375, 86111, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_dog"), new SpawnEggItem(DOG, 7734790, 12550144,
+                                new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_try"), new SpawnEggItem(TRY, 15720703, 0,
                                 new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
 
                 SwordItems.init();
                 BossArmorItems.init();
+
         }
 
 }

@@ -7,14 +7,14 @@
 			"functions": [{
 					"function": "minecraft:set_count",
 					"count": {
-						"n": 3,
-                        "p": 0.4,
+						"n": 1,
+                        "p": 0.2,
                         "type": "minecraft:binomial"
 					}
 				}
 
 			],
-			"name": "minecraft:gold_nugget"
+			"name": "minecraft:ice"
 
 		}]
 	},{
@@ -24,14 +24,14 @@
 			"functions": [{
 					"function": "minecraft:set_count",
 					"count": {
-                        "n": 1,
-                        "p": 0.001,
+                        "n": 3,
+                        "p": 0.4,
                         "type": "minecraft:binomial"
 					}
 				}
 
 			],
-			"name": "mobz:medivealdisc"
+			"name": "minecraft:snowball"
 
 		}]
 	}]

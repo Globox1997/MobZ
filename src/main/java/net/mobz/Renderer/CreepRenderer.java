@@ -6,7 +6,6 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.CreeperEntityRenderer;
 import net.minecraft.client.render.entity.model.CreeperEntityModel;
 import net.minecraft.util.Identifier;
 

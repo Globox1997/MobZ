@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "id": "mobz",
-  "version": "1.4.0",
+  "version": "1.6.4",
 
   "name": "MobZ",
-  "description": "more vanilla style mobs",
+  "description": "Just a few more vanilla style mobs",
   "authors": [
     "Globox"
   ],
