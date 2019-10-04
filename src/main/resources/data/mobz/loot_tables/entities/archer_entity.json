@@ -1,57 +1,62 @@
 {
 	"type": "minecraft:entity",
-	"pools": [{
-		"rolls": 1,
-		"entries": [{
-			"type": "minecraft:item",
-			"functions": [{
-					"function": "minecraft:set_count",
-					"count": {
-						"n": 1,
-                        "p": 0.005,
-                        "type": "minecraft:binomial"
-					}
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 1,
+								"p": 0.005,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "minecraft:bow"
 				}
-
-			],
-			"name": "minecraft:bow"
-
-		}]
-	},{
-		"rolls": 1,
-		"entries": [{
-			"type": "minecraft:item",
-			"functions": [{
-					"function": "minecraft:set_count",
-					"count": {
-                        "n": 1,
-                        "p": 0.001,
-                        "type": "minecraft:binomial"
-					}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 1,
+								"p": 0.001,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "minecraft:experience_bottle"
 				}
-
-			],
-			"name": "minecraft:experience_bottle"
-
-		}]
-	},
-	{
-		"rolls": 1,
-		"entries": [{
-			"type": "minecraft:item",
-			"functions": [{
-					"function": "minecraft:set_count",
-					"count": {
-                        "n": 2,
-                        "p": 0.7,
-                        "type": "minecraft:binomial"
-					}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 2,
+								"p": 0.7,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "minecraft:gold_nugget"
 				}
-
-			],
-			"name": "minecraft:gold_nugget"
-
-		}]
-	}]
-	
+			]
+		}
+	]
 }

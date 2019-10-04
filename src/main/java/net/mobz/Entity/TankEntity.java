@@ -3,6 +3,7 @@ package net.mobz.Entity;
 import net.mobz.glomod;
 
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.ZombieEntity;

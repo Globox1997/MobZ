@@ -27,6 +27,8 @@
 "entity.mobz.fulliron_entity":"Steve",
 "entity.mobz.frost_entity":"Frost Lohe",
 "entity.mobz.dog_entity":"Höllenhund",
+"entity.mobz.stonegolem_entity":"Stein Golem",
+"entity.mobz.illusioner_entity":"Illusionist",
 
 "entity.mobz.try_entity":"§4Test§0Mob",
 
@@ -72,6 +74,8 @@
 "item.mobz.spawn_fulliron": "Steve Spawn Ei",
 "item.mobz.spawn_frost": "Frost Loge Spawn Ei",
 "item.mobz.spawn_dog": "Höllenhund Spawn Ei",
+"item.mobz.spawn_stonegolem": "Steingolem Spawn Ei",
+"item.mobz.spawn_illusioner": "Illusionist Spawn Ei",
 
 "itemGroup.mobz.glomod": "MobZ"
 }

@@ -13,6 +13,11 @@ import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.CreeperEntity;
+import net.minecraft.entity.mob.SkeletonEntity;
+import net.minecraft.entity.mob.SlimeEntity;
+import net.minecraft.entity.mob.SpiderEntity;
+import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.mob.ZombiePigmanEntity;
 import net.minecraft.entity.passive.AbstractTraderEntity;
 import net.minecraft.entity.passive.TurtleEntity;
@@ -39,13 +44,11 @@ public class IceGolem extends IronGolemEntity {
 
     protected void initCustomGoals() {
         this.goalSelector.add(2, new GolemAttack(this, 1.0D, false));
-        this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D));
-        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(ZombiePigmanEntity.class));
-        this.targetSelector.add(2, new FollowTargetGoal(this, PlayerEntity.class, true));
-        this.targetSelector.add(3, new FollowTargetGoal(this, AbstractTraderEntity.class, false));
-        this.targetSelector.add(3, new FollowTargetGoal(this, IronGolemEntity.class, true));
-        this.targetSelector.add(5, new FollowTargetGoal(this, TurtleEntity.class, 10, true, false,
-                TurtleEntity.BABY_TURTLE_ON_LAND_FILTER));
+        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(ZombieEntity.class));
+        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SkeletonEntity.class));
+        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SpiderEntity.class));
+        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(CreeperEntity.class));
+        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SlimeEntity.class));
     }
 
 

@@ -6,6 +6,7 @@ import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.world.Difficulty;
@@ -47,5 +48,10 @@ public class skeli3 extends SkeletonEntity {
     protected SoundEvent getStepSound() {
         return glomod.SKELISTEPEVENT;
     }
+
+  
+    protected void initGoals() {
+        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(LavaGolem.class));
+     }
 
 }

@@ -242,6 +242,27 @@
         "mobz:eveidle3",
         "mobz:eveidle4"
       ]
+    },
+    "illuidle": {
+      "sounds":[
+        "mobz:illuidle1",
+        "mobz:illuidle2",
+        "mobz:illuidle3",
+        "mobz:illuidle4"
+      ]
+    },
+    "illudeath": {
+      "sounds":[
+        "mobz:illudeath1",
+        "mobz:illudeath2"
+      ]
+    },
+    "illuhurt": {
+      "sounds":[
+        "mobz:illuhurt1",
+        "mobz:illuhurt2",
+        "mobz:illuhurt3"
+      ]
     }
   }
 

@@ -34,12 +34,10 @@ public class BossEntity extends ZombieEntity {
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(-4.0D);
     }
 
-    @Override
     public boolean isConvertingInWater() {
         return false;
     }
 
-    @Override
     protected boolean burnsInDaylight() {
         return false;
     }
@@ -61,12 +59,10 @@ public class BossEntity extends ZombieEntity {
                 && !this.world.isDaylight();
     }
 
-    @Override
     public boolean isBaby() {
         return false;
     }
 
-    @Override
     protected int getCurrentExperience(PlayerEntity playerEntity_1) {
 
         return this.experiencePoints = 100;
@@ -82,8 +78,11 @@ public class BossEntity extends ZombieEntity {
         this.setEquippedStack(EquipmentSlot.HEAD, new ItemStack(BossArmorItems.boss_helmet));
     }
 
-    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
+    }
+
+    public boolean canImmediatelyDespawn(double double_1) {
+        return false;
     }
 }

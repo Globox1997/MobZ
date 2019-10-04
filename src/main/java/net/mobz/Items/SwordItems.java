@@ -11,6 +11,12 @@ public class SwordItems {
     public static final Item BossSword = register("boss_sword", new SwordGloBase((BOSS_MATERIAL)));
     public static final Item ArmoredSword = register("armored_sword", new SwordGloBase((ARMORED_MATERIAL)));
 
+    public static final ToolMaterial X_MATERIAL = new SwordXMaterial();
+    public static final Item XSword = register("x_sword", new SwordGloBase2((X_MATERIAL)));
+
+    public static final ToolMaterial SWORDMATERIAL = new SwordMaterial();
+    public static final Item Sword = register("sword", new SwordBase((SWORDMATERIAL)));
+
     private static Item register(String id, Item item) {
         return register(new Identifier("mobz", id), item);
     }

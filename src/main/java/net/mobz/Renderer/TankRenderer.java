@@ -1,7 +1,6 @@
 package net.mobz.Renderer;
 
 import net.mobz.Entity.*;
-
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.entity.BipedEntityRenderer;
@@ -15,7 +14,6 @@ public class TankRenderer extends BipedEntityRenderer<TankEntity, ZombieEntityMo
 
     public TankRenderer(EntityRenderDispatcher dispatcher) {
         super(dispatcher, new ZombieEntityModel<>(), 0.5F);
-
     }
 
     @Override

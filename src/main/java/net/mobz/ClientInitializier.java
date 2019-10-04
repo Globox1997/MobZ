@@ -69,7 +69,10 @@ public class ClientInitializier implements ClientModInitializer {
                                 (dispatcher, context) -> new FrostRenderer(dispatcher));
                 EntityRendererRegistry.INSTANCE.register(Dog.class,
                                 (dispatcher, context) -> new DogRenderer(dispatcher));
-
+                EntityRendererRegistry.INSTANCE.register(StoneGolem.class,
+                                (dispatcher, context) -> new StoneGolemRenderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(Illusioner.class,
+                                (dispatcher, context) -> new IllusionerRenderer(dispatcher));
 
                 EntityRendererRegistry.INSTANCE.register(Try.class,
                                 (dispatcher, context) -> new TryRenderer(dispatcher));

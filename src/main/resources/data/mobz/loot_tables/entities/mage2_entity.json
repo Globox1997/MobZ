@@ -1,57 +1,62 @@
 {
 	"type": "minecraft:entity",
-	"pools": [{
-		"rolls": 1,
-		"entries": [{
-			"type": "minecraft:item",
-			"functions": [{
-					"function": "minecraft:set_count",
-					"count": {
-						"n": 1,
-                        "p": 0.005,
-                        "type": "minecraft:binomial"
-					}
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 1,
+								"p": 0.005,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "minecraft:experience_bottle"
 				}
-
-			],
-			"name": "minecraft:experience_bottle"
-
-		}]
-	},{
-		"rolls": 1,
-		"entries": [{
-			"type": "minecraft:item",
-			"functions": [{
-					"function": "minecraft:set_count",
-					"count": {
-                        "n": 1,
-                        "p": 0.001,
-                        "type": "minecraft:binomial"
-					}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 1,
+								"p": 0.001,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "mobz:medivealdisc2"
 				}
-
-			],
-			"name": "mobz:medivealdisc2"
-
-		}]
-	},
-	{
-		"rolls": 1,
-		"entries": [{
-			"type": "minecraft:item",
-			"functions": [{
-					"function": "minecraft:set_count",
-					"count": {
-                        "n": 1,
-                        "p": 0.6,
-                        "type": "minecraft:binomial"
-					}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 1,
+								"p": 0.6,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "minecraft:emerald"
 				}
-
-			],
-			"name": "minecraft:emerald"
-
-		}]
-	}]
-	
+			]
+		}
+	]
 }

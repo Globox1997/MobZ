@@ -1,39 +1,43 @@
 {
 	"type": "minecraft:entity",
-	"pools": [{
-		"rolls": 1,
-		"entries": [{
-			"type": "minecraft:item",
-			"functions": [{
-					"function": "minecraft:set_count",
-					"count": {
-						"n": 1,
-                        "p": 0.2,
-                        "type": "minecraft:binomial"
-					}
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 1,
+								"p": 0.2,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "minecraft:ice"
 				}
-
-			],
-			"name": "minecraft:ice"
-
-		}]
-	},{
-		"rolls": 1,
-		"entries": [{
-			"type": "minecraft:item",
-			"functions": [{
-					"function": "minecraft:set_count",
-					"count": {
-                        "n": 3,
-                        "p": 0.4,
-                        "type": "minecraft:binomial"
-					}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 3,
+								"p": 0.4,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "minecraft:snowball"
 				}
-
-			],
-			"name": "minecraft:snowball"
-
-		}]
-	}]
-	
+			]
+		}
+	]
 }
