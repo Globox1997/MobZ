@@ -13,8 +13,8 @@ import net.minecraft.item.ToolMaterial;
 
 import net.mobz.glomod;
 
-public class PoisonSwordBase extends SwordItem {
-    public PoisonSwordBase(ToolMaterial toolMaterial_1) {
+public class FrozenSwordBase extends SwordItem {
+    public FrozenSwordBase(ToolMaterial toolMaterial_1) {
         super(toolMaterial_1, 1, -2.4f, new Item.Settings().group(glomod.MOBZ_GROUP));
     }
 
@@ -22,8 +22,8 @@ public class PoisonSwordBase extends SwordItem {
         itemStack_1.damage(1, (LivingEntity) livingEntity_2, (Consumer) ((livingEntity_1x) -> {
             ((LivingEntity) livingEntity_1x).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
         }));
-        StatusEffectInstance poison = new StatusEffectInstance(StatusEffect.byRawId(19), 100, 0, false, false, false);
-        livingEntity_1.addPotionEffect(poison);
+        StatusEffectInstance slowness = new StatusEffectInstance(StatusEffect.byRawId(2), 60, 1, false, false, false);
+        livingEntity_1.addPotionEffect(slowness);
 
         return true;
     }

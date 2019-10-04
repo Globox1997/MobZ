@@ -16,6 +16,7 @@ public class SwordItems {
     public static final Item PoisonSword = register("poison_sword", new PoisonSwordBase((POISONSWORDMATERIAL)));
     public static final ToolMaterial SWORDMATERIAL = new SwordMaterial();
     public static final Item Sword = register("sword", new SwordBase((SWORDMATERIAL)));
+    public static final Item FrozenSword = register("frozen_sword", new FrozenSwordBase((POISONSWORDMATERIAL)));
 
     private static Item register(String id, Item item) {
         return register(new Identifier("mobz", id), item);

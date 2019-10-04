@@ -44,9 +44,23 @@
     "item.mobz.medivealdisc2": "§bMediveal Music Disc II",
     "item.mobz.medivealdisc.desc": "Z418 mediveal",
     "item.mobz.medivealdisc2.desc": "Z418 mediveal II",
-    "item.mobz.axe": "Big Axe",
+    "item.mobz.axe": "§5Eragons Axe",
+    "item.mobz.shield": "§5Eragons Shield",
     "item.mobz.sword": "§8Sword",
     "item.mobz.sword.tooltip": "§4Admin Sword",
+    "item.mobz.weird_ingot": "Weird Ingot",
+    "item.mobz.hardenedmetal_ingot": "§7Metal Ingot",
+    "item.mobz.speed_boots": "Speed Boots",
+    "item.mobz.speed_chestplate": "Speed Chestplate",
+    "item.mobz.speed_helmet": "Speed Helmet",
+    "item.mobz.speed_leggings": "Speed Leggings",
+    "item.mobz.life_boots": "§7Boots of Life",
+    "item.mobz.life_chestplate": "§7Chestplate of Life",
+    "item.mobz.life_helmet": "§7Helmet of Life",
+    "item.mobz.life_leggings": "§7Leggings of Life",
+    "item.mobz.poison_sword": "§2Snakes Sword",
+    "item.mobz.frozen_sword": "§3Frozen Sword",
+    "item.mobz.weird_ingot.tooltip": "...",
 
     "item.mobz.spawn_tank": "Tank Spawn Egg",
     "item.mobz.spawn_fast": "Fast Zombie Spawn Egg",
@@ -79,6 +93,7 @@
     "item.mobz.spawn_dog": "Hellhound Spawn Egg",
     "item.mobz.spawn_stonegolem": "Stonegolem Spawn Egg",
     "item.mobz.spawn_illusioner": "Illusioner Spawn Egg",
+    "item.mobz.spawn_dwarf": "Dwarf Spawn Egg",
 
     "itemGroup.mobz.glomod": "MobZ"
 }

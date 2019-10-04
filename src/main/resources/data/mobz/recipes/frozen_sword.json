@@ -1,0 +1,30 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:iron_sword"
+        },
+        {
+            "item": "minecraft:snowball"
+        },
+        {
+            "item": "minecraft:ice"
+        },
+        {
+            "item": "minecraft:snowball"
+        },
+        {
+            "item": "minecraft:snowball"
+        },
+        {
+            "item": "minecraft:ice"
+        },
+        {
+            "item": "minecraft:ice"
+        }
+    ],
+    "result": {
+        "item": "mobz:frozen_sword",
+        "count": 1
+    }
+}

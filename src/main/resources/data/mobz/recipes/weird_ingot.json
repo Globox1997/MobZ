@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:blasting",
+    "ingredient": {
+        "item": "minecraft:gold_ingot"
+    },
+    "result": "mobz:weird_ingot",
+    "experience": 1.2,
+    "cookingtime": 600
+}

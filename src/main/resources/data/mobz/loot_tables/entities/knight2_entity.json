@@ -11,7 +11,7 @@
 							"function": "minecraft:set_count",
 							"count": {
 								"n": 1,
-								"p": 0.005,
+								"p": 0.05,
 								"type": "minecraft:binomial"
 							}
 						}
@@ -30,12 +30,12 @@
 							"function": "minecraft:set_count",
 							"count": {
 								"n": 1,
-								"p": 0.005,
+								"p": 0.05,
 								"type": "minecraft:binomial"
 							}
 						}
 					],
-					"name": "mobz:armored_sword"
+					"name": "mobz:poison_sword"
 				}
 			]
 		},

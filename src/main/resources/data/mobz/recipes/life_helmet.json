@@ -1,16 +1,16 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-      "d d",
+      "ddd",
       "d d"
    
     ],
     "key": {
       "d":{
-          "item": "mobz:weird_ingot"
+          "item": "mobz:boss_ingot"
       }
     },
     "result": {
-      "item": "mobz:speed_boots"
+      "item": "mobz:life_helmet"
     }
   }

@@ -7,10 +7,10 @@
     ],
     "key": {
       "d":{
-          "item": "mobz:weird_ingot"
+          "item": "mobz:boss_ingot"
       }
     },
     "result": {
-      "item": "mobz:speed_boots"
+      "item": "mobz:life_boots"
     }
   }

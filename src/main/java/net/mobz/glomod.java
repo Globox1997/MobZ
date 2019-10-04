@@ -106,6 +106,9 @@ public class glomod implements ModInitializer {
         public static final EntityType<Illusioner> ILLUSIONER = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, Illusioner::new).size(EntityDimensions.fixed(0.6F, 1.95F))
                         .build();
+        public static final EntityType<DwarfEntity> DWARFENTITY = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, DwarfEntity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
+                        .build();
 
         public static final EntityType<Try> TRY = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Try::new)
                         .size(EntityDimensions.fixed(0.6F, 1.95F)).build();
@@ -195,30 +198,41 @@ public class glomod implements ModInitializer {
         public static final String MOD_ID = "mobz";
 
         public static final BossIngot BOSSBARREN = new BossIngot(new Item.Settings().group(glomod.MOBZ_GROUP));
+        public static final WeirdIngot WEIRDINGOT = new WeirdIngot(new Item.Settings().maxCount(8).group(glomod.MOBZ_GROUP));
+        public static final HardenedMetal HARDENEDMETAL = new HardenedMetal(
+                        new Item.Settings().maxCount(64).group(glomod.MOBZ_GROUP));
         public static final MedivealDisc MEDIVEAL_DISC = new MedivealDisc(1, MEDIVEALSOUNDEVENT,
                         new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
         public static final MedivealDisc2 MEDIVEAL_DISC2 = new MedivealDisc2(1, MEDIVEALSOUND2EVENT,
                         new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
-        public static final Shield SHIELD = new Shield(new Item.Settings().group(glomod.MOBZ_GROUP));
+        public static final Shield SHIELD = new Shield(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
 
         public static final ItemGroup MOBZ_GROUP = FabricItemGroupBuilder.create(new Identifier("mobz", "glomod"))
                         .icon(() -> new ItemStack(SwordItems.ArmoredSword)).appendItems(stacks -> {
                                 stacks.add(new ItemStack(SwordItems.ArmoredSword));
+                                stacks.add(new ItemStack(SwordItems.PoisonSword));
+                                stacks.add(new ItemStack(SwordItems.FrozenSword));
+                                stacks.add(ItemStack.EMPTY);
                                 stacks.add(new ItemStack(SwordItems.BossSword));
                                 stacks.add(new ItemStack(ArmorItems.boss_helmet));
                                 stacks.add(new ItemStack(ArmorItems.boss_chestplate));
                                 stacks.add(new ItemStack(ArmorItems.boss_leggings));
                                 stacks.add(new ItemStack(ArmorItems.boss_boots));
                                 stacks.add(new ItemStack(glomod.BOSSBARREN));
+                                stacks.add(ItemStack.EMPTY);
                                 stacks.add(new ItemStack(ArmorItems.life_helmet));
                                 stacks.add(new ItemStack(ArmorItems.life_chestplate));
                                 stacks.add(new ItemStack(ArmorItems.life_leggings));
                                 stacks.add(new ItemStack(ArmorItems.life_boots));
+                                stacks.add(new ItemStack(glomod.HARDENEDMETAL));
+                                stacks.add(ItemStack.EMPTY);
                                 stacks.add(new ItemStack(ArmorItems.speed_boots));
+                                stacks.add(new ItemStack(glomod.WEIRDINGOT));
                                 stacks.add(new ItemStack(glomod.MEDIVEAL_DISC));
                                 stacks.add(new ItemStack(glomod.MEDIVEAL_DISC2));
-
                                 stacks.add(new ItemStack(SwordItems.Axe));
+                                stacks.add(new ItemStack(glomod.SHIELD));
+        
                                 stacks.add(new ItemStack(SwordItems.Sword));
 
                         }).build();
@@ -255,6 +269,7 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "dog_entity"), DOG);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "stonegolem_entity"), STONEGOLEM);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "illusioner_entity"), ILLUSIONER);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "dwarf_entity"), DWARFENTITY);
 
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "try_entity"), TRY);
 
@@ -302,6 +317,8 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc"), MEDIVEAL_DISC);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc2"), MEDIVEAL_DISC2);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "boss_ingot"), BOSSBARREN);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "weird_ingot"), WEIRDINGOT);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "hardenedmetal_ingot"), HARDENEDMETAL);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "shield"), SHIELD);
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_tank"), new SpawnEggItem(TANK, 5055902,
@@ -367,6 +384,8 @@ public class glomod implements ModInitializer {
                                 STONEGOLEM, 10197915, 6654258, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_illusioner"), new SpawnEggItem(
                                 ILLUSIONER, 6376248, 4344910, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_dwarf"), new SpawnEggItem(
+                                DWARFENTITY, 8551531, 6755862, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_try"), new SpawnEggItem(TRY, 15720703, 0,
                                 new Item.Settings().maxCount(64).group(ItemGroup.MISC)));

@@ -18,6 +18,6 @@ public class stoneglo extends Biome {
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.FAST, 20, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI1, 5, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHTENTITY, 20, 1, 1));
-		
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.DWARFENTITY, 4, 1, 1));
 	}
 }
