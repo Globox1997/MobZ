@@ -21,4 +21,9 @@ public class SwordBase extends SwordItem {
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         tooltip.add(new TranslatableText("item.mobz.sword.tooltip"));
     }
+
+    @Override
+    public boolean hasEnchantmentGlint(ItemStack stack) {
+        return true;
+    }
 }

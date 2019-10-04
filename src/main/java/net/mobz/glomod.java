@@ -199,18 +199,27 @@ public class glomod implements ModInitializer {
                         new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
         public static final MedivealDisc2 MEDIVEAL_DISC2 = new MedivealDisc2(1, MEDIVEALSOUND2EVENT,
                         new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
+        public static final Shield SHIELD = new Shield(new Item.Settings().group(glomod.MOBZ_GROUP));
 
         public static final ItemGroup MOBZ_GROUP = FabricItemGroupBuilder.create(new Identifier("mobz", "glomod"))
                         .icon(() -> new ItemStack(SwordItems.ArmoredSword)).appendItems(stacks -> {
                                 stacks.add(new ItemStack(SwordItems.ArmoredSword));
                                 stacks.add(new ItemStack(SwordItems.BossSword));
-                                stacks.add(new ItemStack(BossArmorItems.boss_helmet));
-                                stacks.add(new ItemStack(BossArmorItems.boss_chestplate));
-                                stacks.add(new ItemStack(BossArmorItems.boss_leggings));
-                                stacks.add(new ItemStack(BossArmorItems.boss_boots));
+                                stacks.add(new ItemStack(ArmorItems.boss_helmet));
+                                stacks.add(new ItemStack(ArmorItems.boss_chestplate));
+                                stacks.add(new ItemStack(ArmorItems.boss_leggings));
+                                stacks.add(new ItemStack(ArmorItems.boss_boots));
                                 stacks.add(new ItemStack(glomod.BOSSBARREN));
+                                stacks.add(new ItemStack(ArmorItems.life_helmet));
+                                stacks.add(new ItemStack(ArmorItems.life_chestplate));
+                                stacks.add(new ItemStack(ArmorItems.life_leggings));
+                                stacks.add(new ItemStack(ArmorItems.life_boots));
+                                stacks.add(new ItemStack(ArmorItems.speed_boots));
                                 stacks.add(new ItemStack(glomod.MEDIVEAL_DISC));
                                 stacks.add(new ItemStack(glomod.MEDIVEAL_DISC2));
+
+                                stacks.add(new ItemStack(SwordItems.Axe));
+                                stacks.add(new ItemStack(SwordItems.Sword));
 
                         }).build();
 
@@ -286,7 +295,6 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.SOUND_EVENT, glomod.EVEDEATH, EVEDEATHEVENT);
                 Registry.register(Registry.SOUND_EVENT, glomod.EVEHURT, EVEHURTEVENT);
                 Registry.register(Registry.SOUND_EVENT, glomod.EVEIDLE, EVEIDLEEVENT);
-
                 Registry.register(Registry.SOUND_EVENT, glomod.ILLUIDLE, ILLUIDLEEVENT);
                 Registry.register(Registry.SOUND_EVENT, glomod.ILLUDEATH, ILLUDEATHEVENT);
                 Registry.register(Registry.SOUND_EVENT, glomod.ILLUHURT, ILLUHURTEVENT);
@@ -294,6 +302,7 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc"), MEDIVEAL_DISC);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc2"), MEDIVEAL_DISC2);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "boss_ingot"), BOSSBARREN);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "shield"), SHIELD);
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_tank"), new SpawnEggItem(TANK, 5055902,
                                 2507798, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
@@ -363,7 +372,7 @@ public class glomod implements ModInitializer {
                                 new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
 
                 SwordItems.init();
-                BossArmorItems.init();
+                ArmorItems.init();
 
         }
 

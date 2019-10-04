@@ -10,10 +10,10 @@ public class SwordItems {
     public static final ToolMaterial ARMORED_MATERIAL = new ArmoredSwordMaterial();
     public static final Item BossSword = register("boss_sword", new SwordGloBase((BOSS_MATERIAL)));
     public static final Item ArmoredSword = register("armored_sword", new SwordGloBase((ARMORED_MATERIAL)));
-
-    public static final ToolMaterial X_MATERIAL = new SwordXMaterial();
-    public static final Item XSword = register("x_sword", new SwordGloBase2((X_MATERIAL)));
-
+    public static final ToolMaterial AXEMATERIAL = new AxeMaterial();
+    public static final Item Axe = register("axe", new AxeBase((AXEMATERIAL)));
+    public static final ToolMaterial POISONSWORDMATERIAL = new PoisonSwordMaterial();
+    public static final Item PoisonSword = register("poison_sword", new PoisonSwordBase((POISONSWORDMATERIAL)));
     public static final ToolMaterial SWORDMATERIAL = new SwordMaterial();
     public static final Item Sword = register("sword", new SwordBase((SWORDMATERIAL)));
 

@@ -72,10 +72,10 @@ public class BossEntity extends ZombieEntity {
         super.initEquipment(localDifficulty_1);
         this.setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.BossSword));
         this.setEquippedStack(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
-        this.setEquippedStack(EquipmentSlot.CHEST, new ItemStack(BossArmorItems.boss_chestplate));
-        this.setEquippedStack(EquipmentSlot.FEET, new ItemStack(BossArmorItems.boss_boots));
-        this.setEquippedStack(EquipmentSlot.LEGS, new ItemStack(BossArmorItems.boss_leggings));
-        this.setEquippedStack(EquipmentSlot.HEAD, new ItemStack(BossArmorItems.boss_helmet));
+        this.setEquippedStack(EquipmentSlot.CHEST, new ItemStack(ArmorItems.boss_chestplate));
+        this.setEquippedStack(EquipmentSlot.FEET, new ItemStack(ArmorItems.boss_boots));
+        this.setEquippedStack(EquipmentSlot.LEGS, new ItemStack(ArmorItems.boss_leggings));
+        this.setEquippedStack(EquipmentSlot.HEAD, new ItemStack(ArmorItems.boss_helmet));
     }
 
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {

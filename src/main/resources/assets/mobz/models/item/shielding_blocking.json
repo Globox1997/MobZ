@@ -1,0 +1,124 @@
+{
+    "parent": "mobz:item/shield",
+    "display": {
+        "thirdperson_righthand": {
+            "rotation": [
+                28,
+                -129,
+                -17
+            ],
+            "translation": [
+                3.6,
+                1.51,
+                2.08
+            ],
+            "scale": [
+                1.6,
+                1.6,
+                1.6
+            ]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [
+                28,
+                -129,
+                -17
+            ],
+            "translation": [
+                3.6,
+                1.51,
+                2.08
+            ],
+            "scale": [
+                -1.6,
+                1.6,
+                1.6
+            ]
+        },
+        "ground": {
+            "rotation": [
+                45,
+                0,
+                0
+            ],
+            "translation": [
+                0,
+                3.97,
+                0
+            ],
+            "scale": [
+                0.4,
+                0.4,
+                0.4
+            ]
+        },
+        "fixed": {
+            "rotation": [
+                90,
+                -45,
+                90
+            ],
+            "translation": [
+                1.51,
+                -0.94,
+                -0.38
+            ],
+            "scale": [
+                1,
+                1,
+                1
+            ]
+        },
+        "firstperson_righthand": {
+            "rotation": [
+                -45,
+                -90,
+                -45
+            ],
+            "translation": [
+                -2.08,
+                1,
+                0.76
+            ],
+            "scale": [
+                0.8,
+                0.8,
+                0.8
+            ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [
+                -45,
+                -90,
+                -45
+            ],
+            "translation": [
+                -2.08,
+                1,
+                0.76
+            ],
+            "scale": [
+                -0.8,
+                0.8,
+                0.8
+            ]
+        },
+        "gui": {
+            "rotation": [
+                90,
+                45,
+                -90
+            ],
+            "translation": [
+                -1.32,
+                -0.76,
+                0
+            ],
+            "scale": [
+                0.82,
+                0.82,
+                0.82
+            ]
+        }
+    }
+}

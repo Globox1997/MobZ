@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "mobz:item/x_sword2"
+        "layer0": "mobz:item/poison_sword"
     }
 }

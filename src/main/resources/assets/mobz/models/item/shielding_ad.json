@@ -1,0 +1,11 @@
+{
+    "parent": "mobz:item/shield",
+    "overrides": [
+        {
+            "predicate": {
+                "blocking": 1
+            },
+            "model": "mobz:item/shielding_blocking"
+        }
+    ]
+}

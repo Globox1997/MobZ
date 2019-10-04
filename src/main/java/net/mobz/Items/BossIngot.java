@@ -1,6 +1,5 @@
 package net.mobz.Items;
 
-import net.mobz.glomod;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -12,11 +11,6 @@ import net.minecraft.item.Item;
 public class BossIngot extends Item {
     public BossIngot(Settings settings) {
         super(settings);
-    }
-
-    @Override
-    public boolean hasEnchantmentGlint(ItemStack stack) {
-        return stack.getItem() == glomod.BOSSBARREN;
     }
 
     @Override
