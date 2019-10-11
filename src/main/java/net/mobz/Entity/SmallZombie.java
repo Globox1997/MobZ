@@ -53,4 +53,8 @@ public class SmallZombie extends ZombieEntity {
     public void setLifeTicks(int i) {
         i = 20;
     }
+    
+    public boolean isBaby() {
+        return false;
+     }
 }

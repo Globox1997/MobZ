@@ -26,4 +26,8 @@ public class EnderEntity extends EndermanEntity {
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL;
     }
+
+    public boolean isBaby() {
+        return false;
+    }
 }

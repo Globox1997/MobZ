@@ -16,7 +16,7 @@
 							}
 						}
 					],
-					"name": "minecraft:iron_ingot"
+					"name": "minecraft:stone"
 				}
 			]
 		},
@@ -30,12 +30,12 @@
 							"function": "minecraft:set_count",
 							"count": {
 								"n": 1,
-								"p": 0.3,
+								"p": 0.2,
 								"type": "minecraft:binomial"
 							}
 						}
 					],
-					"name": "minecraft:brown_mushroom"
+					"name": "minecraft:coal_ore"
 				}
 			]
 		},
@@ -49,12 +49,31 @@
 							"function": "minecraft:set_count",
 							"count": {
 								"n": 1,
-								"p": 0.3,
+								"p": 0.2,
 								"type": "minecraft:binomial"
 							}
 						}
 					],
-					"name": "minecraft:red_mushroom"
+					"name": "minecraft:iron_ore"
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 1,
+								"p": 0.1,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "minecraft:gold_ore"
 				}
 			]
 		}

@@ -19,6 +19,8 @@ import net.minecraft.sound.SoundEvent;
 
 public class glomod implements ModInitializer {
 
+        
+
         public static final EntityType<TankEntity> TANK = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, TankEntity::new).size(EntityDimensions.fixed(0.6F, 1.95F))
                         .build();
@@ -198,7 +200,8 @@ public class glomod implements ModInitializer {
         public static final String MOD_ID = "mobz";
 
         public static final BossIngot BOSSBARREN = new BossIngot(new Item.Settings().group(glomod.MOBZ_GROUP));
-        public static final WeirdIngot WEIRDINGOT = new WeirdIngot(new Item.Settings().maxCount(8).group(glomod.MOBZ_GROUP));
+        public static final WeirdIngot WEIRDINGOT = new WeirdIngot(
+                        new Item.Settings().maxCount(8).group(glomod.MOBZ_GROUP));
         public static final HardenedMetal HARDENEDMETAL = new HardenedMetal(
                         new Item.Settings().maxCount(64).group(glomod.MOBZ_GROUP));
         public static final MedivealDisc MEDIVEAL_DISC = new MedivealDisc(1, MEDIVEALSOUNDEVENT,
@@ -232,7 +235,7 @@ public class glomod implements ModInitializer {
                                 stacks.add(new ItemStack(glomod.MEDIVEAL_DISC2));
                                 stacks.add(new ItemStack(SwordItems.Axe));
                                 stacks.add(new ItemStack(glomod.SHIELD));
-        
+
                                 stacks.add(new ItemStack(SwordItems.Sword));
 
                         }).build();
@@ -384,8 +387,8 @@ public class glomod implements ModInitializer {
                                 STONEGOLEM, 10197915, 6654258, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_illusioner"), new SpawnEggItem(
                                 ILLUSIONER, 6376248, 4344910, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
-                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_dwarf"), new SpawnEggItem(
-                                DWARFENTITY, 8551531, 6755862, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_dwarf"), new SpawnEggItem(DWARFENTITY,
+                                8551531, 6755862, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_try"), new SpawnEggItem(TRY, 15720703, 0,
                                 new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
@@ -393,8 +396,8 @@ public class glomod implements ModInitializer {
                 SwordItems.init();
                 ArmorItems.init();
 
+             
         }
-
 }
 
 // You are LOVED!!!

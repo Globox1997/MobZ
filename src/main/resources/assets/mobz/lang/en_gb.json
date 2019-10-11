@@ -1,6 +1,6 @@
 {
     "entity.mobz.tank_entity":"Tank",
-    "entity.mobz.fast_entity":"Zombie",
+    "entity.mobz.fast_entity":"Speedy Zombie",
     "entity.mobz.spi_entity":"Spider",
     "entity.mobz.spo_entity":"Spider II",
     "entity.mobz.creep_entity":"Creeper",
@@ -29,6 +29,7 @@
     "entity.mobz.dog_entity":"Hellhound",
     "entity.mobz.stonegolem_entity":"Stone Golem",
     "entity.mobz.illusioner_entity":"Illusioner",
+    "entity.mobz.dwarf_entity":"Dwarf",
 
     "entity.mobz.try_entity":"§4Test§0Mob",
 

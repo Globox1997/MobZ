@@ -7,7 +7,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.WolfEntityRenderer;
 import net.minecraft.client.render.entity.model.WolfEntityModel;
 import net.minecraft.util.Identifier;
 
@@ -44,7 +43,6 @@ public class DogRenderer extends MobEntityRenderer<Dog, WolfEntityModel<Dog>> {
         }
     }
 
-    
     protected Identifier getTexture(Dog dog) {
         return new Identifier("mobz:textures/entity/dog.png");
     }

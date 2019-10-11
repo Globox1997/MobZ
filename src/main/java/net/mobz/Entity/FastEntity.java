@@ -45,4 +45,8 @@ public class FastEntity extends ZombieEntity {
         return glomod.SAYSPEEDEVENT;
     }
 
+    public boolean isBaby() {
+        return false;
+    }
+
 }
