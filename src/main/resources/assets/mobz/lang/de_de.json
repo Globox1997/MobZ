@@ -30,6 +30,7 @@
 "entity.mobz.stonegolem_entity":"Stein Golem",
 "entity.mobz.illusioner_entity":"Illusionist",
 "entity.mobz.dwarf_entity":"Zwerg",
+"entity.mobz.spismall_entity":"Kleine Spinne",
 
 "entity.mobz.try_entity":"§4Test§0Mob",
 
@@ -95,6 +96,7 @@
 "item.mobz.spawn_stonegolem": "Steingolem Spawn Ei",
 "item.mobz.spawn_illusioner": "Illusionist Spawn Ei",
 "item.mobz.spawn_dwarf": "Zwerg Spawn Ei",
+"item.mobz.spawn_spismall": "Kleine Spinne Spawn Ei",
 
 "itemGroup.mobz.glomod": "MobZ"
 }

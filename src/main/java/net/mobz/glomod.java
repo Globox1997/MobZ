@@ -19,8 +19,6 @@ import net.minecraft.sound.SoundEvent;
 
 public class glomod implements ModInitializer {
 
-        
-
         public static final EntityType<TankEntity> TANK = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, TankEntity::new).size(EntityDimensions.fixed(0.6F, 1.95F))
                         .build();
@@ -111,6 +109,8 @@ public class glomod implements ModInitializer {
         public static final EntityType<DwarfEntity> DWARFENTITY = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, DwarfEntity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
                         .build();
+        public static final EntityType<SpiSmall> SPISMALL = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, SpiSmall::new).size(EntityDimensions.fixed(1.4F, 0.9F)).build();
 
         public static final EntityType<Try> TRY = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Try::new)
                         .size(EntityDimensions.fixed(0.6F, 1.95F)).build();
@@ -273,6 +273,7 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "stonegolem_entity"), STONEGOLEM);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "illusioner_entity"), ILLUSIONER);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "dwarf_entity"), DWARFENTITY);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "spismall_entity"), SPISMALL);
 
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "try_entity"), TRY);
 
@@ -389,6 +390,8 @@ public class glomod implements ModInitializer {
                                 ILLUSIONER, 6376248, 4344910, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_dwarf"), new SpawnEggItem(DWARFENTITY,
                                 8551531, 6755862, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_spismall"), new SpawnEggItem(SPISMALL,
+                                3806513, 146458, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_try"), new SpawnEggItem(TRY, 15720703, 0,
                                 new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
@@ -396,7 +399,6 @@ public class glomod implements ModInitializer {
                 SwordItems.init();
                 ArmorItems.init();
 
-             
         }
 }
 

@@ -75,6 +75,8 @@ public class ClientInitializier implements ClientModInitializer {
                                 (dispatcher, context) -> new IllusionerRenderer(dispatcher));
                 EntityRendererRegistry.INSTANCE.register(DwarfEntity.class,
                                 (dispatcher, context) -> new DwarfEntityRenderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(SpiSmall.class,
+                                (dispatcher, context) -> new SpiSmallRenderer(dispatcher));
 
                 EntityRendererRegistry.INSTANCE.register(Try.class,
                                 (dispatcher, context) -> new TryRenderer(dispatcher));
