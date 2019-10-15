@@ -209,6 +209,7 @@ public class glomod implements ModInitializer {
         public static final MedivealDisc2 MEDIVEAL_DISC2 = new MedivealDisc2(1, MEDIVEALSOUND2EVENT,
                         new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
         public static final Shield SHIELD = new Shield(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
+        public static final Rottenflesh ROTTENFLESH = new Rottenflesh();
 
         public static final ItemGroup MOBZ_GROUP = FabricItemGroupBuilder.create(new Identifier("mobz", "glomod"))
                         .icon(() -> new ItemStack(SwordItems.ArmoredSword)).appendItems(stacks -> {
@@ -235,6 +236,8 @@ public class glomod implements ModInitializer {
                                 stacks.add(new ItemStack(glomod.MEDIVEAL_DISC2));
                                 stacks.add(new ItemStack(SwordItems.Axe));
                                 stacks.add(new ItemStack(glomod.SHIELD));
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(new ItemStack(glomod.ROTTENFLESH));
 
                                 stacks.add(new ItemStack(SwordItems.Sword));
 
@@ -324,6 +327,7 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "weird_ingot"), WEIRDINGOT);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "hardenedmetal_ingot"), HARDENEDMETAL);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "shield"), SHIELD);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "rottenflesh"), ROTTENFLESH);
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_tank"), new SpawnEggItem(TANK, 5055902,
                                 2507798, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
