@@ -31,11 +31,11 @@ public class ArmorItems {
                         new SpeedShoeBase(SPEEDAPPARE, EquipmentSlot.LEGS));
         public static final Item speed_boots = register("speed_boots",
                         new SpeedShoeBase(SPEEDAPPARE, EquipmentSlot.FEET));
-        public static final Item amat_helmet = register("amat_helmet", new SpeedShoeBase(AMAT, EquipmentSlot.HEAD));
+        public static final Item amat_helmet = register("amat_helmet", new ArmorBase3(AMAT, EquipmentSlot.HEAD));
         public static final Item amat_chestplate = register("amat_chestplate",
-                        new SpeedShoeBase(AMAT, EquipmentSlot.CHEST));
-        public static final Item amat_leggings = register("amat_leggings", new SpeedShoeBase(AMAT, EquipmentSlot.LEGS));
-        public static final Item amat_boots = register("amat_boots", new SpeedShoeBase(AMAT, EquipmentSlot.FEET));
+                        new ArmorBase3(AMAT, EquipmentSlot.CHEST));
+        public static final Item amat_leggings = register("amat_leggings", new ArmorBase3(AMAT, EquipmentSlot.LEGS));
+        public static final Item amat_boots = register("amat_boots", new ArmorBase3(AMAT, EquipmentSlot.FEET));
 
         private static Item register(String id, Item item) {
                 return register(new Identifier("mobz", id), item);

@@ -64,6 +64,12 @@
 "item.mobz.frozen_sword": "§3Gefrorenes Schwert",
 "item.mobz.weird_ingot.tooltip": "...",
 "item.mobz.rottenflesh": "Dickes verrottetes Fleisch",
+"item.mobz.amat_boots": "§kBoots",
+"item.mobz.amat_chestplate": "§kChestplate",
+"item.mobz.amat_helmet": "§kHelmet",
+"item.mobz.amat_leggings": "§kLeggings",
+"item.mobz.redd": "§4Red Diamond",
+"item.mobz.redd.tooltip": "Epic Material",
 
 "item.mobz.spawn_tank": "Tank Spawn Ei",
 "item.mobz.spawn_fast": "Fast Zombie Spawn Ei",

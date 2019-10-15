@@ -64,6 +64,12 @@
     "item.mobz.frozen_sword": "§3Frozen Sword",
     "item.mobz.weird_ingot.tooltip": "...",
     "item.mobz.rottenflesh": "Thick Rotten Flesh",
+    "item.mobz.amat_boots": "§kBoots",
+    "item.mobz.amat_chestplate": "§kChestplate",
+    "item.mobz.amat_helmet": "§kHelmet",
+    "item.mobz.amat_leggings": "§kLeggings",
+    "item.mobz.redd": "§4Red Diamond",
+    "item.mobz.redd.tooltip": "Epic Material",
 
     "item.mobz.spawn_tank": "Tank Spawn Egg",
     "item.mobz.spawn_fast": "Fast Zombie Spawn Egg",

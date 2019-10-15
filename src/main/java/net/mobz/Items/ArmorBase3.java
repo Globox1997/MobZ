@@ -13,7 +13,7 @@ import net.minecraft.item.Item;
 import net.mobz.glomod;
 
 public class ArmorBase3 extends ArmorItem {
-    double a = 4.0;
+    double a = 0.1;
     private static final UUID[] MODIFIERS = new UUID[] { UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"),
             UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"),
             UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"),
@@ -26,8 +26,8 @@ public class ArmorBase3 extends ArmorItem {
     public Multimap<String, EntityAttributeModifier> getModifiers(EquipmentSlot equipmentSlot_1) {
         Multimap<String, EntityAttributeModifier> multimap_1 = super.getModifiers(equipmentSlot_1);
         if (equipmentSlot_1 == this.slot) {
-            multimap_1.put(EntityAttributes.LUCK.getId(),new EntityAttributeModifier(MODIFIERS[equipmentSlot_1.getEntitySlotId()], "Speed", (double) this.a,EntityAttributeModifier.Operation.ADDITION));
-            multimap_1.put(EntityAttributes.ATTACK_DAMAGE.getId(), new EntityAttributeModifier(MODIFIERS[equipmentSlot_1.getEntitySlotId()], "Damage", (double)this.toughness, EntityAttributeModifier.Operation.ADDITION));
+            multimap_1.put(EntityAttributes.ATTACK_SPEED.getId(),new EntityAttributeModifier(MODIFIERS[equipmentSlot_1.getEntitySlotId()], "amat", (double) this.a,EntityAttributeModifier.Operation.ADDITION));
+            multimap_1.put(EntityAttributes.ATTACK_DAMAGE.getId(), new EntityAttributeModifier(MODIFIERS[equipmentSlot_1.getEntitySlotId()], "amat", (double)this.toughness, EntityAttributeModifier.Operation.ADDITION));
         }
 
         return multimap_1;

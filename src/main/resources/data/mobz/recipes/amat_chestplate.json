@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "d d",
+        "ded",
+        "ddd"
+    ],
+    "key": {
+        "d": {
+            "item": "mobz:rottenflesh"
+        },
+        "e": {
+            "item": "mobz:redd"
+        }
+    },
+    "result": {
+        "item": "mobz:amat_chestplate"
+    }
+}

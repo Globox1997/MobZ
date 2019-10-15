@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ded",
+        "d d"
+    ],
+    "key": {
+        "d": {
+            "item": "mobz:rottenflesh"
+        },
+        "e": {
+            "item": "mobz:redd"
+        }
+    },
+    "result": {
+        "item": "mobz:amat_helmet"
+    }
+}

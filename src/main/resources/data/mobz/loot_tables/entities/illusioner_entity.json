@@ -57,6 +57,25 @@
                     "name": "minecraft:bow"
                 }
             ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "n": 1,
+                                "p": 0.3,
+                                "type": "minecraft:binomial"
+                            }
+                        }
+                    ],
+                    "name": "mobz:redd"
+                }
+            ]
         }
     ]
 }
