@@ -26,8 +26,12 @@ public class ArmorBase3 extends ArmorItem {
     public Multimap<String, EntityAttributeModifier> getModifiers(EquipmentSlot equipmentSlot_1) {
         Multimap<String, EntityAttributeModifier> multimap_1 = super.getModifiers(equipmentSlot_1);
         if (equipmentSlot_1 == this.slot) {
-            multimap_1.put(EntityAttributes.ATTACK_SPEED.getId(),new EntityAttributeModifier(MODIFIERS[equipmentSlot_1.getEntitySlotId()], "amat", (double) this.a,EntityAttributeModifier.Operation.ADDITION));
-            multimap_1.put(EntityAttributes.ATTACK_DAMAGE.getId(), new EntityAttributeModifier(MODIFIERS[equipmentSlot_1.getEntitySlotId()], "amat", (double)this.toughness, EntityAttributeModifier.Operation.ADDITION));
+            multimap_1.put(EntityAttributes.ATTACK_SPEED.getId(),
+                    new EntityAttributeModifier(MODIFIERS[equipmentSlot_1.getEntitySlotId()], "amat", (double) this.a,
+                            EntityAttributeModifier.Operation.ADDITION));
+            multimap_1.put(EntityAttributes.ATTACK_DAMAGE.getId(),
+                    new EntityAttributeModifier(MODIFIERS[equipmentSlot_1.getEntitySlotId()], "amat",
+                            (double) this.toughness, EntityAttributeModifier.Operation.ADDITION));
         }
 
         return multimap_1;
