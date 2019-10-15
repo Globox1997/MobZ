@@ -19,6 +19,25 @@
 					"name": "mobz:rottenflesh"
 				}
 			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 1,
+								"p": 0.2,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "mobz:hardenedmetal_ingot"
+				}
+			]
 		}
 	]
 }

@@ -2,13 +2,13 @@ package net.mobz.Items;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.mobz.glomod;
 
-public class LifeArmorMaterial implements ArmorMaterial {
-    private static final int[] BASE_DURABILITY = new int[] { 12, 14, 15, 10 };
+public class AMaterial implements ArmorMaterial {
+    private static final int[] BASE_DURABILITY = new int[] { 13, 15, 16, 11 };
     private static final int[] PROTECTION_AMOUNTS = new int[] { 2, 5, 6, 2 };
 
     @Override
@@ -23,7 +23,7 @@ public class LifeArmorMaterial implements ArmorMaterial {
 
     @Override
     public int getEnchantability() {
-        return 10;
+        return 15;
     }
 
     @Override
@@ -33,12 +33,12 @@ public class LifeArmorMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(glomod.HARDENEDMETAL);
+        return Ingredient.ofItems(Items.IRON_INGOT);
     }
 
     @Override
     public String getName() {
-        return "life";
+        return "amat";
     }
 
     @Override
