@@ -1,4 +1,4 @@
-package net.mobz.Items;
+package net.mobz.Items.Sword;
 
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;

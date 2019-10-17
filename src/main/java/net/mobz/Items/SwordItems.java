@@ -3,6 +3,7 @@ package net.mobz.Items;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.mobz.Items.Sword.*;
 
 public class SwordItems {
 

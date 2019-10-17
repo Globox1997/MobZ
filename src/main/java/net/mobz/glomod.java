@@ -2,6 +2,7 @@ package net.mobz;
 
 import net.mobz.Entity.*;
 import net.mobz.Items.*;
+import net.mobz.Items.Item.*;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;

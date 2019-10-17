@@ -1,4 +1,4 @@
-package net.mobz.Items;
+package net.mobz.Items.Armor;
 
 import net.mobz.glomod;
 import net.minecraft.entity.EquipmentSlot;

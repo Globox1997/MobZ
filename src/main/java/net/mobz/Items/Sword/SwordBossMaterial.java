@@ -1,12 +1,13 @@
-package net.mobz.Items;
+package net.mobz.Items.Sword;
 
+import net.mobz.glomod;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class ArmoredSwordMaterial implements ToolMaterial {
+public class SwordBossMaterial implements ToolMaterial {
     @Override
     public int getDurability() {
-        return 251;
+        return 561;
     }
 
     @Override
@@ -16,7 +17,7 @@ public class ArmoredSwordMaterial implements ToolMaterial {
 
     @Override
     public float getAttackDamage() {
-        return 6;
+        return 8;
     }
 
     @Override
@@ -26,11 +27,12 @@ public class ArmoredSwordMaterial implements ToolMaterial {
 
     @Override
     public int getEnchantability() {
-        return 12;
+        return 15;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.EMPTY;
+        return Ingredient.ofItems(glomod.BOSSBARREN);
     }
+
 }

@@ -1,4 +1,4 @@
-package net.mobz.Items;
+package net.mobz.Items.Sword;
 
 import java.util.function.Consumer;
 

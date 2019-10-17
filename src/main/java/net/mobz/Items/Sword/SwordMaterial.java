@@ -1,12 +1,13 @@
-package net.mobz.Items;
+package net.mobz.Items.Sword;
 
+import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class PoisonSwordMaterial implements ToolMaterial {
+public class SwordMaterial implements ToolMaterial {
     @Override
     public int getDurability() {
-        return 251;
+        return 10000;
     }
 
     @Override
@@ -16,7 +17,7 @@ public class PoisonSwordMaterial implements ToolMaterial {
 
     @Override
     public float getAttackDamage() {
-        return 4;
+        return 1896;
     }
 
     @Override
@@ -26,11 +27,12 @@ public class PoisonSwordMaterial implements ToolMaterial {
 
     @Override
     public int getEnchantability() {
-        return 12;
+        return 30;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.EMPTY;
+        return Ingredient.ofItems(Items.DRAGON_EGG);
     }
+
 }

@@ -1,4 +1,4 @@
-package net.mobz.Items;
+package net.mobz.Items.Item;
 
 import java.util.List;
 

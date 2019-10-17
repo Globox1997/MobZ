@@ -1,4 +1,4 @@
-package net.mobz.Items;
+package net.mobz.Items.Item;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

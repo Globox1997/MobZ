@@ -1,14 +1,27 @@
 package net.mobz.Items;
 
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.*;
+import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.mobz.Items.Armor.AMaterial;
+import net.mobz.Items.Armor.ArmorBase;
+import net.mobz.Items.Armor.ArmorBase2;
+import net.mobz.Items.Armor.ArmorBase3;
+import net.mobz.Items.Armor.BossArmorMaterial;
+import net.mobz.Items.Armor.LifeArmorMaterial;
+import net.mobz.Items.Armor.SpeedShoeBase;
+import net.mobz.Items.Armor.SpeedShoeBase2;
+import net.mobz.Items.Armor.SpeedShoeMaterial;
+import net.mobz.Items.Armor.SpeedShoeMaterial2;
 
 public class ArmorItems {
         public static final ArmorMaterial BOSSAPPARE = new BossArmorMaterial();
         public static final ArmorMaterial LIFEAPPARE = new LifeArmorMaterial();
         public static final ArmorMaterial SPEEDAPPARE = new SpeedShoeMaterial();
+        public static final ArmorMaterial SPEEDAPPARE2 = new SpeedShoeMaterial2();
         public static final ArmorMaterial AMAT = new AMaterial();
 
         public static final Item boss_helmet = register("boss_helmet", new ArmorBase(BOSSAPPARE, EquipmentSlot.HEAD));
@@ -36,6 +49,14 @@ public class ArmorItems {
                         new ArmorBase3(AMAT, EquipmentSlot.CHEST));
         public static final Item amat_leggings = register("amat_leggings", new ArmorBase3(AMAT, EquipmentSlot.LEGS));
         public static final Item amat_boots = register("amat_boots", new ArmorBase3(AMAT, EquipmentSlot.FEET));
+        public static final Item speed2_helmet = register("speed2_helmet",
+                        new SpeedShoeBase2(SPEEDAPPARE2, EquipmentSlot.HEAD));
+        public static final Item speed2_chestplate = register("speed2_chestplate",
+                        new SpeedShoeBase2(SPEEDAPPARE2, EquipmentSlot.CHEST));
+        public static final Item speed2_leggings = register("speed2_leggings",
+                        new SpeedShoeBase2(SPEEDAPPARE2, EquipmentSlot.LEGS));
+        public static final Item speed2_boots = register("speed2_boots",
+                        new SpeedShoeBase2(SPEEDAPPARE2, EquipmentSlot.FEET));
 
         private static Item register(String id, Item item) {
                 return register(new Identifier("mobz", id), item);

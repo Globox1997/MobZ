@@ -1,4 +1,4 @@
-package net.mobz.Items;
+package net.mobz.Items.Sword;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
