@@ -74,7 +74,8 @@
     "item.mobz.speed2_chestplate": "Speed Chestplate II",
     "item.mobz.speed2_helmet": "Speed Helmet II",
     "item.mobz.speed2_leggings": "Speed Leggings II",
-        "item.mobz.wither_sword": "Artus Sword",
+    "item.mobz.wither_sword": "Artus Sword",
+    "item.mobz.withermeal": "Wither Powder",
 
     "item.mobz.spawn_tank": "Generar tanque",
     "item.mobz.spawn_fast": "Generar zombi veloz",

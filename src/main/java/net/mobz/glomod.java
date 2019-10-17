@@ -1,14 +1,8 @@
 package net.mobz;
 
-import net.mobz.Entity.*;
-import net.mobz.Items.*;
-import net.mobz.Items.Item.*;
-
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.entity.FabricEntityTypeBuilder;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -17,6 +11,52 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+import net.mobz.Entity.Archer2Entity;
+import net.mobz.Entity.ArcherEntity;
+import net.mobz.Entity.ArmoredEntity;
+import net.mobz.Entity.BigBossEntity;
+import net.mobz.Entity.BossEntity;
+import net.mobz.Entity.CreepEntity;
+import net.mobz.Entity.CripEntity;
+import net.mobz.Entity.Dog;
+import net.mobz.Entity.DwarfEntity;
+import net.mobz.Entity.EnderEntity;
+import net.mobz.Entity.EnderZombieEntity;
+import net.mobz.Entity.FastEntity;
+import net.mobz.Entity.FrostEntity;
+import net.mobz.Entity.FullIronEntity;
+import net.mobz.Entity.IceGolem;
+import net.mobz.Entity.Illusioner;
+import net.mobz.Entity.Knight2Entity;
+import net.mobz.Entity.KnightEntity;
+import net.mobz.Entity.LavaGolem;
+import net.mobz.Entity.Mage2Entity;
+import net.mobz.Entity.MageEntity;
+import net.mobz.Entity.PigmanEntity;
+import net.mobz.Entity.SmallZombie;
+import net.mobz.Entity.SpiEntity;
+import net.mobz.Entity.SpiSmall;
+import net.mobz.Entity.SpoEntity;
+import net.mobz.Entity.StoneGolem;
+import net.mobz.Entity.TankEntity;
+import net.mobz.Entity.TestEntity;
+import net.mobz.Entity.Try;
+import net.mobz.Entity.skeli1;
+import net.mobz.Entity.skeli2;
+import net.mobz.Entity.skeli3;
+import net.mobz.Items.ArmorItems;
+import net.mobz.Items.SwordItems;
+import net.mobz.Items.Item.BossIngot;
+import net.mobz.Items.Item.HardenedMetal;
+import net.mobz.Items.Item.MedivealDisc;
+import net.mobz.Items.Item.MedivealDisc2;
+import net.mobz.Items.Item.Redd;
+import net.mobz.Items.Item.Rottenflesh;
+import net.mobz.Items.Item.Shield;
+import net.mobz.Items.Item.WeirdIngot;
+import net.mobz.Items.Item.Withermeal;
 
 public class glomod implements ModInitializer {
 
@@ -212,12 +252,14 @@ public class glomod implements ModInitializer {
         public static final Shield SHIELD = new Shield(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
         public static final Rottenflesh ROTTENFLESH = new Rottenflesh();
         public static final Redd REDD = new Redd(new Item.Settings().group(glomod.MOBZ_GROUP));
+        public static final Withermeal WITHERMEAL = new Withermeal(new Item.Settings().group(glomod.MOBZ_GROUP));
 
         public static final ItemGroup MOBZ_GROUP = FabricItemGroupBuilder.create(new Identifier("mobz", "glomod"))
                         .icon(() -> new ItemStack(SwordItems.ArmoredSword)).appendItems(stacks -> {
                                 stacks.add(new ItemStack(SwordItems.ArmoredSword));
                                 stacks.add(new ItemStack(SwordItems.PoisonSword));
                                 stacks.add(new ItemStack(SwordItems.FrozenSword));
+                                stacks.add(new ItemStack(SwordItems.WitherSword));
                                 stacks.add(ItemStack.EMPTY);
                                 stacks.add(new ItemStack(SwordItems.BossSword));
                                 stacks.add(new ItemStack(ArmorItems.boss_helmet));
@@ -245,7 +287,7 @@ public class glomod implements ModInitializer {
                                 stacks.add(new ItemStack(ArmorItems.amat_boots));
                                 stacks.add(new ItemStack(glomod.REDD));
                                 stacks.add(new ItemStack(glomod.ROTTENFLESH));
-
+                                stacks.add(new ItemStack(glomod.WITHERMEAL));
                                 stacks.add(new ItemStack(SwordItems.Sword));
 
                         }).build();
@@ -336,6 +378,7 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "shield"), SHIELD);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "rottenflesh"), ROTTENFLESH);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "redd"), REDD);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "withermeal"), WITHERMEAL);
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_tank"), new SpawnEggItem(TANK, 5055902,
                                 2507798, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));

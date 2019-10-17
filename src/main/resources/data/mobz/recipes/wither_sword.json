@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:iron_sword"
+        },
+        {
+            "item": "mobz:withermeal"
+        },
+        {
+            "item": "mobz:withermeal"
+        }
+    ],
+    "result": {
+        "item": "mobz:wither_sword",
+        "count": 1
+    }
+}
