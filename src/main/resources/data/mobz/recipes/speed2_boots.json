@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "eee",
+        "ede",
+        "eee"
+    ],
+    "key": {
+        "d": {
+            "item": "mobz:speed_boots"
+        },
+        "e": {
+            "item": "minecraft:emerald"
+        }
+    },
+    "result": {
+        "item": "mobz:speed2_boots"
+    }
+}

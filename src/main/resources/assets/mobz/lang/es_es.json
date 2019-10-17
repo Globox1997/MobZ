@@ -70,6 +70,11 @@
     "item.mobz.amat_leggings": "§kLeggings",
     "item.mobz.redd": "§4Red Diamond",
     "item.mobz.redd.tooltip": "Epic Material",
+    "item.mobz.speed2_boots": "Speed Boots II",
+    "item.mobz.speed2_chestplate": "Speed Chestplate II",
+    "item.mobz.speed2_helmet": "Speed Helmet II",
+    "item.mobz.speed2_leggings": "Speed Leggings II",
+        "item.mobz.wither_sword": "Artus Sword",
 
     "item.mobz.spawn_tank": "Generar tanque",
     "item.mobz.spawn_fast": "Generar zombi veloz",

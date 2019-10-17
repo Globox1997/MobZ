@@ -10,11 +10,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
-
 import net.mobz.glomod;
 
-public class PoisonSwordBase extends SwordItem {
-    public PoisonSwordBase(ToolMaterial toolMaterial_1) {
+public class WitherSwordBase extends SwordItem {
+    public WitherSwordBase(ToolMaterial toolMaterial_1) {
         super(toolMaterial_1, 1, -2.4f, new Item.Settings().group(glomod.MOBZ_GROUP));
     }
 
@@ -22,8 +21,8 @@ public class PoisonSwordBase extends SwordItem {
         itemStack_1.damage(1, (LivingEntity) livingEntity_2, (Consumer) ((livingEntity_1x) -> {
             ((LivingEntity) livingEntity_1x).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
         }));
-        StatusEffectInstance poison = new StatusEffectInstance(StatusEffect.byRawId(19), 80, 0, false, false, false);
-        livingEntity_1.addPotionEffect(poison);
+        StatusEffectInstance wither = new StatusEffectInstance(StatusEffect.byRawId(20), 60, 0, false, false, false);
+        livingEntity_1.addPotionEffect(wither);
 
         return true;
     }
