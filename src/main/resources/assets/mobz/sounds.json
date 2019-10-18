@@ -272,5 +272,17 @@
       "mobz:pbite2",
       "mobz:pbite3"
     ]
+  },
+  "boarsay": {
+    "sounds": [
+      "mobz:boarsay1",
+      "mobz:boarsay2",
+      "mobz:boarsay3"
+    ]
+  },
+  "boardeath": {
+    "sounds": [
+      "mobz:boardeath"
+    ]
   }
 }

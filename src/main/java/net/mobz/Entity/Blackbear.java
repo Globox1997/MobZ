@@ -30,26 +30,22 @@ import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.PandaEntity;
-import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.SpawnEggItem;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -230,8 +226,6 @@ public class Blackbear extends PandaEntity {
       this.goalSelector.add(14, new WanderAroundFarGoal(this, 1.0D));
       this.targetSelector.add(1, (new Blackbear.PandaRevengeGoal(this, new Class[0])).setGroupRevenge(new Class[0]));
    }
-
-
 
    public boolean canBeLeashedBy(PlayerEntity playerEntity_1) {
       return false;
@@ -466,9 +460,6 @@ public class Blackbear extends PandaEntity {
       return super.damage(damageSource_1, float_1);
    }
 
-
-
-
    @Nullable
    protected SoundEvent getAmbientSound() {
       if (this.isAttacking()) {
@@ -608,7 +599,6 @@ public class Blackbear extends PandaEntity {
          this.nextLieOnBackAge = this.panda.age + 200;
       }
    }
-
 
    static class PandaMateGoal extends AnimalMateGoal {
       private static final TargetPredicate CLOSE_PLAYER_PREDICATE = (new TargetPredicate()).setBaseMaxDistance(8.0D)

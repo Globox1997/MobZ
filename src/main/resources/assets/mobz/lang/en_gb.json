@@ -31,6 +31,13 @@
     "entity.mobz.illusioner_entity":"Illusioner",
     "entity.mobz.dwarf_entity":"Dwarf",
     "entity.mobz.spismall_entity":"Small Spider",
+    "entity.mobz.blackbear_entity":"Black Bear",
+    "entity.mobz.brownbear_entity":"Brown Bear",
+    "entity.mobz.gchicken_entity":"Golden Chicken",
+    "entity.mobz.boar_entity":"Boar",
+    "entity.mobz.boar2_entity":"Boar II",
+    "entity.mobz.boar3_entity":"Boar III",
+
 
     "entity.mobz.try_entity":"§4Test§0Mob",
 
@@ -110,6 +117,12 @@
     "item.mobz.spawn_illusioner": "Illusioner Spawn Egg",
     "item.mobz.spawn_dwarf": "Dwarf Spawn Egg",
     "item.mobz.spawn_spismall": "Small Spider Spawn Egg",
+    "item.mobz.spawn_blackbear": "Black Bear Spawn Egg",
+    "item.mobz.spawn_brownbear": "Brown Bear Spawn Egg",
+    "item.mobz.spawn_gchicken": "Golden Chicken Spawn Egg",
+    "item.mobz.spawn_boar": "Boar Spawn Egg",
+    "item.mobz.spawn_boar2": "Boar II Spawn Egg",
+    "item.mobz.spawn_boar3": "Boar III Spawn Egg",
 
     "itemGroup.mobz.glomod": "MobZ"
 }

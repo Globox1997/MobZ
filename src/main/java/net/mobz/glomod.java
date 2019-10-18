@@ -18,7 +18,11 @@ import net.mobz.Entity.ArcherEntity;
 import net.mobz.Entity.ArmoredEntity;
 import net.mobz.Entity.BigBossEntity;
 import net.mobz.Entity.Blackbear;
+import net.mobz.Entity.Boar;
+import net.mobz.Entity.Boar2;
+import net.mobz.Entity.Boar3;
 import net.mobz.Entity.BossEntity;
+import net.mobz.Entity.Brownbear;
 import net.mobz.Entity.CreepEntity;
 import net.mobz.Entity.CripEntity;
 import net.mobz.Entity.Dog;
@@ -28,6 +32,7 @@ import net.mobz.Entity.EnderZombieEntity;
 import net.mobz.Entity.FastEntity;
 import net.mobz.Entity.FrostEntity;
 import net.mobz.Entity.FullIronEntity;
+import net.mobz.Entity.GChicken;
 import net.mobz.Entity.IceGolem;
 import net.mobz.Entity.Illusioner;
 import net.mobz.Entity.Knight2Entity;
@@ -154,7 +159,20 @@ public class glomod implements ModInitializer {
         public static final EntityType<SpiSmall> SPISMALL = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, SpiSmall::new).size(EntityDimensions.fixed(1.4F, 0.9F)).build();
         public static final EntityType<Blackbear> BLACKBEAR = FabricEntityTypeBuilder
-                        .create(EntityCategory.MISC, Blackbear::new).size(EntityDimensions.fixed(1.25F, 1.3F)).build();
+                        .create(EntityCategory.CREATURE, Blackbear::new).size(EntityDimensions.fixed(1.25F, 1.3F))
+                        .build();
+        public static final EntityType<Brownbear> BROWNBEAR = FabricEntityTypeBuilder
+                        .create(EntityCategory.CREATURE, Brownbear::new).size(EntityDimensions.fixed(1.3F, 1.4F))
+                        .build();
+        public static final EntityType<GChicken> GCHICKEN = FabricEntityTypeBuilder
+                        .create(EntityCategory.CREATURE, GChicken::new).size(EntityDimensions.fixed(0.4F, 0.35F))
+                        .build();
+        public static final EntityType<Boar> BOAR = FabricEntityTypeBuilder.create(EntityCategory.CREATURE, Boar::new)
+                        .size(EntityDimensions.fixed(0.9F, 0.9F)).build();
+        public static final EntityType<Boar2> BOAR2 = FabricEntityTypeBuilder
+                        .create(EntityCategory.CREATURE, Boar2::new).size(EntityDimensions.fixed(0.9F, 0.9F)).build();
+        public static final EntityType<Boar3> BOAR3 = FabricEntityTypeBuilder
+                        .create(EntityCategory.CREATURE, Boar3::new).size(EntityDimensions.fixed(0.9F, 0.9F)).build();
 
         public static final EntityType<Try> TRY = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Try::new)
                         .size(EntityDimensions.fixed(0.6F, 1.95F)).build();
@@ -239,9 +257,13 @@ public class glomod implements ModInitializer {
         public static SoundEvent ILLUDEATHEVENT = new SoundEvent(ILLUDEATH);
         public static final Identifier ILLUHURT = new Identifier("mobz:illuhurt");
         public static SoundEvent ILLUHURTEVENT = new SoundEvent(ILLUHURT);
-
         public static final Identifier PBITE = new Identifier("mobz:pbite");
         public static SoundEvent PBITEEVENT = new SoundEvent(PBITE);
+
+        public static final Identifier BOARSAY = new Identifier("mobz:boarsay");
+        public static SoundEvent BOARSAYEVENT = new SoundEvent(BOARSAY);
+        public static final Identifier BOARDEATH = new Identifier("mobz:boardeath");
+        public static SoundEvent BOARDEATHEVENT = new SoundEvent(BOARDEATH);
 
         public static final String MOD_ID = "mobz";
 
@@ -331,7 +353,13 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "illusioner_entity"), ILLUSIONER);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "dwarf_entity"), DWARFENTITY);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "spismall_entity"), SPISMALL);
+
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "blackbear_entity"), BLACKBEAR);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "brownbear_entity"), BROWNBEAR);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "gchicken_entity"), GCHICKEN);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "boar_entity"), BOAR);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "boar2_entity"), BOAR2);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "boar3_entity"), BOAR3);
 
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "try_entity"), TRY);
 
@@ -375,8 +403,9 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.SOUND_EVENT, glomod.ILLUIDLE, ILLUIDLEEVENT);
                 Registry.register(Registry.SOUND_EVENT, glomod.ILLUDEATH, ILLUDEATHEVENT);
                 Registry.register(Registry.SOUND_EVENT, glomod.ILLUHURT, ILLUHURTEVENT);
-
                 Registry.register(Registry.SOUND_EVENT, glomod.PBITE, PBITEEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.BOARSAY, BOARSAYEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.BOARDEATH, BOARDEATHEVENT);
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc"), MEDIVEAL_DISC);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc2"), MEDIVEAL_DISC2);
@@ -455,6 +484,18 @@ public class glomod implements ModInitializer {
                                 8551531, 6755862, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_spismall"), new SpawnEggItem(SPISMALL,
                                 3806513, 146458, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_blackbear"), new SpawnEggItem(BLACKBEAR,
+                                657934, 2960685, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_brownbear"), new SpawnEggItem(BROWNBEAR,
+                                2169097, 4403731, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_gchicken"), new SpawnEggItem(GCHICKEN,
+                                13027014, 15315221, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_boar"), new SpawnEggItem(BOAR, 3211264,
+                                9984303, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_boar2"), new SpawnEggItem(BOAR2,
+                                14601929, 2962756, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_boar3"), new SpawnEggItem(BOAR3,
+                                13284514, 2890508, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_try"), new SpawnEggItem(TRY, 15720703, 0,
                                 new Item.Settings().maxCount(64).group(ItemGroup.MISC)));

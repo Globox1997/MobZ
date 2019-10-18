@@ -8,7 +8,11 @@ import net.mobz.Entity.ArcherEntity;
 import net.mobz.Entity.ArmoredEntity;
 import net.mobz.Entity.BigBossEntity;
 import net.mobz.Entity.Blackbear;
+import net.mobz.Entity.Boar;
+import net.mobz.Entity.Boar2;
+import net.mobz.Entity.Boar3;
 import net.mobz.Entity.BossEntity;
+import net.mobz.Entity.Brownbear;
 import net.mobz.Entity.CreepEntity;
 import net.mobz.Entity.CripEntity;
 import net.mobz.Entity.Dog;
@@ -18,6 +22,7 @@ import net.mobz.Entity.EnderZombieEntity;
 import net.mobz.Entity.FastEntity;
 import net.mobz.Entity.FrostEntity;
 import net.mobz.Entity.FullIronEntity;
+import net.mobz.Entity.GChicken;
 import net.mobz.Entity.IceGolem;
 import net.mobz.Entity.Illusioner;
 import net.mobz.Entity.Knight2Entity;
@@ -42,7 +47,11 @@ import net.mobz.Renderer.ArcherRenderer;
 import net.mobz.Renderer.ArmoredRenderer;
 import net.mobz.Renderer.BigBossRenderer;
 import net.mobz.Renderer.BlackbearRenderer;
+import net.mobz.Renderer.Boar2Renderer;
+import net.mobz.Renderer.Boar3Renderer;
+import net.mobz.Renderer.BoarRenderer;
 import net.mobz.Renderer.BossRenderer;
+import net.mobz.Renderer.BrownbearRenderer;
 import net.mobz.Renderer.CreepRenderer;
 import net.mobz.Renderer.CripRenderer;
 import net.mobz.Renderer.DogRenderer;
@@ -52,6 +61,7 @@ import net.mobz.Renderer.EnderZombieRenderer;
 import net.mobz.Renderer.FastRenderer;
 import net.mobz.Renderer.FrostRenderer;
 import net.mobz.Renderer.FullIronRenderer;
+import net.mobz.Renderer.GChickenRenderer;
 import net.mobz.Renderer.IceGolemRenderer;
 import net.mobz.Renderer.IllusionerRenderer;
 import net.mobz.Renderer.Knight2Renderer;
@@ -145,6 +155,16 @@ public class ClientInitializier implements ClientModInitializer {
                                 (dispatcher, context) -> new SpiSmallRenderer(dispatcher));
                 EntityRendererRegistry.INSTANCE.register(Blackbear.class,
                                 (dispatcher, context) -> new BlackbearRenderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(Brownbear.class,
+                                (dispatcher, context) -> new BrownbearRenderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(GChicken.class,
+                                (dispatcher, context) -> new GChickenRenderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(Boar.class,
+                                (dispatcher, context) -> new BoarRenderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(Boar2.class,
+                                (dispatcher, context) -> new Boar2Renderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(Boar3.class,
+                                (dispatcher, context) -> new Boar3Renderer(dispatcher));
 
                 EntityRendererRegistry.INSTANCE.register(Try.class,
                                 (dispatcher, context) -> new TryRenderer(dispatcher));
