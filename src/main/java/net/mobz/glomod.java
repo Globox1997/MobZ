@@ -54,6 +54,7 @@ import net.mobz.Entity.skeli2;
 import net.mobz.Entity.skeli3;
 import net.mobz.Items.ArmorItems;
 import net.mobz.Items.SwordItems;
+import net.mobz.Items.Item.Bearleather;
 import net.mobz.Items.Item.BossIngot;
 import net.mobz.Items.Item.HardenedMetal;
 import net.mobz.Items.Item.MedivealDisc;
@@ -259,7 +260,6 @@ public class glomod implements ModInitializer {
         public static SoundEvent ILLUHURTEVENT = new SoundEvent(ILLUHURT);
         public static final Identifier PBITE = new Identifier("mobz:pbite");
         public static SoundEvent PBITEEVENT = new SoundEvent(PBITE);
-
         public static final Identifier BOARSAY = new Identifier("mobz:boarsay");
         public static SoundEvent BOARSAYEVENT = new SoundEvent(BOARSAY);
         public static final Identifier BOARDEATH = new Identifier("mobz:boardeath");
@@ -280,6 +280,7 @@ public class glomod implements ModInitializer {
         public static final Rottenflesh ROTTENFLESH = new Rottenflesh();
         public static final Redd REDD = new Redd(new Item.Settings().group(glomod.MOBZ_GROUP));
         public static final Withermeal WITHERMEAL = new Withermeal(new Item.Settings().group(glomod.MOBZ_GROUP));
+        public static final Bearleather BEARLEATHER = new Bearleather(new Item.Settings().group(glomod.MOBZ_GROUP));
 
         public static final ItemGroup MOBZ_GROUP = FabricItemGroupBuilder.create(new Identifier("mobz", "glomod"))
                         .icon(() -> new ItemStack(SwordItems.ArmoredSword)).appendItems(stacks -> {
@@ -302,7 +303,7 @@ public class glomod implements ModInitializer {
                                 stacks.add(new ItemStack(glomod.HARDENEDMETAL));
                                 stacks.add(ItemStack.EMPTY);
                                 stacks.add(new ItemStack(ArmorItems.speed_boots));
-                                stacks.add(new ItemStack(glomod.WEIRDINGOT));
+                                stacks.add(new ItemStack(ArmorItems.speed2_boots));
                                 stacks.add(new ItemStack(glomod.MEDIVEAL_DISC));
                                 stacks.add(new ItemStack(glomod.MEDIVEAL_DISC2));
                                 stacks.add(new ItemStack(SwordItems.Axe));
@@ -315,6 +316,8 @@ public class glomod implements ModInitializer {
                                 stacks.add(new ItemStack(glomod.REDD));
                                 stacks.add(new ItemStack(glomod.ROTTENFLESH));
                                 stacks.add(new ItemStack(glomod.WITHERMEAL));
+                                stacks.add(new ItemStack(glomod.WEIRDINGOT));
+                                stacks.add(new ItemStack(glomod.BEARLEATHER));
                                 stacks.add(new ItemStack(SwordItems.Sword));
 
                         }).build();
@@ -353,7 +356,6 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "illusioner_entity"), ILLUSIONER);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "dwarf_entity"), DWARFENTITY);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "spismall_entity"), SPISMALL);
-
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "blackbear_entity"), BLACKBEAR);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "brownbear_entity"), BROWNBEAR);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "gchicken_entity"), GCHICKEN);
@@ -416,6 +418,7 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "rottenflesh"), ROTTENFLESH);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "redd"), REDD);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "withermeal"), WITHERMEAL);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "bearleather"), BEARLEATHER);
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_tank"), new SpawnEggItem(TANK, 5055902,
                                 2507798, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));

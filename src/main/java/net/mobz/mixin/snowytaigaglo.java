@@ -1,13 +1,14 @@
 package net.mobz.mixin;
 
-import net.minecraft.entity.EntityCategory;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.SnowyTaigaBiome;
-import net.mobz.glomod;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import net.minecraft.entity.EntityCategory;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.SnowyTaigaBiome;
+import net.mobz.glomod;
 
 @Mixin(SnowyTaigaBiome.class)
 public class snowytaigaglo extends Biome {
@@ -20,5 +21,6 @@ public class snowytaigaglo extends Biome {
         this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.CREEP, 10, 1, 2));
         this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ARCHER2ENTITY, 10, 1, 1));
         this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.FROSTENTITY, 10, 1, 2));
+        this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BOAR3, 5, 2, 4));
     }
 }
