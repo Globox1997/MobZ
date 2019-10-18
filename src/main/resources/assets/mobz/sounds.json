@@ -265,5 +265,12 @@
       "mobz:illuhurt2",
       "mobz:illuhurt3"
     ]
+  },
+  "pbite": {
+    "sounds": [
+      "mobz:pbite1",
+      "mobz:pbite2",
+      "mobz:pbite3"
+    ]
   }
 }

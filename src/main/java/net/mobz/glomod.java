@@ -17,6 +17,7 @@ import net.mobz.Entity.Archer2Entity;
 import net.mobz.Entity.ArcherEntity;
 import net.mobz.Entity.ArmoredEntity;
 import net.mobz.Entity.BigBossEntity;
+import net.mobz.Entity.Blackbear;
 import net.mobz.Entity.BossEntity;
 import net.mobz.Entity.CreepEntity;
 import net.mobz.Entity.CripEntity;
@@ -152,6 +153,8 @@ public class glomod implements ModInitializer {
                         .build();
         public static final EntityType<SpiSmall> SPISMALL = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, SpiSmall::new).size(EntityDimensions.fixed(1.4F, 0.9F)).build();
+        public static final EntityType<Blackbear> BLACKBEAR = FabricEntityTypeBuilder
+                        .create(EntityCategory.MISC, Blackbear::new).size(EntityDimensions.fixed(1.25F, 1.3F)).build();
 
         public static final EntityType<Try> TRY = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Try::new)
                         .size(EntityDimensions.fixed(0.6F, 1.95F)).build();
@@ -230,13 +233,15 @@ public class glomod implements ModInitializer {
         public static SoundEvent EVEHURTEVENT = new SoundEvent(EVEHURT);
         public static final Identifier EVEIDLE = new Identifier("mobz:eveidle");
         public static SoundEvent EVEIDLEEVENT = new SoundEvent(EVEIDLE);
-
         public static final Identifier ILLUIDLE = new Identifier("mobz:illuidle");
         public static SoundEvent ILLUIDLEEVENT = new SoundEvent(ILLUIDLE);
         public static final Identifier ILLUDEATH = new Identifier("mobz:illudeath");
         public static SoundEvent ILLUDEATHEVENT = new SoundEvent(ILLUDEATH);
         public static final Identifier ILLUHURT = new Identifier("mobz:illuhurt");
         public static SoundEvent ILLUHURTEVENT = new SoundEvent(ILLUHURT);
+
+        public static final Identifier PBITE = new Identifier("mobz:pbite");
+        public static SoundEvent PBITEEVENT = new SoundEvent(PBITE);
 
         public static final String MOD_ID = "mobz";
 
@@ -326,6 +331,7 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "illusioner_entity"), ILLUSIONER);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "dwarf_entity"), DWARFENTITY);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "spismall_entity"), SPISMALL);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "blackbear_entity"), BLACKBEAR);
 
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "try_entity"), TRY);
 
@@ -369,6 +375,8 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.SOUND_EVENT, glomod.ILLUIDLE, ILLUIDLEEVENT);
                 Registry.register(Registry.SOUND_EVENT, glomod.ILLUDEATH, ILLUDEATHEVENT);
                 Registry.register(Registry.SOUND_EVENT, glomod.ILLUHURT, ILLUHURTEVENT);
+
+                Registry.register(Registry.SOUND_EVENT, glomod.PBITE, PBITEEVENT);
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc"), MEDIVEAL_DISC);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc2"), MEDIVEAL_DISC2);
