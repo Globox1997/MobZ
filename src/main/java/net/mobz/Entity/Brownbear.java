@@ -10,4 +10,6 @@ public class Brownbear extends PolarBearEntity {
         super(entityType, world);
     }
 
+    
+
 }

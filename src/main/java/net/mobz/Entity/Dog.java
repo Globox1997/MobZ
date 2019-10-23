@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.entity.passive.WolfEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
@@ -18,5 +19,9 @@ public class Dog extends WolfEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL;
+    }
+
+    public boolean isBreedingItem(ItemStack itemStack_1) {
+        return false;
     }
 }
