@@ -1,4 +1,4 @@
-package net.mobz.Entity;
+/*package net.mobz.Entity;
 
 import net.mobz.glomod;
 
@@ -78,5 +78,37 @@ public class TestEntity extends ZombieEntity {
         }
   
      }
+
+} */
+
+package net.mobz.Entity;
+
+import net.mobz.glomod;
+
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.SpawnType;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.boss.dragon.EnderDragonEntity;
+
+import net.minecraft.entity.mob.DrownedEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ViewableWorld;
+import net.minecraft.world.World;
+
+public class TestEntity extends EnderDragonEntity {
+
+    public TestEntity(EntityType<? extends EnderDragonEntity> entityType, World world) {
+        super(entityType, world);
+    }
+
+
+
 
 }

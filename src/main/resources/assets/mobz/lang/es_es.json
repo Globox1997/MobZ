@@ -37,7 +37,7 @@
     "entity.mobz.boar_entity":"Boar",
     "entity.mobz.boar2_entity":"Boar II",
     "entity.mobz.boar3_entity":"Boar III",
-
+    "entity.mobz.friend_entity":"Alex",
 
     "entity.mobz.try_entity":"§4Test§0Mob",
 
@@ -124,7 +124,7 @@
     "item.mobz.spawn_boar": "Boar Spawn Egg",
     "item.mobz.spawn_boar2": "Boar II Spawn Egg",
     "item.mobz.spawn_boar3": "Boar III Spawn Egg",
-
+    "item.mobz.spawn_friend": "Alex Spawn Egg",
 
     "itemGroup.mobz.glomod": "MobZ"
 }

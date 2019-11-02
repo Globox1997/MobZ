@@ -45,6 +45,8 @@ public class TankEntity extends ZombieEntity {
 
     }
 
+
+
     protected SoundEvent getAmbientSound() {
         return glomod.AMBIENTTANKEVENT;
     }

@@ -171,6 +171,6 @@ public class GChicken extends ChickenEntity {
    }
 
    static {
-      BREEDING_INGREDIENT = Ingredient.ofItems(Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.BEETROOT_SEEDS);
+      BREEDING_INGREDIENT = Ingredient.ofItems(Items.GOLD_NUGGET);
    }
 }

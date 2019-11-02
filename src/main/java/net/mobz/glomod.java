@@ -13,57 +13,11 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.mobz.Entity.Archer2Entity;
-import net.mobz.Entity.ArcherEntity;
-import net.mobz.Entity.ArmoredEntity;
-import net.mobz.Entity.BigBossEntity;
-import net.mobz.Entity.Blackbear;
-import net.mobz.Entity.Boar;
-import net.mobz.Entity.Boar2;
-import net.mobz.Entity.Boar3;
-import net.mobz.Entity.BossEntity;
-import net.mobz.Entity.Brownbear;
-import net.mobz.Entity.CreepEntity;
-import net.mobz.Entity.CripEntity;
-import net.mobz.Entity.Dog;
-import net.mobz.Entity.DwarfEntity;
-import net.mobz.Entity.EnderEntity;
-import net.mobz.Entity.EnderZombieEntity;
-import net.mobz.Entity.FastEntity;
-import net.mobz.Entity.FrostEntity;
-import net.mobz.Entity.FullIronEntity;
-import net.mobz.Entity.GChicken;
-import net.mobz.Entity.IceGolem;
-import net.mobz.Entity.Illusioner;
-import net.mobz.Entity.Knight2Entity;
-import net.mobz.Entity.KnightEntity;
-import net.mobz.Entity.LavaGolem;
-import net.mobz.Entity.Mage2Entity;
-import net.mobz.Entity.MageEntity;
-import net.mobz.Entity.PigmanEntity;
-import net.mobz.Entity.SmallZombie;
-import net.mobz.Entity.SpiEntity;
-import net.mobz.Entity.SpiSmall;
-import net.mobz.Entity.SpoEntity;
-import net.mobz.Entity.StoneGolem;
-import net.mobz.Entity.TankEntity;
-import net.mobz.Entity.TestEntity;
-import net.mobz.Entity.Try;
-import net.mobz.Entity.skeli1;
-import net.mobz.Entity.skeli2;
-import net.mobz.Entity.skeli3;
-import net.mobz.Items.ArmorItems;
-import net.mobz.Items.SwordItems;
-import net.mobz.Items.Item.Bearleather;
-import net.mobz.Items.Item.BossIngot;
-import net.mobz.Items.Item.HardenedMetal;
-import net.mobz.Items.Item.MedivealDisc;
-import net.mobz.Items.Item.MedivealDisc2;
-import net.mobz.Items.Item.Redd;
-import net.mobz.Items.Item.Rottenflesh;
-import net.mobz.Items.Item.Shield;
-import net.mobz.Items.Item.WeirdIngot;
-import net.mobz.Items.Item.Withermeal;
+
+import net.mobz.Entity.*;
+import net.mobz.Items.*;
+import net.mobz.Items.Item.*;
+
 
 public class glomod implements ModInitializer {
 
@@ -174,6 +128,9 @@ public class glomod implements ModInitializer {
                         .create(EntityCategory.CREATURE, Boar2::new).size(EntityDimensions.fixed(0.9F, 0.9F)).build();
         public static final EntityType<Boar3> BOAR3 = FabricEntityTypeBuilder
                         .create(EntityCategory.CREATURE, Boar3::new).size(EntityDimensions.fixed(0.9F, 0.9F)).build();
+         public static final EntityType<FriendEntity> FRIEND = FabricEntityTypeBuilder
+                        .create(EntityCategory.CREATURE, FriendEntity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
+                        .build();
 
         public static final EntityType<Try> TRY = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Try::new)
                         .size(EntityDimensions.fixed(0.6F, 1.95F)).build();
@@ -362,6 +319,7 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "boar_entity"), BOAR);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "boar2_entity"), BOAR2);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "boar3_entity"), BOAR3);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "friend_entity"), FRIEND);
 
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "try_entity"), TRY);
 
@@ -499,6 +457,8 @@ public class glomod implements ModInitializer {
                                 14601929, 2962756, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_boar3"), new SpawnEggItem(BOAR3,
                                 13284514, 2890508, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_friend"), new SpawnEggItem(FRIEND,
+                                11123336, 15043903, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_try"), new SpawnEggItem(TRY, 15720703, 0,
                                 new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
