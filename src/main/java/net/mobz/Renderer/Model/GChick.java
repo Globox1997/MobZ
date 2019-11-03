@@ -80,8 +80,7 @@ public class GChick<T extends Entity> extends EntityModel<T> {
    }
 
    public void setAngles(T entity_1, float float_1, float float_2, float float_3, float float_4, float float_5, float float_6) {
-      float_3 = this.field_3346.roll;
-      float_1 = this.field_3340.pitch;
+      
       this.head.pitch = float_5 * 0.017453292F;
       this.head.yaw = float_4 * 0.017453292F;
       this.field_3340.pitch = this.head.pitch;
@@ -91,7 +90,7 @@ public class GChick<T extends Entity> extends EntityModel<T> {
       this.field_3346.pitch = 1.5707964F;
       this.field_3345.pitch = MathHelper.cos(float_1 * 0.6662F) * 1.4F * float_2;
       this.field_3343.pitch = MathHelper.cos(float_1 * 0.6662F + 3.1415927F) * 1.4F * float_2;
-      this.field_3341.roll = float_3;
-      this.field_3347.roll = -float_3;
+      this.field_3341.roll = this.field_3343.pitch = MathHelper.cos(float_1 * 0.6662F + 3.1415927F) * 1.4F * float_2;
+      this.field_3347.roll = this.field_3345.pitch = MathHelper.cos(float_1 * 0.6662F) * 1.4F * float_2;
    }
 }

@@ -27,6 +27,7 @@ public class flowerglo extends Biome {
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BOAR, 10, 2, 4));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BOAR3, 5, 2, 4));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BROWNBEAR, 10, 1, 2));
+		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.GCHICKEN, 2, 1, 2));
 	}
 
 }

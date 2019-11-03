@@ -9,6 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.AnimalMateGoal;
 import net.minecraft.entity.ai.goal.AttackWithOwnerGoal;
@@ -52,6 +53,8 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 import net.mobz.glomod;
+import net.mobz.Items.SwordItems;
+
 
 
 public class FriendEntity extends TameableEntity {
@@ -64,9 +67,27 @@ public class FriendEntity extends TameableEntity {
 
     public FriendEntity(EntityType<? extends FriendEntity> entityType_1, World world_1) {
         super(entityType_1, world_1);
+        
         this.setTamed(false);
-
+        this.setEquippedStack(EquipmentSlot.HEAD,new ItemStack(Items.LEATHER_HELMET));
+        this.setEquippedStack(EquipmentSlot.CHEST,new ItemStack(Items.LEATHER_CHESTPLATE));
+        this.setEquippedStack(EquipmentSlot.LEGS,new ItemStack(Items.LEATHER_LEGGINGS));
+        this.setEquippedStack(EquipmentSlot.FEET,new ItemStack(Items.LEATHER_BOOTS));
+        this.setEquippedStack(EquipmentSlot.MAINHAND,new ItemStack(SwordItems.ArmoredSword));
+      
+      
+ 
+         
     }
+
+
+    @Override
+    protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
+        return;
+    }
+    
+
+
 
     protected void initGoals() {
         this.sitGoal = new SitGoal(this);
@@ -106,32 +127,8 @@ public class FriendEntity extends TameableEntity {
         }
 
     }
-/*
-    protected void initEquipment(LocalDifficulty localDifficulty_1) {
-        super.initEquipment(localDifficulty_1);
-        if (this.world.getDifficulty() == Difficulty.NORMAL) {
-           this.setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(Items.STONE_SWORD));
-           this.setEquippedStack(EquipmentSlot.CHEST, new ItemStack(Items.LEATHER_CHESTPLATE));
-           this.setEquippedStack(EquipmentSlot.FEET, new ItemStack(Items.LEATHER_BOOTS));
-           this.setEquippedStack(EquipmentSlot.HEAD, new ItemStack(Items.LEATHER_HELMET));
-           this.setEquippedStack(EquipmentSlot.LEGS, new ItemStack(Items.LEATHER_LEGGINGS));
-        } else {
-           if (this.world.getDifficulty() == Difficulty.EASY) {
-              this.setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(Items.WOODEN_SWORD));
-              this.setEquippedStack(EquipmentSlot.CHEST, new ItemStack(Items.LEATHER_CHESTPLATE));
-              this.setEquippedStack(EquipmentSlot.FEET, new ItemStack(Items.LEATHER_BOOTS));
-           } else {
-              if (this.world.getDifficulty() == Difficulty.HARD) {
-                 this.setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.ArmoredSword));
-                 this.setEquippedStack(EquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
-                 this.setEquippedStack(EquipmentSlot.FEET, new ItemStack(Items.IRON_BOOTS));
-                 this.setEquippedStack(EquipmentSlot.HEAD, new ItemStack(Items.IRON_HELMET));
-                 this.setEquippedStack(EquipmentSlot.LEGS, new ItemStack(Items.IRON_LEGGINGS));
-              } else {
-              }
-           }
-        }
-     } */
+
+
 
  public boolean canSpawn(ViewableWorld viewableWorld_1) {
     BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
@@ -182,7 +179,12 @@ public class FriendEntity extends TameableEntity {
     protected float getSoundVolume() {
         return 0.4F;
     }
-
+    
+    public void setOwner(PlayerEntity playerEntity_1) {
+        this.setTamed(true);
+        this.setOwnerUuid(playerEntity_1.getUuid());
+  
+     }
 
     public void onDeath(DamageSource damageSource_1) {
    
@@ -288,6 +290,7 @@ public class FriendEntity extends TameableEntity {
                     this.setHealth(30.0F);
                     this.showEmoteParticle(true);
                     this.world.sendEntityStatus(this, (byte) 7);
+                    
                 } else {
                     this.showEmoteParticle(false);
                     this.world.sendEntityStatus(this, (byte) 6);
@@ -406,6 +409,10 @@ public class FriendEntity extends TameableEntity {
     public PassiveEntity createChild(PassiveEntity var1) {
         return this.method_6717(var1);
     }
+
+
+
+
 
     static {
         ALEX_HEALTH = DataTracker.registerData(FriendEntity.class, TrackedDataHandlerRegistry.FLOAT);

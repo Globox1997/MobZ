@@ -1,7 +1,7 @@
 package net.mobz.Renderer;
 
 import net.mobz.Entity.*;
-
+import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
@@ -15,13 +15,13 @@ import net.minecraft.util.Identifier;
 public class FriendRenderer extends BipedEntityRenderer<FriendEntity, PlayerEntityModel<FriendEntity>> {
 
     public FriendRenderer(EntityRenderDispatcher dispatcher) {
-        super(dispatcher, new PlayerEntityModel(0.0F, true), 0.5F);
-        this.addFeature(new ArmorBipedFeatureRenderer(this, new PlayerEntityModel(0.5F, true),
-                new PlayerEntityModel(1.0F, true)));
+        super(dispatcher, new PlayerEntityModel<>(0.0F, true), 0.5F);
+        this.addFeature(new ArmorBipedFeatureRenderer(this, new BipedEntityModel(0.5F), new BipedEntityModel(1.0F)));
     }
 
     @Override
-    protected Identifier getTexture(FriendEntity fff) {
+    protected Identifier getTexture(FriendEntity FriendEntitye) {
         return new Identifier("mobz:textures/entity/friend.png");
     }
+
 }
