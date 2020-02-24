@@ -274,7 +274,6 @@ public class glomod implements ModInitializer {
         public static final Sbow SBOW = new Sbow(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
         public static final Orb ORB = new Orb(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
         public static final Whitebag WHITEBAG = new Whitebag(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
-        public static final Storybook STORYBOOK = new Storybook(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
 
         public static final ItemGroup MOBZ_GROUP = FabricItemGroupBuilder.create(new Identifier("mobz", "glomod"))
                         .icon(() -> new ItemStack(SwordItems.ArmoredSword)).appendItems(stacks -> {
@@ -330,7 +329,7 @@ public class glomod implements ModInitializer {
                                 stacks.add(ItemStack.EMPTY);
                                 stacks.add(ItemStack.EMPTY);
                                 stacks.add(ItemStack.EMPTY);
-                                stacks.add(new ItemStack(glomod.STORYBOOK));
+                                stacks.add(ItemStack.EMPTY);
                                 stacks.add(new ItemStack(SwordItems.Debuger));
 
                         }).build();
@@ -450,7 +449,6 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "sbow"), SBOW);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "orb"), ORB);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "whitebag"), WHITEBAG);
-                Registry.register(Registry.ITEM, new Identifier("mobz", "storybook"), STORYBOOK);
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_tank"), new SpawnEggItem(TANK, 5055902,
                                 2507798, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
