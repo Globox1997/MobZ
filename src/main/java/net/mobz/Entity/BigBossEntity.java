@@ -7,34 +7,34 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.ZombieEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
-import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
+import net.mobz.glomod;
 
 public class BigBossEntity extends ZombieEntity {
 
     public BigBossEntity(EntityType<? extends ZombieEntity> entityType, World world) {
         super(entityType, world);
+        this.experiencePoints = 100;
     }
 
-    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(400D);
         this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(30.0D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(10D);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(6D);
         this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(-4.0D);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
     }
 
-    @Override
     public boolean isConvertingInWater() {
         return false;
     }
 
-    @Override
     protected boolean burnsInDaylight() {
         return false;
     }
@@ -42,48 +42,44 @@ public class BigBossEntity extends ZombieEntity {
     public boolean Damage(LivingEntity entity) {
         if (isGlowing() == true) {
             StatusEffectInstance poison = new StatusEffectInstance(StatusEffect.byRawId(19), 200, 1, true, false);
-            entity.addPotionEffect(poison);
+            entity.addStatusEffect(poison);
         }
         ;
         return true;
     }
 
-    public boolean canSpawn(ViewableWorld viewableWorld_1) {
-        BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
-        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
-                && !viewableWorld_1.isAir(entityPos)
-                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && !this.world.isDaylight();
-    }
-
-    @Override
     public boolean isBaby() {
         return false;
     }
 
-    @Override
-    protected int getCurrentExperience(PlayerEntity playerEntity_1) {
-
-        return this.experiencePoints = 100;
-    }
-    /*
-     * @Override protected void initEquipment(LocalDifficulty localDifficulty_1) {
-     * super.initEquipment(localDifficulty_1);
-     * this.setEquippedStack(EquipmentSlot.MAINHAND, new
-     * ItemStack(SwordItems.BossSword));
-     * this.setEquippedStack(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
-     * this.setEquippedStack(EquipmentSlot.CHEST, new
-     * ItemStack(BossArmorItems.boss_chestplate));
-     * this.setEquippedStack(EquipmentSlot.FEET, new
-     * ItemStack(BossArmorItems.boss_boots));
-     * this.setEquippedStack(EquipmentSlot.LEGS, new
-     * ItemStack(BossArmorItems.boss_leggings));
-     * this.setEquippedStack(EquipmentSlot.HEAD, new
-     * ItemStack(BossArmorItems.boss_helmet)); }
-     */
-
-    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }
+
+    public boolean canSpawn(WorldView viewableWorld_1) {
+        BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+        BlockPos lighto = new BlockPos(this.getX(), this.getY(), this.getZ());
+        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
+                && !viewableWorld_1.isAir(entityPos)
+                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
+                && this.world.getLightLevel(lighto) <= 5;
+
+    }
+
+    protected SoundEvent getAmbientSound() {
+        return glomod.AMBIENTTANKEVENT;
+    }
+
+    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
+        return glomod.HURTTANKEVENT;
+    }
+
+    protected SoundEvent getDeathSound() {
+        return glomod.DEATHTANKEVENT;
+    }
+
+    protected SoundEvent getStepSound() {
+        return glomod.STEPTANKEVENT;
+    }
+
 }

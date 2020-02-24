@@ -23,6 +23,7 @@ public class deserthillglo extends Biome {
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SPI, 15, 1, 2));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ARCHER2ENTITY, 10, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.MAGE2ENTITY, 5, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI4, 15, 1, 4));
 	}
 	
 }

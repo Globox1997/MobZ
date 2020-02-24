@@ -194,14 +194,19 @@
   },
   "medivealsound": {
     "sounds": [
-      "mobz:medivealsound"
+      {
+        "name": "mobz:medivealsound",
+        "stream": true,
+        "attenuation_distance": 16
+      }
     ]
   },
   "medivealsound2": {
     "sounds": [
       {
         "name": "mobz:medivealsound2",
-        "stream": true
+        "stream": true,
+        "attenuation_distance": 16
       }
     ]
   },
@@ -283,6 +288,67 @@
   "boardeath": {
     "sounds": [
       "mobz:boardeath"
+    ]
+  },
+  "withdeath": {
+    "sounds": [
+      "mobz:withdeath"
+    ]
+  },
+  "withhurt": {
+    "sounds": [
+      "mobz:withhurt1",
+      "mobz:withhurt2",
+      "mobz:withhurt3",
+      "mobz:withhurt4"
+    ]
+  },
+  "withidle": {
+    "sounds": [
+      "mobz:withidle1",
+      "mobz:withidle2",
+      "mobz:withidle3",
+      "mobz:withidle4"
+    ]
+  },
+  "darkidle": {
+    "sounds": [
+      "mobz:darkidle1",
+      "mobz:darkidle2",
+      "mobz:darkidle3",
+      "mobz:darkidle4"
+    ]
+  },
+  "darkdeath": {
+    "sounds": [
+      "mobz:darkdeath"
+    ]
+  },
+  "darkhit": {
+    "sounds": [
+      "mobz:darkhit1",
+      "mobz:darkhit2",
+      "mobz:darkhit3",
+      "mobz:darkhit4"
+    ]
+  },
+  "whurt": {
+    "sounds": [
+      "mobz:whurt1",
+      "mobz:whurt2",
+      "mobz:whurt3"
+    ]
+  },
+  "wdeath": {
+    "sounds": [
+      "mobz:wdeath"
+    ]
+  },
+  "wgrowl": {
+    "sounds": [
+      "mobz:wgrowl1",
+      "mobz:wgrowl2",
+      "mobz:wgrowl3"
     ]
   }
 }

@@ -8,7 +8,7 @@ import net.minecraft.sound.SoundEvents;
 import net.mobz.glomod;
 
 public class AMaterial implements ArmorMaterial {
-    private static final int[] BASE_DURABILITY = new int[] { 14, 16, 17, 12 };
+    private static final int[] BASE_DURABILITY = new int[] { 17, 19, 21, 15 };
     private static final int[] PROTECTION_AMOUNTS = new int[] { 2, 5, 6, 2 };
 
     @Override
@@ -43,7 +43,7 @@ public class AMaterial implements ArmorMaterial {
 
     @Override
     public float getToughness() {
-        return 1;
+        return 0;
     }
 
 }

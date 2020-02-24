@@ -22,12 +22,13 @@ public class flowerglo extends Biome {
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.TANK, 15, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.FAST, 15, 2, 3));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SPO, 10, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI2, 15, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ARCHER2ENTITY, 15, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI2, 12, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ARCHER2ENTITY, 12, 1, 1));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BOAR, 10, 2, 4));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BOAR3, 5, 2, 4));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BROWNBEAR, 10, 1, 2));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.GCHICKEN, 2, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SLIMO, 3, 1, 2));
 	}
 
 }

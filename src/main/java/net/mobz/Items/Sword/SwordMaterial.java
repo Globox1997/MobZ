@@ -7,7 +7,7 @@ import net.minecraft.recipe.Ingredient;
 public class SwordMaterial implements ToolMaterial {
     @Override
     public int getDurability() {
-        return 10000;
+        return 826;
     }
 
     @Override
@@ -17,7 +17,7 @@ public class SwordMaterial implements ToolMaterial {
 
     @Override
     public float getAttackDamage() {
-        return 1896;
+        return 7;
     }
 
     @Override

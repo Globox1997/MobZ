@@ -1,11 +1,9 @@
 package net.mobz.Entity;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.AnimalMateGoal;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.FollowParentGoal;
@@ -30,6 +28,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import net.mobz.glomod;
 
 public class GChicken extends ChickenEntity {
@@ -46,6 +45,16 @@ public class GChicken extends ChickenEntity {
       super(entityType_1, world_1);
       this.eggLayTime = this.random.nextInt(6000) + 6000;
       this.setPathNodeTypeWeight(PathNodeType.WATER, 0.0F);
+   }
+
+   private void setPathNodeTypeWeight(PathNodeType water, float f) {
+   }
+
+   public boolean canSpawn(WorldView viewableWorld_1) {
+      BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+      return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
+            && !viewableWorld_1.isAir(entityPos);
+
    }
 
    protected void initGoals() {
@@ -73,13 +82,13 @@ public class GChicken extends ChickenEntity {
       super.tickMovement();
       this.field_6736 = this.field_6741;
       this.field_6738 = this.field_6743;
-      this.field_6743 = (float)((double)this.field_6743 + (double)(this.onGround ? -1 : 4) * 0.3D);
+      this.field_6743 = (float) ((double) this.field_6743 + (double) (this.onGround ? -1 : 4) * 0.3D);
       this.field_6743 = MathHelper.clamp(this.field_6743, 0.0F, 1.0F);
       if (!this.onGround && this.field_6737 < 1.0F) {
          this.field_6737 = 1.0F;
       }
 
-      this.field_6737 = (float)((double)this.field_6737 * 0.9D);
+      this.field_6737 = (float) ((double) this.field_6737 * 0.9D);
       Vec3d vec3d_1 = this.getVelocity();
       if (!this.onGround && vec3d_1.y < 0.0D) {
          this.setVelocity(vec3d_1.multiply(1.0D, 0.6D, 1.0D));
@@ -87,14 +96,12 @@ public class GChicken extends ChickenEntity {
 
       this.field_6741 += this.field_6737 * 2.0F;
       if (!this.world.isClient && this.isAlive() && !this.isBaby() && !this.hasJockey() && --this.eggLayTime <= 0) {
-         this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+         this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F,
+               (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
          this.dropItem(Items.GOLD_NUGGET);
          this.eggLayTime = this.random.nextInt(6000) + 6000;
       }
 
-   }
-
-   public void handleFallDamage(float float_1, float float_2) {
    }
 
    protected SoundEvent getAmbientSound() {
@@ -113,25 +120,16 @@ public class GChicken extends ChickenEntity {
       this.playSound(SoundEvents.ENTITY_CHICKEN_STEP, 0.15F, 1.0F);
    }
 
-   public GChicken method_6471(PassiveEntity passiveEntity_1) {
-      return (GChicken)glomod.GCHICKEN.create(this.world);
+   public GChicken createChild(PassiveEntity passiveEntity_1) {
+      return (GChicken) glomod.GCHICKEN.create(this.world);
    }
 
-   public boolean isBreedingItem(ItemStack itemStack_1) {
-      return BREEDING_INGREDIENT.method_8093(itemStack_1);
+   public boolean isBreedingItem(ItemStack stack) {
+      return BREEDING_INGREDIENT.test(stack);
    }
 
    protected int getCurrentExperience(PlayerEntity playerEntity_1) {
       return this.hasJockey() ? 10 : super.getCurrentExperience(playerEntity_1);
-   }
-
-   public void readCustomDataFromTag(CompoundTag compoundTag_1) {
-      super.readCustomDataFromTag(compoundTag_1);
-      this.jockey = compoundTag_1.getBoolean("IsChickenJockey");
-      if (compoundTag_1.containsKey("EggLayTime")) {
-         this.eggLayTime = compoundTag_1.getInt("EggLayTime");
-      }
-
    }
 
    public void writeCustomDataToTag(CompoundTag compoundTag_1) {
@@ -144,30 +142,12 @@ public class GChicken extends ChickenEntity {
       return this.hasJockey() && !this.hasPassengers();
    }
 
-   public void updatePassengerPosition(Entity entity_1) {
-      super.updatePassengerPosition(entity_1);
-      float float_1 = MathHelper.sin(this.field_6283 * 0.017453292F);
-      float float_2 = MathHelper.cos(this.field_6283 * 0.017453292F);
-      float float_3 = 0.1F;
-      float float_4 = 0.0F;
-      entity_1.setPosition(this.x + (double)(0.1F * float_1), this.y + (double)(this.getHeight() * 0.5F) + entity_1.getHeightOffset() + 0.0D, this.z - (double)(0.1F * float_2));
-      if (entity_1 instanceof LivingEntity) {
-         ((LivingEntity)entity_1).field_6283 = this.field_6283;
-      }
-
-   }
-
    public boolean hasJockey() {
       return this.jockey;
    }
 
    public void setHasJockey(boolean boolean_1) {
       this.jockey = boolean_1;
-   }
-
-   // $FF: synthetic method
-   public PassiveEntity createChild(PassiveEntity var1) {
-      return this.method_6471(var1);
    }
 
    static {

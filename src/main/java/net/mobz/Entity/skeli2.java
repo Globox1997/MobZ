@@ -5,8 +5,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.world.Difficulty;
-import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 
 public class skeli2 extends SkeletonEntity {
 
@@ -14,18 +14,20 @@ public class skeli2 extends SkeletonEntity {
         super(entityType, world);
     }
 
-    public boolean canSpawn(ViewableWorld viewableWorld_1) {
-        BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
-        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
-                && !viewableWorld_1.isAir(entityPos)
-                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && !this.world.isDaylight();
-    }
-
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(24D);
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(1.0D);
+    }
+
+    public boolean canSpawn(WorldView viewableWorld_1) {
+        BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+        BlockPos lighto = new BlockPos(this.getX(), this.getY(), this.getZ());
+        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
+                && !viewableWorld_1.isAir(entityPos)
+                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
+                && this.world.getLightLevel(lighto) <= 7;
+
     }
 
 }

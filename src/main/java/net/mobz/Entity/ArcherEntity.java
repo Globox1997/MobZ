@@ -4,6 +4,7 @@ import net.mobz.glomod;
 
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
+import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -22,22 +23,14 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 
 public class ArcherEntity extends SkeletonEntity {
 
     public ArcherEntity(EntityType<? extends SkeletonEntity> entityType, World world) {
         super(entityType, world);
-    }
-
-    @Override
-    public boolean canSpawn(ViewableWorld viewableWorld_1) {
-        BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
-        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
-                && !viewableWorld_1.isAir(entityPos)
-                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.isDaylight();
+        this.experiencePoints = 20;
     }
 
     protected void initAttributes() {
@@ -64,19 +57,17 @@ public class ArcherEntity extends SkeletonEntity {
         return SoundEvents.BLOCK_GRASS_STEP;
     }
 
-    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }
 
     protected void initEquipment(LocalDifficulty localDifficulty_1) {
         super.initEquipment(localDifficulty_1);
-        this.setEquippedStack(EquipmentSlot.HEAD, new ItemStack(Items.CHAINMAIL_HELMET));
+        this.equipStack(EquipmentSlot.HEAD, new ItemStack(Items.CHAINMAIL_HELMET));
     }
 
-    @Override
     public EntityGroup getGroup() {
-        return EntityGroup.ILLAGER;
+        return EntityGroup.DEFAULT;
     }
 
     protected void initGoals() {
@@ -86,6 +77,18 @@ public class ArcherEntity extends SkeletonEntity {
         this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
         this.targetSelector.add(2, new FollowTargetGoal(this, PlayerEntity.class, true));
         this.targetSelector.add(3, new FollowTargetGoal(this, IronGolemEntity.class, true));
+        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(VillagerEntity.class));
+        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(IronGolemEntity.class));
+    }
+
+    public boolean canSpawn(WorldView viewableWorld_1) {
+        BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+        BlockPos lighto = new BlockPos(this.getX(), this.getY(), this.getZ());
+        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
+                && !viewableWorld_1.isAir(entityPos)
+                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
+                && this.world.getLightLevel(lighto) < 9;
+
     }
 
 }

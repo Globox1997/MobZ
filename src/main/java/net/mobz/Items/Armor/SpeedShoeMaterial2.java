@@ -7,8 +7,8 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
 public class SpeedShoeMaterial2 implements ArmorMaterial {
-    private static final int[] BASE_DURABILITY = new int[] { 11, 12, 13, 10 };
-    private static final int[] PROTECTION_AMOUNTS = new int[] { 3, 3, 4, 2 };
+    private static final int[] BASE_DURABILITY = new int[] { 12, 13, 14, 11 };
+    private static final int[] PROTECTION_AMOUNTS = new int[] { 2, 3, 4, 2 };
 
     @Override
     public int getDurability(EquipmentSlot equipmentSlot) {

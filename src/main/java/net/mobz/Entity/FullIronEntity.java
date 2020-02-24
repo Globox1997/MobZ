@@ -29,8 +29,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ViewableWorld;
+
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import net.mobz.glomod;
 
 public class FullIronEntity extends ZombieEntity {
@@ -45,15 +46,28 @@ public class FullIronEntity extends ZombieEntity {
       this.setPathNodeTypeWeight(PathNodeType.LAVA, 8.0F);
    }
 
+   private void setPathNodeTypeWeight(PathNodeType lava, float f) {
+   }
+
+   public boolean canSpawn(WorldView viewableWorld_1) {
+      BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+      BlockPos lighto = new BlockPos(this.getX(), this.getY(), this.getZ());
+      return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
+            && !viewableWorld_1.isAir(entityPos)
+            && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
+            && this.world.isDay() && this.world.getLightLevel(lighto) > 7;
+
+   }
+
    protected void initEquipment(LocalDifficulty localDifficulty_1) {
       super.initEquipment(localDifficulty_1);
       if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
-         this.setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
-         this.setEquippedStack(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
-         this.setEquippedStack(EquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
-         this.setEquippedStack(EquipmentSlot.FEET, new ItemStack(Items.IRON_BOOTS));
-         this.setEquippedStack(EquipmentSlot.LEGS, new ItemStack(Items.IRON_LEGGINGS));
-         this.setEquippedStack(EquipmentSlot.HEAD, new ItemStack(Items.IRON_HELMET));
+         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
+         this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
+         this.equipStack(EquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
+         this.equipStack(EquipmentSlot.FEET, new ItemStack(Items.IRON_BOOTS));
+         this.equipStack(EquipmentSlot.LEGS, new ItemStack(Items.IRON_LEGGINGS));
+         this.equipStack(EquipmentSlot.HEAD, new ItemStack(Items.IRON_HELMET));
       }
    }
 
@@ -63,14 +77,6 @@ public class FullIronEntity extends ZombieEntity {
          this.angerTarget = livingEntity_1.getUuid();
       }
 
-   }
-
-   public boolean canSpawn(ViewableWorld viewableWorld_1) {
-      BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
-      return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
-            && !viewableWorld_1.isAir(entityPos)
-            && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-            && this.world.isDaylight();
    }
 
    protected void initCustomGoals() {

@@ -18,7 +18,6 @@ import net.mobz.Entity.*;
 import net.mobz.Items.*;
 import net.mobz.Items.Item.*;
 
-
 public class glomod implements ModInitializer {
 
         public static final EntityType<TankEntity> TANK = FabricEntityTypeBuilder
@@ -77,7 +76,7 @@ public class glomod implements ModInitializer {
                         .create(EntityCategory.MONSTER, Archer2Entity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
                         .build();
         public static final EntityType<BigBossEntity> BIGBOSSENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, BigBossEntity::new).size(EntityDimensions.fixed(1.2F, 3.9F))
+                        .create(EntityCategory.MONSTER, BigBossEntity::new).size(EntityDimensions.fixed(1.5F, 4.875F))
                         .build();
         public static final EntityType<KnightEntity> KNIGHTENTITY = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, KnightEntity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
@@ -92,7 +91,7 @@ public class glomod implements ModInitializer {
                         .create(EntityCategory.MONSTER, Mage2Entity::new).size(EntityDimensions.fixed(0.6F, 1.95F))
                         .build();
         public static final EntityType<SmallZombie> SMALLZOMBIE = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, SmallZombie::new).size(EntityDimensions.fixed(0.6F, 1.95F))
+                        .create(EntityCategory.MONSTER, SmallZombie::new).size(EntityDimensions.fixed(0.3F, 1.0F))
                         .build();
         public static final EntityType<FullIronEntity> FULLIRONENTITY = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, FullIronEntity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
@@ -112,7 +111,7 @@ public class glomod implements ModInitializer {
                         .create(EntityCategory.MONSTER, DwarfEntity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
                         .build();
         public static final EntityType<SpiSmall> SPISMALL = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, SpiSmall::new).size(EntityDimensions.fixed(1.4F, 0.9F)).build();
+                        .create(EntityCategory.MONSTER, SpiSmall::new).size(EntityDimensions.fixed(0.7F, 0.5F)).build();
         public static final EntityType<Blackbear> BLACKBEAR = FabricEntityTypeBuilder
                         .create(EntityCategory.CREATURE, Blackbear::new).size(EntityDimensions.fixed(1.25F, 1.3F))
                         .build();
@@ -128,12 +127,28 @@ public class glomod implements ModInitializer {
                         .create(EntityCategory.CREATURE, Boar2::new).size(EntityDimensions.fixed(0.9F, 0.9F)).build();
         public static final EntityType<Boar3> BOAR3 = FabricEntityTypeBuilder
                         .create(EntityCategory.CREATURE, Boar3::new).size(EntityDimensions.fixed(0.9F, 0.9F)).build();
-         public static final EntityType<FriendEntity> FRIEND = FabricEntityTypeBuilder
+        public static final EntityType<FriendEntity> FRIEND = FabricEntityTypeBuilder
                         .create(EntityCategory.CREATURE, FriendEntity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
                         .build();
-
-        public static final EntityType<Try> TRY = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Try::new)
-                        .size(EntityDimensions.fixed(0.6F, 1.95F)).build();
+        public static final EntityType<Knight3Entity> KNIGHT3ENTITY = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, Knight3Entity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
+                        .build();
+        public static final EntityType<Knight4Entity> KNIGHT4ENTITY = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, Knight4Entity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
+                        .build();
+        public static final EntityType<Knight5Entity> KNIGHT5ENTITY = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, Knight5Entity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
+                        .build();
+        public static final EntityType<WithEntity> WITHENTITY = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, WithEntity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
+                        .build();
+        public static final EntityType<skeli4> SKELI4 = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, skeli4::new).size(EntityDimensions.fixed(0.9F, 3.5F)).build();
+        public static final EntityType<Withender> WITHENDER = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, Withender::new).size(EntityDimensions.fixed(0.6F, 1.95F))
+                        .build();
+        public static final EntityType<Slimo> SLIMO = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Slimo::new)
+                        .size(EntityDimensions.fixed(2.04F, 2.04F)).build();
 
         public static final Identifier AMBIENTTANK = new Identifier("mobz:ambienttank");
         public static SoundEvent AMBIENTTANKEVENT = new SoundEvent(AMBIENTTANK);
@@ -221,12 +236,30 @@ public class glomod implements ModInitializer {
         public static SoundEvent BOARSAYEVENT = new SoundEvent(BOARSAY);
         public static final Identifier BOARDEATH = new Identifier("mobz:boardeath");
         public static SoundEvent BOARDEATHEVENT = new SoundEvent(BOARDEATH);
+        public static final Identifier WITHDEATH = new Identifier("mobz:withdeath");
+        public static SoundEvent WITHDEATHEVENT = new SoundEvent(WITHDEATH);
+        public static final Identifier WITHHURT = new Identifier("mobz:withhurt");
+        public static SoundEvent WITHHURTEVENT = new SoundEvent(WITHHURT);
+        public static final Identifier WITHIDLE = new Identifier("mobz:withidle");
+        public static SoundEvent WITHIDLEEVENT = new SoundEvent(WITHIDLE);
+        public static final Identifier DARKIDLE = new Identifier("mobz:darkidle");
+        public static SoundEvent DARKIDLEEVENT = new SoundEvent(DARKIDLE);
+        public static final Identifier DARKDEATH = new Identifier("mobz:darkdeath");
+        public static SoundEvent DARKDEATHEVENT = new SoundEvent(DARKDEATH);
+        public static final Identifier DARKHIT = new Identifier("mobz:darkhit");
+        public static SoundEvent DARKHITEVENT = new SoundEvent(DARKHIT);
+        public static final Identifier WHURT = new Identifier("mobz:whurt");
+        public static SoundEvent WHURTEVENT = new SoundEvent(WHURT);
+        public static final Identifier WDEATH = new Identifier("mobz:wdeath");
+        public static SoundEvent WDEATHEVENT = new SoundEvent(WDEATH);
+        public static final Identifier WGROWL = new Identifier("mobz:wgrowl");
+        public static SoundEvent WGROWLEVENT = new SoundEvent(WGROWL);
 
         public static final String MOD_ID = "mobz";
 
         public static final BossIngot BOSSBARREN = new BossIngot(new Item.Settings().group(glomod.MOBZ_GROUP));
         public static final WeirdIngot WEIRDINGOT = new WeirdIngot(
-                        new Item.Settings().maxCount(8).group(glomod.MOBZ_GROUP));
+                        new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
         public static final HardenedMetal HARDENEDMETAL = new HardenedMetal(
                         new Item.Settings().maxCount(64).group(glomod.MOBZ_GROUP));
         public static final MedivealDisc MEDIVEAL_DISC = new MedivealDisc(1, MEDIVEALSOUNDEVENT,
@@ -238,6 +271,10 @@ public class glomod implements ModInitializer {
         public static final Redd REDD = new Redd(new Item.Settings().group(glomod.MOBZ_GROUP));
         public static final Withermeal WITHERMEAL = new Withermeal(new Item.Settings().group(glomod.MOBZ_GROUP));
         public static final Bearleather BEARLEATHER = new Bearleather(new Item.Settings().group(glomod.MOBZ_GROUP));
+        public static final Sbow SBOW = new Sbow(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
+        public static final Orb ORB = new Orb(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
+        public static final Whitebag WHITEBAG = new Whitebag(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
+        public static final Storybook STORYBOOK = new Storybook(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
 
         public static final ItemGroup MOBZ_GROUP = FabricItemGroupBuilder.create(new Identifier("mobz", "glomod"))
                         .icon(() -> new ItemStack(SwordItems.ArmoredSword)).appendItems(stacks -> {
@@ -245,37 +282,56 @@ public class glomod implements ModInitializer {
                                 stacks.add(new ItemStack(SwordItems.PoisonSword));
                                 stacks.add(new ItemStack(SwordItems.FrozenSword));
                                 stacks.add(new ItemStack(SwordItems.WitherSword));
-                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(new ItemStack(SwordItems.VSword));
                                 stacks.add(new ItemStack(SwordItems.BossSword));
+                                stacks.add(new ItemStack(SwordItems.Sword));
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(new ItemStack(SwordItems.Axe));
+                                stacks.add(new ItemStack(glomod.SHIELD));
+                                stacks.add(new ItemStack(glomod.SBOW));
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(ItemStack.EMPTY);
                                 stacks.add(new ItemStack(ArmorItems.boss_helmet));
                                 stacks.add(new ItemStack(ArmorItems.boss_chestplate));
                                 stacks.add(new ItemStack(ArmorItems.boss_leggings));
                                 stacks.add(new ItemStack(ArmorItems.boss_boots));
-                                stacks.add(new ItemStack(glomod.BOSSBARREN));
                                 stacks.add(ItemStack.EMPTY);
                                 stacks.add(new ItemStack(ArmorItems.life_helmet));
                                 stacks.add(new ItemStack(ArmorItems.life_chestplate));
                                 stacks.add(new ItemStack(ArmorItems.life_leggings));
                                 stacks.add(new ItemStack(ArmorItems.life_boots));
-                                stacks.add(new ItemStack(glomod.HARDENEDMETAL));
-                                stacks.add(ItemStack.EMPTY);
-                                stacks.add(new ItemStack(ArmorItems.speed_boots));
-                                stacks.add(new ItemStack(ArmorItems.speed2_boots));
-                                stacks.add(new ItemStack(glomod.MEDIVEAL_DISC));
-                                stacks.add(new ItemStack(glomod.MEDIVEAL_DISC2));
-                                stacks.add(new ItemStack(SwordItems.Axe));
-                                stacks.add(new ItemStack(glomod.SHIELD));
-                                stacks.add(ItemStack.EMPTY);
                                 stacks.add(new ItemStack(ArmorItems.amat_helmet));
                                 stacks.add(new ItemStack(ArmorItems.amat_chestplate));
                                 stacks.add(new ItemStack(ArmorItems.amat_leggings));
                                 stacks.add(new ItemStack(ArmorItems.amat_boots));
-                                stacks.add(new ItemStack(glomod.REDD));
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(new ItemStack(ArmorItems.speed_boots));
+                                stacks.add(new ItemStack(ArmorItems.speed2_boots));
                                 stacks.add(new ItemStack(glomod.ROTTENFLESH));
                                 stacks.add(new ItemStack(glomod.WITHERMEAL));
-                                stacks.add(new ItemStack(glomod.WEIRDINGOT));
                                 stacks.add(new ItemStack(glomod.BEARLEATHER));
-                                stacks.add(new ItemStack(SwordItems.Sword));
+                                stacks.add(new ItemStack(glomod.HARDENEDMETAL));
+                                stacks.add(new ItemStack(glomod.REDD));
+                                stacks.add(new ItemStack(glomod.BOSSBARREN));
+                                stacks.add(new ItemStack(glomod.WEIRDINGOT));
+                                stacks.add(new ItemStack(glomod.ORB));
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(new ItemStack(glomod.MEDIVEAL_DISC));
+                                stacks.add(new ItemStack(glomod.MEDIVEAL_DISC2));
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(new ItemStack(glomod.STORYBOOK));
+                                stacks.add(new ItemStack(SwordItems.Debuger));
 
                         }).build();
 
@@ -320,8 +376,13 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "boar2_entity"), BOAR2);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "boar3_entity"), BOAR3);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "friend_entity"), FRIEND);
-
-                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "try_entity"), TRY);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "knight3_entity"), KNIGHT3ENTITY);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "knight4_entity"), KNIGHT4ENTITY);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "knight5_entity"), KNIGHT5ENTITY);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "with_entity"), WITHENTITY);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "skeli4_entity"), SKELI4);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "slimo_entity"), SLIMO);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "withender_entity"), WITHENDER);
 
                 Registry.register(Registry.SOUND_EVENT, glomod.AMBIENTTANK, AMBIENTTANKEVENT);
                 Registry.register(Registry.SOUND_EVENT, glomod.DEATHTANK, DEATHTANKEVENT);
@@ -366,6 +427,15 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.SOUND_EVENT, glomod.PBITE, PBITEEVENT);
                 Registry.register(Registry.SOUND_EVENT, glomod.BOARSAY, BOARSAYEVENT);
                 Registry.register(Registry.SOUND_EVENT, glomod.BOARDEATH, BOARDEATHEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.WITHDEATH, WITHDEATHEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.WITHHURT, WITHHURTEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.WITHIDLE, WITHIDLEEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.DARKDEATH, DARKDEATHEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.DARKHIT, DARKHITEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.DARKIDLE, DARKIDLEEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.WHURT, WHURTEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.WGROWL, WGROWLEVENT);
+                Registry.register(Registry.SOUND_EVENT, glomod.WDEATH, WDEATHEVENT);
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc"), MEDIVEAL_DISC);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc2"), MEDIVEAL_DISC2);
@@ -377,13 +447,17 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "redd"), REDD);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "withermeal"), WITHERMEAL);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "bearleather"), BEARLEATHER);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "sbow"), SBOW);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "orb"), ORB);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "whitebag"), WHITEBAG);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "storybook"), STORYBOOK);
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_tank"), new SpawnEggItem(TANK, 5055902,
                                 2507798, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_fast"), new SpawnEggItem(FAST, 6109639,
                                 2968097, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
-                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_test"),
-                                new SpawnEggItem(TEST, 0, 0, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_test"), new SpawnEggItem(TEST, 2039583,
+                                9109643, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_armored"), new SpawnEggItem(ARMORED,
                                 1397590, 3165729, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_boss"), new SpawnEggItem(BOSS, 1181988,
@@ -459,9 +533,23 @@ public class glomod implements ModInitializer {
                                 13284514, 2890508, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_friend"), new SpawnEggItem(FRIEND,
                                 11123336, 15043903, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
-
-                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_try"), new SpawnEggItem(TRY, 15720703, 0,
-                                new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_knight3"),
+                                new SpawnEggItem(KNIGHT3ENTITY, 2303296, 11497623,
+                                                new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_knight4"),
+                                new SpawnEggItem(KNIGHT4ENTITY, 2120818, 12160610,
+                                                new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_knight5"),
+                                new SpawnEggItem(KNIGHT5ENTITY, 1118487, 5000017,
+                                                new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_with"), new SpawnEggItem(WITHENTITY,
+                                1841947, 8157561, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_skeli4"), new SpawnEggItem(SKELI4,
+                                4079166, 11776947, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_slimo"), new SpawnEggItem(SLIMO, 7121986,
+                                7951674, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_withender"), new SpawnEggItem(WITHENDER,
+                                11797152, 1710618, new Item.Settings().maxCount(64).group(ItemGroup.MISC)));
 
                 SwordItems.init();
                 ArmorItems.init();

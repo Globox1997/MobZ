@@ -27,6 +27,8 @@ public class birchglo extends Biome {
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BOAR3, 5, 2, 4));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BROWNBEAR, 10, 1, 2));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BLACKBEAR, 10, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHT4ENTITY, 5, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI4, 15, 1, 4));
 	}
 
 }

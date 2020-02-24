@@ -21,7 +21,7 @@ public class DwarfEntityRenderer extends BipedEntityRenderer<DwarfEntity, Player
     }
 
     @Override
-    protected Identifier getTexture(DwarfEntity dwarfentitye) {
+    public Identifier getTexture(DwarfEntity dwarfentitye) {
         return new Identifier("mobz:textures/entity/dwarf.png");
     }
 }

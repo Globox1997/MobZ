@@ -24,12 +24,14 @@ public class plainsglo extends Biome {
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ARMORED, 5, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SPI, 15, 1, 3));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI2, 15, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHT2ENTITY, 15, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHT2ENTITY, 10, 1, 1));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BOAR, 5, 2, 4));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BOAR3, 2, 2, 4));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BOAR2, 2, 2, 4));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BROWNBEAR, 2, 1, 2));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BLACKBEAR, 2, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHT3ENTITY, 1, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SLIMO, 1, 1, 2));
 
 	}
 

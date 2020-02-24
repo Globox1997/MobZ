@@ -23,11 +23,12 @@ public class riverglo extends Biome {
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.CREEP, 10, 1, 2));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SPI, 15, 1, 3));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI2, 15, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHT2ENTITY, 15, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHT2ENTITY, 10, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.STONEGOLEM, 10, 1, 1));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BOAR, 10, 2, 4));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BOAR3, 5, 2, 4));
 		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.FRIEND, 1, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.SKELI4, 15, 1, 4));
 	}
 	
 }

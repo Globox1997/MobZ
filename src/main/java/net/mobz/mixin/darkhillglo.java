@@ -28,6 +28,7 @@ public class darkhillglo extends Biome {
         this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BOAR3, 10, 2, 4));
         this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BROWNBEAR, 10, 1, 2));
         this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(glomod.BLACKBEAR, 10, 1, 2));
+        this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHT5ENTITY, 5, 1, 1));
     }
 
 }

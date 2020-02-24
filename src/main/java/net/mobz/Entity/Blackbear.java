@@ -13,7 +13,6 @@ import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ItemEntity;
@@ -52,6 +51,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import net.mobz.glomod;
 
 public class Blackbear extends PandaEntity {
@@ -79,6 +79,13 @@ public class Blackbear extends PandaEntity {
       if (!this.isBaby()) {
          this.setCanPickUpLoot(true);
       }
+
+   }
+
+   public boolean canSpawn(WorldView viewableWorld_1) {
+      BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+      return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
+            && !viewableWorld_1.isAir(entityPos);
 
    }
 
@@ -243,7 +250,7 @@ public class Blackbear extends PandaEntity {
    public void tick() {
       super.tick();
       if (this.isWorried()) {
-         if (this.world.isThundering() && !this.isInsideWater()) {
+         if (this.world.isThundering() && !this.isInsideWall()) {
             this.setScared(true);
             this.setEating(false);
          } else if (!this.isEating()) {
@@ -311,7 +318,7 @@ public class Blackbear extends PandaEntity {
          if (!this.world.isClient && this.getEatingTicks() > 80 && this.random.nextInt(20) == 1) {
             if (this.getEatingTicks() > 100 && this.canEat(this.getEquippedStack(EquipmentSlot.MAINHAND))) {
                if (!this.world.isClient) {
-                  this.setEquippedStack(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
+                  this.equipStack(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
                }
 
                this.setScared(false);
@@ -339,8 +346,8 @@ public class Blackbear extends PandaEntity {
             double double_1 = (double) (-this.random.nextFloat()) * 0.6D - 0.3D;
             Vec3d vec3d_2 = new Vec3d(((double) this.random.nextFloat() - 0.5D) * 0.8D, double_1,
                   1.0D + ((double) this.random.nextFloat() - 0.5D) * 0.4D);
-            vec3d_2 = vec3d_2.rotateY(-this.field_6283 * 0.017453292F);
-            vec3d_2 = vec3d_2.add(this.x, this.y + (double) this.getStandingEyeHeight() + 1.0D, this.z);
+            vec3d_2 = vec3d_2.rotateY(-this.bodyYaw * 0.017453292F);
+            vec3d_2 = vec3d_2.add(this.getX(), this.getEyeY() + 1.0D, this.getZ());
             this.world.addParticle(
                   new ItemStackParticleEffect(ParticleTypes.ITEM, this.getEquippedStack(EquipmentSlot.MAINHAND)),
                   vec3d_2.x, vec3d_2.y, vec3d_2.z, vec3d_1.x, vec3d_1.y + 0.05D, vec3d_1.z);
@@ -421,17 +428,20 @@ public class Blackbear extends PandaEntity {
    private void sneeze() {
       Vec3d vec3d_1 = this.getVelocity();
       this.world.addParticle(ParticleTypes.SNEEZE,
-            this.x - (double) (this.getWidth() + 1.0F) * 0.5D * (double) MathHelper.sin(this.field_6283 * 0.017453292F),
-            this.y + (double) this.getStandingEyeHeight() - 0.10000000149011612D,
-            this.z + (double) (this.getWidth() + 1.0F) * 0.5D * (double) MathHelper.cos(this.field_6283 * 0.017453292F),
+            this.getX()
+                  - (double) (this.getWidth() + 1.0F) * 0.5D * (double) MathHelper.sin(this.bodyYaw * 0.017453292F),
+            this.getEyeY() - 0.10000000149011612D,
+            this.getZ()
+                  + (double) (this.getWidth() + 1.0F) * 0.5D * (double) MathHelper.cos(this.bodyYaw * 0.017453292F),
             vec3d_1.x, 0.0D, vec3d_1.z);
-      this.playSound(glomod.NOTHINGEVENT, 1.0F, 1.0F);
-      List<Blackbear> list_1 = this.world.getEntities(Blackbear.class, this.getBoundingBox().expand(10.0D));
+      this.playSound(SoundEvents.ENTITY_PANDA_SNEEZE, 1.0F, 1.0F);
+      List<Blackbear> list_1 = this.world.getNonSpectatingEntities(Blackbear.class,
+            this.getBoundingBox().expand(10.0D));
       Iterator var3 = list_1.iterator();
 
       while (var3.hasNext()) {
          Blackbear Blackbear_1 = (Blackbear) var3.next();
-         if (!Blackbear_1.isBaby() && Blackbear_1.onGround && !Blackbear_1.isInsideWater()
+         if (!Blackbear_1.isBaby() && Blackbear_1.onGround && !Blackbear_1.isInsideWall()
                && Blackbear_1.method_18442()) {
             Blackbear_1.jump();
          }
@@ -447,7 +457,7 @@ public class Blackbear extends PandaEntity {
    protected void loot(ItemEntity itemEntity_1) {
       if (this.getEquippedStack(EquipmentSlot.MAINHAND).isEmpty() && IS_FOOD.test(itemEntity_1)) {
          ItemStack itemStack_1 = itemEntity_1.getStack();
-         this.setEquippedStack(EquipmentSlot.MAINHAND, itemStack_1);
+         this.equipStack(EquipmentSlot.MAINHAND, itemStack_1);
          this.handDropChances[EquipmentSlot.MAINHAND.getEntitySlotId()] = 2.0F;
          this.sendPickup(itemEntity_1, itemStack_1.getCount());
          itemEntity_1.remove();
@@ -582,7 +592,7 @@ public class Blackbear extends PandaEntity {
       }
 
       public boolean shouldContinue() {
-         if (!this.panda.isInsideWater() && (this.panda.isLazy() || this.panda.random.nextInt(600) != 1)) {
+         if (!this.panda.isInsideWall() && (this.panda.isLazy() || this.panda.random.nextInt(600) != 1)) {
             return this.panda.random.nextInt(2000) != 1;
          } else {
             return false;
@@ -758,16 +768,6 @@ public class Blackbear extends PandaEntity {
 
       public boolean canStart() {
          return this.panda.method_18442() && super.canStart();
-      }
-   }
-
-   static class SpawnData implements EntityData {
-      private SpawnData() {
-      }
-
-      // $FF: synthetic method
-      SpawnData(Object Blackbear$1_1) {
-         this();
       }
    }
 

@@ -8,7 +8,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import net.mobz.glomod;
 
 public class Boar3 extends PigEntity {
@@ -20,6 +22,13 @@ public class Boar3 extends PigEntity {
 
     public boolean canBeControlledByRider() {
         return false;
+    }
+
+    public boolean canSpawn(WorldView viewableWorld_1) {
+        BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
+                && !viewableWorld_1.isAir(entityPos);
+
     }
 
     protected SoundEvent getAmbientSound() {
@@ -42,13 +51,12 @@ public class Boar3 extends PigEntity {
         return (Boar3) glomod.BOAR3.create(this.world);
     }
 
-    public boolean isBreedingItem(ItemStack itemStack_1) {
-        return BREEDING_INGREDIENT.method_8093(itemStack_1);
+    public Boar3 createChild(PassiveEntity passiveEntity) {
+        return (Boar3) glomod.BOAR3.create(this.world);
     }
 
-    // $FF: synthetic method
-    public PassiveEntity createChild(PassiveEntity var1) {
-        return this.method_6574(var1);
+    public boolean isBreedingItem(ItemStack stack) {
+        return BREEDING_INGREDIENT.test(stack);
     }
 
     static {

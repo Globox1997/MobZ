@@ -17,7 +17,7 @@ public class SpoRenderer extends SpiderEntityRenderer<SpoEntity> {
         this.addFeature(new SpoEye(this));
     }
 
-    protected Identifier getTexture(SpoEntity spoEntity) {
+    public Identifier getTexture(SpoEntity spoEntity) {
         return new Identifier("mobz:textures/entity/spo.png");
     }
 }

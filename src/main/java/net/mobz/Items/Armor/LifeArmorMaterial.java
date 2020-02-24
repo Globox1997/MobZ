@@ -8,8 +8,8 @@ import net.minecraft.sound.SoundEvents;
 import net.mobz.glomod;
 
 public class LifeArmorMaterial implements ArmorMaterial {
-    private static final int[] BASE_DURABILITY = new int[] { 12, 14, 15, 10 };
-    private static final int[] PROTECTION_AMOUNTS = new int[] { 2, 5, 6, 2 };
+    private static final int[] BASE_DURABILITY = new int[] { 16, 18, 20, 14 };
+    private static final int[] PROTECTION_AMOUNTS = new int[] { 2, 4, 5, 2 };
 
     @Override
     public int getDurability(EquipmentSlot equipmentSlot) {

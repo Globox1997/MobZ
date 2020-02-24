@@ -14,11 +14,11 @@ import net.minecraft.util.Identifier;
 public class Archer2Renderer extends BipedEntityRenderer<Archer2Entity, PlayerEntityModel<Archer2Entity>> {
 
     public Archer2Renderer(EntityRenderDispatcher dispatcher) {
-        super(dispatcher, new PlayerEntityModel(0.0F,false), 0.5F);
+        super(dispatcher, new PlayerEntityModel(0.0F, false), 0.5F);
     }
 
     @Override
-    protected Identifier getTexture(Archer2Entity archer2) {
-        return new Identifier("mobz:textures/entity/archer2.png");
+    public Identifier getTexture(Archer2Entity archer2) {
+        return new Identifier("mobz", "textures/entity/archer2.png");
     }
 }

@@ -18,7 +18,7 @@ public class IllusionerRenderer extends EvokerIllagerEntityRenderer<Illusioner> 
     }
 
     @Override
-    protected Identifier getTexture(Illusioner illusioner) {
+    public Identifier getTexture(Illusioner illusioner) {
         return new Identifier("mobz:textures/entity/illusioner.png");
     }
 

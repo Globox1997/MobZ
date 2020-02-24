@@ -24,7 +24,7 @@ public class Rottenflesh extends Item {
     int randomNumber = random.nextInt() % 2;
     if (!world.isClient && randomNumber == 0) {
       StatusEffectInstance hunger = new StatusEffectInstance(StatusEffect.byRawId(17), 600, 0, true, false);
-      entity.addPotionEffect(hunger);
+      entity.addStatusEffect(hunger);
     } else {
 
     }

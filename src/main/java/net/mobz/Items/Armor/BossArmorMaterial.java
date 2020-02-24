@@ -8,7 +8,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
 public class BossArmorMaterial implements ArmorMaterial {
-    private static final int[] BASE_DURABILITY = new int[] { 15, 17, 18, 13 };
+    private static final int[] BASE_DURABILITY = new int[] { 18, 20, 22, 16 };
     private static final int[] PROTECTION_AMOUNTS = new int[] { 4, 7, 9, 4 };
 
     @Override

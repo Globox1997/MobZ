@@ -17,8 +17,8 @@ public class endglo extends Biome {
 	
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ENDER, 20, 1, 3));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ENDERZOMBIE, 20, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ENDER, 15, 1, 3));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ENDERZOMBIE, 10, 1, 4));
 
 	}
 	

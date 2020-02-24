@@ -20,7 +20,7 @@ public class FriendRenderer extends BipedEntityRenderer<FriendEntity, PlayerEnti
     }
 
     @Override
-    protected Identifier getTexture(FriendEntity FriendEntitye) {
+    public Identifier getTexture(FriendEntity FriendEntitye) {
         return new Identifier("mobz:textures/entity/friend.png");
     }
 

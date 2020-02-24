@@ -1,0 +1,43 @@
+{
+	"type": "minecraft:entity",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 1,
+								"p": 0.05,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "mobz:v_sword"
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 3,
+								"p": 0.5,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "minecraft:bone"
+				}
+			]
+		}
+	]
+}

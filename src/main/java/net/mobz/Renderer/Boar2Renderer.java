@@ -16,7 +16,7 @@ public class Boar2Renderer extends MobEntityRenderer<Boar2, PigEntityModel<Boar2
     }
 
     @Override
-    protected Identifier getTexture(Boar2 boared) {
+    public Identifier getTexture(Boar2 boared) {
         return new Identifier("mobz:textures/entity/badboar.png");
     }
 

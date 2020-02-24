@@ -5,6 +5,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.render.entity.model.PigEntityModel;
+import net.minecraft.client.render.entity.PigEntityRenderer;
 import net.minecraft.util.Identifier;
 import net.mobz.Entity.Boar;
 
@@ -16,7 +17,7 @@ public class BoarRenderer extends MobEntityRenderer<Boar, PigEntityModel<Boar>> 
     }
 
     @Override
-    protected Identifier getTexture(Boar boar) {
+    public Identifier getTexture(Boar boar) {
         return new Identifier("mobz:textures/entity/boar.png");
     }
 

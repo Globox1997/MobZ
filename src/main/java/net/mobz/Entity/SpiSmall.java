@@ -1,14 +1,21 @@
 package net.mobz.Entity;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.CaveSpiderEntity;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.Difficulty;
-import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
 
 public class SpiSmall extends CaveSpiderEntity {
+
+    private MobEntity owner;
+    private BlockPos bounds;
+    private int lifeTicks;
+    private boolean alive;
+
     public SpiSmall(EntityType<? extends CaveSpiderEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -18,14 +25,30 @@ public class SpiSmall extends CaveSpiderEntity {
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(6.0D);
     }
 
-    public boolean canSpawn(ViewableWorld viewableWorld_1) {
-        BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
-        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
-                && !viewableWorld_1.isAir(entityPos)
-                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL;
+    public void setLifeTicks(int lifeTicks) {
+        this.alive = true;
+        this.lifeTicks = lifeTicks;
     }
 
-    public void setLifeTicks(int i) {
-        i = 20;
+    public void tick() {
+        super.tick();
+        if (this.alive && --this.lifeTicks <= 0) {
+            this.lifeTicks = 20;
+            this.damage(DamageSource.STARVE, 1.0F);
+        }
+
     }
+
+    public boolean tryAttack(Entity target) {
+        return true;
+    }
+
+    public void setOwner(MobEntity owner) {
+        this.owner = owner;
+    }
+
+    public void setBounds(@Nullable BlockPos pos) {
+        this.bounds = pos;
+    }
+
 }

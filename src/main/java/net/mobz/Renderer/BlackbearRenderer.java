@@ -16,7 +16,7 @@ public class BlackbearRenderer extends MobEntityRenderer<Blackbear, PandaEntityM
     }
 
     @Override
-    protected Identifier getTexture(Blackbear Blackbear) {
+    public Identifier getTexture(Blackbear Blackbear) {
         return new Identifier("mobz:textures/entity/blackbear.png");
     }
 

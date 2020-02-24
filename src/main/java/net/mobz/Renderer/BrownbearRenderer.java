@@ -16,7 +16,7 @@ public class BrownbearRenderer extends MobEntityRenderer<Brownbear, PolarBearEnt
     }
 
     @Override
-    protected Identifier getTexture(Brownbear brownbear) {
+    public Identifier getTexture(Brownbear brownbear) {
         return new Identifier("mobz:textures/entity/brownbear.png");
     }
 

@@ -20,7 +20,7 @@ public class FullIronRenderer extends BipedEntityRenderer<FullIronEntity, Player
     }
 
     @Override
-    protected Identifier getTexture(FullIronEntity fullironEntitye) {
+    public Identifier getTexture(FullIronEntity fullironEntitye) {
         return new Identifier("mobz:textures/entity/fulliron.png");
     }
 

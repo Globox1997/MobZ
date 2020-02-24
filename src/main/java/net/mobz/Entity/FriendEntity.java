@@ -50,12 +50,10 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Difficulty;
-import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import net.mobz.glomod;
 import net.mobz.Items.SwordItems;
-
-
 
 public class FriendEntity extends TameableEntity {
     private static final TrackedData<Float> ALEX_HEALTH;
@@ -67,27 +65,29 @@ public class FriendEntity extends TameableEntity {
 
     public FriendEntity(EntityType<? extends FriendEntity> entityType_1, World world_1) {
         super(entityType_1, world_1);
-        
+
         this.setTamed(false);
-        this.setEquippedStack(EquipmentSlot.HEAD,new ItemStack(Items.LEATHER_HELMET));
-        this.setEquippedStack(EquipmentSlot.CHEST,new ItemStack(Items.LEATHER_CHESTPLATE));
-        this.setEquippedStack(EquipmentSlot.LEGS,new ItemStack(Items.LEATHER_LEGGINGS));
-        this.setEquippedStack(EquipmentSlot.FEET,new ItemStack(Items.LEATHER_BOOTS));
-        this.setEquippedStack(EquipmentSlot.MAINHAND,new ItemStack(SwordItems.ArmoredSword));
-      
-      
- 
-         
+        this.equipStack(EquipmentSlot.HEAD, new ItemStack(Items.LEATHER_HELMET));
+        this.equipStack(EquipmentSlot.CHEST, new ItemStack(Items.LEATHER_CHESTPLATE));
+        this.equipStack(EquipmentSlot.LEGS, new ItemStack(Items.LEATHER_LEGGINGS));
+        this.equipStack(EquipmentSlot.FEET, new ItemStack(Items.LEATHER_BOOTS));
+        this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.ArmoredSword));
+
     }
 
+    public boolean canSpawn(WorldView viewableWorld_1) {
+        BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
+                && !viewableWorld_1.isAir(entityPos)
+                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
+                && this.world.isDay();
+
+    }
 
     @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }
-    
-
-
 
     protected void initGoals() {
         this.sitGoal = new SitGoal(this);
@@ -95,7 +95,7 @@ public class FriendEntity extends TameableEntity {
         this.goalSelector.add(2, this.sitGoal);
         this.goalSelector.add(4, new PounceAtTargetGoal(this, 0.4F));
         this.goalSelector.add(5, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.add(6, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F));
+        this.goalSelector.add(6, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
         this.goalSelector.add(7, new AnimalMateGoal(this, 1.0D));
         this.goalSelector.add(8, new WanderAroundFarGoal(this, 1.0D));
         this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
@@ -115,7 +115,7 @@ public class FriendEntity extends TameableEntity {
             this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D);
         }
 
-        this.getAttributeContainer().register(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
+        this.getAttributes().register(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
     }
 
     public void setTarget(@Nullable LivingEntity livingEntity_1) {
@@ -127,16 +127,6 @@ public class FriendEntity extends TameableEntity {
         }
 
     }
-
-
-
- public boolean canSpawn(ViewableWorld viewableWorld_1) {
-    BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
-    return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
-          && !viewableWorld_1.isAir(entityPos)
-          && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-          && this.world.isDaylight();
- }
 
     protected void mobTick() {
         this.dataTracker.set(ALEX_HEALTH, this.getHealth());
@@ -162,7 +152,7 @@ public class FriendEntity extends TameableEntity {
     public void readCustomDataFromTag(CompoundTag compoundTag_1) {
         super.readCustomDataFromTag(compoundTag_1);
         this.setAngry(compoundTag_1.getBoolean("Angry"));
-        if (compoundTag_1.containsKey("CollarColor", 99)) {
+        if (compoundTag_1.contains("CollarColor", 99)) {
             this.setCollarColor(DyeColor.byId(compoundTag_1.getInt("CollarColor")));
         }
 
@@ -179,15 +169,14 @@ public class FriendEntity extends TameableEntity {
     protected float getSoundVolume() {
         return 0.4F;
     }
-    
+
     public void setOwner(PlayerEntity playerEntity_1) {
         this.setTamed(true);
         this.setOwnerUuid(playerEntity_1.getUuid());
-  
-     }
+
+    }
 
     public void onDeath(DamageSource damageSource_1) {
-   
 
         super.onDeath(damageSource_1);
     }
@@ -290,7 +279,7 @@ public class FriendEntity extends TameableEntity {
                     this.setHealth(30.0F);
                     this.showEmoteParticle(true);
                     this.world.sendEntityStatus(this, (byte) 7);
-                    
+
                 } else {
                     this.showEmoteParticle(false);
                     this.world.sendEntityStatus(this, (byte) 6);
@@ -302,23 +291,26 @@ public class FriendEntity extends TameableEntity {
 
         return super.interactMob(playerEntity_1, hand_1);
     }
-    
-   protected void showEmoteParticle(boolean boolean_1) {
-    ParticleEffect particleEffect_1 = ParticleTypes.HAPPY_VILLAGER;
-    if (!boolean_1) {
-       particleEffect_1 = ParticleTypes.SMOKE;
+
+    protected void showEmoteParticle(boolean boolean_1) {
+        ParticleEffect particleEffect_1 = ParticleTypes.HAPPY_VILLAGER;
+        if (!boolean_1) {
+            particleEffect_1 = ParticleTypes.SMOKE;
+        }
+
+        for (int int_1 = 0; int_1 < 7; ++int_1) {
+            double double_1 = this.random.nextGaussian() * 0.02D;
+            double double_2 = this.random.nextGaussian() * 0.02D;
+            double double_3 = this.random.nextGaussian() * 0.02D;
+            this.world.addParticle(particleEffect_1,
+                    this.getX() + (double) (this.random.nextFloat() * this.getWidth() * 2.0F)
+                            - (double) this.getWidth(),
+                    this.getY() + 0.5D + (double) (this.random.nextFloat() * this.getHeight()), this.getZ()
+                            + (double) (this.random.nextFloat() * this.getWidth() * 2.0F) - (double) this.getWidth(),
+                    double_1, double_2, double_3);
+        }
+
     }
-
-    for(int int_1 = 0; int_1 < 7; ++int_1) {
-       double double_1 = this.random.nextGaussian() * 0.02D;
-       double double_2 = this.random.nextGaussian() * 0.02D;
-       double double_3 = this.random.nextGaussian() * 0.02D;
-       this.world.addParticle(particleEffect_1, this.x + (double)(this.random.nextFloat() * this.getWidth() * 2.0F) - (double)this.getWidth(), this.y + 0.5D + (double)(this.random.nextFloat() * this.getHeight()), this.z + (double)(this.random.nextFloat() * this.getWidth() * 2.0F) - (double)this.getWidth(), double_1, double_2, double_3);
-    }
-
- }
-
-
 
     @Environment(EnvType.CLIENT)
     public float method_6714() {
@@ -326,12 +318,10 @@ public class FriendEntity extends TameableEntity {
             return 1.5393804F;
         } else {
             return this.isTamed()
-                    ? (0.55F - (this.getHealthMaximum() - (Float) this.dataTracker.get(ALEX_HEALTH)) * 0.02F)
-                            * 3.1415927F
+                    ? (0.55F - (this.getHealth() - (Float) this.dataTracker.get(ALEX_HEALTH)) * 0.02F) * 3.1415927F
                     : 0.62831855F;
         }
     }
-
 
     public int getLimitPerChunk() {
         return 8;
@@ -374,8 +364,6 @@ public class FriendEntity extends TameableEntity {
         this.dataTracker.set(BEGGING, boolean_1);
     }
 
-
-
     public boolean isBegging() {
         return (Boolean) this.dataTracker.get(BEGGING);
     }
@@ -410,10 +398,6 @@ public class FriendEntity extends TameableEntity {
         return this.method_6717(var1);
     }
 
-
-
-
-
     static {
         ALEX_HEALTH = DataTracker.registerData(FriendEntity.class, TrackedDataHandlerRegistry.FLOAT);
         BEGGING = DataTracker.registerData(FriendEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -424,8 +408,5 @@ public class FriendEntity extends TameableEntity {
                     || entityType_1 == EntityType.FOX;
         };
     }
-
-
-
 
 }

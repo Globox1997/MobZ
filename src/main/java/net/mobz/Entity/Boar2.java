@@ -7,7 +7,9 @@ import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import net.mobz.glomod;
 
 public class Boar2 extends PigEntity {
@@ -26,6 +28,13 @@ public class Boar2 extends PigEntity {
         return false;
     }
 
+    public boolean canSpawn(WorldView viewableWorld_1) {
+        BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
+                && !viewableWorld_1.isAir(entityPos);
+
+    }
+
     public boolean isSaddled() {
         return false;
     }
@@ -34,13 +43,12 @@ public class Boar2 extends PigEntity {
         return (Boar2) glomod.BOAR2.create(this.world);
     }
 
-    public boolean isBreedingItem(ItemStack itemStack_1) {
-        return BREEDING_INGREDIENT.method_8093(itemStack_1);
+    public boolean isBreedingItem(ItemStack stack) {
+        return BREEDING_INGREDIENT.test(stack);
     }
 
-    // $FF: synthetic method
-    public PassiveEntity createChild(PassiveEntity var1) {
-        return this.method_6574(var1);
+    public Boar2 createChild(PassiveEntity passiveEntity) {
+        return (Boar2) glomod.BOAR2.create(this.world);
     }
 
     static {

@@ -18,7 +18,7 @@ public class MageRenderer extends EvokerIllagerEntityRenderer<MageEntity> {
     }
 
     @Override
-    protected Identifier getTexture(MageEntity mageentity) {
+    public Identifier getTexture(MageEntity mageentity) {
         return new Identifier("mobz:textures/entity/mageentity.png");
     }
 }

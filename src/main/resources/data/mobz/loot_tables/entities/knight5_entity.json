@@ -1,0 +1,62 @@
+{
+	"type": "minecraft:entity",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 9,
+								"p": 0.7,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "minecraft:gold_nugget"
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 1,
+								"p": 0.3,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "mobz:wither_sword"
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"n": 1,
+								"p": 0.000001,
+								"type": "minecraft:binomial"
+							}
+						}
+					],
+					"name": "mobz:whitebag"
+				}
+			]
+		}
+	]
+}

@@ -21,7 +21,7 @@ public class KnightRenderer extends BipedEntityRenderer<KnightEntity, PlayerEnti
     }
 
     @Override
-    protected Identifier getTexture(KnightEntity knightentitye) {
+    public Identifier getTexture(KnightEntity knightentitye) {
         return new Identifier("mobz:textures/entity/knightentity.png");
     }
 }

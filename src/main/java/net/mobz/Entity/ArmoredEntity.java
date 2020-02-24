@@ -12,12 +12,13 @@ import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ViewableWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 
 public class ArmoredEntity extends ZombieEntity {
    public ArmoredEntity(EntityType<? extends ZombieEntity> entityType, World world) {
       super(entityType, world);
+      this.experiencePoints = 20;
    }
 
    protected void initAttributes() {
@@ -32,36 +33,40 @@ public class ArmoredEntity extends ZombieEntity {
    protected void initEquipment(LocalDifficulty localDifficulty_1) {
       super.initEquipment(localDifficulty_1);
       if (this.world.getDifficulty() == Difficulty.NORMAL) {
-         this.setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.ArmoredSword));
-         this.setEquippedStack(EquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
-         this.setEquippedStack(EquipmentSlot.FEET, new ItemStack(Items.IRON_BOOTS));
+         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.ArmoredSword));
+         this.equipStack(EquipmentSlot.CHEST, new ItemStack(Items.IRON_CHESTPLATE));
+         this.equipStack(EquipmentSlot.FEET, new ItemStack(Items.IRON_BOOTS));
       } else {
          if (this.world.getDifficulty() == Difficulty.EASY) {
-            this.setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.ArmoredSword));
-            this.setEquippedStack(EquipmentSlot.CHEST, new ItemStack(Items.LEATHER_CHESTPLATE));
-            this.setEquippedStack(EquipmentSlot.FEET, new ItemStack(Items.LEATHER_BOOTS));
+            this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.ArmoredSword));
+            this.equipStack(EquipmentSlot.CHEST, new ItemStack(Items.LEATHER_CHESTPLATE));
+            this.equipStack(EquipmentSlot.FEET, new ItemStack(Items.LEATHER_BOOTS));
          } else {
             if (this.world.getDifficulty() == Difficulty.HARD) {
-               this.setEquippedStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.ArmoredSword));
-               this.setEquippedStack(EquipmentSlot.CHEST, new ItemStack(Items.DIAMOND_CHESTPLATE));
-               this.setEquippedStack(EquipmentSlot.FEET, new ItemStack(Items.DIAMOND_BOOTS));
+               this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.ArmoredSword));
+               this.equipStack(EquipmentSlot.CHEST, new ItemStack(Items.DIAMOND_CHESTPLATE));
+               this.equipStack(EquipmentSlot.FEET, new ItemStack(Items.DIAMOND_BOOTS));
             } else {
             }
          }
       }
    }
 
-   public boolean canSpawn(ViewableWorld viewableWorld_1) {
-      BlockPos entityPos = new BlockPos(this.x, this.y - 1, this.z);
-      return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.intersectsFluid(this.getBoundingBox())
+   protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
+      return;
+   }
+
+   public boolean canSpawn(WorldView viewableWorld_1) {
+      BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+      BlockPos lighto = new BlockPos(this.getX(), this.getY(), this.getZ());
+      return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-            && !this.world.isDaylight();
+            && this.world.isNight() && this.world.getLightLevel(lighto) <= 7;
 
    }
 
-   @Override
-   protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
-      return;
+   public boolean isBaby() {
+      return false;
    }
 }

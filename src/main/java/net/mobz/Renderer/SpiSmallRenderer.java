@@ -1,31 +1,29 @@
+
 package net.mobz.Renderer;
 
-import net.mobz.Entity.*;
-
-import net.fabricmc.api.Environment;
-
-import com.mojang.blaze3d.platform.GlStateManager;
-
 import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.SpiderEntityRenderer;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
+import net.mobz.Entity.SpiSmall;
 
 @Environment(EnvType.CLIENT)
 public class SpiSmallRenderer extends SpiderEntityRenderer<SpiSmall> {
 
-    public SpiSmallRenderer(EntityRenderDispatcher dispatcher) {
-        super(dispatcher);
-        this.field_4673 *= 0.7F;
+   public SpiSmallRenderer(EntityRenderDispatcher dispatcher) {
+      super(dispatcher);
+      this.shadowSize *= 0.7F;
+   }
 
-    }
+   protected void scale(SpiSmall caveSpiderEntity, MatrixStack matrixStack, float f) {
+      matrixStack.scale(0.7F, 0.7F, 0.7F);
+   }
 
-    protected void method_3886(SpiSmall caveSpiderEntity_1, float float_1) {
-        GlStateManager.scalef(0.7F, 0.7F, 0.7F);
-    }
-
-    protected Identifier getTexture(SpiSmall SpiSmalll) {
-        return new Identifier("mobz:textures/entity/spismall.png");
-    }
+   @Override
+   public Identifier getTexture(SpiSmall SpiSmalll) {
+      return new Identifier("mobz:textures/entity/spismall.png");
+   }
 
 }

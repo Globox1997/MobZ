@@ -1,25 +1,25 @@
 package net.mobz.Renderer;
 
-import net.mobz.Entity.*;
-
-import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.BipedEntityRenderer;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.feature.ArmorBipedFeatureRenderer;
 import net.minecraft.client.render.entity.model.ZombieEntityModel;
+import net.mobz.Entity.*;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class BossRenderer extends BipedEntityRenderer<BossEntity, ZombieEntityModel<BossEntity>> {
-    public BossRenderer(EntityRenderDispatcher dispatcher) {
-        super(dispatcher, new ZombieEntityModel<>(), 0.5F);
-        this.addFeature(new ArmorBipedFeatureRenderer(this, new ZombieEntityModel(0.5F, true),new ZombieEntityModel(1.0F, true)));
-    }
+   private static final Identifier SKIN = new Identifier("mobz:textures/entity/boss.png");
 
-    @Override
-    protected Identifier getTexture(BossEntity bossEntity) {
-        return new Identifier("mobz:textures/entity/boss.png");
-    }
+   public BossRenderer(EntityRenderDispatcher entityRenderDispatcher) {
+      super(entityRenderDispatcher, new ZombieEntityModel(0.0F, false), 0.5F);
+      this.addFeature(
+            new ArmorBipedFeatureRenderer(this, new ZombieEntityModel(0.5F, true), new ZombieEntityModel(1.0F, true)));
+   }
 
+   public Identifier getTexture(BossEntity Bossy) {
+      return SKIN;
+   }
 }

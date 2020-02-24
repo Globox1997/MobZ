@@ -27,5 +27,7 @@ public class badplatoglo extends Biome {
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHT2ENTITY, 15, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ARCHERENTITY, 15, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.ILLUSIONER, 5, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.KNIGHT3ENTITY, 5, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(glomod.WITHENDER, 1, 1, 1));
 }
 }

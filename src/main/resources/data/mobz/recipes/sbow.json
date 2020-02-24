@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      " df",
+      "e f",
+      " df"
+    ],
+    "key": {
+      "d": {
+        "item": "mobz:rottenflesh"
+      },
+      "e": {
+        "item": "minecraft:diamond"
+      },
+      "f": {
+        "item": "minecraft:string"
+      }
+    },
+    "result": {
+      "item": "mobz:sbow"
+    }
+  }

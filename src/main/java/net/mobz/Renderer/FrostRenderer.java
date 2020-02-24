@@ -17,7 +17,7 @@ public class FrostRenderer extends MobEntityRenderer<FrostEntity, BlazeEntityMod
     }
 
     @Override
-    protected Identifier getTexture(FrostEntity frostentity) {
+    public Identifier getTexture(FrostEntity frostentity) {
         return new Identifier("mobz:textures/entity/frost.png");
     }
 

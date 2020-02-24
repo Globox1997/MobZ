@@ -30,17 +30,18 @@ public class FrostballEntity extends AbstractFireballEntity {
    }
 
    protected void onCollision(HitResult hitResult_1) {
+      super.onCollision(hitResult_1);
       if (!this.world.isClient) {
          if (hitResult_1.getType() == HitResult.Type.ENTITY) {
             Entity entity_1 = ((EntityHitResult) hitResult_1).getEntity();
             if (!entity_1.isFireImmune()) {
-               int int_1 = entity_1.method_20802();
-               entity_1.setOnFireFor(5);
+               int int_1 = entity_1.getFireTicks();
+               entity_1.setOnFireFor(0);
                boolean boolean_1 = entity_1.damage(DamageSource.explosiveProjectile(this, this.owner), 5.0F);
                if (boolean_1) {
                   this.dealDamage(this.owner, entity_1);
                } else {
-                  entity_1.method_20803(int_1);
+                  entity_1.setFireTicks(int_1);
                }
             }
          } else if (this.owner == null || !(this.owner instanceof MobEntity)
