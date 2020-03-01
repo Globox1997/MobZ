@@ -22,11 +22,13 @@ public class Rottenflesh extends Item {
   public ItemStack finishUsing(ItemStack stack, World world, LivingEntity entity) {
     Random random = new Random();
     int randomNumber = random.nextInt() % 2;
+
+    if (randomNumber < 0) {
+      randomNumber = randomNumber * (-1);
+    }
     if (!world.isClient && randomNumber == 0) {
       StatusEffectInstance hunger = new StatusEffectInstance(StatusEffect.byRawId(17), 600, 0, true, false);
       entity.addStatusEffect(hunger);
-    } else {
-
     }
 
     return super.finishUsing(stack, world, entity);
