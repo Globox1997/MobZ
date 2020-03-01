@@ -60,8 +60,7 @@
     "item.mobz.medivealdisc2.desc": "Z418 mediveal II",
     "item.mobz.axe": "§5Eragons Axe",
     "item.mobz.shield": "§5Eragons Shield",
-    "item.mobz.sword": "§8Sword",
-    "item.mobz.sword.tooltip": "§4Admin Sword",
+    "item.mobz.sword": "Rainbow Sword",
     "item.mobz.weird_ingot": "Weird Ingot",
     "item.mobz.hardenedmetal_ingot": "§7Metal Ingot",
     "item.mobz.hardenedmetal_ingot.tooltip": "Uncommon Material",
@@ -94,7 +93,10 @@
     "item.mobz.sbow": "§5Lilith´s Bow",
     "item.mobz.orb": "§5Orb of Jump Boost",
     "item.mobz.orb.tooltip":"§9Jump Boost II",
-    "item.mobz.debuger": "§eDebug Stick",
+    "item.mobz.debuger": "Debug Stick",
+    "item.mobz.whitebag": "White Bag",
+    "item.mobz.whitebag.tooltip": "Ultra Rare",
+    "item.mobz.orb2": "§5Orb of Levitation",
 
     "item.mobz.spawn_tank": "Tank Spawn Egg",
     "item.mobz.spawn_fast": "Fast Zombie Spawn Egg",
@@ -142,6 +144,8 @@
     "item.mobz.spawn_skeli4": "Lost Skeleton Spawn Egg",
     "item.mobz.spawn_withender": "Withender Spawn Egg",
     "item.mobz.spawn_slimo": "Grass Slime Spawn Egg",
+
+    "item.mobz.storybook": "Story Book",
 
     "itemGroup.mobz.glomod": "MobZ"
 }

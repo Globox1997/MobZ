@@ -67,10 +67,10 @@ public class Knight2Entity extends VindicatorEntity {
     public EntityGroup getGroup() {
         return EntityGroup.DEFAULT;
     }
-/*
+
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
-    } */
+    } 
 
     protected SoundEvent getAmbientSound() {
         return glomod.NOTHINGEVENT;

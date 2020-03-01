@@ -94,6 +94,10 @@
     "item.mobz.sbow": "§5Lilith´s Bow",
     "item.mobz.orb": "§5Orb of Jump Boost",
     "item.mobz.orb.tooltip":"§9Jump Boost II",
+    "item.mobz.debuger": "Debug Stick",
+    "item.mobz.whitebag": "White Bag",
+    "item.mobz.whitebag.tooltip": "Ultra Rare",
+    "item.mobz.orb2": "§5Orb of Levitation",
 
     "item.mobz.spawn_tank": "Generar tanque",
     "item.mobz.spawn_fast": "Generar zombi veloz",
