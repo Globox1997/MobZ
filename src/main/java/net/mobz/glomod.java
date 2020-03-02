@@ -330,7 +330,7 @@ public class glomod implements ModInitializer {
                                 stacks.add(new ItemStack(glomod.MEDIVEAL_DISC2));
                                 stacks.add(new ItemStack(glomod.ORB));
                                 stacks.add(new ItemStack(glomod.ORB2));
-                                stacks.add(ItemStack.EMPTY);
+                                stacks.add(new ItemStack(glomod.WHITEBAG));
                                 stacks.add(ItemStack.EMPTY);
                                 stacks.add(ItemStack.EMPTY);
                                 stacks.add(ItemStack.EMPTY);

@@ -40,9 +40,10 @@ public class BigBossEntity extends ZombieEntity {
     }
 
     public boolean Damage(LivingEntity entity) {
+
         if (isGlowing() == true) {
-            StatusEffectInstance poison = new StatusEffectInstance(StatusEffect.byRawId(19), 200, 1, true, false);
-            entity.addStatusEffect(poison);
+            StatusEffectInstance wither = new StatusEffectInstance(StatusEffect.byRawId(20), 200, 1, false, false);
+            entity.addStatusEffect(wither);
         }
         ;
         return true;

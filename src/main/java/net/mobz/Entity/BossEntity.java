@@ -43,11 +43,12 @@ public class BossEntity extends ZombieEntity {
     }
 
     public boolean Damage(LivingEntity entity) {
-        if (isGlowing() == true) {
-            StatusEffectInstance damage = new StatusEffectInstance(StatusEffect.byRawId(7), 5, 1, true, false);
-            entity.addStatusEffect(damage);
-        }
 
+        if (isGlowing() == true) {
+            StatusEffectInstance wither = new StatusEffectInstance(StatusEffect.byRawId(20), 200, 1, false, false);
+            entity.addStatusEffect(wither);
+        }
+        ;
         return true;
     }
 
@@ -79,8 +80,7 @@ public class BossEntity extends ZombieEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.isNight()
-                && this.world.getLightLevel(lighto) <= 5;
+                && this.world.isNight() && this.world.getLightLevel(lighto) <= 5;
 
     }
 }

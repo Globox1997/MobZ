@@ -1,9 +1,6 @@
 package net.mobz.Entity;
 
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.VindicatorEntity;
-import net.minecraft.entity.passive.AbstractTraderEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvent;
@@ -12,10 +9,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.ai.goal.FollowTargetGoal;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.world.Difficulty;
@@ -44,17 +37,6 @@ public class Knight2Entity extends VindicatorEntity {
     public void onDeath(DamageSource damageSource_1) {
         return;
     }
-/*
-    protected void initGoals() {
-        super.initGoals();
-        this.goalSelector.add(0, new SwimGoal(this));
-        this.targetSelector.add(2, new FollowTargetGoal(this, PlayerEntity.class, true));
-        this.targetSelector.add(3, new FollowTargetGoal(this, AbstractTraderEntity.class, true));
-        this.goalSelector.add(8, new WanderAroundFarGoal(this, 1.0D));
-        this.goalSelector.add(9, new LookAtEntityGoal(this, PlayerEntity.class, 3.0F, 1.0F));
-        this.goalSelector.add(10, new LookAtEntityGoal(this, MobEntity.class, 8.0F));
-
-    } */
 
     protected void initEquipment(LocalDifficulty localDifficulty_1) {
         super.initEquipment(localDifficulty_1);
@@ -70,7 +52,7 @@ public class Knight2Entity extends VindicatorEntity {
 
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
-    } 
+    }
 
     protected SoundEvent getAmbientSound() {
         return glomod.NOTHINGEVENT;

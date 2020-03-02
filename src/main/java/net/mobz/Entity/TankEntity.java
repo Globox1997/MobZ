@@ -1,10 +1,13 @@
 package net.mobz.Entity;
 
 import net.mobz.glomod;
-
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -46,6 +49,21 @@ public class TankEntity extends ZombieEntity {
                 && this.world.getLightLevel(lighto) <= 7;
 
     }
+
+    StatusEffectInstance str = new StatusEffectInstance(StatusEffect.byRawId(18), 80, 0, false, false);
+
+    public boolean tryAttack(Entity target) {
+        boolean bl = super.tryAttack(target);
+        if (bl) {
+            ((LivingEntity) target).addStatusEffect(str);
+           float f = this.world.getLocalDifficulty(new BlockPos(this)).getLocalDifficulty();
+           if (this.getMainHandStack().isEmpty() && this.isOnFire() && this.random.nextFloat() < f * 0.3F) {
+              target.setOnFireFor(2 * (int)f);
+           }
+        }
+  
+        return bl;
+     }
 
     protected SoundEvent getAmbientSound() {
         return glomod.AMBIENTTANKEVENT;
