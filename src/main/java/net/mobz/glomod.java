@@ -149,6 +149,9 @@ public class glomod implements ModInitializer {
                         .build();
         public static final EntityType<Slimo> SLIMO = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Slimo::new)
                         .size(EntityDimensions.fixed(2.04F, 2.04F)).build();
+        public static final EntityType<TSpider> TSPIDER = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, TSpider::new).size(EntityDimensions.fixed(0.2F, 0.1F))
+                        .build();
 
         public static final Identifier AMBIENTTANK = new Identifier("mobz:ambienttank");
         public static SoundEvent AMBIENTTANKEVENT = new SoundEvent(AMBIENTTANK);
@@ -383,6 +386,7 @@ public class glomod implements ModInitializer {
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "skeli4_entity"), SKELI4);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "slimo_entity"), SLIMO);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "withender_entity"), WITHENDER);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "tspider_entity"), TSPIDER);
 
                 Registry.register(Registry.SOUND_EVENT, glomod.AMBIENTTANK, AMBIENTTANKEVENT);
                 Registry.register(Registry.SOUND_EVENT, glomod.DEATHTANK, DEATHTANKEVENT);

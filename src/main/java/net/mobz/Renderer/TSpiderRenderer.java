@@ -8,24 +8,24 @@ import net.minecraft.client.render.entity.SpiderEntityRenderer;
 import net.minecraft.client.render.entity.feature.SpiderEyesFeatureRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
-import net.mobz.Entity.SpiSmall;
+import net.mobz.Entity.TSpider;
 
 @Environment(EnvType.CLIENT)
-public class SpiSmallRenderer extends SpiderEntityRenderer<SpiSmall> {
+public class TSpiderRenderer extends SpiderEntityRenderer<TSpider> {
 
-   public SpiSmallRenderer(EntityRenderDispatcher dispatcher) {
+   public TSpiderRenderer(EntityRenderDispatcher dispatcher) {
       super(dispatcher);
-      this.shadowSize *= 0.7F;
+      this.shadowSize *= 0.1F;
       this.addFeature(new SpiderEyesFeatureRenderer(this));
    }
 
-   protected void scale(SpiSmall caveSpiderEntity, MatrixStack matrixStack, float f) {
-      matrixStack.scale(0.7F, 0.7F, 0.7F);
+   protected void scale(TSpider caveSpiderEntity, MatrixStack matrixStack, float f) {
+      matrixStack.scale(0.1F, 0.1F, 0.1F);
    }
 
    @Override
-   public Identifier getTexture(SpiSmall SpiSmalll) {
-      return new Identifier("mobz:textures/entity/spismall.png");
+   public Identifier getTexture(TSpider TSpiderl) {
+      return new Identifier("mobz:textures/entity/tspider.png");
    }
 
 }

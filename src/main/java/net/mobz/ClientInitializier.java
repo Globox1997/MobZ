@@ -105,6 +105,8 @@ public class ClientInitializier implements ClientModInitializer {
                                 (dispatcher, context) -> new WithenderRenderer(dispatcher));
                 EntityRendererRegistry.INSTANCE.register(glomod.SLIMO,
                                 (dispatcher, context) -> new SlimoRenderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(glomod.TSPIDER,
+                                (dispatcher, context) -> new TSpiderRenderer(dispatcher));
 
         }
 
