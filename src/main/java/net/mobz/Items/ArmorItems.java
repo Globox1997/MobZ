@@ -36,12 +36,6 @@ public class ArmorItems {
         public static final Item life_leggings = register("life_leggings",
                         new ArmorBase2(LIFEAPPARE, EquipmentSlot.LEGS));
         public static final Item life_boots = register("life_boots", new ArmorBase2(LIFEAPPARE, EquipmentSlot.FEET));
-        public static final Item speed_helmet = register("speed_helmet",
-                        new SpeedShoeBase(SPEEDAPPARE, EquipmentSlot.HEAD));
-        public static final Item speed_chestplate = register("speed_chestplate",
-                        new SpeedShoeBase(SPEEDAPPARE, EquipmentSlot.CHEST));
-        public static final Item speed_leggings = register("speed_leggings",
-                        new SpeedShoeBase(SPEEDAPPARE, EquipmentSlot.LEGS));
         public static final Item speed_boots = register("speed_boots",
                         new SpeedShoeBase(SPEEDAPPARE, EquipmentSlot.FEET));
         public static final Item amat_helmet = register("amat_helmet", new ArmorBase3(AMAT, EquipmentSlot.HEAD));
@@ -49,12 +43,6 @@ public class ArmorItems {
                         new ArmorBase3(AMAT, EquipmentSlot.CHEST));
         public static final Item amat_leggings = register("amat_leggings", new ArmorBase3(AMAT, EquipmentSlot.LEGS));
         public static final Item amat_boots = register("amat_boots", new ArmorBase3(AMAT, EquipmentSlot.FEET));
-        public static final Item speed2_helmet = register("speed2_helmet",
-                        new SpeedShoeBase2(SPEEDAPPARE2, EquipmentSlot.HEAD));
-        public static final Item speed2_chestplate = register("speed2_chestplate",
-                        new SpeedShoeBase2(SPEEDAPPARE2, EquipmentSlot.CHEST));
-        public static final Item speed2_leggings = register("speed2_leggings",
-                        new SpeedShoeBase2(SPEEDAPPARE2, EquipmentSlot.LEGS));
         public static final Item speed2_boots = register("speed2_boots",
                         new SpeedShoeBase2(SPEEDAPPARE2, EquipmentSlot.FEET));
 
