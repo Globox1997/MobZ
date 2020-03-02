@@ -23,7 +23,7 @@ public class Orb2 extends Item {
             bob.addStatusEffect(lev);
             sam++;
         } else {
-            if (sam > 201 && sam < 300) {
+            if (sam > 200 && sam < 300) {
                 sam++;
             } else {
                 if (sam == 300) {
