@@ -15,7 +15,6 @@ public class TSpiderRenderer extends SpiderEntityRenderer<TSpider> {
 
    public TSpiderRenderer(EntityRenderDispatcher dispatcher) {
       super(dispatcher);
-      this.shadowSize *= 0.1F;
       this.addFeature(new SpiderEyesFeatureRenderer(this));
    }
 
