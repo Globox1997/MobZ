@@ -33,8 +33,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import net.mobz.glomod;
 
 public class Mage2Entity extends SpellcastingIllagerEntity {
@@ -67,6 +69,15 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
       this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(12.0D);
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(24.0D);
+   }
+
+   public boolean canSpawn(WorldView viewableWorld_1) {
+      BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+      return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
+            && !viewableWorld_1.isAir(entityPos)
+            && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
+            && !this.world.isWater(entityPos);
+
    }
 
    protected void initDataTracker() {

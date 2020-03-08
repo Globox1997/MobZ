@@ -42,7 +42,8 @@ public class IceGolem extends IronGolemEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.isDay() && entityPos.getY() < viewableWorld_1.getSeaLevel() - 10;
+                && this.world.isDay() && entityPos.getY() < viewableWorld_1.getSeaLevel() - 10
+                && !this.world.isWater(entityPos);
 
     }
 

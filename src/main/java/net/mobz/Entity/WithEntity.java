@@ -48,7 +48,8 @@ public class WithEntity extends BlazeEntity {
     BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
     return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
             && !viewableWorld_1.isAir(entityPos)
-            && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL;
+            && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
+            && !this.world.isWater(entityPos);
 
 }
 

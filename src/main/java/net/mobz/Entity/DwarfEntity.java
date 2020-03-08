@@ -65,7 +65,8 @@ public class DwarfEntity extends VindicatorEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && entityPos.getY() < viewableWorld_1.getSeaLevel() - 10;
+                && entityPos.getY() < viewableWorld_1.getSeaLevel() - 10
+                && !this.world.isWater(entityPos);
 
     }
 }

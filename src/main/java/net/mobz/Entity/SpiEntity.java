@@ -27,7 +27,8 @@ public class SpiEntity extends SpiderEntity {
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.isNight()
-                && this.world.getLightLevel(lighto) <= 7;
+                && this.world.getLightLevel(lighto) <= 7
+                && !this.world.isWater(entityPos);
 
     }
 }

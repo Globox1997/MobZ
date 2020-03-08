@@ -93,7 +93,8 @@ public class Knight3Entity extends VindicatorEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.isNight() && this.world.getLightLevel(lighto) <= 7;
+                && this.world.isNight() && this.world.getLightLevel(lighto) <= 7
+                && !this.world.isWater(entityPos);
 
     }
 }

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "id": "mobz",
-  "version": "1.9.3",
+  "version": "1.9.4",
 
   "name": "MobZ",
   "description": "More vanilla style mobs",
   "authors": [
-    "Globox"
+    "Globox_Z"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -30,8 +30,9 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.4.0",
-    "fabric": "*"
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.15.x"
   },
   "suggests": {
     "flamingo": "*"

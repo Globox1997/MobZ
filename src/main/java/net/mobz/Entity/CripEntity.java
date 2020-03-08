@@ -38,7 +38,8 @@ public class CripEntity extends CreeperEntity {
       return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-            && this.world.getLightLevel(lighto) <= 7;
+            && this.world.getLightLevel(lighto) <= 7
+            && !this.world.isWater(entityPos);
 
    }
 }
