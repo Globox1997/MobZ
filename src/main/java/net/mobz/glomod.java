@@ -557,6 +557,7 @@ public class glomod implements ModInitializer {
 
                 SwordItems.init();
                 ArmorItems.init();
+                mloot.init();
 
         }
 }
