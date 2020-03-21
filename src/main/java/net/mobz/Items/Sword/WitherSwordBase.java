@@ -30,11 +30,11 @@ public class WitherSwordBase extends SwordItem {
             livingEntity_1.addStatusEffect(slow1);
             return true;
         case 1:
-            StatusEffectInstance slow2 = new StatusEffectInstance(StatusEffect.byRawId(20), 80, 0, false, false, false);
+            StatusEffectInstance slow2 = new StatusEffectInstance(StatusEffect.byRawId(20), 120, 0, false, false, false);
             livingEntity_1.addStatusEffect(slow2);
             return true;
         case 2:
-            StatusEffectInstance slow3 = new StatusEffectInstance(StatusEffect.byRawId(20), 100, 0, false, false,
+            StatusEffectInstance slow3 = new StatusEffectInstance(StatusEffect.byRawId(20), 180, 0, false, false,
                     false);
             livingEntity_1.addStatusEffect(slow3);
             return true;

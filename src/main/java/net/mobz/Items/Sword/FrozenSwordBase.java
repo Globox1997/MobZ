@@ -28,15 +28,15 @@ public class FrozenSwordBase extends SwordItem {
 
         switch (randomNumber) {
         case 0:
-            StatusEffectInstance slow1 = new StatusEffectInstance(StatusEffect.byRawId(2), 50, 1, false, false, false);
+            StatusEffectInstance slow1 = new StatusEffectInstance(StatusEffect.byRawId(2), 40, 1, false, false, false);
             livingEntity_1.addStatusEffect(slow1);
             return true;
         case 1:
-            StatusEffectInstance slow3 = new StatusEffectInstance(StatusEffect.byRawId(2), 70, 1, false, false, false);
+            StatusEffectInstance slow3 = new StatusEffectInstance(StatusEffect.byRawId(2), 80, 1, false, false, false);
             livingEntity_1.addStatusEffect(slow3);
             return true;
         case 2:
-            StatusEffectInstance slow4 = new StatusEffectInstance(StatusEffect.byRawId(2), 90, 1, false, false, false);
+            StatusEffectInstance slow4 = new StatusEffectInstance(StatusEffect.byRawId(2), 120, 1, false, false, false);
             livingEntity_1.addStatusEffect(slow4);
             return true;
         default:

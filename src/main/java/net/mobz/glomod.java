@@ -260,24 +260,24 @@ public class glomod implements ModInitializer {
 
         public static final String MOD_ID = "mobz";
 
-        public static final BossIngot BOSSBARREN = new BossIngot(new Item.Settings().group(glomod.MOBZ_GROUP));
+        public static final BossIngot BOSSBARREN = new BossIngot(new Item.Settings());
         public static final WeirdIngot WEIRDINGOT = new WeirdIngot(
-                        new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
+                        new Item.Settings().maxCount(1));
         public static final HardenedMetal HARDENEDMETAL = new HardenedMetal(
-                        new Item.Settings().maxCount(64).group(glomod.MOBZ_GROUP));
+                        new Item.Settings().maxCount(64));
         public static final MedivealDisc MEDIVEAL_DISC = new MedivealDisc(1, MEDIVEALSOUNDEVENT,
-                        new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
+                        new Item.Settings().maxCount(1));
         public static final MedivealDisc2 MEDIVEAL_DISC2 = new MedivealDisc2(1, MEDIVEALSOUND2EVENT,
-                        new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
-        public static final Shield SHIELD = new Shield(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
+                        new Item.Settings().maxCount(1));
+        public static final Shield SHIELD = new Shield(new Item.Settings().maxCount(1));
         public static final Rottenflesh ROTTENFLESH = new Rottenflesh();
-        public static final Redd REDD = new Redd(new Item.Settings().group(glomod.MOBZ_GROUP));
-        public static final Withermeal WITHERMEAL = new Withermeal(new Item.Settings().group(glomod.MOBZ_GROUP));
-        public static final Bearleather BEARLEATHER = new Bearleather(new Item.Settings().group(glomod.MOBZ_GROUP));
-        public static final Sbow SBOW = new Sbow(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
-        public static final Orb ORB = new Orb(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
-        public static final Whitebag WHITEBAG = new Whitebag(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
-        public static final Orb2 ORB2 = new Orb2(new Item.Settings().maxCount(1).group(glomod.MOBZ_GROUP));
+        public static final Redd REDD = new Redd(new Item.Settings());
+        public static final Withermeal WITHERMEAL = new Withermeal(new Item.Settings());
+        public static final Bearleather BEARLEATHER = new Bearleather(new Item.Settings());
+        public static final Sbow SBOW = new Sbow(new Item.Settings().maxCount(1));
+        public static final Orb ORB = new Orb(new Item.Settings().maxCount(1));
+        public static final Whitebag WHITEBAG = new Whitebag(new Item.Settings().maxCount(1));
+        public static final Orb2 ORB2 = new Orb2(new Item.Settings().maxCount(1));
 
         public static final ItemGroup MOBZ_GROUP = FabricItemGroupBuilder.create(new Identifier("mobz", "glomod"))
                         .icon(() -> new ItemStack(SwordItems.ArmoredSword)).appendItems(stacks -> {
@@ -318,12 +318,12 @@ public class glomod implements ModInitializer {
                                 stacks.add(new ItemStack(ArmorItems.speed_boots));
                                 stacks.add(new ItemStack(ArmorItems.speed2_boots));
                                 stacks.add(new ItemStack(glomod.ROTTENFLESH));
-                                stacks.add(new ItemStack(glomod.WITHERMEAL));
                                 stacks.add(new ItemStack(glomod.BEARLEATHER));
-                                stacks.add(new ItemStack(glomod.HARDENEDMETAL));
+                                stacks.add(new ItemStack(glomod.WITHERMEAL));
                                 stacks.add(new ItemStack(glomod.REDD));
-                                stacks.add(new ItemStack(glomod.BOSSBARREN));
                                 stacks.add(new ItemStack(glomod.WEIRDINGOT));
+                                stacks.add(new ItemStack(glomod.HARDENEDMETAL));
+                                stacks.add(new ItemStack(glomod.BOSSBARREN));
                                 stacks.add(ItemStack.EMPTY);
                                 stacks.add(ItemStack.EMPTY);
                                 stacks.add(new ItemStack(glomod.MEDIVEAL_DISC));
