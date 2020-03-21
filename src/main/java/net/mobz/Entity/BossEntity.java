@@ -1,7 +1,7 @@
 package net.mobz.Entity;
 
 import net.mobz.Items.*;
-
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -45,8 +45,8 @@ public class BossEntity extends ZombieEntity {
     public boolean Damage(LivingEntity entity) {
 
         if (isGlowing() == true) {
-            StatusEffectInstance wither = new StatusEffectInstance(StatusEffect.byRawId(20), 200, 1, false, false);
-            entity.addStatusEffect(wither);
+            StatusEffectInstance wither = new StatusEffectInstance(StatusEffect.byRawId(20), 200, 2, false, false);
+            this.addStatusEffect(wither);
         }
         ;
         return true;
@@ -80,8 +80,7 @@ public class BossEntity extends ZombieEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.isNight() && this.world.getLightLevel(lighto) <= 5
-                && !this.world.isWater(entityPos);
+                && this.world.isNight() && this.world.getLightLevel(lighto) <= 5 && !this.world.isWater(entityPos);
 
     }
 }
