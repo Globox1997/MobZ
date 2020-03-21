@@ -1,9 +1,8 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "eee",
         "ede",
-        "eee"
+        "fef"
     ],
     "key": {
         "d": {
@@ -11,6 +10,9 @@
         },
         "e": {
             "item": "minecraft:emerald"
+        },
+        "f": {
+            "item": "minecraft:emerald_block"
         }
     },
     "result": {
