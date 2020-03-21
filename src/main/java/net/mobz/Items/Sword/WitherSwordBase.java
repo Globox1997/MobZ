@@ -18,6 +18,10 @@ public class WitherSwordBase extends SwordItem {
         super(toolMaterial_1, 1, -2.4f, new Item.Settings().group(glomod.MOBZ_GROUP));
     }
 
+    StatusEffectInstance with1 = new StatusEffectInstance(StatusEffect.byRawId(20), 60, 0, false, false, false);
+    StatusEffectInstance with2 = new StatusEffectInstance(StatusEffect.byRawId(20), 120, 0, false, false, false);
+    StatusEffectInstance with3 = new StatusEffectInstance(StatusEffect.byRawId(20), 180, 0, false, false, false);
+
     public boolean postHit(ItemStack itemStack_1, LivingEntity livingEntity_1, LivingEntity livingEntity_2) {
         itemStack_1.damage(1, (LivingEntity) livingEntity_2, (Consumer) ((livingEntity_1x) -> {
             ((LivingEntity) livingEntity_1x).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
@@ -28,10 +32,6 @@ public class WitherSwordBase extends SwordItem {
         if (randomNumber < 0) {
             randomNumber = randomNumber * (-1);
         }
-
-        StatusEffectInstance with1 = new StatusEffectInstance(StatusEffect.byRawId(20), 60, 0, false, false, false);
-        StatusEffectInstance with2 = new StatusEffectInstance(StatusEffect.byRawId(20), 120, 0, false, false, false);
-        StatusEffectInstance with3 = new StatusEffectInstance(StatusEffect.byRawId(20), 180, 0, false, false, false);
 
         switch (randomNumber) {
             case 0:

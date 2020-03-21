@@ -14,9 +14,10 @@ public class Orb2 extends Item {
     }
 
     int sam = 0;
+    StatusEffectInstance lev = new StatusEffectInstance(StatusEffect.byRawId(25), 1, 0, false, false);
 
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        StatusEffectInstance lev = new StatusEffectInstance(StatusEffect.byRawId(25), 1, 0, false, false);
+
         LivingEntity bob = (LivingEntity) entity;
 
         if (sam <= 200 && selected == true) {

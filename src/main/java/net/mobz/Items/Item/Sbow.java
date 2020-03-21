@@ -39,12 +39,14 @@ public class Sbow extends BowItem {
       });
    }
 
+   StatusEffectInstance spd = new StatusEffectInstance(StatusEffect.byRawId(1), 0, 0, false, false);
+
    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 
       if (selected == true) {
-          StatusEffectInstance def = new StatusEffectInstance(StatusEffect.byRawId(1), 0, 0, false, false);
+      
           LivingEntity bob = (LivingEntity) entity;
-          bob.addStatusEffect(def);
+          bob.addStatusEffect(spd);
       }
 
   }

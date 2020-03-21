@@ -19,6 +19,10 @@ public class FrozenSwordBase extends SwordItem {
         super(toolMaterial_1, 1, -2.4f, new Item.Settings().group(glomod.MOBZ_GROUP));
     }
 
+    StatusEffectInstance slow1 = new StatusEffectInstance(StatusEffect.byRawId(2), 50, 1, false, false, false);
+    StatusEffectInstance slow3 = new StatusEffectInstance(StatusEffect.byRawId(2), 100, 1, false, false, false);
+    StatusEffectInstance slow4 = new StatusEffectInstance(StatusEffect.byRawId(2), 150, 1, false, false, false);
+
     public boolean postHit(ItemStack itemStack_1, LivingEntity livingEntity_1, LivingEntity livingEntity_2) {
         itemStack_1.damage(1, (LivingEntity) livingEntity_2, (Consumer) ((livingEntity_1x) -> {
             ((LivingEntity) livingEntity_1x).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
@@ -30,10 +34,6 @@ public class FrozenSwordBase extends SwordItem {
             randomNumber = randomNumber * (-1);
         }
 
-        StatusEffectInstance slow1 = new StatusEffectInstance(StatusEffect.byRawId(2), 50, 1, false, false, false);
-        StatusEffectInstance slow3 = new StatusEffectInstance(StatusEffect.byRawId(2), 100, 1, false, false, false);
-        StatusEffectInstance slow4 = new StatusEffectInstance(StatusEffect.byRawId(2), 150, 1, false, false, false);
-        
         switch (randomNumber) {
             case 0:
 

@@ -18,6 +18,8 @@ public class Rottenflesh extends Item {
     super(new Item.Settings().food(FOOD_COMPONENT).group(glomod.MOBZ_GROUP));
   }
 
+  StatusEffectInstance hunger = new StatusEffectInstance(StatusEffect.byRawId(17), 600, 0, true, false);
+
   @Override
   public ItemStack finishUsing(ItemStack stack, World world, LivingEntity entity) {
     Random random = new Random();
@@ -27,7 +29,7 @@ public class Rottenflesh extends Item {
       randomNumber = randomNumber * (-1);
     }
     if (!world.isClient && randomNumber == 0) {
-      StatusEffectInstance hunger = new StatusEffectInstance(StatusEffect.byRawId(17), 600, 0, true, false);
+
       entity.addStatusEffect(hunger);
     }
 

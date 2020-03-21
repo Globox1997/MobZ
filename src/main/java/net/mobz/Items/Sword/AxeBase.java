@@ -19,6 +19,22 @@ public class AxeBase extends SwordItem {
                 super(toolMaterial_1, 1, -3.4f, new Item.Settings().group(glomod.MOBZ_GROUP));
         }
 
+        StatusEffectInstance slow1 = new StatusEffectInstance(StatusEffect.byRawId(2), 40, 0, false, false, false);
+        StatusEffectInstance strength = new StatusEffectInstance(StatusEffect.byRawId(5), 50, 0, false, false, false);
+        StatusEffectInstance defense = new StatusEffectInstance(StatusEffect.byRawId(11), 40, 0, false, false, false);
+        StatusEffectInstance slow2 = new StatusEffectInstance(StatusEffect.byRawId(2), 100, 0, false, false, false);
+        StatusEffectInstance blind2 = new StatusEffectInstance(StatusEffect.byRawId(15), 20, 0, false, false, false);
+        StatusEffectInstance strength2 = new StatusEffectInstance(StatusEffect.byRawId(5), 70, 0, false, false, false);
+        StatusEffectInstance defense2 = new StatusEffectInstance(StatusEffect.byRawId(11), 40, 0, false, false, false);
+        StatusEffectInstance slow3 = new StatusEffectInstance(StatusEffect.byRawId(2), 120, 0, false, false, false);
+        StatusEffectInstance blind3 = new StatusEffectInstance(StatusEffect.byRawId(15), 20, 0, false, false, false);
+        StatusEffectInstance strength3 = new StatusEffectInstance(StatusEffect.byRawId(5), 70, 0, false, false, false);
+        StatusEffectInstance defense3 = new StatusEffectInstance(StatusEffect.byRawId(11), 40, 0, false, false, false);
+        StatusEffectInstance slow4 = new StatusEffectInstance(StatusEffect.byRawId(2), 140, 0, false, false, false);
+        StatusEffectInstance blind4 = new StatusEffectInstance(StatusEffect.byRawId(15), 20, 0, false, false, false);
+        StatusEffectInstance strength4 = new StatusEffectInstance(StatusEffect.byRawId(5), 70, 0, false, false, false);
+        StatusEffectInstance defense4 = new StatusEffectInstance(StatusEffect.byRawId(11), 40, 0, false, false, false);
+
         public boolean postHit(ItemStack itemStack_1, LivingEntity livingEntity_1, LivingEntity livingEntity_2) {
                 itemStack_1.damage(1, (LivingEntity) livingEntity_2, (Consumer) ((livingEntity_1x) -> {
                         ((LivingEntity) livingEntity_1x).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
@@ -30,37 +46,6 @@ public class AxeBase extends SwordItem {
                         randomNumber = randomNumber * (-1);
                 }
 
-                StatusEffectInstance slow1 = new StatusEffectInstance(StatusEffect.byRawId(2), 40, 0, false, false,
-                                false);
-                StatusEffectInstance strength = new StatusEffectInstance(StatusEffect.byRawId(5), 50, 0, false, false,
-                                false);
-                StatusEffectInstance defense = new StatusEffectInstance(StatusEffect.byRawId(11), 40, 0, false, false,
-                                false);
-                StatusEffectInstance slow2 = new StatusEffectInstance(StatusEffect.byRawId(2), 100, 0, false, false,
-                                false);
-                StatusEffectInstance blind2 = new StatusEffectInstance(StatusEffect.byRawId(15), 20, 0, false, false,
-                                false);
-                StatusEffectInstance strength2 = new StatusEffectInstance(StatusEffect.byRawId(5), 70, 0, false, false,
-                                false);
-                StatusEffectInstance defense2 = new StatusEffectInstance(StatusEffect.byRawId(11), 40, 0, false, false,
-                                false);
-                StatusEffectInstance slow3 = new StatusEffectInstance(StatusEffect.byRawId(2), 120, 0, false, false,
-                                false);
-                StatusEffectInstance blind3 = new StatusEffectInstance(StatusEffect.byRawId(15), 20, 0, false, false,
-                                false);
-                StatusEffectInstance strength3 = new StatusEffectInstance(StatusEffect.byRawId(5), 70, 0, false, false,
-                                false);
-                StatusEffectInstance defense3 = new StatusEffectInstance(StatusEffect.byRawId(11), 40, 0, false, false,
-                                false);
-                StatusEffectInstance slow4 = new StatusEffectInstance(StatusEffect.byRawId(2), 140, 0, false, false,
-                                false);
-                StatusEffectInstance blind4 = new StatusEffectInstance(StatusEffect.byRawId(15), 20, 0, false, false,
-                                false);
-                StatusEffectInstance strength4 = new StatusEffectInstance(StatusEffect.byRawId(5), 70, 0, false, false,
-                                false);
-                StatusEffectInstance defense4 = new StatusEffectInstance(StatusEffect.byRawId(11), 40, 0, false, false,
-                                false);
-                                
                 switch (randomNumber) {
                         case 0:
                                 livingEntity_1.addStatusEffect(slow1);

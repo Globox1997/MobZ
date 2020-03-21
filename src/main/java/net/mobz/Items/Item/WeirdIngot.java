@@ -29,10 +29,11 @@ public class WeirdIngot extends Item {
         tooltip.add(new TranslatableText("item.mobz.weird_ingot.tooltip"));
     }
 
+    StatusEffectInstance slow = new StatusEffectInstance(StatusEffect.byRawId(2), 0, 0, false, false);
+    StatusEffectInstance gain = new StatusEffectInstance(StatusEffect.byRawId(22), 0, 1, false, false);
+
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 
-        StatusEffectInstance slow = new StatusEffectInstance(StatusEffect.byRawId(2), 0, 0, false, false);
-        StatusEffectInstance gain = new StatusEffectInstance(StatusEffect.byRawId(22), 0, 1, false, false);
         LivingEntity bob = (LivingEntity) entity;
         Random random = new Random();
         Random random2 = new Random();
@@ -48,7 +49,7 @@ public class WeirdIngot extends Item {
             bob.addStatusEffect(gain);
             world.addParticle(ParticleTypes.DRAGON_BREATH, bob.getX() + z2, bob.getY() + z6, bob.getZ() + z4, 0.0D,
                     0.0D, 0.0D);
-                 
+
         }
 
     }
