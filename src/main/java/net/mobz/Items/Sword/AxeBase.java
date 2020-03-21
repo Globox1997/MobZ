@@ -60,6 +60,7 @@ public class AxeBase extends SwordItem {
                                 false);
                 StatusEffectInstance defense4 = new StatusEffectInstance(StatusEffect.byRawId(11), 40, 0, false, false,
                                 false);
+                                
                 switch (randomNumber) {
                         case 0:
                                 livingEntity_1.addStatusEffect(slow1);
