@@ -12,11 +12,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 
-import net.mobz.glomod;
-
 public class FrozenSwordBase extends SwordItem {
     public FrozenSwordBase(ToolMaterial toolMaterial_1) {
-        super(toolMaterial_1, 1, -2.4f, new Item.Settings().group(glomod.MOBZ_GROUP));
+        super(toolMaterial_1, 1, -2.4f, new Item.Settings());
     }
 
     StatusEffectInstance slow1 = new StatusEffectInstance(StatusEffect.byRawId(2), 50, 1, false, false, false);

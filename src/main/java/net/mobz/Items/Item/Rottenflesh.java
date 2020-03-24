@@ -2,7 +2,6 @@ package net.mobz.Items.Item;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.mobz.glomod;
 import java.util.Random;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
@@ -15,7 +14,7 @@ public class Rottenflesh extends Item {
       .meat().build();
 
   public Rottenflesh() {
-    super(new Item.Settings().food(FOOD_COMPONENT).group(glomod.MOBZ_GROUP));
+    super(new Item.Settings().food(FOOD_COMPONENT));
   }
 
   StatusEffectInstance hunger = new StatusEffectInstance(StatusEffect.byRawId(17), 600, 0, true, false);

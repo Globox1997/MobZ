@@ -11,11 +11,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
-import net.mobz.glomod;
 
 public class WitherSwordBase extends SwordItem {
     public WitherSwordBase(ToolMaterial toolMaterial_1) {
-        super(toolMaterial_1, 1, -2.4f, new Item.Settings().group(glomod.MOBZ_GROUP));
+        super(toolMaterial_1, 1, -2.4f, new Item.Settings());
     }
 
     StatusEffectInstance with1 = new StatusEffectInstance(StatusEffect.byRawId(20), 60, 0, false, false, false);

@@ -10,11 +10,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
-import net.mobz.glomod;
 
 public class VSwordBase extends SwordItem {
     public VSwordBase(ToolMaterial toolMaterial_1) {
-        super(toolMaterial_1, -1, -2.4f, new Item.Settings().group(glomod.MOBZ_GROUP));
+        super(toolMaterial_1, -1, -2.4f, new Item.Settings());
     }
 
     StatusEffectInstance weakness = new StatusEffectInstance(StatusEffect.byRawId(18), 120, 0, false, false, false);

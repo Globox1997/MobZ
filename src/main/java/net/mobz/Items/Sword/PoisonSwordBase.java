@@ -12,11 +12,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 
-import net.mobz.glomod;
-
 public class PoisonSwordBase extends SwordItem {
     public PoisonSwordBase(ToolMaterial toolMaterial_1) {
-        super(toolMaterial_1, 1, -2.4f, new Item.Settings().group(glomod.MOBZ_GROUP));
+        super(toolMaterial_1, 1, -2.4f, new Item.Settings());
     }
 
     StatusEffectInstance pois1 = new StatusEffectInstance(StatusEffect.byRawId(19), 80, 0, false, false, false);
