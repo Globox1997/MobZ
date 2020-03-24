@@ -1,11 +1,11 @@
 package net.mobz.Items.Armor;
 
-import net.mobz.glomod;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.mobz.Inits.Iteminit;
 
 public class BossArmorMaterial implements ArmorMaterial {
     private static final int[] BASE_DURABILITY = new int[] { 18, 20, 22, 16 };
@@ -33,7 +33,7 @@ public class BossArmorMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(glomod.BOSSBARREN);
+        return Ingredient.ofItems(Iteminit.BOSSBARREN);
     }
 
     @Override

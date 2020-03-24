@@ -14,8 +14,9 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
-import net.mobz.Items.SwordItems;
+import net.mobz.Inits.Iteminit;
+import net.mobz.Inits.Soundinit;
+import net.mobz.Inits.SwordItems;
 
 public class DwarfEntity extends VindicatorEntity {
 
@@ -28,7 +29,7 @@ public class DwarfEntity extends VindicatorEntity {
         super.initEquipment(localDifficulty_1);
         if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.Axe));
-            this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(glomod.SHIELD));
+            this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Iteminit.SHIELD));
         }
     }
 
@@ -41,7 +42,7 @@ public class DwarfEntity extends VindicatorEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.NOTHINGEVENT;
+        return Soundinit.NOTHINGEVENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {

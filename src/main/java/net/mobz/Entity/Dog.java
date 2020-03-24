@@ -6,7 +6,7 @@ import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.World;
-import net.mobz.glomod;
+import net.mobz.Inits.Soundinit;
 
 public class Dog extends WolfEntity {
 
@@ -23,14 +23,14 @@ public class Dog extends WolfEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.WGROWLEVENT;
+        return Soundinit.WGROWLEVENT;
      }
 
     protected SoundEvent getHurtSound(DamageSource source) {
-        return glomod.WHURTEVENT;
+        return Soundinit.WHURTEVENT;
     }
 
     protected SoundEvent getDeathSound() {
-        return glomod.WDEATHEVENT;
+        return Soundinit.WDEATHEVENT;
     }
 }

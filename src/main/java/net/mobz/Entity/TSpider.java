@@ -15,7 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Soundinit;
 
 public class TSpider extends SpiderEntity {
     public TSpider(EntityType<? extends SpiderEntity> entityType, World world) {
@@ -51,14 +51,14 @@ public class TSpider extends SpiderEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.NOTHINGEVENT;
+        return Soundinit.NOTHINGEVENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource source) {
-        return glomod.NOTHINGEVENT;
+        return Soundinit.NOTHINGEVENT;
     }
 
     protected SoundEvent getDeathSound() {
-        return glomod.NOTHINGEVENT;
+        return Soundinit.NOTHINGEVENT;
     }
 }

@@ -1,4 +1,4 @@
-package net.mobz;
+package net.mobz.Inits;
 
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
@@ -7,7 +7,7 @@ import net.minecraft.loot.LootTables;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 
-public class mloot {
+public class Lootinit {
 
     public static final Identifier[] LONE = new Identifier[] { LootTables.BURIED_TREASURE_CHEST };
     public static final Identifier[] LTWO = new Identifier[] { LootTables.VILLAGE_ARMORER_CHEST,
@@ -48,7 +48,7 @@ public class mloot {
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             if (isone(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .withRolls(new BinomialLootTableRange(1, 0.3f)).withEntry(ItemEntry.builder(glomod.WHITEBAG));
+                        .withRolls(new BinomialLootTableRange(1, 0.3f)).withEntry(ItemEntry.builder(Iteminit.WHITEBAG));
 
                 supplier.withPool(poolBuilder);
             }
@@ -58,7 +58,7 @@ public class mloot {
             if (istwo(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .withRolls(new BinomialLootTableRange(5, 0.3f))
-                        .withEntry(ItemEntry.builder(glomod.HARDENEDMETAL));
+                        .withEntry(ItemEntry.builder(Iteminit.HARDENEDMETAL));
 
                 supplier.withPool(poolBuilder);
             }
@@ -67,7 +67,7 @@ public class mloot {
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             if (istwo(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .withRolls(new BinomialLootTableRange(2, 0.1f)).withEntry(ItemEntry.builder(glomod.BOSSBARREN));
+                        .withRolls(new BinomialLootTableRange(2, 0.1f)).withEntry(ItemEntry.builder(Iteminit.BOSSBARREN));
 
                 supplier.withPool(poolBuilder);
             }
@@ -76,7 +76,7 @@ public class mloot {
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             if (istwo(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .withRolls(new BinomialLootTableRange(1, 0.05f)).withEntry(ItemEntry.builder(glomod.REDD));
+                        .withRolls(new BinomialLootTableRange(1, 0.05f)).withEntry(ItemEntry.builder(Iteminit.REDD));
 
                 supplier.withPool(poolBuilder);
             }
@@ -85,7 +85,7 @@ public class mloot {
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             if (isthree(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .withRolls(new BinomialLootTableRange(2, 0.2f)).withEntry(ItemEntry.builder(glomod.WITHERMEAL));
+                        .withRolls(new BinomialLootTableRange(2, 0.2f)).withEntry(ItemEntry.builder(Iteminit.WITHERMEAL));
 
                 supplier.withPool(poolBuilder);
             }

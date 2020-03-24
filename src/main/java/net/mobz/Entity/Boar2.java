@@ -10,7 +10,7 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Entityinit;
 
 public class Boar2 extends PigEntity {
     private static final Ingredient BREEDING_INGREDIENT;
@@ -41,7 +41,7 @@ public class Boar2 extends PigEntity {
     }
 
     public Boar2 method_6574(PassiveEntity passiveEntity_1) {
-        return (Boar2) glomod.BOAR2.create(this.world);
+        return (Boar2) Entityinit.BOAR2.create(this.world);
     }
 
     public boolean isBreedingItem(ItemStack stack) {
@@ -49,7 +49,7 @@ public class Boar2 extends PigEntity {
     }
 
     public Boar2 createChild(PassiveEntity passiveEntity) {
-        return (Boar2) glomod.BOAR2.create(this.world);
+        return (Boar2) Entityinit.BOAR2.create(this.world);
     }
 
     static {

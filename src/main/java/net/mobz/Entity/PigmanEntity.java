@@ -1,7 +1,5 @@
 package net.mobz.Entity;
 
-import net.mobz.glomod;
-
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -11,6 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.Inits.Soundinit;
 
 public class PigmanEntity extends ZombiePigmanEntity {
 
@@ -25,15 +24,15 @@ public class PigmanEntity extends ZombiePigmanEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.SAYPIGEVENT;
+        return Soundinit.SAYPIGEVENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-        return glomod.HURTPIGEVENT;
+        return Soundinit.HURTPIGEVENT;
     }
 
     protected SoundEvent getDeathSound() {
-        return glomod.DEATHPIGEVENT;
+        return Soundinit.DEATHPIGEVENT;
     }
 
     public boolean canSpawn(WorldView viewableWorld_1) {

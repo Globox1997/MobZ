@@ -1,7 +1,6 @@
 package net.mobz.Entity;
 
-import net.mobz.glomod;
-
+import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -23,19 +22,19 @@ public class EnderZombieEntity extends ZombieEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.SAYENDEVENT;
+        return Soundinit.SAYENDEVENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-        return glomod.ENDHURTEVENT;
+        return Soundinit.ENDHURTEVENT;
     }
 
     protected SoundEvent getDeathSound() {
-        return glomod.DEATHENDEVENT;
+        return Soundinit.DEATHENDEVENT;
     }
 
     protected SoundEvent getStepSound() {
-        return glomod.STEPTANKEVENT;
+        return Soundinit.STEPTANKEVENT;
     }
 
     public boolean canSpawn(WorldView viewableWorld_1) {

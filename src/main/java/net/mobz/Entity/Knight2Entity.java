@@ -15,8 +15,8 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
-import net.mobz.Items.SwordItems;
+import net.mobz.Inits.Soundinit;
+import net.mobz.Inits.SwordItems;
 
 public class Knight2Entity extends VindicatorEntity {
 
@@ -55,7 +55,7 @@ public class Knight2Entity extends VindicatorEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.NOTHINGEVENT;
+        return Soundinit.NOTHINGEVENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {

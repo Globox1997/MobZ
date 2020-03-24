@@ -27,7 +27,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Soundinit;
 
 public class FrostEntity extends BlazeEntity {
    private float field_7214 = 0.5F;
@@ -96,7 +96,7 @@ public class FrostEntity extends BlazeEntity {
 
       if (this.world.isClient) {
          if (this.random.nextInt(24) == 0 && !this.isSilent()) {
-            this.world.playSound(this.getX() + 0.5D, this.getY() + 0.5D, this.getZ() + 0.5D, glomod.NOTHINGEVENT,
+            this.world.playSound(this.getX() + 0.5D, this.getY() + 0.5D, this.getZ() + 0.5D, Soundinit.NOTHINGEVENT,
                   this.getSoundCategory(), 1.0F + this.random.nextFloat(), this.random.nextFloat() * 0.7F + 0.3F,
                   false);
          }

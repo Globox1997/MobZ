@@ -1,7 +1,6 @@
 package net.mobz.Entity;
 
-import net.mobz.glomod;
-
+import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.VillagerEntity;
@@ -42,7 +41,7 @@ public class ArcherEntity extends SkeletonEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.NOTHINGEVENT;
+        return Soundinit.NOTHINGEVENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {

@@ -1,7 +1,6 @@
 package net.mobz.Entity;
 
-import net.mobz.glomod;
-
+import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -25,11 +24,11 @@ public class CripEntity extends CreeperEntity {
    }
 
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-      return glomod.SAYCRIPEVENT;
+      return Soundinit.SAYCRIPEVENT;
    }
 
    protected SoundEvent getDeathSound() {
-      return glomod.DEATHCRIPEVENT;
+      return Soundinit.DEATHCRIPEVENT;
    }
 
    public boolean canSpawn(WorldView viewableWorld_1) {

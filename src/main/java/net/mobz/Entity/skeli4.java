@@ -1,7 +1,5 @@
 package net.mobz.Entity;
 
-import net.mobz.glomod;
-import net.mobz.Items.SwordItems;
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
@@ -14,6 +12,8 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.Inits.Soundinit;
+import net.mobz.Inits.SwordItems;
 
 public class skeli4 extends SkeletonEntity {
 
@@ -33,19 +33,19 @@ public class skeli4 extends SkeletonEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.SKELASAYEVENT;
+        return Soundinit.SKELASAYEVENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-        return glomod.SKELAHURTEVENT;
+        return Soundinit.SKELAHURTEVENT;
     }
 
     protected SoundEvent getDeathSound() {
-        return glomod.SKELADEATHEVENT;
+        return Soundinit.SKELADEATHEVENT;
     }
 
     protected SoundEvent getStepSound() {
-        return glomod.SKELASTEPEVENT;
+        return Soundinit.SKELASTEPEVENT;
     }
 
     public boolean canSpawn(WorldView viewableWorld_1) {

@@ -1,6 +1,5 @@
 package net.mobz.Entity;
 
-import net.mobz.glomod;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -8,6 +7,7 @@ import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.mobz.Inits.Soundinit;
 
 public class SmallZombie extends ZombieEntity {
 
@@ -31,11 +31,11 @@ public class SmallZombie extends ZombieEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.SAYSPEEDEVENT;
+        return Soundinit.SAYSPEEDEVENT;
     }
 
     protected SoundEvent getStepSound() {
-        return glomod.STEPSPEEDEVENT;
+        return Soundinit.STEPSPEEDEVENT;
     }
 
     protected boolean canDropLootAndXp() {

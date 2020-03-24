@@ -37,7 +37,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Entityinit;
 
 public class Mage2Entity extends SpellcastingIllagerEntity {
    private SheepEntity wololoTarget;
@@ -239,7 +239,7 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       protected void castSpell() {
          for(int i = 0; i < 3; ++i) {
             BlockPos blockPos = (new BlockPos(Mage2Entity.this)).add(-2 + Mage2Entity.this.random.nextInt(5), 1, -2 + Mage2Entity.this.random.nextInt(5));
-            SmallZombie SmallZombie = (SmallZombie)glomod.SMALLZOMBIE.create(Mage2Entity.this.world);
+            SmallZombie SmallZombie = (SmallZombie)Entityinit.SMALLZOMBIE.create(Mage2Entity.this.world);
             SmallZombie.refreshPositionAndAngles(blockPos, 0.0F, 0.0F);
             SmallZombie.initialize(Mage2Entity.this.world, Mage2Entity.this.world.getLocalDifficulty(blockPos), SpawnType.MOB_SUMMONED, (EntityData)null, (CompoundTag)null);
             SmallZombie.setOwner(Mage2Entity.this);

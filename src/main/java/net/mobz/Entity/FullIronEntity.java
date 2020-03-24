@@ -29,10 +29,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.LocalDifficulty;
-
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Soundinit;
 
 public class FullIronEntity extends ZombieEntity {
    private static final UUID ATTACKING_SPEED_BOOST_UUID = UUID.fromString("49455A49-7EC5-45BA-B886-3B90B23A1718");
@@ -103,7 +102,7 @@ public class FullIronEntity extends ZombieEntity {
    }
 
    protected SoundEvent getAmbientSound() {
-      return glomod.NOTHINGEVENT;
+      return Soundinit.NOTHINGEVENT;
    }
 
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
@@ -141,7 +140,7 @@ public class FullIronEntity extends ZombieEntity {
       }
 
       if (this.angrySoundDelay > 0 && --this.angrySoundDelay == 0) {
-         this.playSound(glomod.ANGRYBATTLEHORNEVENT, this.getSoundVolume() * 2.0F,
+         this.playSound(Soundinit.ANGRYBATTLEHORNEVENT, this.getSoundVolume() * 2.0F,
                ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * 1.8F);
       }
 

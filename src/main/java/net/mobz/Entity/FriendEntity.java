@@ -52,8 +52,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
-import net.mobz.Items.SwordItems;
+import net.mobz.Inits.Entityinit;
+import net.mobz.Inits.SwordItems;
 
 public class FriendEntity extends TameableEntity {
     private static final TrackedData<Float> ALEX_HEALTH;
@@ -351,7 +351,7 @@ public class FriendEntity extends TameableEntity {
     }
 
     public FriendEntity method_6717(PassiveEntity passiveEntity_1) {
-        FriendEntity FriendEntity_1 = (FriendEntity) glomod.FRIEND.create(this.world);
+        FriendEntity FriendEntity_1 = (FriendEntity) Entityinit.FRIEND.create(this.world);
         UUID uUID_1 = this.getOwnerUuid();
         if (uUID_1 != null) {
             FriendEntity_1.setOwnerUuid(uUID_1);

@@ -1,8 +1,7 @@
 package net.mobz.Entity;
 
-import net.mobz.glomod;
 import net.mobz.Entity.Attack.*;
-
+import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
@@ -57,15 +56,15 @@ public class IceGolem extends IronGolemEntity {
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-        return glomod.GOLEMHITEVENT;
+        return Soundinit.GOLEMHITEVENT;
     }
 
     protected SoundEvent getDeathSound() {
-        return glomod.GOLEMDEATHEVENT;
+        return Soundinit.GOLEMDEATHEVENT;
     }
 
     protected void playStepSound(BlockPos blockPos_1, BlockState blockState_1) {
-        this.playSound(glomod.GOLEMWALKEVENT, 1.0F, 1.0F);
+        this.playSound(Soundinit.GOLEMWALKEVENT, 1.0F, 1.0F);
     }
 
     @Override

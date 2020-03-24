@@ -9,7 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Soundinit;
 
 public class Withender extends WitherEntity {
 
@@ -31,15 +31,15 @@ public class Withender extends WitherEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.WITHIDLEEVENT;
+        return Soundinit.WITHIDLEEVENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-        return glomod.WITHHURTEVENT;
+        return Soundinit.WITHHURTEVENT;
     }
 
     protected SoundEvent getDeathSound() {
-        return glomod.WITHDEATHEVENT;
+        return Soundinit.WITHDEATHEVENT;
     }
 
     public boolean canSpawn(WorldView viewableWorld_1) {

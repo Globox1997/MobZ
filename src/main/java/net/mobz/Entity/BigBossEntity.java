@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Soundinit;
 
 public class BigBossEntity extends ZombieEntity {
 
@@ -69,19 +69,19 @@ public class BigBossEntity extends ZombieEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.AMBIENTTANKEVENT;
+        return Soundinit.AMBIENTTANKEVENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-        return glomod.HURTTANKEVENT;
+        return Soundinit.HURTTANKEVENT;
     }
 
     protected SoundEvent getDeathSound() {
-        return glomod.DEATHTANKEVENT;
+        return Soundinit.DEATHTANKEVENT;
     }
 
     protected SoundEvent getStepSound() {
-        return glomod.STEPTANKEVENT;
+        return Soundinit.STEPTANKEVENT;
     }
 
 }

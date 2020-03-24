@@ -22,8 +22,8 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
-import net.mobz.Items.SwordItems;
+import net.mobz.Inits.Soundinit;
+import net.mobz.Inits.SwordItems;
 
 public class Knight5Entity extends VindicatorEntity {
 
@@ -68,20 +68,20 @@ public class Knight5Entity extends VindicatorEntity {
         return EntityGroup.DEFAULT;
     }
 
- //   protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
-  //      return;
-  //  }
+    protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
+        return;
+    }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.DARKIDLEEVENT;
+        return Soundinit.DARKIDLEEVENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-        return glomod.DARKHITEVENT;
+        return Soundinit.DARKHITEVENT;
     }
 
     protected SoundEvent getDeathSound() {
-        return glomod.DARKDEATHEVENT;
+        return Soundinit.DARKDEATHEVENT;
     }
 
     public boolean canSpawn(WorldView viewableWorld_1) {
@@ -93,6 +93,5 @@ public class Knight5Entity extends VindicatorEntity {
                 && this.world.isNight() && this.world.getLightLevel(lighto) <= 7 && !this.world.isWater(entityPos);
 
     }
-    
 
 }

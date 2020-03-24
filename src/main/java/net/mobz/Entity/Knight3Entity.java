@@ -24,8 +24,8 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
-import net.mobz.Items.SwordItems;
+import net.mobz.Inits.Soundinit;
+import net.mobz.Inits.SwordItems;
 
 public class Knight3Entity extends VindicatorEntity {
 
@@ -76,7 +76,7 @@ public class Knight3Entity extends VindicatorEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.NOTHINGEVENT;
+        return Soundinit.NOTHINGEVENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
@@ -93,8 +93,7 @@ public class Knight3Entity extends VindicatorEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.isNight() && this.world.getLightLevel(lighto) <= 7
-                && !this.world.isWater(entityPos);
+                && this.world.isNight() && this.world.getLightLevel(lighto) <= 7 && !this.world.isWater(entityPos);
 
     }
 }

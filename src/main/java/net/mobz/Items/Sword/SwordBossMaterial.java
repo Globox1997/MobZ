@@ -1,6 +1,6 @@
 package net.mobz.Items.Sword;
 
-import net.mobz.glomod;
+import net.mobz.Inits.Iteminit;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
@@ -32,7 +32,7 @@ public class SwordBossMaterial implements ToolMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(glomod.BOSSBARREN);
+        return Ingredient.ofItems(Iteminit.BOSSBARREN);
     }
 
 }

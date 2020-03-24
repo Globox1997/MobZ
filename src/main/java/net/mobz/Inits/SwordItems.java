@@ -1,4 +1,4 @@
-package net.mobz.Items;
+package net.mobz.Inits;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;

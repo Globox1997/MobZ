@@ -1,7 +1,6 @@
 package net.mobz.Items.Sword;
 
 import java.util.function.Consumer;
-
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;

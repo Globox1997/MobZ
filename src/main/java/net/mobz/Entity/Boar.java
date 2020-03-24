@@ -12,7 +12,8 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Soundinit;
+import net.mobz.Inits.Entityinit;
 
 public class Boar extends PigEntity {
     private static final Ingredient BREEDING_INGREDIENT;
@@ -40,15 +41,15 @@ public class Boar extends PigEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.BOARSAYEVENT;
+        return Soundinit.BOARSAYEVENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-        return glomod.BOARSAYEVENT;
+        return Soundinit.BOARSAYEVENT;
     }
 
     protected SoundEvent getDeathSound() {
-        return glomod.BOARDEATHEVENT;
+        return Soundinit.BOARDEATHEVENT;
     }
 
     public boolean isSaddled() {
@@ -56,7 +57,7 @@ public class Boar extends PigEntity {
     }
 
     public Boar method_6574(PassiveEntity passiveEntity_1) {
-        return (Boar) glomod.BOAR.create(this.world);
+        return (Boar) Entityinit.BOAR.create(this.world);
     }
 
     public boolean isBreedingItem(ItemStack stack) {
@@ -64,7 +65,7 @@ public class Boar extends PigEntity {
     }
 
     public Boar createChild(PassiveEntity passiveEntity) {
-        return (Boar) glomod.BOAR.create(this.world);
+        return (Boar) Entityinit.BOAR.create(this.world);
     }
 
     static {

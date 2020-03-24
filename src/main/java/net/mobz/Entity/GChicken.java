@@ -29,7 +29,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Entityinit;
 
 public class GChicken extends ChickenEntity {
    private static final Ingredient BREEDING_INGREDIENT;
@@ -122,7 +122,7 @@ public class GChicken extends ChickenEntity {
    }
 
    public GChicken createChild(PassiveEntity passiveEntity_1) {
-      return (GChicken) glomod.GCHICKEN.create(this.world);
+      return (GChicken) Entityinit.GCHICKEN.create(this.world);
    }
 
    public boolean isBreedingItem(ItemStack stack) {

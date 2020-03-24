@@ -52,8 +52,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
-import net.mobz.Items.SwordItems;
+import net.mobz.Inits.Entityinit;
+import net.mobz.Inits.SwordItems;
 
 public class Knight4Entity extends TameableEntity {
     private static final TrackedData<Float> ALEX_HEALTH;
@@ -78,8 +78,7 @@ public class Knight4Entity extends TameableEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getLightLevel(lighto) < 9
-                && !this.world.isWater(entityPos);
+                && this.world.getLightLevel(lighto) < 9 && !this.world.isWater(entityPos);
 
     }
 
@@ -349,7 +348,7 @@ public class Knight4Entity extends TameableEntity {
     }
 
     public Knight4Entity method_6717(PassiveEntity passiveEntity_1) {
-        Knight4Entity Knight4Entity_1 = (Knight4Entity) glomod.KNIGHT4ENTITY.create(this.world);
+        Knight4Entity Knight4Entity_1 = (Knight4Entity) Entityinit.KNIGHT4ENTITY.create(this.world);
         UUID uUID_1 = this.getOwnerUuid();
         if (uUID_1 != null) {
             Knight4Entity_1.setOwnerUuid(uUID_1);

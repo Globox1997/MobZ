@@ -1,7 +1,5 @@
 package net.mobz.Entity;
 
-import net.mobz.glomod;
-
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.ZombieEntity;
@@ -10,6 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.Inits.Soundinit;
 
 public class FastEntity extends ZombieEntity {
 
@@ -41,11 +40,11 @@ public class FastEntity extends ZombieEntity {
     }
 
     protected SoundEvent getStepSound() {
-        return glomod.STEPSPEEDEVENT;
+        return Soundinit.STEPSPEEDEVENT;
     }
 
     protected SoundEvent getAmbientSound() {
-        return glomod.SAYSPEEDEVENT;
+        return Soundinit.SAYSPEEDEVENT;
     }
 
     public boolean isBaby() {

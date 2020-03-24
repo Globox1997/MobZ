@@ -5,7 +5,7 @@ import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.mobz.glomod;
+import net.mobz.Inits.Iteminit;
 
 public class AMaterial implements ArmorMaterial {
     private static final int[] BASE_DURABILITY = new int[] { 17, 19, 21, 15 };
@@ -33,7 +33,7 @@ public class AMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(glomod.REDD);
+        return Ingredient.ofItems(Iteminit.REDD);
     }
 
     @Override

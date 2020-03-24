@@ -2,7 +2,6 @@ package net.mobz.Items.Item;
 
 import java.util.List;
 import java.util.Random;
-
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,8 +14,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
-import net.mobz.glomod;
-import net.mobz.Items.SwordItems;
+import net.mobz.Inits.Iteminit;
+import net.mobz.Inits.SwordItems;
 
 public class Whitebag extends Item {
     public Whitebag(Settings settings) {
@@ -43,11 +42,11 @@ public class Whitebag extends Item {
                 case 0:
                     return new ItemStack(SwordItems.Axe);
                 case 1:
-                    return new ItemStack(glomod.SHIELD);
+                    return new ItemStack(Iteminit.SHIELD);
                 case 2:
                     return new ItemStack(SwordItems.Sword);
                 case 3:
-                    return new ItemStack(glomod.ORB2);
+                    return new ItemStack(Iteminit.ORB2);
                 default:
                     return stack;
             }

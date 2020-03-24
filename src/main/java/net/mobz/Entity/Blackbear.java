@@ -52,7 +52,7 @@ import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Soundinit;
 
 public class Blackbear extends PandaEntity {
    private static final TrackedData<Integer> ASK_FOR_BAMBOO_TICKS;
@@ -85,8 +85,7 @@ public class Blackbear extends PandaEntity {
    public boolean canSpawn(WorldView viewableWorld_1) {
       BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
-            && !viewableWorld_1.isAir(entityPos)
-            && !this.world.isWater(entityPos);
+            && !viewableWorld_1.isAir(entityPos) && !this.world.isWater(entityPos);
 
    }
 
@@ -240,7 +239,7 @@ public class Blackbear extends PandaEntity {
    }
 
    public boolean tryAttack(Entity entity_1) {
-      this.playSound(glomod.PBITEEVENT, 1.0F, 1.0F);
+      this.playSound(Soundinit.PBITEEVENT, 1.0F, 1.0F);
       if (!this.isAttacking()) {
          this.shouldAttack = true;
       }
@@ -270,7 +269,7 @@ public class Blackbear extends PandaEntity {
          }
 
          if (this.getAskForBambooTicks() == 29 || this.getAskForBambooTicks() == 14) {
-            this.playSound(glomod.NOTHINGEVENT, 1.0F, 1.0F);
+            this.playSound(Soundinit.NOTHINGEVENT, 1.0F, 1.0F);
          }
 
          this.setAskForBambooTicks(this.getAskForBambooTicks() - 1);
@@ -282,7 +281,7 @@ public class Blackbear extends PandaEntity {
             this.setSneezing(false);
             this.sneeze();
          } else if (this.getSneezeProgress() == 1) {
-            this.playSound(glomod.NOTHINGEVENT, 1.0F, 1.0F);
+            this.playSound(Soundinit.NOTHINGEVENT, 1.0F, 1.0F);
          }
       }
 

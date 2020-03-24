@@ -1,7 +1,6 @@
 package net.mobz.Entity;
 
-import net.mobz.Items.*;
-
+import net.mobz.Inits.SwordItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributes;

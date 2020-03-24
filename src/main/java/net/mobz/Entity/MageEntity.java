@@ -36,7 +36,8 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Entityinit;
+import net.mobz.Inits.Soundinit;
 
 public class MageEntity extends SpellcastingIllagerEntity {
    private SheepEntity wololoTarget;
@@ -117,15 +118,15 @@ public class MageEntity extends SpellcastingIllagerEntity {
    }
 
    protected SoundEvent getAmbientSound() {
-      return glomod.EVEIDLEEVENT;
+      return Soundinit.EVEIDLEEVENT;
    }
 
    protected SoundEvent getDeathSound() {
-      return glomod.EVEDEATHEVENT;
+      return Soundinit.EVEDEATHEVENT;
    }
 
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-      return glomod.EVEHURTEVENT;
+      return Soundinit.EVEHURTEVENT;
    }
 
    private void setWololoTarget(@Nullable SheepEntity sheep) {
@@ -244,7 +245,7 @@ public class MageEntity extends SpellcastingIllagerEntity {
          for (int i = 0; i < 3; ++i) {
             BlockPos blockPos = (new BlockPos(MageEntity.this)).add(-2 + MageEntity.this.random.nextInt(5), 1,
                   -2 + MageEntity.this.random.nextInt(5));
-            SpiSmall vexEntity = (SpiSmall) glomod.SPISMALL.create(MageEntity.this.world);
+            SpiSmall vexEntity = (SpiSmall) Entityinit.SPISMALL.create(MageEntity.this.world);
             vexEntity.refreshPositionAndAngles(blockPos, 0.0F, 0.0F);
             vexEntity.initialize(MageEntity.this.world, MageEntity.this.world.getLocalDifficulty(blockPos),
                   SpawnType.MOB_SUMMONED, (EntityData) null, (CompoundTag) null);
