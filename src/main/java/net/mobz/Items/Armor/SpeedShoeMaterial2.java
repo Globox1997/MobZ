@@ -2,6 +2,7 @@ package net.mobz.Items.Armor;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -32,7 +33,7 @@ public class SpeedShoeMaterial2 implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.EMPTY;
+        return Ingredient.ofItems(Items.EMERALD);
     }
 
     @Override

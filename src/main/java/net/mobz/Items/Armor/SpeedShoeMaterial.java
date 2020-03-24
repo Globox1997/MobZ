@@ -5,6 +5,7 @@ import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.mobz.glomod;
 
 public class SpeedShoeMaterial implements ArmorMaterial {
     private static final int[] BASE_DURABILITY = new int[] { 11, 12, 13, 10 };
@@ -32,7 +33,7 @@ public class SpeedShoeMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.EMPTY;
+        return Ingredient.ofItems(glomod.BEARLEATHER);
     }
 
     @Override

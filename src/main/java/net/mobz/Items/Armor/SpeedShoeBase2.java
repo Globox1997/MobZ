@@ -10,7 +10,6 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Item;
-import net.mobz.glomod;
 
 public class SpeedShoeBase2 extends ArmorItem {
     double b = 0.03;
@@ -20,7 +19,7 @@ public class SpeedShoeBase2 extends ArmorItem {
             UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150") };
 
     public SpeedShoeBase2(ArmorMaterial material, EquipmentSlot slot) {
-        super(material, slot, new Item.Settings().group(glomod.MOBZ_GROUP));
+        super(material, slot, new Item.Settings());
     }
 
     public Multimap<String, EntityAttributeModifier> getModifiers(EquipmentSlot equipmentSlot_1) {

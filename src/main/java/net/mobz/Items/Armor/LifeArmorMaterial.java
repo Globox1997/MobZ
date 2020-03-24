@@ -43,7 +43,7 @@ public class LifeArmorMaterial implements ArmorMaterial {
 
     @Override
     public float getToughness() {
-        return 1;
+        return 0;
     }
 
 }
