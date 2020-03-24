@@ -35,7 +35,7 @@ public class Knight5Entity extends VindicatorEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.3499999940395355D);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.345D);
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(48.0D);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(7.0D);
@@ -68,9 +68,9 @@ public class Knight5Entity extends VindicatorEntity {
         return EntityGroup.DEFAULT;
     }
 
-    protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
-        return;
-    }
+ //   protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
+  //      return;
+  //  }
 
     protected SoundEvent getAmbientSound() {
         return glomod.DARKIDLEEVENT;
@@ -90,9 +90,9 @@ public class Knight5Entity extends VindicatorEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.isNight() && this.world.getLightLevel(lighto) <= 7
-                && !this.world.isWater(entityPos);
+                && this.world.isNight() && this.world.getLightLevel(lighto) <= 7 && !this.world.isWater(entityPos);
 
     }
+    
 
 }

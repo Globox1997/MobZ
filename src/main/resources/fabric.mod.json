@@ -22,7 +22,7 @@
       "net.mobz.glomod"
     ],
     "client": [
-      "net.mobz.ClientInitializier"
+      "net.mobz.client"
     ]
   },
   "mixins": [

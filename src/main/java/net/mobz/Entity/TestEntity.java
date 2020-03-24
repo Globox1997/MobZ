@@ -1,132 +1,112 @@
-package net.mobz.Entity;
+/*package net.mobz.Entity;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.ai.goal.LookAroundGoal;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.ai.goal.ZombieAttackGoal;
+import net.minecraft.entity.ai.RangedAttackMob;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.mob.ZombieEntity;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FireballEntity;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.world.World;
 
-import net.minecraft.entity.mob.GhastEntity;
+public class TestEntity extends HostileEntity implements RangedAttackMob
+{
+    private int currentProjectileCooldown = 0;
+    private final int requiredProjectileCooldown = 100;
 
-public class TestEntity extends ZombieEntity {
-    private static final TrackedData<Boolean> SHOOTING;
-   private int fireballStrength = 1;
-
-    public TestEntity(EntityType<? extends ZombieEntity> entityType_1, World world_1) {
+    public TestEntity(EntityType<TestEntity> entityType_1, World world_1) {
         super(entityType_1, world_1);
     }
-
-    protected void initGoals() {
-        this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(8, new LookAroundGoal(this));
-        
-        this.initCustomGoals();
-     }
-  
-     protected void initCustomGoals() {
-        this.goalSelector.add(2, new ZombieAttackGoal(this, 1.0D, false));
-        this.goalSelector.add(3, new TestEntity.ShootFireballGoal(this));
-     }
-
-    protected void initAttributes() {
+    @Override
+    protected void initGoals()
+    {
+        this.goalSelector.add(0, new SwimGoal(this));
+        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, true));
+        this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 9.0F));
+        this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
+        this.targetSelector.add(2, new FollowTargetGoal(this, PlayerEntity.class, false));
+    }
+    @Override
+    protected void initAttributes()
+    {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(200.0D);
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
-        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(44.0D);
-        this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(2.0D);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20D);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
+        this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(10.0D);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(BattleTowers.CONFIG.bossDamageScale);
+    }
+    @Override
+    protected void mobTick()
+    {
+        if(getTarget() != null && !world.isClient)
+        {
+            currentProjectileCooldown++;
+            if (currentProjectileCooldown >= requiredProjectileCooldown)
+            {
+                currentProjectileCooldown = 0;
+                attack(getTarget(), 1);
+            }
+        }
+        else currentProjectileCooldown = 0;
+    }
+    @Override
+    protected Identifier getLootTableId()
+    {
+        return new Identifier(BattleTowers.CONFIG.bossLootTable);
+    }
+    @Override
+    public boolean cannotDespawn()
+    {
+        return true;
+    }
+    @Override
+    public int getSafeFallDistance()
+    {
+        return 1000;
+    }
+    @Override
+    public void attack(LivingEntity livingEntity, float v)
+    {
+        Vec3d vec3d_1 = this.getRotationVec(1.0F);
+        double double_3 = livingEntity.x - (this.x + vec3d_1.x * 4.0D);
+        double double_4 = livingEntity.getBoundingBox().minY + (double)(livingEntity.getHeight() / 2.0F) - (0.5D + this.y + (double)(this.getHeight() / 2.0F));
+        double double_5 = livingEntity.z - (this.z + vec3d_1.z * 4.0D);
+        FireballEntity fireballEntity_1 = new FireballEntity(world, this, double_3, double_4, double_5);
+        fireballEntity_1.explosionPower = 1;
+        fireballEntity_1.x = this.x + vec3d_1.x * 4.0D;
+        fireballEntity_1.y = this.y + (double)(this.getHeight() / 2.0F) + 0.5D;
+        fireballEntity_1.z = this.z + vec3d_1.z * 4.0D;
+        world.spawnEntity(fireballEntity_1);
     }
 
-    protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
-        return;
+}*/
 
+package net.mobz.Entity;
+
+import net.mobz.glomod;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.mob.ZombieEntity;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
+
+public class TestEntity extends ZombieEntity {
+
+    public TestEntity(EntityType<? extends ZombieEntity> entityType, World world) {
+        super(entityType, world);
+        this.experiencePoints = 15;
     }
 
-    protected void initDataTracker() {
-        super.initDataTracker();
-        this.dataTracker.startTracking(SHOOTING, false);
-     }
-
-    @Environment(EnvType.CLIENT)
-    public boolean isShooting() {
-       return (Boolean)this.dataTracker.get(SHOOTING);
-    }
- 
-    public void setShooting(boolean shooting) {
-       this.dataTracker.set(SHOOTING, shooting);
-    }
- 
-    public int getFireballStrength() {
-       return this.fireballStrength;
-    }
-
-    static {
-        SHOOTING = DataTracker.registerData(TestEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-     }
-
-    
-   static class ShootFireballGoal extends Goal {
-    private final TestEntity ghast;
-    public int cooldown;
-
-    public ShootFireballGoal(TestEntity ghast) {
-       this.ghast = ghast;
-    }
-
-    public boolean canStart() {
-       return this.ghast.getTarget() != null;
-    }
-
-    public void start() {
-       this.cooldown = 0;
-    }
-
-    public void stop() {
-       this.ghast.setShooting(false);
-    } 
-
-    public void tick() {
-       LivingEntity livingEntity = this.ghast.getTarget();
-       double d = 64.0D;
-       if (livingEntity.squaredDistanceTo(this.ghast) < 4096.0D && this.ghast.canSee(livingEntity)) {
-          World world = this.ghast.world;
-          ++this.cooldown;
-          if (this.cooldown == 10) {
-             world.playLevelEvent((PlayerEntity)null, 1015, new BlockPos(this.ghast), 0);
-          }
-
-          if (this.cooldown == 20) {
-             double e = 4.0D;
-             Vec3d vec3d = this.ghast.getRotationVec(1.0F);
-             double f = livingEntity.getX() - (this.ghast.getX() + vec3d.x * 4.0D);
-             double g = livingEntity.getBodyY(0.5D) - (0.5D + this.ghast.getBodyY(0.5D));
-             double h = livingEntity.getZ() - (this.ghast.getZ() + vec3d.z * 4.0D);
-             world.playLevelEvent((PlayerEntity)null, 1016, new BlockPos(this.ghast), 0);
-             FireballEntity fireballEntity = new FireballEntity(world, this.ghast, f, g, h);
-             fireballEntity.explosionPower = this.ghast.getFireballStrength();
-             fireballEntity.updatePosition(this.ghast.getX() + vec3d.x * 4.0D, this.ghast.getBodyY(0.5D) + 0.5D, fireballEntity.getZ() + vec3d.z * 4.0D);
-             world.spawnEntity(fireballEntity);
-             this.cooldown = -40;
-          }
-       } else if (this.cooldown > 0) {
-          --this.cooldown;
-       }
-
-       this.ghast.setShooting(this.cooldown > 10);
-    }
- }
 
 }

@@ -6,7 +6,7 @@ import net.minecraft.entity.EntityType;
 
 import net.mobz.Renderer.*;
 
-public class ClientInitializier implements ClientModInitializer {
+public class client implements ClientModInitializer {
 
         public static EntityType<?> entityType;
 
