@@ -23,6 +23,7 @@ public class Iteminit {
     public static final Orb ORB = new Orb(new Item.Settings().maxCount(1));
     public static final Whitebag WHITEBAG = new Whitebag(new Item.Settings().maxCount(1));
     public static final Orb2 ORB2 = new Orb2(new Item.Settings().maxCount(1));
+    public static final Showegg SHOWEGG = new Showegg(new Item.Settings().maxCount(1));
 
     public static void init() {
 
@@ -40,6 +41,7 @@ public class Iteminit {
         Registry.register(Registry.ITEM, new Identifier("mobz", "orb"), ORB);
         Registry.register(Registry.ITEM, new Identifier("mobz", "whitebag"), WHITEBAG);
         Registry.register(Registry.ITEM, new Identifier("mobz", "orb2"), ORB2);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "showegg"), SHOWEGG);
 
     }
 

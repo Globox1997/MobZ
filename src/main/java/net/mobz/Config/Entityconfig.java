@@ -1,5 +1,5 @@
 
-package net.mobz.Config;
+/*package net.mobz.Config;
 
 import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
 import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
@@ -17,4 +17,4 @@ public class Entityconfig implements ConfigData {
     public boolean breakSingleBlockWhenSneaking = true;
     public int durabilityModifier = 5;
 
-} 
+} */
