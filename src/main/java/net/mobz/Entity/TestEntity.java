@@ -85,28 +85,11 @@ public class TestEntity extends HostileEntity implements RangedAttackMob
 }*/
 
 package net.mobz.Entity;
-
-import net.mobz.glomod;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.ZombieEntity;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
-
 public class TestEntity extends ZombieEntity {
-
     public TestEntity(EntityType<? extends ZombieEntity> entityType, World world) {
         super(entityType, world);
-        this.experiencePoints = 15;
     }
-
-
 }
