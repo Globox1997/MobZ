@@ -58,9 +58,11 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       this.goalSelector.add(8, new WanderAroundGoal(this, 0.6D));
       this.goalSelector.add(9, new LookAtEntityGoal(this, PlayerEntity.class, 3.0F, 1.0F));
       this.goalSelector.add(10, new LookAtEntityGoal(this, MobEntity.class, 8.0F));
-      this.targetSelector.add(1, (new RevengeGoal(this, new Class[]{RaiderEntity.class})).setGroupRevenge());
-      this.targetSelector.add(2, (new FollowTargetGoal(this, PlayerEntity.class, true)).setMaxTimeWithoutVisibility(300));
-      this.targetSelector.add(3, (new FollowTargetGoal(this, AbstractTraderEntity.class, false)).setMaxTimeWithoutVisibility(300));
+      this.targetSelector.add(1, (new RevengeGoal(this, new Class[] { RaiderEntity.class })).setGroupRevenge());
+      this.targetSelector.add(2,
+            (new FollowTargetGoal(this, PlayerEntity.class, true)).setMaxTimeWithoutVisibility(300));
+      this.targetSelector.add(3,
+            (new FollowTargetGoal(this, AbstractTraderEntity.class, false)).setMaxTimeWithoutVisibility(300));
       this.targetSelector.add(3, new FollowTargetGoal(this, IronGolemEntity.class, false));
    }
 
@@ -108,8 +110,8 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       } else if (super.isTeammate(other)) {
          return true;
       } else if (other instanceof SmallZombie) {
-         return this.isTeammate(((SmallZombie)other).getOwner());
-      } else if (other instanceof LivingEntity && ((LivingEntity)other).getGroup() == EntityGroup.ILLAGER) {
+         return this.isTeammate(((SmallZombie) other).getOwner());
+      } else if (other instanceof LivingEntity && ((LivingEntity) other).getGroup() == EntityGroup.ILLAGER) {
          return this.getScoreboardTeam() == null && other.getScoreboardTeam() == null;
       } else {
          return false;
@@ -145,9 +147,10 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
    }
 
    public class WololoGoal extends SpellcastingIllagerEntity.CastSpellGoal {
-      private final TargetPredicate purpleSheepPredicate = (new TargetPredicate()).setBaseMaxDistance(16.0D).includeInvulnerable().setPredicate((livingEntity) -> {
-         return ((SheepEntity)livingEntity).getColor() == DyeColor.BLUE;
-      });
+      private final TargetPredicate purpleSheepPredicate = (new TargetPredicate()).setBaseMaxDistance(16.0D)
+            .includeInvulnerable().setPredicate((livingEntity) -> {
+               return ((SheepEntity) livingEntity).getColor() == DyeColor.BLUE;
+            });
 
       public WololoGoal() {
          super();
@@ -163,11 +166,12 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
          } else if (!Mage2Entity.this.world.getGameRules().getBoolean(GameRules.MOB_GRIEFING)) {
             return false;
          } else {
-            List<SheepEntity> list = Mage2Entity.this.world.getTargets(SheepEntity.class, this.purpleSheepPredicate, Mage2Entity.this, Mage2Entity.this.getBoundingBox().expand(16.0D, 4.0D, 16.0D));
+            List<SheepEntity> list = Mage2Entity.this.world.getTargets(SheepEntity.class, this.purpleSheepPredicate,
+                  Mage2Entity.this, Mage2Entity.this.getBoundingBox().expand(16.0D, 4.0D, 16.0D));
             if (list.isEmpty()) {
                return false;
             } else {
-               Mage2Entity.this.setWololoTarget((SheepEntity)list.get(Mage2Entity.this.random.nextInt(list.size())));
+               Mage2Entity.this.setWololoTarget((SheepEntity) list.get(Mage2Entity.this.random.nextInt(list.size())));
                return true;
             }
          }
@@ -179,7 +183,7 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
 
       public void stop() {
          super.stop();
-         Mage2Entity.this.setWololoTarget((SheepEntity)null);
+         Mage2Entity.this.setWololoTarget((SheepEntity) null);
       }
 
       protected void castSpell() {
@@ -216,14 +220,16 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
 
       private SummonVexGoal() {
          super();
-         this.closeVexPredicate = (new TargetPredicate()).setBaseMaxDistance(16.0D).includeHidden().ignoreDistanceScalingFactor().includeInvulnerable().includeTeammates();
+         this.closeVexPredicate = (new TargetPredicate()).setBaseMaxDistance(16.0D).includeHidden()
+               .ignoreDistanceScalingFactor().includeInvulnerable().includeTeammates();
       }
 
       public boolean canStart() {
          if (!super.canStart()) {
             return false;
          } else {
-            int i = Mage2Entity.this.world.getTargets(SmallZombie.class, this.closeVexPredicate, Mage2Entity.this, Mage2Entity.this.getBoundingBox().expand(16.0D)).size();
+            int i = Mage2Entity.this.world.getTargets(SmallZombie.class, this.closeVexPredicate, Mage2Entity.this,
+                  Mage2Entity.this.getBoundingBox().expand(16.0D)).size();
             return Mage2Entity.this.random.nextInt(8) + 1 > i;
          }
       }
@@ -237,11 +243,13 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       }
 
       protected void castSpell() {
-         for(int i = 0; i < 3; ++i) {
-            BlockPos blockPos = (new BlockPos(Mage2Entity.this)).add(-2 + Mage2Entity.this.random.nextInt(5), 1, -2 + Mage2Entity.this.random.nextInt(5));
-            SmallZombie SmallZombie = (SmallZombie)Entityinit.SMALLZOMBIE.create(Mage2Entity.this.world);
+         for (int i = 0; i < 3; ++i) {
+            BlockPos blockPos = (new BlockPos(Mage2Entity.this)).add(-2 + Mage2Entity.this.random.nextInt(5), 1,
+                  -2 + Mage2Entity.this.random.nextInt(5));
+            SmallZombie SmallZombie = (SmallZombie) Entityinit.SMALLZOMBIE.create(Mage2Entity.this.world);
             SmallZombie.refreshPositionAndAngles(blockPos, 0.0F, 0.0F);
-            SmallZombie.initialize(Mage2Entity.this.world, Mage2Entity.this.world.getLocalDifficulty(blockPos), SpawnType.MOB_SUMMONED, (EntityData)null, (CompoundTag)null);
+            SmallZombie.initialize(Mage2Entity.this.world, Mage2Entity.this.world.getLocalDifficulty(blockPos),
+                  SpawnType.MOB_SUMMONED, (EntityData) null, (CompoundTag) null);
             SmallZombie.setOwner(Mage2Entity.this);
             SmallZombie.setBounds(blockPos);
             SmallZombie.setLifeTicks(20 * (30 + Mage2Entity.this.random.nextInt(90)));
@@ -276,24 +284,28 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
          LivingEntity livingEntity = Mage2Entity.this.getTarget();
          double d = Math.min(livingEntity.getY(), Mage2Entity.this.getY());
          double e = Math.max(livingEntity.getY(), Mage2Entity.this.getY()) + 1.0D;
-         float f = (float)MathHelper.atan2(livingEntity.getZ() - Mage2Entity.this.getZ(), livingEntity.getX() - Mage2Entity.this.getX());
+         float f = (float) MathHelper.atan2(livingEntity.getZ() - Mage2Entity.this.getZ(),
+               livingEntity.getX() - Mage2Entity.this.getX());
          int j;
          if (Mage2Entity.this.squaredDistanceTo(livingEntity) < 9.0D) {
             float h;
-            for(j = 0; j < 5; ++j) {
-               h = f + (float)j * 3.1415927F * 0.4F;
-               this.conjureFangs(Mage2Entity.this.getX() + (double)MathHelper.cos(h) * 1.5D, Mage2Entity.this.getZ() + (double)MathHelper.sin(h) * 1.5D, d, e, h, 0);
+            for (j = 0; j < 5; ++j) {
+               h = f + (float) j * 3.1415927F * 0.4F;
+               this.conjureFangs(Mage2Entity.this.getX() + (double) MathHelper.cos(h) * 1.5D,
+                     Mage2Entity.this.getZ() + (double) MathHelper.sin(h) * 1.5D, d, e, h, 0);
             }
 
-            for(j = 0; j < 8; ++j) {
-               h = f + (float)j * 3.1415927F * 2.0F / 8.0F + 1.2566371F;
-               this.conjureFangs(Mage2Entity.this.getX() + (double)MathHelper.cos(h) * 2.5D, Mage2Entity.this.getZ() + (double)MathHelper.sin(h) * 2.5D, d, e, h, 3);
+            for (j = 0; j < 8; ++j) {
+               h = f + (float) j * 3.1415927F * 2.0F / 8.0F + 1.2566371F;
+               this.conjureFangs(Mage2Entity.this.getX() + (double) MathHelper.cos(h) * 2.5D,
+                     Mage2Entity.this.getZ() + (double) MathHelper.sin(h) * 2.5D, d, e, h, 3);
             }
          } else {
-            for(j = 0; j < 16; ++j) {
-               double l = 1.25D * (double)(j + 1);
+            for (j = 0; j < 16; ++j) {
+               double l = 1.25D * (double) (j + 1);
                int m = 1 * j;
-               this.conjureFangs(Mage2Entity.this.getX() + (double)MathHelper.cos(f) * l, Mage2Entity.this.getZ() + (double)MathHelper.sin(f) * l, d, e, f, m);
+               this.conjureFangs(Mage2Entity.this.getX() + (double) MathHelper.cos(f) * l,
+                     Mage2Entity.this.getZ() + (double) MathHelper.sin(f) * l, d, e, f, m);
             }
          }
 
@@ -321,10 +333,11 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
             }
 
             blockPos = blockPos.down();
-         } while(blockPos.getY() >= MathHelper.floor(maxY) - 1);
+         } while (blockPos.getY() >= MathHelper.floor(maxY) - 1);
 
          if (bl) {
-            Mage2Entity.this.world.spawnEntity(new EvokerFangsEntity(Mage2Entity.this.world, x, (double)blockPos.getY() + d, z, f, warmup, Mage2Entity.this));
+            Mage2Entity.this.world.spawnEntity(new EvokerFangsEntity(Mage2Entity.this.world, x,
+                  (double) blockPos.getY() + d, z, f, warmup, Mage2Entity.this));
          }
 
       }
@@ -345,11 +358,18 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
 
       public void tick() {
          if (Mage2Entity.this.getTarget() != null) {
-            Mage2Entity.this.getLookControl().lookAt(Mage2Entity.this.getTarget(), (float)Mage2Entity.this.getBodyYawSpeed(), (float)Mage2Entity.this.getLookPitchSpeed());
+            Mage2Entity.this.getLookControl().lookAt(Mage2Entity.this.getTarget(),
+                  (float) Mage2Entity.this.getBodyYawSpeed(), (float) Mage2Entity.this.getLookPitchSpeed());
          } else if (Mage2Entity.this.getWololoTarget() != null) {
-            Mage2Entity.this.getLookControl().lookAt(Mage2Entity.this.getWololoTarget(), (float)Mage2Entity.this.getBodyYawSpeed(), (float)Mage2Entity.this.getLookPitchSpeed());
+            Mage2Entity.this.getLookControl().lookAt(Mage2Entity.this.getWololoTarget(),
+                  (float) Mage2Entity.this.getBodyYawSpeed(), (float) Mage2Entity.this.getLookPitchSpeed());
          }
 
       }
    }
+
+   public void onDeath(DamageSource damageSource_1) {
+      return;
+   }
+
 }

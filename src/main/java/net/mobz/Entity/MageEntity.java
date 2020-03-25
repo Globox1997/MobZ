@@ -82,8 +82,7 @@ public class MageEntity extends SpellcastingIllagerEntity {
       return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-            && this.world.isDay()
-            && !this.world.isWater(entityPos);
+            && this.world.isDay() && !this.world.isWater(entityPos);
 
    }
 
@@ -365,5 +364,9 @@ public class MageEntity extends SpellcastingIllagerEntity {
          }
 
       }
+   }
+
+   public void onDeath(DamageSource damageSource_1) {
+      return;
    }
 }
