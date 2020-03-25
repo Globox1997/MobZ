@@ -7,7 +7,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 
 public class EnderEntity extends EndermanEntity {
 
@@ -17,8 +17,8 @@ public class EnderEntity extends EndermanEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(50D * glomod.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(11D * glomod.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(50D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(11D * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     public boolean isBaby() {
@@ -31,7 +31,7 @@ public class EnderEntity extends EndermanEntity {
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.EndermanSpawn == true;
+                && Configinit.CONFIGZ.EndermanSpawn == true;
 
     }
 }

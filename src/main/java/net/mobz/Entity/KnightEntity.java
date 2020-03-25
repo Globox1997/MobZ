@@ -28,7 +28,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 import net.mobz.Inits.SwordItems;
 
@@ -55,8 +55,8 @@ public class KnightEntity extends ZombieEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(5.0D * glomod.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(5.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     protected void initEquipment(LocalDifficulty localDifficulty_1) {
@@ -102,7 +102,7 @@ public class KnightEntity extends ZombieEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.isDay()
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.TemplarSpawn == true;
+                && Configinit.CONFIGZ.TemplarSpawn == true;
 
     }
 

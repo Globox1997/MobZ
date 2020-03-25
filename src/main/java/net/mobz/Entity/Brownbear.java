@@ -5,7 +5,7 @@ import net.minecraft.entity.passive.PolarBearEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 
 public class Brownbear extends PolarBearEntity {
 
@@ -18,7 +18,7 @@ public class Brownbear extends PolarBearEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.BrownBearSpawn == true;
+                && Configinit.CONFIGZ.BrownBearSpawn == true;
 
     }
 

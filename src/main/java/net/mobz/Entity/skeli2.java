@@ -7,7 +7,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 
 public class skeli2 extends SkeletonEntity {
 
@@ -17,7 +17,7 @@ public class skeli2 extends SkeletonEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(24D * glomod.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(24D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(1.0D);
     }
 
@@ -29,7 +29,7 @@ public class skeli2 extends SkeletonEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(lighto) <= 7
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.OvergrownSkeleton == true;
+                && Configinit.CONFIGZ.OvergrownSkeleton == true;
 
     }
 

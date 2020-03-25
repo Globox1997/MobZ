@@ -1,6 +1,6 @@
 package net.mobz.Entity;
 
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -21,7 +21,7 @@ public class CreepEntity extends CreeperEntity {
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(25D * glomod.CONFIGZ.LifeMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(25D * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
@@ -39,7 +39,7 @@ public class CreepEntity extends CreeperEntity {
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
             && this.world.getLightLevel(lighto) <= 7 && !this.world.isWater(entityPos)
-            && glomod.CONFIGZ.FrostCreeperSpawn == true;
+            && Configinit.CONFIGZ.FrostCreeperSpawn == true;
 
    }
 }

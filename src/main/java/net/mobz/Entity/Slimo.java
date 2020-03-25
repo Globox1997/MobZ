@@ -6,7 +6,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 
 public class Slimo extends SlimeEntity {
 
@@ -22,7 +22,7 @@ public class Slimo extends SlimeEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(lighto) >= 7
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.GrassSlimeSpawn == true;
+                && Configinit.CONFIGZ.GrassSlimeSpawn == true;
 
     }
 

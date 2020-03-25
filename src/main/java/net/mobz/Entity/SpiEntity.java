@@ -7,7 +7,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 
 public class SpiEntity extends SpiderEntity {
     public SpiEntity(EntityType<? extends SpiderEntity> entityType, World world) {
@@ -16,9 +16,9 @@ public class SpiEntity extends SpiderEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.31D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4D * glomod.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4D * Configinit.CONFIGZ.DamageMultiplicatorMob);
     } 
 
     public boolean canSpawn(WorldView viewableWorld_1) {
@@ -30,7 +30,7 @@ public class SpiEntity extends SpiderEntity {
                 && this.world.isNight()
                 && this.world.getLightLevel(lighto) <= 7
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.BlueSpiderSpawn == true;
+                && Configinit.CONFIGZ.BlueSpiderSpawn == true;
 
     }
 }

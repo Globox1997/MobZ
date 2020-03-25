@@ -14,7 +14,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Iteminit;
 import net.mobz.Inits.Soundinit;
 import net.mobz.Inits.SwordItems;
@@ -58,8 +58,8 @@ public class DwarfEntity extends VindicatorEntity {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.3D);
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(70.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(7.0D * glomod.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(70.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(7.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     public boolean canSpawn(WorldView viewableWorld_1) {
@@ -69,7 +69,7 @@ public class DwarfEntity extends VindicatorEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && entityPos.getY() < viewableWorld_1.getSeaLevel() - 10
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.DwarfSpawn == true;
+                && Configinit.CONFIGZ.DwarfSpawn == true;
 
     }
 }

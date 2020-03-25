@@ -12,7 +12,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 import net.mobz.Inits.SwordItems;
 
@@ -24,7 +24,7 @@ public class skeli4 extends SkeletonEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20D * glomod.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(1.0D);
     }
 
@@ -57,7 +57,7 @@ public class skeli4 extends SkeletonEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.isNight() && this.world.getLightLevel(lighto) <= 7
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.LostSkeletonSpawn == true;
+                && Configinit.CONFIGZ.LostSkeletonSpawn == true;
 
     }
 }

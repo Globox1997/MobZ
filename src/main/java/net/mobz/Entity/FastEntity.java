@@ -8,7 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 
 public class FastEntity extends ZombieEntity {
@@ -26,15 +26,15 @@ public class FastEntity extends ZombieEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(lighto) <= 7
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.SpeedyZombieSpawn == true;
+                && Configinit.CONFIGZ.SpeedyZombieSpawn == true;
 
     }
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(15D * glomod.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(15D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.27000000417232513D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4D * glomod.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4D * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     public boolean canBreakDoors() {

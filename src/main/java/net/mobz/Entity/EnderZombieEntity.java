@@ -1,6 +1,6 @@
 package net.mobz.Entity;
 
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -19,9 +19,9 @@ public class EnderZombieEntity extends ZombieEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20D * glomod.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(20.0D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(3D * glomod.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(3D * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     protected SoundEvent getAmbientSound() {
@@ -48,7 +48,7 @@ public class EnderZombieEntity extends ZombieEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(lighto) <= 7
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.EnderzombieSpawn == true;
+                && Configinit.CONFIGZ.EnderzombieSpawn == true;
 
     }
 

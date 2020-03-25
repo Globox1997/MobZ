@@ -3,8 +3,10 @@ package net.mobz.Config;
 
 import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
 import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
+import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
 
 @Config(name = "mobz")
+@Config.Gui.Background("minecraft:textures/block/spruce_planks.png")
 
 public class configz implements ConfigData {
 
@@ -12,7 +14,7 @@ public class configz implements ConfigData {
     public boolean ArcherSpawn = true;
     public boolean ArmoredZombieSpawn = true;
     public boolean BigBossSpawn = true;
-    public boolean BlackBearSpawn = false;  // xxxx
+    public boolean BlackBearSpawn = true;
     public boolean BlueSpiderSpawn = true;
     public boolean BoarSpawn = true;
     public boolean BossSkeletonSpawn = true;
@@ -52,6 +54,7 @@ public class configz implements ConfigData {
     public boolean WithenderSpawn = true;
     public boolean WitherBlazeSpawn = true;
     public boolean ZombieMageSpawn = true;
+    @Comment("Be carefull with this option! Multiplicator must be >0")
     public double LifeMultiplicatorMob = 1.0;
     public double DamageMultiplicatorMob = 1.0;
 

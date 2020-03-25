@@ -1,6 +1,6 @@
 package net.mobz.Entity;
 
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
@@ -36,8 +36,8 @@ public class ArcherEntity extends SkeletonEntity {
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.3499999940395355D);
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(32.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(6.5D * glomod.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(32.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(6.5D * Configinit.CONFIGZ.DamageMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
     }
 
@@ -89,7 +89,7 @@ public class ArcherEntity extends SkeletonEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(lighto) < 9
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.BowmanSpawn == true;
+                && Configinit.CONFIGZ.BowmanSpawn == true;
 
     }
 

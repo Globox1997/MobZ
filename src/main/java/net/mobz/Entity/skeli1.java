@@ -9,7 +9,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 
 public class skeli1 extends SkeletonEntity {
@@ -20,7 +20,7 @@ public class skeli1 extends SkeletonEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(40D * glomod.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(40D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(2.0D);
     }
 
@@ -48,7 +48,7 @@ public class skeli1 extends SkeletonEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.isNight() && this.world.getLightLevel(lighto) <= 7
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.BossSkeletonSpawn == true;
+                && Configinit.CONFIGZ.BossSkeletonSpawn == true;
 
     }
 }

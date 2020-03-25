@@ -1,6 +1,6 @@
 package net.mobz.Entity;
 
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -21,7 +21,7 @@ public class CripEntity extends CreeperEntity {
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(27D * glomod.CONFIGZ.LifeMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(27D * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
@@ -40,7 +40,7 @@ public class CripEntity extends CreeperEntity {
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
             && this.world.getLightLevel(lighto) <= 7
             && !this.world.isWater(entityPos)
-            && glomod.CONFIGZ.CookieCreeperSpawn == true;
+            && Configinit.CONFIGZ.CookieCreeperSpawn == true;
 
    }
 }

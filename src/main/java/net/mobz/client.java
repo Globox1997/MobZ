@@ -1,8 +1,10 @@
 package net.mobz;
 
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.minecraft.entity.EntityType;
+import net.mobz.Config.configz;
 import net.mobz.Inits.Entityinit;
 import net.mobz.Renderer.*;
 
@@ -12,6 +14,8 @@ public class client implements ClientModInitializer {
 
         @Override
         public void onInitializeClient() {
+
+                AutoConfig.getGuiRegistry(configz.class);
 
                 EntityRendererRegistry.INSTANCE.register(Entityinit.TANK,
                                 (dispatcher, context) -> new TankRenderer(dispatcher));

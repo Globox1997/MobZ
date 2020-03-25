@@ -10,7 +10,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 
 public class skeli3 extends SkeletonEntity {
@@ -21,7 +21,7 @@ public class skeli3 extends SkeletonEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(30D * glomod.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(30D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.26D);
     }
 
@@ -51,7 +51,7 @@ public class skeli3 extends SkeletonEntity {
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.NetherSkeletonSpawn == true;
+                && Configinit.CONFIGZ.NetherSkeletonSpawn == true;
 
     }
 

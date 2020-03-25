@@ -36,7 +36,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.Soundinit;
 
@@ -71,8 +71,8 @@ public class MageEntity extends SpellcastingIllagerEntity {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
       this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(12.0D);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(24.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(7.0D * glomod.CONFIGZ.DamageMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(24.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(7.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
    }
 
    protected void initDataTracker() {
@@ -85,7 +85,7 @@ public class MageEntity extends SpellcastingIllagerEntity {
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
             && this.world.isDay() && !this.world.isWater(entityPos)
-            && glomod.CONFIGZ.SpiderMageSpawn == true;
+            && Configinit.CONFIGZ.SpiderMageSpawn == true;
 
    }
 

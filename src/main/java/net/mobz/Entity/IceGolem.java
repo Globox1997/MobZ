@@ -1,6 +1,6 @@
 package net.mobz.Entity;
 
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Entity.Attack.*;
 import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.passive.IronGolemEntity;
@@ -44,7 +44,7 @@ public class IceGolem extends IronGolemEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.isDay() && entityPos.getY() < viewableWorld_1.getSeaLevel() - 10
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.IceGolemSpawn == true;
+                && Configinit.CONFIGZ.IceGolemSpawn == true;
 
     }
 
@@ -76,9 +76,9 @@ public class IceGolem extends IronGolemEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(52.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(52.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.26D);
         this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.5D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(15.0D * glomod.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(15.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 }

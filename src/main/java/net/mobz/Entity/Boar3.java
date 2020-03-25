@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.mobz.Inits.Soundinit;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 
 public class Boar3 extends PigEntity {
@@ -31,7 +31,7 @@ public class Boar3 extends PigEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && !this.world.isWater(entityPos)
-                && glomod.CONFIGZ.DirtyBoarSpawn == true;
+                && Configinit.CONFIGZ.DirtyBoarSpawn == true;
 
     }
 

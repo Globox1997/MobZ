@@ -1,6 +1,6 @@
 package net.mobz.Entity;
 
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Entity.Attack.*;
 import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.passive.IronGolemEntity;
@@ -71,10 +71,10 @@ public class LavaGolem extends IronGolemEntity {
 
    protected void initAttributes() {
       super.initAttributes();
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(48.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(48.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
       this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.5D);
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(15.0D * glomod.CONFIGZ.DamageMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(15.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
    }
 
    public boolean canSpawn(WorldView viewableWorld_1) {
@@ -83,7 +83,7 @@ public class LavaGolem extends IronGolemEntity {
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
             && !this.world.isWater(entityPos)
-            && glomod.CONFIGZ.LavaGolemSpawn== true;
+            && Configinit.CONFIGZ.LavaGolemSpawn== true;
 
    }
 

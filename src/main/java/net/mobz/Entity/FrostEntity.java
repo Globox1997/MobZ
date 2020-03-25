@@ -27,7 +27,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 
 public class FrostEntity extends BlazeEntity {
@@ -49,7 +49,7 @@ public class FrostEntity extends BlazeEntity {
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
             && this.world.getLightLevel(lighto) > 7
             && !this.world.isWater(entityPos)
-            && glomod.CONFIGZ.FrostBlazeSpawn == true;
+            && Configinit.CONFIGZ.FrostBlazeSpawn == true;
 
    }
 
@@ -65,10 +65,10 @@ public class FrostEntity extends BlazeEntity {
 
    protected void initAttributes() {
       super.initAttributes();
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(8.0D * glomod.CONFIGZ.DamageMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(8.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
       this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(15D * glomod.CONFIGZ.LifeMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(15D * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
    protected void initDataTracker() {

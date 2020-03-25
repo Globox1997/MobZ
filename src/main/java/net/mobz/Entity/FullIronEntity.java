@@ -31,7 +31,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.glomod;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 
 public class FullIronEntity extends ZombieEntity {
@@ -57,7 +57,7 @@ public class FullIronEntity extends ZombieEntity {
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
             && this.world.isDay() && this.world.getLightLevel(lighto) > 7
             && !this.world.isWater(entityPos)
-            && glomod.CONFIGZ.SteveSpawn == true;
+            && Configinit.CONFIGZ.SteveSpawn == true;
 
    }
 
@@ -92,8 +92,8 @@ public class FullIronEntity extends ZombieEntity {
       super.initAttributes();
       this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(5.0D * glomod.CONFIGZ.DamageMultiplicatorMob);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(25D * glomod.CONFIGZ.LifeMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(5.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(25D * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
    protected boolean canConvertInWater() {
