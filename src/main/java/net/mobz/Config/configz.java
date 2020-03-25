@@ -6,7 +6,7 @@ import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
 import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
 
 @Config(name = "mobz")
-@Config.Gui.Background("minecraft:textures/block/spruce_planks.png")
+@Config.Gui.Background("minecraft:textures/block/oak_planks.png")
 
 public class configz implements ConfigData {
 
@@ -39,7 +39,7 @@ public class configz implements ConfigData {
     public boolean LostSkeletonSpawn = true;
     public boolean NetherSkeletonSpawn = true;
     public boolean NetherWolfSpawn = true;
-    public boolean OvergrownSkeleton = true;
+    public boolean OvergrownSkeletonSpawn = true;
     public boolean PigmanSpawn = true;
     public boolean PurpleSpiderSpawn = true;
     public boolean SpeedyZombieSpawn = true;
@@ -54,8 +54,9 @@ public class configz implements ConfigData {
     public boolean WithenderSpawn = true;
     public boolean WitherBlazeSpawn = true;
     public boolean ZombieMageSpawn = true;
-    @Comment("Be carefull with this option! Multiplicator must be >0")
+    @Comment("Be carefull with this setting! Multiplicator must be > 0!")
     public double LifeMultiplicatorMob = 1.0;
+    @Comment("Be carefull with this setting! Multiplicator must be > 0!")
     public double DamageMultiplicatorMob = 1.0;
 
 } 

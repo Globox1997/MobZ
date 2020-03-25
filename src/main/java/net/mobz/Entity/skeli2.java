@@ -29,7 +29,7 @@ public class skeli2 extends SkeletonEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(lighto) <= 7
                 && !this.world.isWater(entityPos)
-                && Configinit.CONFIGZ.OvergrownSkeleton == true;
+                && Configinit.CONFIGZ.OvergrownSkeletonSpawn == true;
 
     }
 
