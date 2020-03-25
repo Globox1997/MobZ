@@ -36,9 +36,9 @@ public class Entityinit {
     public static final EntityType<SpoEntity> SPO = FabricEntityTypeBuilder
             .create(EntityCategory.MONSTER, SpoEntity::new).size(EntityDimensions.fixed(1.4F, 0.9F)).build();
     public static final EntityType<PigmanEntity> PIG = FabricEntityTypeBuilder
-            .create(EntityCategory.MONSTER, PigmanEntity::new).size(EntityDimensions.fixed(0.6F, 1.95F)).build();
+            .create(EntityCategory.MONSTER, PigmanEntity::new).setImmuneToFire().size(EntityDimensions.fixed(0.6F, 1.95F)).build();
     public static final EntityType<LavaGolem> LAVAGOLEM = FabricEntityTypeBuilder
-            .create(EntityCategory.MONSTER, LavaGolem::new).size(EntityDimensions.fixed(1.4F, 2.7F)).build();
+            .create(EntityCategory.MONSTER, LavaGolem::new).setImmuneToFire().size(EntityDimensions.fixed(1.4F, 2.7F)).build();
     public static final EntityType<IceGolem> ICEGOLEM = FabricEntityTypeBuilder
             .create(EntityCategory.MONSTER, IceGolem::new).size(EntityDimensions.fixed(1.4F, 2.7F)).build();
     public static final EntityType<skeli1> SKELI1 = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, skeli1::new)
@@ -102,7 +102,7 @@ public class Entityinit {
     public static final EntityType<skeli4> SKELI4 = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, skeli4::new)
             .size(EntityDimensions.fixed(0.9F, 3.5F)).build();
     public static final EntityType<Withender> WITHENDER = FabricEntityTypeBuilder
-            .create(EntityCategory.MONSTER, Withender::new).size(EntityDimensions.fixed(0.6F, 1.95F)).build();
+            .create(EntityCategory.MONSTER, Withender::new).setImmuneToFire().size(EntityDimensions.fixed(0.6F, 1.95F)).build();
     public static final EntityType<Slimo> SLIMO = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Slimo::new)
             .size(EntityDimensions.fixed(2.04F, 2.04F)).build();
     public static final EntityType<TSpider> TSPIDER = FabricEntityTypeBuilder
