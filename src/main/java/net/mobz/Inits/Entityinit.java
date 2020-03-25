@@ -19,7 +19,7 @@ public class Entityinit {
                         .create(EntityCategory.MONSTER, FastEntity::new).size(EntityDimensions.fixed(0.6F, 1.95F))
                         .build();
         public static final EntityType<TestEntity> TEST = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, TestEntity::new).size(EntityDimensions.fixed(0.6F, 1.95F))
+                        .create(EntityCategory.MONSTER, TestEntity::new).setImmuneToFire().size(EntityDimensions.fixed(0.6F, 1.95F))
                         .build();
         public static final EntityType<ArmoredEntity> ARMORED = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, ArmoredEntity::new).size(EntityDimensions.fixed(0.6F, 1.95F))

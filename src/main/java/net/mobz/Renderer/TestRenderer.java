@@ -23,3 +23,27 @@ public class TestRenderer extends BipedEntityRenderer<TestEntity, ZombieEntityMo
       return SKIN;
    }
 }
+
+/*
+import net.minecraft.client.render.entity.EntityRenderDispatcher;
+
+import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.render.entity.model.BipedEntityModel;
+import net.minecraft.util.Identifier;
+import net.mobz.Entity.TestEntity;
+
+
+
+public class TestRenderer extends MobEntityRenderer<TestEntity, BipedEntityModel>
+{
+    public TestRenderer(EntityRenderDispatcher entityRenderDispatcher)
+    {
+        super(entityRenderDispatcher, new EntityModel(), 1);
+    }
+
+    @Override
+    public Identifier getTexture(TestEntity entity) {
+       return new Identifier("mobz:textures/entity/test.png");
+    }
+
+} */

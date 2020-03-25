@@ -1,21 +1,33 @@
-/*package net.mobz.Entity;
+package net.mobz.Entity;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FireballEntity;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.mobz.Inits.Configinit;
 
-public class TestEntity extends HostileEntity implements RangedAttackMob
+import net.minecraft.entity.mob.GhastEntity;
+import net.minecraft.entity.mob.HostileEntity;
+
+
+public class TestEntity extends ZombieEntity implements RangedAttackMob
 {
-    private int currentProjectileCooldown = 0;
-    private final int requiredProjectileCooldown = 100;
+   private int currentProjectileCooldown = 0;
+   private final int requiredProjectileCooldown = 100;
 
     public TestEntity(EntityType<TestEntity> entityType_1, World world_1) {
         super(entityType_1, world_1);
@@ -36,12 +48,14 @@ public class TestEntity extends HostileEntity implements RangedAttackMob
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20D);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
         this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(10.0D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(BattleTowers.CONFIG.bossDamageScale);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(1 * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
+
+    
     @Override
-    protected void mobTick()
-    {
-        if(getTarget() != null && !world.isClient)
+
+    protected void mobTick(){
+        if(getTarget() != null && !world.isClient && squaredDistanceTo(getTarget()) < 100D && canSee(getTarget()))
         {
             currentProjectileCooldown++;
             if (currentProjectileCooldown >= requiredProjectileCooldown)
@@ -51,39 +65,38 @@ public class TestEntity extends HostileEntity implements RangedAttackMob
             }
         }
         else currentProjectileCooldown = 0;
+
     }
-    @Override
-    protected Identifier getLootTableId()
-    {
-        return new Identifier(BattleTowers.CONFIG.bossLootTable);
-    }
+
+    
+
+
     @Override
     public boolean cannotDespawn()
     {
         return true;
     }
-    @Override
-    public int getSafeFallDistance()
-    {
-        return 1000;
-    }
-    @Override
-    public void attack(LivingEntity livingEntity, float v)
-    {
-        Vec3d vec3d_1 = this.getRotationVec(1.0F);
-        double double_3 = livingEntity.x - (this.x + vec3d_1.x * 4.0D);
-        double double_4 = livingEntity.getBoundingBox().minY + (double)(livingEntity.getHeight() / 2.0F) - (0.5D + this.y + (double)(this.getHeight() / 2.0F));
-        double double_5 = livingEntity.z - (this.z + vec3d_1.z * 4.0D);
-        FireballEntity fireballEntity_1 = new FireballEntity(world, this, double_3, double_4, double_5);
-        fireballEntity_1.explosionPower = 1;
-        fireballEntity_1.x = this.x + vec3d_1.x * 4.0D;
-        fireballEntity_1.y = this.y + (double)(this.getHeight() / 2.0F) + 0.5D;
-        fireballEntity_1.z = this.z + vec3d_1.z * 4.0D;
-        world.spawnEntity(fireballEntity_1);
-    }
 
-}*/
 
+
+
+@Override
+public void attack(LivingEntity target, float f) {
+   Vec3d vec3d = target.getRotationVec(1.0F);
+   World world = this.world;
+   double i = target.getX() - (target.getX() + vec3d.x * 4.0D);
+   double g = target.getBodyY(0.5D) - (0.5D + target.getBodyY(0.5D));
+   double h = target.getZ() - (target.getZ() + vec3d.z * 4.0D);
+   FireballEntity fireballEntity = new FireballEntity(world, target, i, g, h);
+   fireballEntity.explosionPower = 0;
+   fireballEntity.updatePosition(target.getX() + vec3d.x * 4.0D, target.getBodyY(0.5D) + 0.5D, fireballEntity.getZ() + vec3d.z * 4.0D);
+   world.spawnEntity(fireballEntity);
+
+}
+
+}
+
+/*
 package net.mobz.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.ZombieEntity;
@@ -93,3 +106,15 @@ public class TestEntity extends ZombieEntity {
         super(entityType, world);
     }
 }
+ */
+ 
+          /*world.addParticle(ParticleTypes.FLAME, bob.getX(), bob.getY() + z2, bob.getZ(), 0.0D, 0.0D, 0.0D);
+
+         StatusEffectInstance spd = new StatusEffectInstance(StatusEffect.byRawId(1), 0, 0, false, false);
+         LivingEntity bob = (LivingEntity) entity;
+         Random random = new Random();
+         Random random2 = new Random();
+         double z1 = (random.nextInt() % 25);
+         double z2 = z1 / 100;
+         double z3 = random2.nextInt() % 25;
+         double z4 = z3 / 100; */
