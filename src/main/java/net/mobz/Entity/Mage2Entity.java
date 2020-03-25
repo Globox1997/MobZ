@@ -37,6 +37,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.glomod;
 import net.mobz.Inits.Entityinit;
 
 public class Mage2Entity extends SpellcastingIllagerEntity {
@@ -70,7 +71,8 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
       this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(12.0D);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(24.0D);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(24.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(7.0D * glomod.CONFIGZ.DamageMultiplicatorMob);
    }
 
    public boolean canSpawn(WorldView viewableWorld_1) {
@@ -78,7 +80,8 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-            && !this.world.isWater(entityPos);
+            && !this.world.isWater(entityPos)
+            && glomod.CONFIGZ.ZombieMageSpawn == true;
 
    }
 

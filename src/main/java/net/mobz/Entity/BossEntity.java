@@ -1,5 +1,6 @@
 package net.mobz.Entity;
 
+import net.mobz.glomod;
 import net.mobz.Inits.ArmorItems;
 import net.mobz.Inits.SwordItems;
 import net.minecraft.entity.EntityType;
@@ -27,9 +28,10 @@ public class BossEntity extends ZombieEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(400D);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(400D * glomod.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(30.0D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(10D);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
+                .setBaseValue(10D * glomod.CONFIGZ.DamageMultiplicatorMob);
         this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(-4.0D);
     }
@@ -80,7 +82,8 @@ public class BossEntity extends ZombieEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.isNight() && this.world.getLightLevel(lighto) <= 5 && !this.world.isWater(entityPos);
+                && this.world.isNight() && this.world.getLightLevel(lighto) <= 5 && !this.world.isWater(entityPos)
+                && glomod.CONFIGZ.BossZombieSpawn == true;
 
     }
 }

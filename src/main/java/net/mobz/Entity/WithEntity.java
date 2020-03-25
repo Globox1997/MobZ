@@ -28,6 +28,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.glomod;
 import net.mobz.Inits.Soundinit;
 
 public class WithEntity extends BlazeEntity {
@@ -49,7 +50,8 @@ public class WithEntity extends BlazeEntity {
     return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-            && !this.world.isWater(entityPos);
+            && !this.world.isWater(entityPos)
+            && glomod.CONFIGZ.WitherBlazeSpawn == true;
 
 }
 
@@ -65,9 +67,10 @@ public class WithEntity extends BlazeEntity {
 
    protected void initAttributes() {
       super.initAttributes();
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(8.0D * glomod.CONFIGZ.DamageMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
       this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
    }
 
    protected void initDataTracker() {

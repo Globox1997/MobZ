@@ -8,6 +8,7 @@ import net.minecraft.entity.mob.CaveSpiderEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.mobz.glomod;
 
 public class SpiSmall extends CaveSpiderEntity {
 
@@ -22,7 +23,7 @@ public class SpiSmall extends CaveSpiderEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(6.0D);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(6.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
     }
 
     public void setLifeTicks(int lifeTicks) {

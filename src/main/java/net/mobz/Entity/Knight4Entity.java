@@ -52,6 +52,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.glomod;
 import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.SwordItems;
 
@@ -78,7 +79,8 @@ public class Knight4Entity extends TameableEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getLightLevel(lighto) < 9 && !this.world.isWater(entityPos);
+                && this.world.getLightLevel(lighto) < 9 && !this.world.isWater(entityPos)
+                && glomod.CONFIGZ.FioraSpawn == true;
 
     }
 
@@ -108,12 +110,12 @@ public class Knight4Entity extends TameableEntity {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
         if (this.isTamed()) {
-            this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(30.0D);
+            this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(30.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
         } else {
-            this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D);
+            this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D * glomod.CONFIGZ.LifeMultiplicatorMob) ;
         }
 
-        this.getAttributes().register(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
+        this.getAttributes().register(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4.0D * glomod.CONFIGZ.DamageMultiplicatorMob);
     }
 
     public void setTarget(@Nullable LivingEntity livingEntity_1) {

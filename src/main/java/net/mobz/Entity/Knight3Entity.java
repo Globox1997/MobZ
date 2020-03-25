@@ -24,6 +24,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.glomod;
 import net.mobz.Inits.Soundinit;
 import net.mobz.Inits.SwordItems;
 
@@ -39,8 +40,8 @@ public class Knight3Entity extends VindicatorEntity {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(38.0D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(38.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(5.0D * glomod.CONFIGZ.DamageMultiplicatorMob);
     }
 
     protected void initGoals() {
@@ -93,7 +94,8 @@ public class Knight3Entity extends VindicatorEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.isNight() && this.world.getLightLevel(lighto) <= 7 && !this.world.isWater(entityPos);
+                && this.world.isNight() && this.world.getLightLevel(lighto) <= 7 && !this.world.isWater(entityPos)
+                && glomod.CONFIGZ.EnderKnightSpawn == true;
 
     }
 }

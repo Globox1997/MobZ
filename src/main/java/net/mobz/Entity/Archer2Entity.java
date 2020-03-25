@@ -1,5 +1,6 @@
 package net.mobz.Entity;
 
+import net.mobz.glomod;
 import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PillagerEntity;
@@ -49,8 +50,8 @@ public class Archer2Entity extends PillagerEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(30.0D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(30.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(6.0D * glomod.CONFIGZ.DamageMultiplicatorMob);
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
@@ -72,7 +73,8 @@ public class Archer2Entity extends PillagerEntity {
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(lighto) < 9 && this.world.isRaining()
-                && !this.world.isWater(entityPos);
+                && !this.world.isWater(entityPos)
+                && glomod.CONFIGZ.ArcherSpawn == true;
 
     }
 }

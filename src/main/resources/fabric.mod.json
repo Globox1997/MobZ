@@ -21,6 +21,9 @@
     "main": [
       "net.mobz.glomod"
     ],
+    "modmenu": [
+      "net.mobz.Config.ModMenuIntegration"
+    ],
     "client": [
       "net.mobz.client"
     ]

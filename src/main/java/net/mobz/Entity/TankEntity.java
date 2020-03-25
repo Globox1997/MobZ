@@ -13,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.glomod;
 import net.mobz.Inits.Soundinit;
 
 public class TankEntity extends ZombieEntity {
@@ -24,11 +25,11 @@ public class TankEntity extends ZombieEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(60D);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(60D * glomod.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(3.0D);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
         this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(20.0D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(8D);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(8D * glomod.CONFIGZ.DamageMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
     }
 
@@ -48,7 +49,8 @@ public class TankEntity extends ZombieEntity {
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(lighto) <= 7
-                && !this.world.isWater(entityPos);
+                && !this.world.isWater(entityPos)
+                && glomod.CONFIGZ.TankSpawn == true;
 
     }
 

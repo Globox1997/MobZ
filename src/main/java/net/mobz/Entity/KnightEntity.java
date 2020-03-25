@@ -20,6 +20,7 @@ import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.ai.goal.ZombieAttackGoal;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -27,6 +28,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.glomod;
 import net.mobz.Inits.Soundinit;
 import net.mobz.Inits.SwordItems;
 
@@ -49,6 +51,12 @@ public class KnightEntity extends ZombieEntity {
         this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(VillagerEntity.class));
         this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(IronGolemEntity.class));
         this.targetSelector.add(2, new FollowTargetGoal(this, PlayerEntity.class, true));
+    }
+
+    protected void initAttributes() {
+        super.initAttributes();
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(5.0D * glomod.CONFIGZ.DamageMultiplicatorMob);
     }
 
     protected void initEquipment(LocalDifficulty localDifficulty_1) {
@@ -93,7 +101,8 @@ public class KnightEntity extends ZombieEntity {
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.isDay()
-                && !this.world.isWater(entityPos);
+                && !this.world.isWater(entityPos)
+                && glomod.CONFIGZ.TemplarSpawn == true;
 
     }
 

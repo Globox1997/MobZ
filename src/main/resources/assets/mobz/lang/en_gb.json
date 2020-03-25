@@ -98,6 +98,7 @@
     "item.mobz.whitebag": "White Bag",
     "item.mobz.whitebag.tooltip": "Ultra Rare",
     "item.mobz.orb2": "§5Orb of Levitation",
+    "item.mobz.showegg": "Spawn Egg",
 
     "item.mobz.spawn_tank": "Tank Spawn Egg",
     "item.mobz.spawn_fast": "Fast Zombie Spawn Egg",
@@ -148,5 +149,6 @@
 
     "item.mobz.storybook": "Story Book",
 
-    "itemGroup.mobz.glomod": "MobZ"
+    "itemGroup.mobz.glomod": "MobZ",
+    "itemGroup.mobz.glomodegg": "MobZ Spawn Eggs"
 }

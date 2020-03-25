@@ -1,5 +1,6 @@
 package net.mobz.Entity;
 
+import net.mobz.glomod;
 import net.mobz.Entity.Attack.*;
 import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.passive.IronGolemEntity;
@@ -74,7 +75,8 @@ public class StoneGolem extends IronGolemEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(64.0D);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(64.0D * glomod.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(15D * glomod.CONFIGZ.DamageMultiplicatorMob);
 
     }
 
@@ -84,7 +86,8 @@ public class StoneGolem extends IronGolemEntity {
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.isDay() && entityPos.getY() < viewableWorld_1.getSeaLevel() - 10
-                && !this.world.isWater(entityPos);
+                && !this.world.isWater(entityPos)
+                && glomod.CONFIGZ.StoneGolemSpawn == true;
 
     }
 }

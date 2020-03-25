@@ -9,7 +9,8 @@ import net.mobz.Inits.*;
 public class glomod implements ModInitializer {
 
         public static String MODID = "mobz";
-        private static final configz CONFIGZ = AutoConfig.register(configz.class, GsonConfigSerializer::new).getConfig();
+        public static configz CONFIGZ = AutoConfig.register(configz.class, GsonConfigSerializer::new).getConfig();
+        
 
         @Override
         public void onInitialize() {

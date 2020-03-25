@@ -147,5 +147,6 @@
 "item.mobz.spawn_withender": "Withender Spawn Ei",
 "item.mobz.spawn_slimo": "Grass Schleim Spawn Ei",
 
-"itemGroup.mobz.glomod": "MobZ"
+"itemGroup.mobz.glomod": "MobZ",
+"itemGroup.mobz.glomodegg": "MobZ Spawn Eggs"
 }

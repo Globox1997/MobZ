@@ -1,5 +1,6 @@
 package net.mobz.Entity;
 
+import net.mobz.glomod;
 import net.mobz.Inits.SwordItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
@@ -22,9 +23,9 @@ public class ArmoredEntity extends ZombieEntity {
 
    protected void initAttributes() {
       super.initAttributes();
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20D);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20D * glomod.CONFIGZ.LifeMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(7D);
+      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(7D * glomod.CONFIGZ.DamageMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(3.0D);
 
    }
@@ -62,7 +63,8 @@ public class ArmoredEntity extends ZombieEntity {
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
             && this.world.isNight() && this.world.getLightLevel(lighto) <= 7
-            && !this.world.isWater(entityPos);
+            && !this.world.isWater(entityPos)
+            && glomod.CONFIGZ.ArmoredZombieSpawn == true;
 
    }
 
