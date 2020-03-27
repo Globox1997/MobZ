@@ -2,8 +2,8 @@ package net.mobz.Items.Head;
 
 import net.minecraft.item.Item;
 
-public class Blazehead extends Item {
-    public Blazehead(Settings settings) {
+public class Skelihead3 extends Item {
+    public Skelihead3(Settings settings) {
         super(settings);
     }
 

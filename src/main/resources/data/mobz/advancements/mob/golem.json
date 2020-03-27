@@ -2,27 +2,27 @@
     "parent": "mobz:mob/fast",
     "display": {
         "icon": {
-            "item": "mobz:bosshead"
+            "item": "mobz:golemhead"
         },
         "title": {
-            "translate": "mobz.advancements.bosshead.title"
+            "translate": "mobz.advancements.golemhead.title"
         },
         "description": {
-            "translate": "mobz.advancements.bosshead.description"
+            "translate": "mobz.advancements.golemhead.description"
         },
-        "frame": "challenge",
+        "frame": "goal",
         "show_toast": true,
         "announce_to_chat": false,
         "hidden": false,
         "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
     },
     "criteria": {
-        "boss": {
+        "golem": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {
-                    "type": "mobz:boss_entity",
-                    "type": "mobz:bigboss_entity"
+                    "type": "mobz:stonegolem_entity",
+                    "type": "mobz:icegolem_entity"
                 }
             }
         }

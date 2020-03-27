@@ -1,14 +1,14 @@
 {
-    "parent": "mobz:mob/fast",
+    "parent": "mobz:mob/skeli2",
     "display": {
         "icon": {
-            "item": "mobz:bosshead"
+            "item": "mobz:skelihead3"
         },
         "title": {
-            "translate": "mobz.advancements.bosshead.title"
+            "translate": "mobz.advancements.skelihead3.title"
         },
         "description": {
-            "translate": "mobz.advancements.bosshead.description"
+            "translate": "mobz.advancements.skelihead3.description"
         },
         "frame": "challenge",
         "show_toast": true,
@@ -17,12 +17,11 @@
         "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
     },
     "criteria": {
-        "boss": {
+        "skeli3": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {
-                    "type": "mobz:boss_entity",
-                    "type": "mobz:bigboss_entity"
+                    "type": "mobz:skeli1_entity"
                 }
             }
         }

@@ -36,6 +36,14 @@ public class Iteminit {
     public static final Spohead SPOHEAD = new Spohead(new Item.Settings().maxCount(1));
     public static final Starthead STARTHEAD = new Starthead(new Item.Settings().maxCount(1));
     public static final Withenderhead WITHENDERHEAD = new Withenderhead(new Item.Settings().maxCount(1));
+    public static final Blazehead BLAZEHEAD = new Blazehead(new Item.Settings().maxCount(1));
+    public static final Creephead CREEPHEAD = new Creephead(new Item.Settings().maxCount(1));
+    public static final Enderhead ENDERHEAD = new Enderhead(new Item.Settings().maxCount(1));
+    public static final Friendhead FRIENDHEAD = new Friendhead(new Item.Settings().maxCount(1));
+    public static final Golemhead GOLEMHEAD = new Golemhead(new Item.Settings().maxCount(1));
+    public static final Skelihead1 SKELIHEAD1 = new Skelihead1(new Item.Settings().maxCount(1));
+    public static final Skelihead2 SKELIHEAD2 = new Skelihead2(new Item.Settings().maxCount(1));
+    public static final Skelihead3 SKELIHEAD3 = new Skelihead3(new Item.Settings().maxCount(1));
 
     public static void init() {
 
@@ -65,6 +73,14 @@ public class Iteminit {
         Registry.register(Registry.ITEM, new Identifier("mobz", "spohead"), SPOHEAD);
         Registry.register(Registry.ITEM, new Identifier("mobz", "starthead"), STARTHEAD);
         Registry.register(Registry.ITEM, new Identifier("mobz", "withenderhead"), WITHENDERHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "blazehead"), BLAZEHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "creephead"), CREEPHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "enderhead"), ENDERHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "friendhead"), FRIENDHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "golemhead"), GOLEMHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "skelihead1"), SKELIHEAD1);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "skelihead2"), SKELIHEAD2);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "skelihead3"), SKELIHEAD3);
 
     }
 

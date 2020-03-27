@@ -1,0 +1,30 @@
+{
+    "parent": "mobz:mob/started",
+    "display": {
+        "icon": {
+            "item": "mobz:creephead"
+        },
+        "title": {
+            "translate": "mobz.advancements.creephead.title"
+        },
+        "description": {
+            "translate": "mobz.advancements.creephead.description"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false,
+        "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
+    },
+    "criteria": {
+        "creep": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "mobz:creep_entity",
+                    "type": "mobz:crip_entity"
+                }
+            }
+        }
+    }
+}

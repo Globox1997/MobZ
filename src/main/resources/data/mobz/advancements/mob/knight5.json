@@ -1,5 +1,5 @@
 {
-    "parent": "mobz:mob/knight2",
+    "parent": "mobz:mob/dwarf",
     "display": {
         "icon": {
             "item": "mobz:knight5entityhead"
@@ -17,7 +17,7 @@
         "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
     },
     "criteria": {
-        "adventurestart": {
+        "knight5": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

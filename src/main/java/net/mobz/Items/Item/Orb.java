@@ -23,7 +23,7 @@ public class Orb extends Item {
         tooltip.add(new TranslatableText("item.mobz.orb.tooltip"));
     }
 
-    StatusEffectInstance life = new StatusEffectInstance(StatusEffect.byRawId(21), 5, 1, false, false);
+    StatusEffectInstance life = new StatusEffectInstance(StatusEffect.byRawId(8), 20, 1, false, false);
 
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 

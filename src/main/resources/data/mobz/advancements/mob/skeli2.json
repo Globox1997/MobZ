@@ -1,0 +1,34 @@
+{
+    "parent": "mobz:mob/skeli1",
+    "display": {
+        "icon": {
+            "item": "mobz:skelihead2"
+        },
+        "title": {
+            "translate": "mobz.advancements.skelihead2.title"
+        },
+        "description": {
+            "translate": "mobz.advancements.skelihead2.description"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false,
+        "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
+    },
+    "criteria": {
+        "skeli2": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": [
+                    {
+                        "type": "mobz:skeli2_entity"
+                    },
+                    {
+                        "type": "mobz:skeli3_entity"
+                    }
+                ]
+            }
+        }
+    }
+}

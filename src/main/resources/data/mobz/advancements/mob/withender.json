@@ -10,14 +10,14 @@
         "description": {
             "translate": "mobz.advancements.withenderhead.description"
         },
-        "frame": "goal",
+        "frame": "challenge",
         "show_toast": true,
         "announce_to_chat": false,
         "hidden": false,
         "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
     },
     "criteria": {
-        "adventurestart": {
+        "withender": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

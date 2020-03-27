@@ -1,5 +1,5 @@
 {
-    "parent": "mobz:mob/fast",
+    "parent": "mobz:mob/knight2",
     "display": {
         "icon": {
             "item": "mobz:magehead"
@@ -17,7 +17,7 @@
         "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
     },
     "criteria": {
-        "adventurestart": {
+        "mage": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {
