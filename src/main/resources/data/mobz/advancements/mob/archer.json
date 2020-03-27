@@ -1,0 +1,30 @@
+{
+    "parent": "mobz:mob/fast",
+    "display": {
+        "icon": {
+            "item": "mobz:archerhead"
+        },
+        "title": {
+            "translate": "mobz.advancements.archerhead.title"
+        },
+        "description": {
+            "translate": "mobz.advancements.archerhead.description"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false,
+        "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
+    },
+    "criteria": {
+        "adventurestart": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "mobz:archer_entity",
+                    "type": "mobz:archer2_entity"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "parent": "mobz:mob/fast",
+    "display": {
+        "icon": {
+            "item": "mobz:dwarfhead"
+        },
+        "title": {
+            "translate": "mobz.advancements.dwarfhead.title"
+        },
+        "description": {
+            "translate": "mobz.advancements.dwarfhead.description"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false,
+        "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
+    },
+    "criteria": {
+        "adventurestart": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "mobz:dwarf_entity"
+                }
+            }
+        }
+    }
+}
