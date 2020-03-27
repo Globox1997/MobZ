@@ -2,8 +2,10 @@ package net.mobz.Entity;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.SpawnType;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -12,19 +14,20 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.mob.PillagerEntity;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FireballEntity;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.mobz.Inits.Configinit;
-
-import net.minecraft.entity.mob.GhastEntity;
-import net.minecraft.entity.mob.HostileEntity;
+import net.mobz.Inits.Entityinit;
 
 
-public class TestEntity extends ZombieEntity implements RangedAttackMob
+public class TestEntity extends PillagerEntity
 {
    private int currentProjectileCooldown = 0;
    private final int requiredProjectileCooldown = 100;
@@ -32,6 +35,11 @@ public class TestEntity extends ZombieEntity implements RangedAttackMob
     public TestEntity(EntityType<TestEntity> entityType_1, World world_1) {
         super(entityType_1, world_1);
     }
+
+    protected void initEquipment(LocalDifficulty difficulty) {
+
+     }
+     
     @Override
     protected void initGoals()
     {
@@ -91,6 +99,17 @@ public void attack(LivingEntity target, float f) {
    fireballEntity.explosionPower = 0;
    fireballEntity.updatePosition(target.getX() + vec3d.x * 4.0D, target.getBodyY(0.5D) + 0.5D, fireballEntity.getZ() + vec3d.z * 4.0D);
    world.spawnEntity(fireballEntity);
+
+   BlockPos blockPos = (new BlockPos(TestEntity.this)).add(-2 + TestEntity.this.random.nextInt(5), 1,
+   -2 + TestEntity.this.random.nextInt(5));
+SmallZombie SmallZombie = (SmallZombie) Entityinit.SMALLZOMBIE.create(TestEntity.this.world);
+SmallZombie.refreshPositionAndAngles(blockPos, 0.0F, 0.0F);
+SmallZombie.initialize(TestEntity.this.world, TestEntity.this.world.getLocalDifficulty(blockPos),
+   SpawnType.MOB_SUMMONED, (EntityData) null, (CompoundTag) null);
+//SmallZombie.setOwner(TestEntity.this);
+SmallZombie.setBounds(blockPos);
+SmallZombie.setLifeTicks(20 * (30 + TestEntity.this.random.nextInt(90)));
+TestEntity.this.world.spawnEntity(SmallZombie);
 
 }
 

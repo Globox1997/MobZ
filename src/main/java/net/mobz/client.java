@@ -111,6 +111,8 @@ public class client implements ClientModInitializer {
                                 (dispatcher, context) -> new SlimoRenderer(dispatcher));
                 EntityRendererRegistry.INSTANCE.register(Entityinit.TSPIDER,
                                 (dispatcher, context) -> new TSpiderRenderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(Entityinit.PILLAGERBOSS,
+                                (dispatcher, context) -> new PillagerBossRenderer(dispatcher));
 
         }
 

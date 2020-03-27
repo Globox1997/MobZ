@@ -41,6 +41,7 @@ public class configz implements ConfigData {
     public boolean NetherWolfSpawn = true;
     public boolean OvergrownSkeletonSpawn = true;
     public boolean PigmanSpawn = true;
+    public boolean PillagerBossSpawn = true;
     public boolean PurpleSpiderSpawn = true;
     public boolean SpeedyZombieSpawn = true;
     public boolean SpiderMageSpawn = true;

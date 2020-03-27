@@ -57,6 +57,7 @@ public class SmallZombie extends ZombieEntity {
     }
 
     public void setBounds(BlockPos blockPos_1) {
+        
     }
 
 	public Entity getOwner() {

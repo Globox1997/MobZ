@@ -46,6 +46,7 @@
     "entity.mobz.slimo_entity":"Grass Slime",
     "entity.mobz.withender_entity":"Withender",
     "entity.mobz.tspider_entity":"Tiny Spider",
+    "entity.mobz.pillagerboss_entity":"Pillager Boss",
 
     "item.mobz.boss_sword": "§6Enchanted Golden Sword",
     "item.mobz.armored_sword": "§7Armored Sword",
@@ -146,6 +147,7 @@
     "item.mobz.spawn_skeli4": "Lost Skeleton Spawn Egg",
     "item.mobz.spawn_withender": "Withender Spawn Egg",
     "item.mobz.spawn_slimo": "Grass Slime Spawn Egg",
+    "item.mobz.spawn_pillagerboss": "Pillager Boss Spawn Egg",
 
     "itemGroup.mobz.glomod": "MobZ",
     "itemGroup.mobz.glomodegg": "MobZ Spawn Eggs",
@@ -182,6 +184,7 @@
     "text.autoconfig.mobz.option.NetherWolfSpawn": "Nether Wolf Spawn",
     "text.autoconfig.mobz.option.OvergrownSkeletonSpawn": "Overgrown Skeleton Spawn",
     "text.autoconfig.mobz.option.PigmanSpawn": "Pigman Spawn",
+    "text.autoconfig.mobz.option.PilaggerBossSpawn": "Pillager Boss Spawn",
     "text.autoconfig.mobz.option.PurpleSpiderSpawn": "Purple Spider Spawn",
     "text.autoconfig.mobz.option.SpeedyZombieSpawn": "Speedy Zombie Spawn",
     "text.autoconfig.mobz.option.SpiderMageSpawn": "Spider Mage Spawn",
