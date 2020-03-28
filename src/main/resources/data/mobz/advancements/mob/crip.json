@@ -16,7 +16,7 @@
         "hidden": false
     },
     "criteria": {
-        "crip": {
+        "criping": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

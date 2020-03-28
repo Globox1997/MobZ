@@ -16,7 +16,7 @@
         "hidden": false
     },
     "criteria": {
-        "creep": {
+        "creeping": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

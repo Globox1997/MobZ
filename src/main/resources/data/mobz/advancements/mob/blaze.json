@@ -16,7 +16,7 @@
         "hidden": false
     },
     "criteria": {
-        "blaze": {
+        "blazeing": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

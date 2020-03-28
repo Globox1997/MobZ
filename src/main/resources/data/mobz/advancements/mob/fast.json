@@ -16,7 +16,7 @@
         "hidden": false
     },
     "criteria": {
-        "fast": {
+        "fasting": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

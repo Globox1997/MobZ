@@ -16,7 +16,7 @@
         "hidden": false
     },
     "criteria": {
-        "icegolem": {
+        "icegoleming": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

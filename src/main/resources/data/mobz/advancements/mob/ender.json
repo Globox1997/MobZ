@@ -16,7 +16,7 @@
         "hidden": false
     },
     "criteria": {
-        "ender": {
+        "endering": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

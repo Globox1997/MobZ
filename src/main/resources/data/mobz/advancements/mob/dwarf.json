@@ -16,7 +16,7 @@
         "hidden": false
     },
     "criteria": {
-        "dwarflord": {
+        "dwarfing": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

@@ -16,7 +16,7 @@
         "hidden": false
     },
     "criteria": {
-        "knight5athome": {
+        "knighting5": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

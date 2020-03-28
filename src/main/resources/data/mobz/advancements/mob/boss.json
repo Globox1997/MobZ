@@ -1,5 +1,5 @@
 {
-    "parent": "mobz:mob/tank",
+    "parent": "mobz:mob/armored",
     "display": {
         "icon": {
             "item": "mobz:bosshead"
@@ -16,7 +16,7 @@
         "hidden": false
     },
     "criteria": {
-        "bossdeross": {
+        "bossing": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

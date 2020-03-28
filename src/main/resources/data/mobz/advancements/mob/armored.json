@@ -1,14 +1,14 @@
 {
-    "parent": "mobz:mob/archer",
+    "parent": "mobz:mob/tank",
     "display": {
         "icon": {
-            "item": "mobz:archerhead"
+            "item": "mobz:fasthead"
         },
         "title": {
-            "translate": "mobz.advancements.archer2.title"
+            "translate": "mobz.advancements.armored.title"
         },
         "description": {
-            "translate": "mobz.advancements.archer2.description"
+            "translate": "mobz.advancements.armored.description"
         },
         "frame": "goal",
         "show_toast": true,
@@ -16,11 +16,11 @@
         "hidden": false
     },
     "criteria": {
-        "archering2": {
+        "armoreding": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {
-                    "type": "mobz:archer2_entity"
+                    "type":"mobz:armored_entity"
                 }
             }
         }

@@ -16,8 +16,8 @@
         "hidden": false
     },
     "criteria": {
-        "friendlomat": {
-            "trigger": "minecraft:tame_animal",
+        "friending": {
+            "trigger": "minecraft:player_hurt_entity",
             "conditions": {
                 "entity": {
                     "type": "mobz:friend_entity"

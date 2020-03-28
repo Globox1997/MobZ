@@ -87,7 +87,6 @@ public class FriendEntity extends TameableEntity {
 
     }
 
-    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }
@@ -177,11 +176,6 @@ public class FriendEntity extends TameableEntity {
         this.setTamed(true);
         this.setOwnerUuid(playerEntity_1.getUuid());
 
-    }
-
-    public void onDeath(DamageSource damageSource_1) {
-
-        super.onDeath(damageSource_1);
     }
 
     @Environment(EnvType.CLIENT)

@@ -16,7 +16,7 @@
         "hidden": false
     },
     "criteria": {
-        "skeli3": {
+        "skeliing3": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

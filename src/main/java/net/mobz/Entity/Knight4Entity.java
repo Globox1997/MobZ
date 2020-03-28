@@ -110,12 +110,15 @@ public class Knight4Entity extends TameableEntity {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
         if (this.isTamed()) {
-            this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(30.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+            this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+                    .setBaseValue(30.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         } else {
-            this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob) ;
+            this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+                    .setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         }
 
-        this.getAttributes().register(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributes().register(EntityAttributes.ATTACK_DAMAGE)
+                .setBaseValue(4.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     public void setTarget(@Nullable LivingEntity livingEntity_1) {
@@ -176,11 +179,6 @@ public class Knight4Entity extends TameableEntity {
 
     }
 
-    public void onDeath(DamageSource damageSource_1) {
-
-        super.onDeath(damageSource_1);
-    }
-
     @Environment(EnvType.CLIENT)
     public float getBegAnimationProgress(float float_1) {
         return MathHelper.lerp(float_1, this.lastBegAnimationProgress, this.begAnimationProgress) * 0.15F * 3.1415927F;
@@ -224,9 +222,9 @@ public class Knight4Entity extends TameableEntity {
     public void setTamed(boolean boolean_1) {
         super.setTamed(boolean_1);
         if (boolean_1) {
-            this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D);
+            this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(30.0D);
         } else {
-            this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(8.0D);
+            this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D);
         }
 
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);

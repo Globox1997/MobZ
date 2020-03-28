@@ -16,8 +16,8 @@
         "hidden": false
     },
     "criteria": {
-        "fioragirl": {
-            "trigger": "minecraft:tame_animal",
+        "fioraing": {
+            "trigger": "minecraft:player_hurt_entity",
             "conditions": {
                 "entity": {
                     "type": "mobz:knight4_entity"

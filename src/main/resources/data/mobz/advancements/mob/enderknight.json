@@ -16,7 +16,7 @@
         "hidden": false
     },
     "criteria": {
-        "enderknightok": {
+        "enderknighting": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

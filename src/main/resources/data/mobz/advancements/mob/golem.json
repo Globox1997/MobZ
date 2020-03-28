@@ -16,7 +16,7 @@
         "hidden": false
     },
     "criteria": {
-        "golem": {
+        "goleming": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

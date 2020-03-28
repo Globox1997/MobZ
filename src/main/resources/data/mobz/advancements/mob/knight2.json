@@ -16,7 +16,7 @@
         "hidden": false
     },
     "criteria": {
-        "klobrille": {
+        "knighting2": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {
