@@ -44,6 +44,16 @@ public class Iteminit {
     public static final Skelihead1 SKELIHEAD1 = new Skelihead1(new Item.Settings().maxCount(1));
     public static final Skelihead2 SKELIHEAD2 = new Skelihead2(new Item.Settings().maxCount(1));
     public static final Skelihead3 SKELIHEAD3 = new Skelihead3(new Item.Settings().maxCount(1));
+    public static final Criphead CRIPHEAD = new Criphead(new Item.Settings().maxCount(1));
+    public static final Enderknighthead ENDERKNIGHTHEAD = new Enderknighthead(new Item.Settings().maxCount(1));
+    public static final Enderzombiehead ENDERZOMBIEHEAD = new Enderzombiehead(new Item.Settings().maxCount(1));
+    public static final Fiorahead FIORAHEAD = new Fiorahead(new Item.Settings().maxCount(1));
+    public static final Icegolemhead ICEGOLEMHEAD = new Icegolemhead(new Item.Settings().maxCount(1));
+    public static final Knightentityhead KNIGHTENTITYHEAD = new Knightentityhead(new Item.Settings().maxCount(1));
+    public static final Skelihead4 SKELIHEAD4 = new Skelihead4(new Item.Settings().maxCount(1));
+    public static final Spihead SPIHEAD = new Spihead(new Item.Settings().maxCount(1));
+    public static final Stevehead STEVEHEAD = new Stevehead(new Item.Settings().maxCount(1));
+    public static final Witherblazehead WITHERBLAZEHEAD = new Witherblazehead(new Item.Settings().maxCount(1));
 
     public static void init() {
 
@@ -81,6 +91,17 @@ public class Iteminit {
         Registry.register(Registry.ITEM, new Identifier("mobz", "skelihead1"), SKELIHEAD1);
         Registry.register(Registry.ITEM, new Identifier("mobz", "skelihead2"), SKELIHEAD2);
         Registry.register(Registry.ITEM, new Identifier("mobz", "skelihead3"), SKELIHEAD3);
+
+        Registry.register(Registry.ITEM, new Identifier("mobz", "criphead"), CRIPHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "enderknighthead"), ENDERKNIGHTHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "enderzombiehead"), ENDERZOMBIEHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "fiorahead"), FIORAHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "icegolemhead"), ICEGOLEMHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "knightentityhead"), KNIGHTENTITYHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "skelihead4"), SKELIHEAD4);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "spihead"), SPIHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "stevehead"), STEVEHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "witherblazehead"), WITHERBLAZEHEAD);
 
     }
 

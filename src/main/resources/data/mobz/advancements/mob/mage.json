@@ -5,10 +5,10 @@
             "item": "mobz:magehead"
         },
         "title": {
-            "translate": "mobz.advancements.magehead.title"
+            "translate": "mobz.advancements.mage.title"
         },
         "description": {
-            "translate": "mobz.advancements.magehead.description"
+            "translate": "mobz.advancements.mage.description"
         },
         "frame": "goal",
         "show_toast": true,
@@ -21,8 +21,7 @@
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {
-                    "type": "mobz:mage_entity",
-                    "type": "mobz:mage2_entity"
+                    "type": "mobz:mage_entity"
                 }
             }
         }

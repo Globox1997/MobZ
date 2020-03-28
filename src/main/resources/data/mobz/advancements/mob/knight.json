@@ -1,0 +1,29 @@
+{
+    "parent": "mobz:mob/knight2",
+    "display": {
+        "icon": {
+            "item": "mobz:knightentityhead"
+        },
+        "title": {
+            "translate": "mobz.advancements.knight.title"
+        },
+        "description": {
+            "translate": "mobz.advancements.knight.description"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false,
+        "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
+    },
+    "criteria": {
+        "knight": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "mobz:knight_entity"
+                }
+            }
+        }
+    }
+}

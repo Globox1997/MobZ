@@ -1,0 +1,29 @@
+{
+    "parent": "mobz:mob/knight2",
+    "display": {
+        "icon": {
+            "item": "mobz:enderknighthead"
+        },
+        "title": {
+            "translate": "mobz.advancements.enderknight.title"
+        },
+        "description": {
+            "translate": "mobz.advancements.enderknight.description"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false,
+        "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
+    },
+    "criteria": {
+        "enderknight": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "mobz:knight3_entity"
+                }
+            }
+        }
+    }
+}

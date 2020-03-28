@@ -5,10 +5,10 @@
             "item": "mobz:skelihead2"
         },
         "title": {
-            "translate": "mobz.advancements.skelihead2.title"
+            "translate": "mobz.advancements.skeli2.title"
         },
         "description": {
-            "translate": "mobz.advancements.skelihead2.description"
+            "translate": "mobz.advancements.skeli2.description"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,9 +23,6 @@
                 "entity": [
                     {
                         "type": "mobz:skeli2_entity"
-                    },
-                    {
-                        "type": "mobz:skeli3_entity"
                     }
                 ]
             }

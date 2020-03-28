@@ -5,10 +5,10 @@
             "item": "mobz:lavagolemhead"
         },
         "title": {
-            "translate": "mobz.advancements.lavagolemhead.title"
+            "translate": "mobz.advancements.lavagolem.title"
         },
         "description": {
-            "translate": "mobz.advancements.lavagolemhead.description"
+            "translate": "mobz.advancements.lavagolem.description"
         },
         "frame": "goal",
         "show_toast": true,

@@ -5,10 +5,10 @@
             "item": "mobz:friendhead"
         },
         "title": {
-            "translate": "mobz.advancements.friendhead.title"
+            "translate": "mobz.advancements.friend.title"
         },
         "description": {
-            "translate": "mobz.advancements.friendhead.description"
+            "translate": "mobz.advancements.friend.description"
         },
         "frame": "goal",
         "show_toast": true,
@@ -21,7 +21,6 @@
             "trigger": "minecraft:tame_animal",
             "conditions": {
                 "entity": {
-                    "type": "mobz:knight4_entity",
                     "type": "mobz:friend_entity"
                 }
             }

@@ -5,10 +5,10 @@
             "item": "mobz:archerhead"
         },
         "title": {
-            "translate": "mobz.advancements.archerhead.title"
+            "translate": "mobz.advancements.archer.title"
         },
         "description": {
-            "translate": "mobz.advancements.archerhead.description"
+            "translate": "mobz.advancements.archer.description"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,13 +23,7 @@
                 "entity": {
                     "type": "mobz:archer_entity"
                 }
-            },
-        
-        "trigger": "minecraft:player_killed_entity",
-        "conditions": {
-            "entity": {
-                "type": "mobz:archer2_entity"
             }
         }
-    }}
+    }
 }

@@ -1,0 +1,29 @@
+{
+    "parent": "mobz:mob/friend",
+    "display": {
+        "icon": {
+            "item": "mobz:fiorahead"
+        },
+        "title": {
+            "translate": "mobz.advancements.fiora.title"
+        },
+        "description": {
+            "translate": "mobz.advancements.fiora.description"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false,
+        "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
+    },
+    "criteria": {
+        "fiora": {
+            "trigger": "minecraft:tame_animal",
+            "conditions": {
+                "entity": {
+                    "type": "mobz:knight4_entity"
+                }
+            }
+        }
+    }
+}

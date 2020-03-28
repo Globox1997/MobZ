@@ -5,10 +5,10 @@
             "item": "mobz:blazehead"
         },
         "title": {
-            "translate": "mobz.advancements.blazehead.title"
+            "translate": "mobz.advancements.blaze.title"
         },
         "description": {
-            "translate": "mobz.advancements.blazehead.description"
+            "translate": "mobz.advancements.blaze.description"
         },
         "frame": "goal",
         "show_toast": true,
@@ -21,7 +21,6 @@
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {
-                    "type": "mobz:with_entity",
                     "type": "mobz:frost_entity"
                 }
             }

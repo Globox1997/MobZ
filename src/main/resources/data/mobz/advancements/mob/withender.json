@@ -5,10 +5,10 @@
             "item": "mobz:withenderhead"
         },
         "title": {
-            "translate": "mobz.advancements.withenderhead.title"
+            "translate": "mobz.advancements.withender.title"
         },
         "description": {
-            "translate": "mobz.advancements.withenderhead.description"
+            "translate": "mobz.advancements.withender.description"
         },
         "frame": "challenge",
         "show_toast": true,

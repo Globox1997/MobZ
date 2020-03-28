@@ -5,10 +5,10 @@
             "item": "mobz:dwarfhead"
         },
         "title": {
-            "translate": "mobz.advancements.dwarfhead.title"
+            "translate": "mobz.advancements.dwarf.title"
         },
         "description": {
-            "translate": "mobz.advancements.dwarfhead.description"
+            "translate": "mobz.advancements.dwarf.description"
         },
         "frame": "goal",
         "show_toast": true,

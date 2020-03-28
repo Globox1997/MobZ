@@ -5,10 +5,10 @@
             "item": "mobz:knight5entityhead"
         },
         "title": {
-            "translate": "mobz.advancements.knight5entityhead.title"
+            "translate": "mobz.advancements.knight5.title"
         },
         "description": {
-            "translate": "mobz.advancements.knight5entityhead.description"
+            "translate": "mobz.advancements.knight5.description"
         },
         "frame": "goal",
         "show_toast": true,
