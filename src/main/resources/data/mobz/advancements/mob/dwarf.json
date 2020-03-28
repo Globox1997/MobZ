@@ -1,5 +1,5 @@
 {
-    "parent": "mobz:mob/knight2",
+    "parent": "mobz:mob/steve",
     "display": {
         "icon": {
             "item": "mobz:dwarfhead"
@@ -17,7 +17,7 @@
         "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
     },
     "criteria": {
-        "dwarf": {
+        "dwarflord": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {

@@ -1,5 +1,5 @@
 {
-    "parent": "mobz:mob/golem",
+    "parent": "mobz:mob/lavagolem",
     "display": {
         "icon": {
             "item": "mobz:icegolemhead"

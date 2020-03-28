@@ -1,5 +1,5 @@
 {
-    "parent": "mobz:mob/skeli2",
+    "parent": "mobz:mob/skeli4",
     "display": {
         "icon": {
             "item": "mobz:skelihead3"

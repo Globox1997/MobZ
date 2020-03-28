@@ -17,7 +17,7 @@
         "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
     },
     "criteria": {
-        "fiora": {
+        "fioragirl": {
             "trigger": "minecraft:tame_animal",
             "conditions": {
                 "entity": {

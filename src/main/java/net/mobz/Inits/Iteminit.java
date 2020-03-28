@@ -91,7 +91,6 @@ public class Iteminit {
         Registry.register(Registry.ITEM, new Identifier("mobz", "skelihead1"), SKELIHEAD1);
         Registry.register(Registry.ITEM, new Identifier("mobz", "skelihead2"), SKELIHEAD2);
         Registry.register(Registry.ITEM, new Identifier("mobz", "skelihead3"), SKELIHEAD3);
-
         Registry.register(Registry.ITEM, new Identifier("mobz", "criphead"), CRIPHEAD);
         Registry.register(Registry.ITEM, new Identifier("mobz", "enderknighthead"), ENDERKNIGHTHEAD);
         Registry.register(Registry.ITEM, new Identifier("mobz", "enderzombiehead"), ENDERZOMBIEHEAD);

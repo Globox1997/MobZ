@@ -17,7 +17,7 @@
         "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
     },
     "criteria": {
-        "tank": {
+        "tankingdelack": {
             "trigger": "minecraft:player_killed_entity",
             "conditions": {
                 "entity": {
