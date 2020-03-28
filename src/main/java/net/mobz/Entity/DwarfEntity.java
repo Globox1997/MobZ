@@ -5,7 +5,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -32,10 +31,6 @@ public class DwarfEntity extends VindicatorEntity {
             this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.Axe));
             this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Iteminit.SHIELD));
         }
-    }
-
-    public EntityGroup getGroup() {
-        return EntityGroup.DEFAULT;
     }
 
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
