@@ -5,10 +5,10 @@
             "item": "mobz:mageentityhead"
         },
         "title": {
-            "translate": "mobz.advancements.magex.title"
+            "translate": "mobz.advancements.mage.title"
         },
         "description": {
-            "translate": "mobz.advancements.magex.description"
+            "translate": "mobz.advancements.mage.description"
         },
         "frame": "goal",
         "show_toast": true,
