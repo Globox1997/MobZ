@@ -31,12 +31,10 @@ public class Knight2Entity extends VindicatorEntity {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(38.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(5.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
-    }
-
-    public void onDeath(DamageSource damageSource_1) {
-        return;
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+                .setBaseValue(38.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
+                .setBaseValue(5.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     protected void initEquipment(LocalDifficulty localDifficulty_1) {
@@ -73,8 +71,7 @@ public class Knight2Entity extends VindicatorEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getLightLevel(lighto) < 9
-                && !this.world.isWater(entityPos)
+                && this.world.getLightLevel(lighto) < 9 && !this.world.isWater(entityPos)
                 && Configinit.CONFIGZ.WarriorSpawn == true;
     }
 
