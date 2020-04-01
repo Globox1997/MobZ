@@ -21,12 +21,13 @@ public class Dog extends WolfEntity {
         super(entityType, world);
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
                 .setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributes().register(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(2.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
+                .setBaseValue(3.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     public boolean isBreedingItem(ItemStack itemStack_1) {
