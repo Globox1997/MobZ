@@ -56,8 +56,8 @@ public class configz implements ConfigData {
     public boolean WitherBlazeSpawn = true;
     public boolean ZombieMageSpawn = true;
     @Comment("Be carefull with this setting! Multiplicator must be > 0!")
-    public double LifeMultiplicatorMob = 1.0;
+    public float LifeMultiplicatorMob = 1.0F;
     @Comment("Be carefull with this setting! Multiplicator must be > 0!")
-    public double DamageMultiplicatorMob = 1.0;
+    public float DamageMultiplicatorMob = 1.0F;
 
-} 
+}

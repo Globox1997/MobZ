@@ -14,13 +14,14 @@ public class stoneglo extends Biome {
 	protected stoneglo(Settings settings) {
 		super(settings);
 	}
+
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
-        this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.SPO, 10, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.FAST, 20, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.SKELI1, 5, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.KNIGHTENTITY, 20, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.DWARFENTITY, 4, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.TSPIDER, 8, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.SPO, 10, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.FAST, 20, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.SKELI1, 5, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.KNIGHTENTITY, 20, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.DWARFENTITY, 4, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.TSPIDER, 8, 1, 1));
 	}
 }

@@ -12,13 +12,13 @@ import net.minecraft.world.biome.Biome;
 @Mixin(EndIslandsSmallBiome.class)
 public class endislandsglo extends Biome {
 
-    protected endislandsglo(Settings settings) {
-        super(settings);
-    }
+	protected endislandsglo(Settings settings) {
+		super(settings);
+	}
 
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.ENDER, 10, 1, 3));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.ENDERZOMBIE, 12, 1, 2));
-}
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ENDER, 10, 1, 3));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ENDERZOMBIE, 12, 1, 2));
+	}
 }

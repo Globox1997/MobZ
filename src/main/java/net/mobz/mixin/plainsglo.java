@@ -18,21 +18,20 @@ public class plainsglo extends Biome {
 
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.TANK, 20, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.FAST, 15, 2, 3));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.ARMORED, 5, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.SPI, 15, 1, 3));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.SKELI2, 15, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.KNIGHT2ENTITY, 10, 1, 1));
-		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(Entityinit.BOAR, 5, 2, 4));
-		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(Entityinit.BOAR3, 2, 2, 4));
-		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(Entityinit.BOAR2, 2, 2, 4));
-		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(Entityinit.BROWNBEAR, 2, 1, 2));
-		this.addSpawn(EntityCategory.CREATURE, new SpawnEntry(Entityinit.BLACKBEAR, 2, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.KNIGHT3ENTITY, 1, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.SLIMO, 1, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.TSPIDER, 8, 1, 1));
-
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.TANK, 20, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.FAST, 15, 2, 3));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ARMORED, 5, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.SPI, 15, 1, 3));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.SKELI2, 15, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.KNIGHT2ENTITY, 10, 1, 1));
+		this.addSpawn(EntityCategory.AMBIENT, new Biome.SpawnEntry(Entityinit.BOAR, 1, 2, 4));
+		this.addSpawn(EntityCategory.AMBIENT, new Biome.SpawnEntry(Entityinit.BOAR2, 1, 2, 4));
+		this.addSpawn(EntityCategory.AMBIENT, new Biome.SpawnEntry(Entityinit.BROWNBEAR, 1, 1, 2));
+		this.addSpawn(EntityCategory.AMBIENT, new Biome.SpawnEntry(Entityinit.BLACKBEAR, 1, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.KNIGHT3ENTITY, 1, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.SLIMO, 1, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.TSPIDER, 8, 1, 1));
+		// Weird, Game Freezing when EntityCaterogy.CREATURE is set
 	}
 
 }

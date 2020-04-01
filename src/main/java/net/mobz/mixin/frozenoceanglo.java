@@ -15,12 +15,12 @@ public class frozenoceanglo extends Biome {
 	protected frozenoceanglo(Settings settings) {
 		super(settings);
 	}
-	
+
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.CREEP, 10, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.ICEGOLEM, 5, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.ARCHERENTITY, 10, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.FROSTENTITY, 10, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.CREEP, 10, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ICEGOLEM, 5, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ARCHERENTITY, 10, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.FROSTENTITY, 10, 1, 2));
 	}
 }

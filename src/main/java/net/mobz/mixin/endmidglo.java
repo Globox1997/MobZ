@@ -12,14 +12,14 @@ import net.minecraft.world.biome.Biome;
 @Mixin(EndMidlandsBiome.class)
 public class endmidglo extends Biome {
 
-    protected endmidglo(Settings settings) {
-        super(settings);
-    }
+	protected endmidglo(Settings settings) {
+		super(settings);
+	}
 
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.ENDER, 10, 1, 3));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.ENDERZOMBIE, 10, 1, 4));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.KNIGHT3ENTITY, 2, 1, 1));
-}
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ENDER, 10, 1, 3));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ENDERZOMBIE, 10, 1, 4));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.KNIGHT3ENTITY, 2, 1, 1));
+	}
 }

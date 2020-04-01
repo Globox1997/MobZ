@@ -126,7 +126,7 @@ public class Entityinit {
                         .create(EntityCategory.MONSTER, Knight3Entity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
                         .build();
         public static final EntityType<Knight4Entity> KNIGHT4ENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, Knight4Entity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
+                        .create(EntityCategory.CREATURE, Knight4Entity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
                         .build();
         public static final EntityType<Knight5Entity> KNIGHT5ENTITY = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, Knight5Entity::new).size(EntityDimensions.fixed(0.6F, 1.8F))
@@ -142,7 +142,7 @@ public class Entityinit {
         public static final EntityType<Slimo> SLIMO = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Slimo::new)
                         .size(EntityDimensions.fixed(2.04F, 2.04F)).build();
         public static final EntityType<TSpider> TSPIDER = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, TSpider::new).size(EntityDimensions.fixed(0.2F, 0.1F)).build();
+                        .create(EntityCategory.AMBIENT, TSpider::new).size(EntityDimensions.fixed(0.2F, 0.1F)).build();
         public static final EntityType<PillagerBoss> PILLAGERBOSS = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, PillagerBoss::new).size(EntityDimensions.fixed(0.78F, 2.675F))
                         .build();

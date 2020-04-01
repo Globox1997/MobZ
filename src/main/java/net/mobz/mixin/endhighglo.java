@@ -12,14 +12,14 @@ import net.minecraft.world.biome.Biome;
 @Mixin(EndHighlandsBiome.class)
 public class endhighglo extends Biome {
 
-    protected endhighglo(Settings settings) {
-        super(settings);
-    }
+	protected endhighglo(Settings settings) {
+		super(settings);
+	}
 
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.ENDER, 15, 1, 3));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.ENDERZOMBIE, 15, 1, 3));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.KNIGHT3ENTITY, 2, 1, 1));
-}
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ENDER, 15, 1, 3));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ENDERZOMBIE, 15, 1, 3));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.KNIGHT3ENTITY, 2, 1, 1));
+	}
 }

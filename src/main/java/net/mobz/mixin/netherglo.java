@@ -17,10 +17,10 @@ public class netherglo extends Biome {
 
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.PIG, 12, 2, 4));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.LAVAGOLEM, 6, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.SKELI3, 10, 1, 3));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.WITHENTITY, 5, 1, 3));
-		this.addSpawn(EntityCategory.MONSTER, new SpawnEntry(Entityinit.DOG, 1, 1, 3));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.PIG, 12, 2, 4));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.LAVAGOLEM, 6, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.SKELI3, 10, 1, 3));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.WITHENTITY, 5, 1, 3));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.DOG, 1, 1, 3));
 	}
 }
