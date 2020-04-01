@@ -2,9 +2,12 @@ package net.mobz;
 
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.EntityType;
 import net.mobz.Config.configz;
+import net.mobz.Inits.Blockinit;
 import net.mobz.Inits.Entityinit;
 import net.mobz.Renderer.*;
 
@@ -113,6 +116,8 @@ public class client implements ClientModInitializer {
                                 (dispatcher, context) -> new TSpiderRenderer(dispatcher));
                 EntityRendererRegistry.INSTANCE.register(Entityinit.PILLAGERBOSS,
                                 (dispatcher, context) -> new PillagerBossRenderer(dispatcher));
+
+                BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.ENDERHEAD, RenderLayer.getCutout());
 
         }
 

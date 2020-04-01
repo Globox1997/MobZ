@@ -101,6 +101,8 @@
   "item.mobz.showegg": "Spawn Egg",
   "item.mobz.pillagerstaff": "Staff of the mighty Pillager",
   "item.mobz.pillagerstaff.tooltip": "Currently useless",
+  "item.mobz.enderheader": "§eEnderman Head",
+  "block.mobz.enderheader": "§eEnderman Head",
   "item.mobz.spawn_tank": "Tank Spawn Ei",
   "item.mobz.spawn_fast": "Fast Zombie Spawn Ei",
   "item.mobz.spawn_spi": "Spider Spawn Ei",

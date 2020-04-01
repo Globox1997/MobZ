@@ -78,23 +78,23 @@
             ]
         },
         {
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"n": 1,
-								"p": 0.000001,
-								"type": "minecraft:binomial"
-							}
-						}
-					],
-					"name": "mobz:whitebag"
-				}
-			]
-		}
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "n": 1,
+                                "p": 0.0001,
+                                "type": "minecraft:binomial"
+                            }
+                        }
+                    ],
+                    "name": "mobz:whitebag"
+                }
+            ]
+        }
     ]
 }

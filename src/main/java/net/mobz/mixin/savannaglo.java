@@ -26,6 +26,7 @@ public class savannaglo extends Biome {
 		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.MAGEENTITY, 7, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.MAGE2ENTITY, 5, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ILLUSIONER, 5, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.PILLAGERBOSS, 1, 1, 1));
 	}
 
 }

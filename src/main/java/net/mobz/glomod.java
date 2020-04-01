@@ -8,6 +8,7 @@ public class glomod implements ModInitializer {
         @Override
         public void onInitialize() {
                 ArmorItems.init();
+                Blockinit.init();
                 Configinit.init();
                 Entityinit.init();
                 Itemgroupinit.init();
