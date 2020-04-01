@@ -9,6 +9,7 @@ import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
@@ -28,6 +29,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 import net.mobz.Inits.SwordItems;
@@ -40,23 +42,25 @@ public class KnightEntity extends ZombieEntity {
     }
 
     protected void initGoals() {
-        this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(8, new LookAroundGoal(this));
+        this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(4, new LookAroundGoal(this));
         this.initCustomGoals();
     }
 
     protected void initCustomGoals() {
         this.goalSelector.add(2, new ZombieAttackGoal(this, 1.0D, false));
         this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D));
-        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(VillagerEntity.class));
-        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(IronGolemEntity.class));
-        this.targetSelector.add(2, new FollowTargetGoal(this, PlayerEntity.class, true));
+        this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(VillagerEntity.class));
+        this.targetSelector.add(2, (new RevengeGoal(this, new Class[0])).setGroupRevenge(IronGolemEntity.class));
+        this.targetSelector.add(1, new FollowTargetGoal(this, PlayerEntity.class, true));
     }
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(5.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+                .setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
+                .setBaseValue(5.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     protected void initEquipment(LocalDifficulty localDifficulty_1) {
@@ -100,9 +104,8 @@ public class KnightEntity extends ZombieEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.isDay()
-                && !this.world.isWater(entityPos)
-                && Configinit.CONFIGZ.TemplarSpawn == true;
+                && this.world.isDay() && !this.world.isWater(entityPos)
+                && AutoConfig.getConfigHolder(configz.class).getConfig().TemplarSpawn;
 
     }
 
@@ -112,12 +115,12 @@ public class KnightEntity extends ZombieEntity {
         boolean bl = super.tryAttack(target);
         if (bl) {
             ((LivingEntity) target).addStatusEffect(str);
-           float f = this.world.getLocalDifficulty(new BlockPos(this)).getLocalDifficulty();
-           if (this.getMainHandStack().isEmpty() && this.isOnFire() && this.random.nextFloat() < f * 0.3F) {
-              target.setOnFireFor(2 * (int)f);
-           }
+            float f = this.world.getLocalDifficulty(new BlockPos(this)).getLocalDifficulty();
+            if (this.getMainHandStack().isEmpty() && this.isOnFire() && this.random.nextFloat() < f * 0.3F) {
+                target.setOnFireFor(2 * (int) f);
+            }
         }
-  
+
         return bl;
-     }
+    }
 }

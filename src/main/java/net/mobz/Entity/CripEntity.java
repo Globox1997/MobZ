@@ -1,7 +1,9 @@
 package net.mobz.Entity;
 
+import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -21,7 +23,8 @@ public class CripEntity extends CreeperEntity {
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(27D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+            .setBaseValue(27D * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
@@ -38,9 +41,8 @@ public class CripEntity extends CreeperEntity {
       return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-            && this.world.getLightLevel(lighto) <= 7
-            && !this.world.isWater(entityPos)
-            && Configinit.CONFIGZ.CookieCreeperSpawn == true;
+            && this.world.getLightLevel(lighto) <= 7 && !this.world.isWater(entityPos)
+            && AutoConfig.getConfigHolder(configz.class).getConfig().CookieCreeperSpawn;
 
    }
 }

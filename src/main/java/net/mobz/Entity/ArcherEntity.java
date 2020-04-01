@@ -1,5 +1,6 @@
 package net.mobz.Entity;
 
+import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.mob.SkeletonEntity;
@@ -11,6 +12,7 @@ import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
@@ -35,9 +37,11 @@ public class ArcherEntity extends SkeletonEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.3499999940395355D);
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(32.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(6.5D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.33D);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+                .setBaseValue(32.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
+                .setBaseValue(6.5D * Configinit.CONFIGZ.DamageMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
     }
 
@@ -71,14 +75,13 @@ public class ArcherEntity extends SkeletonEntity {
     }
 
     protected void initGoals() {
-        this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0D));
-        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(6, new LookAroundGoal(this));
-        this.targetSelector.add(1, new RevengeGoal(this, new Class[0]));
-        this.targetSelector.add(2, new FollowTargetGoal(this, PlayerEntity.class, true));
-        this.targetSelector.add(3, new FollowTargetGoal(this, IronGolemEntity.class, true));
-        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(VillagerEntity.class));
-        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(IronGolemEntity.class));
+        this.goalSelector.add(4, new WanderAroundFarGoal(this, 1.0D));
+        this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(3, new LookAroundGoal(this));
+        this.targetSelector.add(1, new FollowTargetGoal(this, PlayerEntity.class, true));
+        this.targetSelector.add(2, new FollowTargetGoal(this, IronGolemEntity.class, true));
+        this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(VillagerEntity.class));
+        this.targetSelector.add(4, (new RevengeGoal(this, new Class[0])).setGroupRevenge(IronGolemEntity.class));
     }
 
     public boolean canSpawn(WorldView viewableWorld_1) {
@@ -87,9 +90,8 @@ public class ArcherEntity extends SkeletonEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getLightLevel(lighto) < 9
-                && !this.world.isWater(entityPos)
-                && Configinit.CONFIGZ.BowmanSpawn == true;
+                && this.world.getLightLevel(lighto) < 9 && !this.world.isWater(entityPos)
+                && AutoConfig.getConfigHolder(configz.class).getConfig().BowmanSpawn;
 
     }
 

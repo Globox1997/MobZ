@@ -1,6 +1,8 @@
 package net.mobz.Entity;
 
 import java.util.List;
+
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityData;
@@ -36,6 +38,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.Soundinit;
@@ -59,18 +62,22 @@ public class MageEntity extends SpellcastingIllagerEntity {
       this.goalSelector.add(8, new WanderAroundGoal(this, 0.6D));
       this.goalSelector.add(9, new LookAtEntityGoal(this, PlayerEntity.class, 3.0F, 1.0F));
       this.goalSelector.add(10, new LookAtEntityGoal(this, MobEntity.class, 8.0F));
-      this.targetSelector.add(1, (new RevengeGoal(this, new Class[]{RaiderEntity.class})).setGroupRevenge());
-      this.targetSelector.add(2, (new FollowTargetGoal(this, PlayerEntity.class, true)).setMaxTimeWithoutVisibility(300));
-      this.targetSelector.add(3, (new FollowTargetGoal(this, AbstractTraderEntity.class, false)).setMaxTimeWithoutVisibility(300));
-      this.targetSelector.add(3, new FollowTargetGoal(this, IronGolemEntity.class, false));
+      this.targetSelector.add(1, (new RevengeGoal(this, new Class[] { RaiderEntity.class })).setGroupRevenge());
+      this.targetSelector.add(2,
+            (new FollowTargetGoal(this, PlayerEntity.class, true)).setMaxTimeWithoutVisibility(300));
+      this.targetSelector.add(3,
+            (new FollowTargetGoal(this, AbstractTraderEntity.class, false)).setMaxTimeWithoutVisibility(300));
+      this.targetSelector.add(4, new FollowTargetGoal(this, IronGolemEntity.class, false));
    }
 
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
       this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(12.0D);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(24.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(7.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+            .setBaseValue(24.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
+            .setBaseValue(7.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
    }
 
    protected void initDataTracker() {
@@ -83,7 +90,7 @@ public class MageEntity extends SpellcastingIllagerEntity {
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
             && this.world.isDay() && !this.world.isWater(entityPos)
-            && Configinit.CONFIGZ.SpiderMageSpawn == true;
+            && AutoConfig.getConfigHolder(configz.class).getConfig().SpiderMageSpawn;
 
    }
 

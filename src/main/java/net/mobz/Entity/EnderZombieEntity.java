@@ -1,7 +1,9 @@
 package net.mobz.Entity;
 
+import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -19,9 +21,11 @@ public class EnderZombieEntity extends ZombieEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20D * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(20.0D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(3D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+                .setBaseValue(20D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(10.0D);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
+                .setBaseValue(3D * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     protected SoundEvent getAmbientSound() {
@@ -46,9 +50,8 @@ public class EnderZombieEntity extends ZombieEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getLightLevel(lighto) <= 7
-                && !this.world.isWater(entityPos)
-                && Configinit.CONFIGZ.EnderzombieSpawn == true;
+                && this.world.getLightLevel(lighto) <= 7 && !this.world.isWater(entityPos)
+                && AutoConfig.getConfigHolder(configz.class).getConfig().EnderzombieSpawn;
 
     }
 

@@ -136,4 +136,16 @@ public class TestEntity extends ZombieEntity {
          double z1 = (random.nextInt() % 25);
          double z2 = z1 / 100;
          double z3 = random2.nextInt() % 25;
-         double z4 = z3 / 100; */
+         double z4 = z3 / 100;
+         
+
+                 BlockPos blockPos = (new BlockPos(PillagerBoss.this)).add(-2 + PillagerBoss.this.random.nextInt(5), 1,
+                -2 + PillagerBoss.this.random.nextInt(5));
+        SmallZombie SmallZombie = (SmallZombie) Entityinit.SMALLZOMBIE.create(PillagerBoss.this.world);
+        SmallZombie.refreshPositionAndAngles(blockPos, 0.0F, 0.0F);
+        SmallZombie.initialize(PillagerBoss.this.world, PillagerBoss.this.world.getLocalDifficulty(blockPos),
+                SpawnType.MOB_SUMMONED, (EntityData) null, (CompoundTag) null);
+        SmallZombie.setBounds(blockPos);
+        SmallZombie.setLifeTicks(20 * (30 + PillagerBoss.this.random.nextInt(90)));
+       PillagerBoss.this.world.spawnEntity(SmallZombie);
+         */

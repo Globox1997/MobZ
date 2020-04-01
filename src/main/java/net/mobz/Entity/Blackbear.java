@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Predicate;
 
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
@@ -52,7 +53,7 @@ import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.mobz.Inits.Configinit;
+import net.mobz.Config.configz;
 import net.mobz.Inits.Soundinit;
 
 public class Blackbear extends PandaEntity {
@@ -87,7 +88,7 @@ public class Blackbear extends PandaEntity {
       BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
             && !viewableWorld_1.isAir(entityPos) && !this.world.isWater(entityPos)
-            && Configinit.CONFIGZ.BlackBearSpawn == true;
+            && AutoConfig.getConfigHolder(configz.class).getConfig().BlackBearSpawn;
 
    }
 
@@ -222,7 +223,7 @@ public class Blackbear extends PandaEntity {
 
    protected void initGoals() {
       this.goalSelector.add(0, new SwimGoal(this));
-      this.goalSelector.add(2, new Blackbear.ExtinguishFireGoal(this, 2.0D));
+      this.goalSelector.add(1, new Blackbear.ExtinguishFireGoal(this, 2.0D));
       this.goalSelector.add(2, new Blackbear.PandaMateGoal(this, 1.0D));
       this.goalSelector.add(3, new Blackbear.AttackGoal(this, 1.2000000476837158D, true));
       this.goalSelector.add(4, new TemptGoal(this, 1.0D, Ingredient.ofItems(Blocks.BAMBOO.asItem()), false));

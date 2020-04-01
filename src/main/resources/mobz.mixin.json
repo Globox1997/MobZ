@@ -46,11 +46,9 @@
     "tallbirchglo",
     "woodedbadlandglo",
     "woodedmountainglo",
-    "desertlakeglo" 
+    "desertlakeglo"
   ],
-  "client": [
-
-  ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }

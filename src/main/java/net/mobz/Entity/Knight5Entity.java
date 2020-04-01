@@ -4,6 +4,7 @@ import net.minecraft.entity.mob.VindicatorEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -12,6 +13,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 import net.mobz.Inits.SwordItems;
@@ -65,7 +67,7 @@ public class Knight5Entity extends VindicatorEntity {
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.isNight() && this.world.getLightLevel(lighto) <= 7 && !this.world.isWater(entityPos)
-                && Configinit.CONFIGZ.LordofDarknessSpawn == true;
+                && AutoConfig.getConfigHolder(configz.class).getConfig().LordofDarknessSpawn;
 
     }
 

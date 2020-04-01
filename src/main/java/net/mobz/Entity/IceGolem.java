@@ -1,9 +1,11 @@
 package net.mobz.Entity;
 
 import net.mobz.Inits.Configinit;
+import net.mobz.Config.configz;
 import net.mobz.Entity.Attack.*;
 import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.passive.IronGolemEntity;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
@@ -31,9 +33,9 @@ public class IceGolem extends IronGolemEntity {
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(2, new GolemAttack(this, 1.0D, false));
-        this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(8, new LookAroundGoal(this));
+        this.goalSelector.add(1, new GolemAttack(this, 1.0D, false));
+        this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(6, new LookAroundGoal(this));
         this.initCustomGoals();
     }
 
@@ -44,17 +46,16 @@ public class IceGolem extends IronGolemEntity {
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.isDay() && entityPos.getY() < viewableWorld_1.getSeaLevel() - 10
                 && !this.world.isWater(entityPos)
-                && Configinit.CONFIGZ.IceGolemSpawn == true;
+                && AutoConfig.getConfigHolder(configz.class).getConfig().IceGolemSpawn;
 
     }
 
     protected void initCustomGoals() {
-        this.goalSelector.add(2, new GolemAttack(this, 1.0D, false));
         this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(ZombieEntity.class));
-        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SkeletonEntity.class));
-        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SpiderEntity.class));
-        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(CreeperEntity.class));
-        this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SlimeEntity.class));
+        this.targetSelector.add(2, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SkeletonEntity.class));
+        this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SpiderEntity.class));
+        this.targetSelector.add(4, (new RevengeGoal(this, new Class[0])).setGroupRevenge(CreeperEntity.class));
+        this.targetSelector.add(5, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SlimeEntity.class));
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
@@ -76,9 +77,11 @@ public class IceGolem extends IronGolemEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(52.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+                .setBaseValue(52.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.26D);
         this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.5D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(15.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
+                .setBaseValue(15.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 }

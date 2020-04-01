@@ -144,7 +144,7 @@ public class Entityinit {
         public static final EntityType<TSpider> TSPIDER = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, TSpider::new).size(EntityDimensions.fixed(0.2F, 0.1F)).build();
         public static final EntityType<PillagerBoss> PILLAGERBOSS = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, PillagerBoss::new).size(EntityDimensions.fixed(0.78F, 2.635F))
+                        .create(EntityCategory.MONSTER, PillagerBoss::new).size(EntityDimensions.fixed(0.78F, 2.675F))
                         .build();
 
         public static void init() {

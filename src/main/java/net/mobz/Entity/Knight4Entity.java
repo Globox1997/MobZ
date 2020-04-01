@@ -1,7 +1,10 @@
 package net.mobz.Entity;
 
+import java.util.Random;
 import java.util.UUID;
 import java.util.function.Predicate;
+
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
@@ -14,10 +17,10 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.AnimalMateGoal;
 import net.minecraft.entity.ai.goal.AttackWithOwnerGoal;
 import net.minecraft.entity.ai.goal.FollowOwnerGoal;
+import net.minecraft.entity.ai.goal.FollowTargetGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.PounceAtTargetGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.SitGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
@@ -28,6 +31,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.mob.AbstractSkeletonEntity;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.mob.GhastEntity;
 import net.minecraft.entity.passive.CatEntity;
@@ -52,6 +56,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.SwordItems;
@@ -66,11 +71,30 @@ public class Knight4Entity extends TameableEntity {
 
     public Knight4Entity(EntityType<? extends Knight4Entity> entityType_1, World world_1) {
         super(entityType_1, world_1);
+        equiping();
+    }
 
-        this.setTamed(false);
+    public void equiping() {
         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.ArmoredSword));
-        this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.BLUE_ORCHID));
-
+        Random random = new Random();
+        int z = random.nextInt() % 7;
+        if (z < 0) {
+            z = z * (-1);
+        }
+        switch (z) {
+            case 0:
+                this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.BLUE_ORCHID));
+            case 1:
+                this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.CORNFLOWER));
+            case 2:
+                this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.WHITE_TULIP));
+            case 3:
+                this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.PINK_TULIP));
+            case 4:
+                this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.RED_TULIP));
+            default:
+                this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.ORANGE_TULIP));
+        }
     }
 
     public boolean canSpawn(WorldView viewableWorld_1) {
@@ -80,11 +104,10 @@ public class Knight4Entity extends TameableEntity {
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(lighto) < 9 && !this.world.isWater(entityPos)
-                && Configinit.CONFIGZ.FioraSpawn == true;
+                && AutoConfig.getConfigHolder(configz.class).getConfig().FioraSpawn;
 
     }
 
-    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }
@@ -93,16 +116,16 @@ public class Knight4Entity extends TameableEntity {
         this.sitGoal = new SitGoal(this);
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, this.sitGoal);
-        this.goalSelector.add(4, new PounceAtTargetGoal(this, 0.4F));
-        this.goalSelector.add(5, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.add(6, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
-        this.goalSelector.add(7, new AnimalMateGoal(this, 1.0D));
-        this.goalSelector.add(8, new WanderAroundFarGoal(this, 1.0D));
-        this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(10, new LookAroundGoal(this));
+        this.goalSelector.add(3, new MeleeAttackGoal(this, 1.0D, true));
+        this.goalSelector.add(4, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
+        this.goalSelector.add(5, new AnimalMateGoal(this, 1.0D));
+        this.goalSelector.add(6, new WanderAroundFarGoal(this, 1.0D));
+        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(8, new LookAroundGoal(this));
         this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
         this.targetSelector.add(2, new AttackWithOwnerGoal(this));
         this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge());
+        this.targetSelector.add(4, new FollowTargetGoal(this, AbstractSkeletonEntity.class, false));
 
     }
 

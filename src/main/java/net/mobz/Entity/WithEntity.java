@@ -1,6 +1,8 @@
 package net.mobz.Entity;
 
 import java.util.EnumSet;
+
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
@@ -28,6 +30,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 
@@ -46,20 +49,19 @@ public class WithEntity extends BlazeEntity {
    }
 
    public boolean canSpawn(WorldView viewableWorld_1) {
-    BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
-    return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
+      BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+      return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-            && !this.world.isWater(entityPos)
-            && Configinit.CONFIGZ.WitherBlazeSpawn == true;
+            && !this.world.isWater(entityPos) && AutoConfig.getConfigHolder(configz.class).getConfig().WitherBlazeSpawn;
 
-}
+   }
 
    protected void initGoals() {
-      this.goalSelector.add(4, new WithEntity.ShootFireballGoal(this));
-      this.goalSelector.add(5, new GoToWalkTargetGoal(this, 1.0D));
+      this.goalSelector.add(1, new WithEntity.ShootFireballGoal(this));
+      this.goalSelector.add(3, new GoToWalkTargetGoal(this, 1.0D));
       this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D, 0.0F));
-      this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+      this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
       this.goalSelector.add(8, new LookAroundGoal(this));
       this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge());
       this.targetSelector.add(2, new FollowTargetGoal(this, PlayerEntity.class, true));
@@ -67,15 +69,17 @@ public class WithEntity extends BlazeEntity {
 
    protected void initAttributes() {
       super.initAttributes();
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(8.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
+            .setBaseValue(8.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
       this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+            .setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
    protected void initDataTracker() {
       super.initDataTracker();
-      this.dataTracker.startTracking(BLAZE_FLAGS, (byte)0);
+      this.dataTracker.startTracking(BLAZE_FLAGS, (byte) 0);
    }
 
    protected SoundEvent getAmbientSound() {
@@ -101,11 +105,14 @@ public class WithEntity extends BlazeEntity {
 
       if (this.world.isClient) {
          if (this.random.nextInt(24) == 0 && !this.isSilent()) {
-            this.world.playSound(this.getX() + 0.5D, this.getY() + 0.5D, this.getZ() + 0.5D, Soundinit.NOTHINGEVENT, this.getSoundCategory(), 1.0F + this.random.nextFloat(), this.random.nextFloat() * 0.7F + 0.3F, false);
+            this.world.playSound(this.getX() + 0.5D, this.getY() + 0.5D, this.getZ() + 0.5D, Soundinit.NOTHINGEVENT,
+                  this.getSoundCategory(), 1.0F + this.random.nextFloat(), this.random.nextFloat() * 0.7F + 0.3F,
+                  false);
          }
 
-         for(int int_1 = 0; int_1 < 2; ++int_1) {
-            this.world.addParticle(ParticleTypes.FALLING_LAVA, this.getParticleX(0.5D), this.getRandomBodyY(), this.getParticleZ(0.5D), 0.0D, 0.0D, 0.0D);
+         for (int int_1 = 0; int_1 < 2; ++int_1) {
+            this.world.addParticle(ParticleTypes.FALLING_LAVA, this.getParticleX(0.5D), this.getRandomBodyY(),
+                  this.getParticleZ(0.5D), 0.0D, 0.0D, 0.0D);
          }
       }
 
@@ -120,13 +127,15 @@ public class WithEntity extends BlazeEntity {
       --this.field_7215;
       if (this.field_7215 <= 0) {
          this.field_7215 = 100;
-         this.field_7214 = 0.5F + (float)this.random.nextGaussian() * 3.0F;
+         this.field_7214 = 0.5F + (float) this.random.nextGaussian() * 3.0F;
       }
 
       LivingEntity livingEntity_1 = this.getTarget();
-      if (livingEntity_1 != null && livingEntity_1.getEyeY() > this.getEyeY() + (double)this.field_7214 && this.canTarget(livingEntity_1)) {
+      if (livingEntity_1 != null && livingEntity_1.getEyeY() > this.getEyeY() + (double) this.field_7214
+            && this.canTarget(livingEntity_1)) {
          Vec3d vec3d_1 = this.getVelocity();
-         this.setVelocity(this.getVelocity().add(0.0D, (0.30000001192092896D - vec3d_1.y) * 0.30000001192092896D, 0.0D));
+         this.setVelocity(
+               this.getVelocity().add(0.0D, (0.30000001192092896D - vec3d_1.y) * 0.30000001192092896D, 0.0D));
          this.velocityDirty = true;
       }
 
@@ -142,13 +151,13 @@ public class WithEntity extends BlazeEntity {
    }
 
    private boolean isFireActive() {
-      return ((Byte)this.dataTracker.get(BLAZE_FLAGS) & 1) != 0;
+      return ((Byte) this.dataTracker.get(BLAZE_FLAGS) & 1) != 0;
    }
 
    private void setFireActive(boolean boolean_1) {
-      byte byte_1 = (Byte)this.dataTracker.get(BLAZE_FLAGS);
+      byte byte_1 = (Byte) this.dataTracker.get(BLAZE_FLAGS);
       if (boolean_1) {
-         byte_1 = (byte)(byte_1 | 1);
+         byte_1 = (byte) (byte_1 | 1);
       } else {
          byte_1 &= -2;
       }
@@ -207,7 +216,8 @@ public class WithEntity extends BlazeEntity {
                   this.blaze.tryAttack(livingEntity_1);
                }
 
-               this.blaze.getMoveControl().moveTo(livingEntity_1.getX(), livingEntity_1.getY(), livingEntity_1.getZ(), 1.0D);
+               this.blaze.getMoveControl().moveTo(livingEntity_1.getX(), livingEntity_1.getY(), livingEntity_1.getZ(),
+                     1.0D);
             } else if (double_1 < this.method_6995() * this.method_6995() && boolean_1) {
                double double_2 = livingEntity_1.getX() - this.blaze.getX();
                double double_3 = livingEntity_1.getBodyY(0.5D) - this.blaze.getBodyY(0.5D);
@@ -227,11 +237,14 @@ public class WithEntity extends BlazeEntity {
 
                   if (this.field_7218 > 1) {
                      float float_1 = MathHelper.sqrt(MathHelper.sqrt(double_1)) * 0.5F;
-                     this.blaze.world.playLevelEvent((PlayerEntity)null, 1018, new BlockPos(this.blaze), 0);
+                     this.blaze.world.playLevelEvent((PlayerEntity) null, 1018, new BlockPos(this.blaze), 0);
 
-                     for(int int_1 = 0; int_1 < 1; ++int_1) {
-                        SmallFireballEntity smallFireballEntity_1 = new SmallFireballEntity(this.blaze.world, this.blaze, double_2 + this.blaze.getRandom().nextGaussian() * (double)float_1, double_3, double_4 + this.blaze.getRandom().nextGaussian() * (double)float_1);
-                        smallFireballEntity_1.updatePosition(smallFireballEntity_1.getX(), this.blaze.getBodyY(0.5D) + 0.5D, smallFireballEntity_1.getZ());
+                     for (int int_1 = 0; int_1 < 1; ++int_1) {
+                        SmallFireballEntity smallFireballEntity_1 = new SmallFireballEntity(this.blaze.world,
+                              this.blaze, double_2 + this.blaze.getRandom().nextGaussian() * (double) float_1, double_3,
+                              double_4 + this.blaze.getRandom().nextGaussian() * (double) float_1);
+                        smallFireballEntity_1.updatePosition(smallFireballEntity_1.getX(),
+                              this.blaze.getBodyY(0.5D) + 0.5D, smallFireballEntity_1.getZ());
                         this.blaze.world.spawnEntity(smallFireballEntity_1);
                      }
                   }
@@ -239,7 +252,8 @@ public class WithEntity extends BlazeEntity {
 
                this.blaze.getLookControl().lookAt(livingEntity_1, 10.0F, 10.0F);
             } else if (this.field_19420 < 5) {
-               this.blaze.getMoveControl().moveTo(livingEntity_1.getX(), livingEntity_1.getY(), livingEntity_1.getZ(), 1.0D);
+               this.blaze.getMoveControl().moveTo(livingEntity_1.getX(), livingEntity_1.getY(), livingEntity_1.getZ(),
+                     1.0D);
             }
 
             super.tick();
@@ -251,4 +265,3 @@ public class WithEntity extends BlazeEntity {
       }
    }
 }
-

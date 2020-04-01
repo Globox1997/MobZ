@@ -2,6 +2,8 @@ package net.mobz.Entity;
 
 import java.util.UUID;
 import java.util.function.Predicate;
+
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
@@ -14,10 +16,10 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.AnimalMateGoal;
 import net.minecraft.entity.ai.goal.AttackWithOwnerGoal;
 import net.minecraft.entity.ai.goal.FollowOwnerGoal;
+import net.minecraft.entity.ai.goal.FollowTargetGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.PounceAtTargetGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.SitGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
@@ -28,6 +30,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.mob.AbstractSkeletonEntity;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.mob.GhastEntity;
 import net.minecraft.entity.passive.CatEntity;
@@ -52,6 +55,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.SwordItems;
@@ -67,7 +71,6 @@ public class FriendEntity extends TameableEntity {
     public FriendEntity(EntityType<? extends FriendEntity> entityType_1, World world_1) {
         super(entityType_1, world_1);
 
-        this.setTamed(false);
         this.equipStack(EquipmentSlot.HEAD, new ItemStack(Items.LEATHER_HELMET));
         this.equipStack(EquipmentSlot.CHEST, new ItemStack(Items.LEATHER_CHESTPLATE));
         this.equipStack(EquipmentSlot.LEGS, new ItemStack(Items.LEATHER_LEGGINGS));
@@ -81,9 +84,8 @@ public class FriendEntity extends TameableEntity {
         return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.isDay()
-                && !this.world.isWater(entityPos)
-                && Configinit.CONFIGZ.AlexSpawn == true;
+                && this.world.isDay() && !this.world.isWater(entityPos)
+                && AutoConfig.getConfigHolder(configz.class).getConfig().AlexSpawn;
 
     }
 
@@ -95,16 +97,16 @@ public class FriendEntity extends TameableEntity {
         this.sitGoal = new SitGoal(this);
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, this.sitGoal);
-        this.goalSelector.add(4, new PounceAtTargetGoal(this, 0.4F));
-        this.goalSelector.add(5, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.add(6, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
-        this.goalSelector.add(7, new AnimalMateGoal(this, 1.0D));
-        this.goalSelector.add(8, new WanderAroundFarGoal(this, 1.0D));
-        this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(10, new LookAroundGoal(this));
+        this.goalSelector.add(3, new MeleeAttackGoal(this, 1.0D, true));
+        this.goalSelector.add(4, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
+        this.goalSelector.add(5, new AnimalMateGoal(this, 1.0D));
+        this.goalSelector.add(6, new WanderAroundFarGoal(this, 1.0D));
+        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(7, new LookAroundGoal(this));
         this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
         this.targetSelector.add(2, new AttackWithOwnerGoal(this));
         this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge());
+        this.targetSelector.add(4, new FollowTargetGoal(this, AbstractSkeletonEntity.class, false));
 
     }
 
@@ -112,12 +114,15 @@ public class FriendEntity extends TameableEntity {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
         if (this.isTamed()) {
-            this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(30.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+            this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+                    .setBaseValue(30.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         } else {
-            this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+            this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+                    .setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         }
 
-        this.getAttributes().register(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributes().register(EntityAttributes.ATTACK_DAMAGE)
+                .setBaseValue(4.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     public void setTarget(@Nullable LivingEntity livingEntity_1) {

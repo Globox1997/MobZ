@@ -1,5 +1,6 @@
 package net.mobz.Entity;
 
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -10,6 +11,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 
@@ -47,7 +49,7 @@ public class Archer2Entity extends PillagerEntity {
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(lighto) < 9 && this.world.isRaining() && !this.world.isWater(entityPos)
-                && Configinit.CONFIGZ.ArcherSpawn == true;
+                && AutoConfig.getConfigHolder(configz.class).getConfig().AlexSpawn;
 
     }
 

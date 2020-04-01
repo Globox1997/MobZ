@@ -54,6 +54,7 @@ public class Iteminit {
     public static final Spihead SPIHEAD = new Spihead(new Item.Settings().maxCount(1));
     public static final Stevehead STEVEHEAD = new Stevehead(new Item.Settings().maxCount(1));
     public static final Witherblazehead WITHERBLAZEHEAD = new Witherblazehead(new Item.Settings().maxCount(1));
+    public static final Pillagerstaff PILLAGERSTAFF = new Pillagerstaff(new Item.Settings().maxCount(1));
 
     public static void init() {
 
@@ -101,6 +102,7 @@ public class Iteminit {
         Registry.register(Registry.ITEM, new Identifier("mobz", "spihead"), SPIHEAD);
         Registry.register(Registry.ITEM, new Identifier("mobz", "stevehead"), STEVEHEAD);
         Registry.register(Registry.ITEM, new Identifier("mobz", "witherblazehead"), WITHERBLAZEHEAD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "pillagerstaff"), PILLAGERSTAFF);
 
     }
 

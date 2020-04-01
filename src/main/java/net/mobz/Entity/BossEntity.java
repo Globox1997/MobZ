@@ -1,8 +1,10 @@
 package net.mobz.Entity;
 
 import net.mobz.Inits.Configinit;
+import net.mobz.Config.configz;
 import net.mobz.Inits.ArmorItems;
 import net.mobz.Inits.SwordItems;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -28,7 +30,8 @@ public class BossEntity extends ZombieEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(400D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+                .setBaseValue(400D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(30.0D);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
                 .setBaseValue(10D * Configinit.CONFIGZ.DamageMultiplicatorMob);
@@ -83,7 +86,7 @@ public class BossEntity extends ZombieEntity {
                 && !viewableWorld_1.isAir(entityPos)
                 && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.isNight() && this.world.getLightLevel(lighto) <= 5 && !this.world.isWater(entityPos)
-                && Configinit.CONFIGZ.BossZombieSpawn == true;
+                && AutoConfig.getConfigHolder(configz.class).getConfig().BossZombieSpawn;
 
     }
 }

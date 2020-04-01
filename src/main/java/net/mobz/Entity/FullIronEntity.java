@@ -2,16 +2,19 @@ package net.mobz.Entity;
 
 import java.util.Random;
 import java.util.UUID;
+
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnType;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
+import net.minecraft.entity.ai.goal.LookAroundGoal;
+import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.ai.goal.ZombieAttackGoal;
-import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -31,6 +34,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 
@@ -43,10 +47,6 @@ public class FullIronEntity extends ZombieEntity {
 
    public FullIronEntity(EntityType<? extends FullIronEntity> entityType_1, World world_1) {
       super(entityType_1, world_1);
-      this.setPathNodeTypeWeight(PathNodeType.LAVA, 8.0F);
-   }
-
-   private void setPathNodeTypeWeight(PathNodeType lava, float f) {
    }
 
    public boolean canSpawn(WorldView viewableWorld_1) {
@@ -55,9 +55,8 @@ public class FullIronEntity extends ZombieEntity {
       return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-            && this.world.isDay() && this.world.getLightLevel(lighto) > 7
-            && !this.world.isWater(entityPos)
-            && Configinit.CONFIGZ.SteveSpawn == true;
+            && this.world.isDay() && this.world.getLightLevel(lighto) > 7 && !this.world.isWater(entityPos)
+            && AutoConfig.getConfigHolder(configz.class).getConfig().SteveSpawn;
 
    }
 
@@ -81,9 +80,15 @@ public class FullIronEntity extends ZombieEntity {
 
    }
 
+   protected void initGoals() {
+      this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+      this.goalSelector.add(5, new LookAroundGoal(this));
+      this.initCustomGoals();
+   }
+
    protected void initCustomGoals() {
       this.goalSelector.add(2, new ZombieAttackGoal(this, 1.0D, false));
-      this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D));
+      this.goalSelector.add(4, new WanderAroundFarGoal(this, 1.0D));
       this.targetSelector.add(1, new FullIronEntity.AvoidZombiesGoal(this));
       this.targetSelector.add(2, new FullIronEntity.FollowPlayerIfAngryGoal(this));
    }
@@ -92,8 +97,10 @@ public class FullIronEntity extends ZombieEntity {
       super.initAttributes();
       this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(5.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(25D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
+            .setBaseValue(5.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+            .setBaseValue(25D * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
    protected boolean canConvertInWater() {

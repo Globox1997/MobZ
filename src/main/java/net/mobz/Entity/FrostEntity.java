@@ -1,6 +1,8 @@
 package net.mobz.Entity;
 
 import java.util.EnumSet;
+
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
@@ -27,6 +29,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 
@@ -47,28 +50,29 @@ public class FrostEntity extends BlazeEntity {
       return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-            && this.world.getLightLevel(lighto) > 7
-            && !this.world.isWater(entityPos)
-            && Configinit.CONFIGZ.FrostBlazeSpawn == true;
+            && this.world.getLightLevel(lighto) > 7 && !this.world.isWater(entityPos)
+            && AutoConfig.getConfigHolder(configz.class).getConfig().FrostBlazeSpawn;
 
    }
 
    protected void initGoals() {
-      this.goalSelector.add(4, new FrostEntity.ShootFireballGoal(this));
-      this.goalSelector.add(5, new GoToWalkTargetGoal(this, 1.0D));
-      this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D, 0.0F));
-      this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-      this.goalSelector.add(8, new LookAroundGoal(this));
+      this.goalSelector.add(1, new FrostEntity.ShootFireballGoal(this));
+      this.goalSelector.add(2, new GoToWalkTargetGoal(this, 1.0D));
+      this.goalSelector.add(4, new WanderAroundFarGoal(this, 1.0D, 0.0F));
+      this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+      this.goalSelector.add(5, new LookAroundGoal(this));
       this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge());
       this.targetSelector.add(2, new FollowTargetGoal(this, PlayerEntity.class, true));
    }
 
    protected void initAttributes() {
       super.initAttributes();
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(8.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
+            .setBaseValue(8.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
       this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(15D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+            .setBaseValue(15D * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
    protected void initDataTracker() {

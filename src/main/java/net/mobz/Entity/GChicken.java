@@ -1,5 +1,6 @@
 package net.mobz.Entity;
 
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityPose;
@@ -29,6 +30,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.mobz.Config.configz;
 import net.mobz.Inits.Entityinit;
 
 public class GChicken extends ChickenEntity {
@@ -53,8 +55,8 @@ public class GChicken extends ChickenEntity {
    public boolean canSpawn(WorldView viewableWorld_1) {
       BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
-            && !viewableWorld_1.isAir(entityPos)
-            && !this.world.isWater(entityPos);
+            && !viewableWorld_1.isAir(entityPos) && !this.world.isWater(entityPos)
+            && AutoConfig.getConfigHolder(configz.class).getConfig().GoldenChickenSpawn;
 
    }
 
@@ -140,11 +142,11 @@ public class GChicken extends ChickenEntity {
    }
 
    public boolean canImmediatelyDespawn(double double_1) {
-      return this.hasJockey() && !this.hasPassengers();
+      return true;
    }
 
    public boolean hasJockey() {
-      return this.jockey;
+      return false;
    }
 
    public void setHasJockey(boolean boolean_1) {

@@ -1,9 +1,11 @@
 package net.mobz.Entity;
 
 import net.mobz.Inits.Configinit;
+import net.mobz.Config.configz;
 import net.mobz.Entity.Attack.*;
 import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.passive.IronGolemEntity;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
@@ -17,7 +19,6 @@ import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.entity.mob.WitherSkeletonEntity;
 import net.minecraft.entity.mob.ZombiePigmanEntity;
 import net.minecraft.entity.passive.AbstractTraderEntity;
-import net.minecraft.entity.passive.TurtleEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -32,24 +33,21 @@ public class LavaGolem extends IronGolemEntity {
    }
 
    protected void initGoals() {
-      this.goalSelector.add(2, new GolemAttack(this, 1.0D, false));
-      this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+      this.goalSelector.add(1, new GolemAttack(this, 1.0D, false));
+      this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
       this.goalSelector.add(8, new LookAroundGoal(this));
       this.initCustomGoals();
    }
 
    protected void initCustomGoals() {
-      this.goalSelector.add(2, new GolemAttack(this, 1.0D, false));
-      this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D));
-      this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(ZombiePigmanEntity.class));
-      this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(skeli3.class));
-      this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SkeletonEntity.class));
-      this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(WitherSkeletonEntity.class));
-      this.targetSelector.add(2, new FollowTargetGoal(this, PlayerEntity.class, true));
-      this.targetSelector.add(3, new FollowTargetGoal(this, AbstractTraderEntity.class, false));
-      this.targetSelector.add(3, new FollowTargetGoal(this, IronGolemEntity.class, true));
-      this.targetSelector.add(5,
-            new FollowTargetGoal(this, TurtleEntity.class, 10, true, false, TurtleEntity.BABY_TURTLE_ON_LAND_FILTER));
+      this.goalSelector.add(6, new WanderAroundFarGoal(this, 1.0D));
+      this.targetSelector.add(2, (new RevengeGoal(this, new Class[0])).setGroupRevenge(ZombiePigmanEntity.class));
+      this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(skeli3.class));
+      this.targetSelector.add(4, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SkeletonEntity.class));
+      this.targetSelector.add(5, (new RevengeGoal(this, new Class[0])).setGroupRevenge(WitherSkeletonEntity.class));
+      this.targetSelector.add(1, new FollowTargetGoal(this, PlayerEntity.class, true));
+      this.targetSelector.add(6, new FollowTargetGoal(this, AbstractTraderEntity.class, false));
+      this.targetSelector.add(7, new FollowTargetGoal(this, IronGolemEntity.class, true));
    }
 
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
@@ -71,10 +69,12 @@ public class LavaGolem extends IronGolemEntity {
 
    protected void initAttributes() {
       super.initAttributes();
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(48.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+            .setBaseValue(48.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
       this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.5D);
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(15.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
+            .setBaseValue(15.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
    }
 
    public boolean canSpawn(WorldView viewableWorld_1) {
@@ -82,8 +82,7 @@ public class LavaGolem extends IronGolemEntity {
       return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
             && !viewableWorld_1.isAir(entityPos)
             && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-            && !this.world.isWater(entityPos)
-            && Configinit.CONFIGZ.LavaGolemSpawn== true;
+            && !this.world.isWater(entityPos) && AutoConfig.getConfigHolder(configz.class).getConfig().LavaGolemSpawn;
 
    }
 
