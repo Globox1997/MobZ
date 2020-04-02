@@ -12,7 +12,7 @@
     "sources": "https://github.com/Globox1997/MobZ",
     "issues": "https://github.com/Globox1997/MobZ/issues"
   },
-  "license": "All Rights Reserved",
+  "license": "GPLv3",
   "icon": "assets/zmod/icon.png",
   "environment": "*",
   "entrypoints": {
