@@ -79,10 +79,10 @@ public class IceGolem extends IronGolemEntity {
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(52.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.IceGolemLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.26D);
         this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.5D);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(15.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.IceGolemAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 }

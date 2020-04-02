@@ -99,9 +99,9 @@ public class FullIronEntity extends ZombieEntity {
       this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
       this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-            .setBaseValue(5.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+            .setBaseValue(Configinit.CONFIGZ.SteveLife * Configinit.CONFIGZ.DamageMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-            .setBaseValue(25D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+            .setBaseValue(Configinit.CONFIGZ.SteveAttack * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
    protected boolean canConvertInWater() {

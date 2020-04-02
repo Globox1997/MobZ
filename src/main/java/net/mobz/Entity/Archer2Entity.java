@@ -25,9 +25,9 @@ public class Archer2Entity extends PillagerEntity {
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(30.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.ArcherLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(6.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.ArcherAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {

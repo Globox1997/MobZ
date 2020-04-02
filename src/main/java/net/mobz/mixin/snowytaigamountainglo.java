@@ -3,6 +3,7 @@ package net.mobz.mixin;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.SnowyTaigaMountainsBiome;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,8 +18,11 @@ public class snowytaigamountainglo extends Biome {
 
     @Inject(at = @At("RETURN"), method = "<init>()V")
     private void init(CallbackInfo info) {
-        this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.CREEP, 10, 1, 2));
-        this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ARCHER2ENTITY, 10, 1, 1));
-        this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.FROSTENTITY, 10, 1, 2));
+        this.addSpawn(EntityCategory.MONSTER,
+                new Biome.SpawnEntry(Entityinit.CREEP, Configinit.CONFIGZ.FrostCreeperSpawnRate, 1, 2));
+        this.addSpawn(EntityCategory.MONSTER,
+                new Biome.SpawnEntry(Entityinit.ARCHERENTITY, Configinit.CONFIGZ.BowmanSpawnRate, 1, 1));
+        this.addSpawn(EntityCategory.MONSTER,
+                new Biome.SpawnEntry(Entityinit.FROSTENTITY, Configinit.CONFIGZ.FrostBlazeSpawnRate, 1, 2));
     }
 }

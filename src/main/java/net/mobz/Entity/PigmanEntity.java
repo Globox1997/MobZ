@@ -23,9 +23,9 @@ public class PigmanEntity extends ZombiePigmanEntity {
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(24D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.PigmanLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(6D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.PigmanAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     protected SoundEvent getAmbientSound() {

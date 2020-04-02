@@ -24,7 +24,7 @@ public class Withender extends WitherEntity {
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(400D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.WithenderLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(44D);
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(4.0D);

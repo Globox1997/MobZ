@@ -41,7 +41,6 @@ public class WithEntity extends BlazeEntity {
 
    public WithEntity(EntityType<? extends WithEntity> entityType_1, World world_1) {
       super(entityType_1, world_1);
-      this.setPathfindingPenalty(PathNodeType.WATER, -1.0F);
       this.setPathfindingPenalty(PathNodeType.LAVA, 8.0F);
       this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, 0.0F);
       this.setPathfindingPenalty(PathNodeType.DAMAGE_FIRE, 0.0F);
@@ -70,11 +69,11 @@ public class WithEntity extends BlazeEntity {
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-            .setBaseValue(8.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+            .setBaseValue(Configinit.CONFIGZ.WitherBlazeAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
       this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-            .setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+            .setBaseValue(Configinit.CONFIGZ.WitherBlazeLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
    protected void initDataTracker() {

@@ -68,11 +68,11 @@ public class FrostEntity extends BlazeEntity {
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-            .setBaseValue(8.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+            .setBaseValue(Configinit.CONFIGZ.FrostBlazeAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
       this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-            .setBaseValue(15D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+            .setBaseValue(Configinit.CONFIGZ.FrostBlazeLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
    protected void initDataTracker() {

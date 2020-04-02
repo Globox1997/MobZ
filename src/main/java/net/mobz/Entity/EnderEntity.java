@@ -20,9 +20,9 @@ public class EnderEntity extends EndermanEntity {
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(50D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.EndermanLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(11D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.EndermanAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     public boolean isBaby() {

@@ -71,11 +71,11 @@ public class LavaGolem extends IronGolemEntity {
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-            .setBaseValue(48.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+            .setBaseValue(Configinit.CONFIGZ.LavaGolemLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
       this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.5D);
       this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-            .setBaseValue(15.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+            .setBaseValue(Configinit.CONFIGZ.LavaGolemAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
    }
 
    public boolean canSpawn(WorldView viewableWorld_1) {

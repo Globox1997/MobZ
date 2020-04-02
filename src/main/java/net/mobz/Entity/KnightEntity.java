@@ -58,9 +58,9 @@ public class KnightEntity extends ZombieEntity {
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.TemplarLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(5.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.TemplarAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     protected void initEquipment(LocalDifficulty localDifficulty_1) {

@@ -7,6 +7,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.world.biome.BadlandsPlateauBiome;
 import net.minecraft.world.biome.Biome;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 
 @Mixin(BadlandsPlateauBiome.class)
@@ -18,15 +19,23 @@ public class badplatoglo extends Biome {
 
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.TANK, 20, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.FAST, 20, 2, 3));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ARMORED, 10, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.BOSS, 6, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.SPI, 20, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.SKELI1, 10, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.KNIGHT2ENTITY, 15, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ARCHERENTITY, 15, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ILLUSIONER, 5, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.KNIGHT3ENTITY, 5, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.TANK, Configinit.CONFIGZ.TankSpawnRate, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.FAST, Configinit.CONFIGZ.SpeedyZombieSpawnRate, 2, 3));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.ARMORED, Configinit.CONFIGZ.ArmoredZombieSpawnRate, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.BOSS, Configinit.CONFIGZ.BossZombieSpawnRate, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.SPI, Configinit.CONFIGZ.BlueSpiderSpawnRate, 1, 3));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.SKELI1, Configinit.CONFIGZ.BossSkeletonSpawnRate, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.KNIGHT2ENTITY, Configinit.CONFIGZ.WarriorSpawnRate, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.ARCHERENTITY, Configinit.CONFIGZ.BowmanSpawnRate, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.ILLUSIONER, Configinit.CONFIGZ.IllusionerSpawnRate, 1, 1));
 	}
 }

@@ -7,6 +7,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.JungleBiome;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 
 @Mixin(JungleBiome.class)
@@ -18,14 +19,20 @@ public class jungleglo extends Biome {
 
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.FAST, 20, 2, 2));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.CRIP, 10, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.SKELI2, 15, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.KNIGHT2ENTITY, 15, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.STONEGOLEM, 10, 1, 1));
-		this.addSpawn(EntityCategory.AMBIENT, new Biome.SpawnEntry(Entityinit.BOAR, 1, 2, 4));
-		this.addSpawn(EntityCategory.AMBIENT, new Biome.SpawnEntry(Entityinit.BOAR3, 1, 2, 4));
-		this.addSpawn(EntityCategory.AMBIENT, new Biome.SpawnEntry(Entityinit.BLACKBEAR, 1, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.FAST, Configinit.CONFIGZ.SpeedyZombieSpawnRate, 2, 2));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.CRIP, Configinit.CONFIGZ.CookieCreeperSpawnRate, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.SKELI2, Configinit.CONFIGZ.OvergrownSkeletonSpawnRate, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.KNIGHT2ENTITY, Configinit.CONFIGZ.WarriorSpawnRate, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.STONEGOLEM, Configinit.CONFIGZ.StoneGolemSpawnRate, 1, 1));
+		this.addSpawn(EntityCategory.AMBIENT,
+				new Biome.SpawnEntry(Entityinit.BOAR, Configinit.CONFIGZ.WildBoarSpawnRate, 1, 4));
+		this.addSpawn(EntityCategory.AMBIENT,
+				new Biome.SpawnEntry(Entityinit.BLACKBEAR, Configinit.CONFIGZ.BlackBearSpawnRate, 1, 2));
 	}
 
 }

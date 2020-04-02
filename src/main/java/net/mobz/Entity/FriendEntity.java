@@ -115,14 +115,14 @@ public class FriendEntity extends TameableEntity {
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
         if (this.isTamed()) {
             this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                    .setBaseValue(30.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+                    .setBaseValue(Configinit.CONFIGZ.AlexLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         } else {
             this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
                     .setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         }
 
         this.getAttributes().register(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(4.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.AlexAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     public void setTarget(@Nullable LivingEntity livingEntity_1) {

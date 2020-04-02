@@ -37,9 +37,9 @@ public class Illusioner extends IllusionerEntity {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(14.0D);
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-            .setBaseValue(16.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+            .setBaseValue(Configinit.CONFIGZ.IllusionerLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-            .setBaseValue(5.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+            .setBaseValue(Configinit.CONFIGZ.IllusionerAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
    }
 
    public boolean canSpawn(WorldView viewableWorld_1) {

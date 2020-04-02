@@ -56,9 +56,9 @@ public class DwarfEntity extends VindicatorEntity {
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.3D);
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(70.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.DwarfLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(7.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.DwarfAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     public boolean canSpawn(WorldView viewableWorld_1) {

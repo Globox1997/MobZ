@@ -62,6 +62,7 @@ import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.SwordItems;
 
 public class Knight4Entity extends TameableEntity {
+    int z;
     private static final TrackedData<Float> ALEX_HEALTH;
     private static final TrackedData<Boolean> BEGGING;
     private static final TrackedData<Integer> COLLAR_COLOR;
@@ -74,10 +75,22 @@ public class Knight4Entity extends TameableEntity {
         equiping();
     }
 
+    public boolean canSpawn(WorldView viewableWorld_1) {
+
+        BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+        BlockPos lighto = new BlockPos(this.getX(), this.getY(), this.getZ());
+        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
+                && !viewableWorld_1.isAir(entityPos)
+                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
+                && this.world.getLightLevel(lighto) < 9 && !this.world.isWater(entityPos)
+                && AutoConfig.getConfigHolder(configz.class).getConfig().FioraSpawn;
+
+    }
+
     public void equiping() {
         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.ArmoredSword));
         Random random = new Random();
-        int z = random.nextInt() % 7;
+        z = random.nextInt() % 5;
         if (z < 0) {
             z = z * (-1);
         }
@@ -95,17 +108,6 @@ public class Knight4Entity extends TameableEntity {
             default:
                 this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.ORANGE_TULIP));
         }
-    }
-
-    public boolean canSpawn(WorldView viewableWorld_1) {
-        BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
-        BlockPos lighto = new BlockPos(this.getX(), this.getY(), this.getZ());
-        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
-                && !viewableWorld_1.isAir(entityPos)
-                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getLightLevel(lighto) < 9 && !this.world.isWater(entityPos)
-                && AutoConfig.getConfigHolder(configz.class).getConfig().FioraSpawn;
-
     }
 
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
@@ -134,14 +136,14 @@ public class Knight4Entity extends TameableEntity {
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
         if (this.isTamed()) {
             this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                    .setBaseValue(30.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+                    .setBaseValue(Configinit.CONFIGZ.FioraLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         } else {
             this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
                     .setBaseValue(20.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         }
 
         this.getAttributes().register(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(4.0D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.FioraAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     public void setTarget(@Nullable LivingEntity livingEntity_1) {

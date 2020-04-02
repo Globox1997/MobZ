@@ -31,10 +31,10 @@ public class BossEntity extends ZombieEntity {
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(400D * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(30.0D);
+                .setBaseValue(Configinit.CONFIGZ.BossZombieLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(4.0D);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(10D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.BossZombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
         this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(-4.0D);
     }

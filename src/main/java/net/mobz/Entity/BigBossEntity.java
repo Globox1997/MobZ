@@ -27,10 +27,10 @@ public class BigBossEntity extends ZombieEntity {
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(400D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.BigBossLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(30.0D);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(6D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.BigBossAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
         this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(-4.0D);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);

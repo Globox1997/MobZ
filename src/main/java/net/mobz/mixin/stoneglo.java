@@ -3,6 +3,7 @@ package net.mobz.mixin;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.StoneShoreBiome;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,11 +18,19 @@ public class stoneglo extends Biome {
 
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.SPO, 10, 1, 2));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.FAST, 20, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.SKELI1, 5, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.KNIGHTENTITY, 20, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.DWARFENTITY, 4, 1, 1));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.TSPIDER, 8, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.SPO, Configinit.CONFIGZ.PurpleSpiderSpawnRate, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.FAST, Configinit.CONFIGZ.SpeedyZombieSpawnRate, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.SKELI1, Configinit.CONFIGZ.BossSkeletonSpawnRate, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.KNIGHTENTITY, Configinit.CONFIGZ.TemplarSpawnRate, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.DWARFENTITY, Configinit.CONFIGZ.DwarfSpawnRate, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.TSPIDER, Configinit.CONFIGZ.TinySpiderSpawnRate, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.STONEGOLEM, Configinit.CONFIGZ.StoneGolemSpawnRate, 1, 1));
 	}
 }

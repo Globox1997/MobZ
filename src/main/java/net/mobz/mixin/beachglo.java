@@ -2,6 +2,7 @@ package net.mobz.mixin;
 
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.world.biome.Biome;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 import net.minecraft.world.biome.BeachBiome;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,8 +19,10 @@ public class beachglo extends Biome {
 
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.FAST, 15, 2, 3));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ARCHER2ENTITY, 10, 1, 1));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.FAST, Configinit.CONFIGZ.SpeedyZombieSpawnRate, 2, 3));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.ARCHER2ENTITY, Configinit.CONFIGZ.ArcherSpawnRate, 1, 1));
 	}
 
 }

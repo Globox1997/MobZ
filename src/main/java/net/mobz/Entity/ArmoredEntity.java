@@ -26,10 +26,10 @@ public class ArmoredEntity extends ZombieEntity {
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-            .setBaseValue(20D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+            .setBaseValue(Configinit.CONFIGZ.ArmoredZombieLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
       this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-            .setBaseValue(7D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+            .setBaseValue(Configinit.CONFIGZ.ArmoredZombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(3.0D);
 
    }

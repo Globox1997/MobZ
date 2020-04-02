@@ -27,8 +27,10 @@ public class skeli4 extends SkeletonEntity {
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(20D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.LostSkeletonLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(1.0D);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
+                .setBaseValue(Configinit.CONFIGZ.LostSkeletonAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     protected void initEquipment(LocalDifficulty difficulty) {

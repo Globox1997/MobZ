@@ -24,7 +24,7 @@ public class CripEntity extends CreeperEntity {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-            .setBaseValue(27D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+            .setBaseValue(Configinit.CONFIGZ.CookieCreeperLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {

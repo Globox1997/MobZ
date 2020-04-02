@@ -15,6 +15,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.mobz.Config.configz;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Soundinit;
 
 public class TSpider extends SpiderEntity {
@@ -29,9 +30,9 @@ public class TSpider extends SpiderEntity {
 
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(2.0D);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(Configinit.CONFIGZ.TinySpiderLife);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.1D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(0D);
+        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(Configinit.CONFIGZ.TinySpiderAttack);
     }
 
     public boolean canSpawn(WorldView viewableWorld_1) {

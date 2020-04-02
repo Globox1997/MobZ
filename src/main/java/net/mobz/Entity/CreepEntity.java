@@ -24,7 +24,7 @@ public class CreepEntity extends CreeperEntity {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-            .setBaseValue(25D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+            .setBaseValue(Configinit.CONFIGZ.FrostCreeperLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {

@@ -6,6 +6,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.entity.EntityCategory;
 import net.minecraft.world.biome.EndIslandsSmallBiome;
+import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 import net.minecraft.world.biome.Biome;
 
@@ -18,7 +19,9 @@ public class endislandsglo extends Biome {
 
 	@Inject(at = @At("RETURN"), method = "<init>()V")
 	private void init(CallbackInfo info) {
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ENDER, 10, 1, 3));
-		this.addSpawn(EntityCategory.MONSTER, new Biome.SpawnEntry(Entityinit.ENDERZOMBIE, 12, 1, 2));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.ENDER, Configinit.CONFIGZ.EndermanSpawnRate, 1, 3));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.ENDERZOMBIE, Configinit.CONFIGZ.EnderzombieSpawnRate, 1, 4));
 	}
 }

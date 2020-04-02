@@ -39,9 +39,9 @@ public class ArcherEntity extends SkeletonEntity {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.33D);
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(32.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.BowmanLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(6.5D * Configinit.CONFIGZ.DamageMultiplicatorMob);
+                .setBaseValue(Configinit.CONFIGZ.BowmanAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
     }
 
