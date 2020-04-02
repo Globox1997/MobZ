@@ -266,6 +266,8 @@
     "mobz.advancements.withender.description": "With..ender? How did this happen?",
     "mobz.advancements.witherblaze.title": "Wither Blaze",
     "mobz.advancements.witherblaze.description": "Witherinfused Blazes exist!",
+    "mobz.advancements.pillagerboss.title": "Pillager Boss",
+    "mobz.advancements.pillagerboss.description": "One of the most feared Pillagers",
     "text.mobz.withendermissing": "Something is missing",
     "text.mobz.withenderdimension": "Summonable in the End"
 }
