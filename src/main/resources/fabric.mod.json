@@ -8,11 +8,12 @@
     "Globox_Z"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/mobz",
+    "sources": "https://github.com/Globox1997/MobZ",
+    "issues": "https://github.com/Globox1997/MobZ/issues"
   },
-  "license": "CC0-1.0",
-  "icon": "assets/zmod/mobz.png",
+  "license": "All Rights Reserved",
+  "icon": "assets/zmod/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
