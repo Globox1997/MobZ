@@ -29,6 +29,7 @@ public class IceGolem extends IronGolemEntity {
 
     public IceGolem(EntityType<? extends IronGolemEntity> entityType, World world) {
         super(entityType, world);
+        this.experiencePoints = 20;
     }
 
     @Override

@@ -34,7 +34,7 @@ public class StoneGolem extends IronGolemEntity {
 
     public StoneGolem(EntityType<? extends IronGolemEntity> entityType, World world) {
         super(entityType, world);
-        this.experiencePoints = 10;
+        this.experiencePoints = 20;
     }
 
     @Override

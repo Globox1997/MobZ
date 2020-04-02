@@ -18,6 +18,7 @@ public class Illusioner extends IllusionerEntity {
 
    public Illusioner(EntityType<? extends IllusionerEntity> entityType, World world) {
       super(entityType, world);
+      this.experiencePoints = 20;
    }
 
    protected SoundEvent getAmbientSound() {

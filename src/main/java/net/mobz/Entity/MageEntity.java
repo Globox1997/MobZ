@@ -48,7 +48,7 @@ public class MageEntity extends SpellcastingIllagerEntity {
 
    public MageEntity(EntityType<? extends MageEntity> entityType, World world) {
       super(entityType, world);
-      this.experiencePoints = 10;
+      this.experiencePoints = 20;
    }
 
    protected void initGoals() {

@@ -22,7 +22,7 @@ public class TankEntity extends ZombieEntity {
 
     public TankEntity(EntityType<? extends ZombieEntity> entityType, World world) {
         super(entityType, world);
-        this.experiencePoints = 15;
+        this.experiencePoints = 10;
     }
 
     protected void initAttributes() {

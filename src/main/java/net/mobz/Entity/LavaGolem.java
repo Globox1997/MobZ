@@ -30,6 +30,7 @@ public class LavaGolem extends IronGolemEntity {
 
    public LavaGolem(EntityType<? extends IronGolemEntity> entityType, World world) {
       super(entityType, world);
+      this.experiencePoints = 20;
    }
 
    protected void initGoals() {

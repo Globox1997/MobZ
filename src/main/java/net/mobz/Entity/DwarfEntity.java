@@ -24,7 +24,7 @@ public class DwarfEntity extends VindicatorEntity {
 
     public DwarfEntity(EntityType<? extends VindicatorEntity> entityType, World world) {
         super(entityType, world);
-        this.experiencePoints = 30;
+        this.experiencePoints = 20;
     }
 
     protected void initEquipment(LocalDifficulty localDifficulty_1) {

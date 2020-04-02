@@ -47,6 +47,7 @@ public class FullIronEntity extends ZombieEntity {
 
    public FullIronEntity(EntityType<? extends FullIronEntity> entityType_1, World world_1) {
       super(entityType_1, world_1);
+      this.experiencePoints = 20;
    }
 
    public boolean canSpawn(WorldView viewableWorld_1) {

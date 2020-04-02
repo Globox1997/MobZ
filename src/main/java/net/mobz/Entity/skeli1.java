@@ -18,6 +18,7 @@ public class skeli1 extends SkeletonEntity {
 
     public skeli1(EntityType<? extends SkeletonEntity> entityType, World world) {
         super(entityType, world);
+        this.experiencePoints = 50;
     }
 
     protected void initAttributes() {

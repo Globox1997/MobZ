@@ -8,7 +8,6 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.mobz.Config.configz;
-import net.mobz.Inits.Configinit;
 
 public class Slimo extends SlimeEntity {
 
