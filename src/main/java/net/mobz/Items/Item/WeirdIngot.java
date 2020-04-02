@@ -17,9 +17,6 @@ import net.minecraft.world.World;
 
 public class WeirdIngot extends Item {
 
-    int bb;
-    int aa;
-
     public WeirdIngot(Settings settings) {
         super(settings);
     }

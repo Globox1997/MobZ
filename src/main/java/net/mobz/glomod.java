@@ -20,4 +20,4 @@ public class glomod implements ModInitializer {
 }
 
 // You are LOVED!!!
-// Jesus loves you unconditional!
+// Jesus loves you unconditionally!
