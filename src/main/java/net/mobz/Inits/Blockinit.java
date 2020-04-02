@@ -10,13 +10,13 @@ import net.mobz.Blocks.*;
 
 public class Blockinit {
 
-  public static final Enderhead ENDERHEAD = new Enderhead(FabricBlockSettings.copy(Blocks.ZOMBIE_HEAD).build());
+  public static final Enderheader ENDERHEADER = new Enderheader(FabricBlockSettings.copy(Blocks.ZOMBIE_HEAD).build());
 
   public static void init() {
 
     Registry.register(Registry.ITEM, new Identifier("mobz", "enderheader"),
-        new BlockItem(ENDERHEAD, new Item.Settings()));
-    Registry.register(Registry.BLOCK, new Identifier("mobz", "enderheader"), ENDERHEAD);
+        new BlockItem(ENDERHEADER, new Item.Settings()));
+    Registry.register(Registry.BLOCK, new Identifier("mobz", "enderheader"), ENDERHEADER);
 
   }
 }

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "n": 1,
+                "p": 1.0,
+                "type": "minecraft:binomial"
+              }
+            }
+          ],
+          "name": "mobz:enderheader"
+        }
+      ]
+    }
+  ]
+}

@@ -34,6 +34,7 @@ public class PillagerBoss extends PillagerEntity {
 
     public PillagerBoss(EntityType<PillagerBoss> entityType_1, World world_1) {
         super(entityType_1, world_1);
+        this.experiencePoints = 100;
     }
 
     protected void initGoals() {

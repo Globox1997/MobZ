@@ -117,7 +117,7 @@ public class client implements ClientModInitializer {
                 EntityRendererRegistry.INSTANCE.register(Entityinit.PILLAGERBOSS,
                                 (dispatcher, context) -> new PillagerBossRenderer(dispatcher));
 
-                BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.ENDERHEAD, RenderLayer.getCutout());
+                BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.ENDERHEADER, RenderLayer.getCutout());
 
         }
 

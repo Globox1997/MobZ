@@ -23,10 +23,10 @@ public class Withender extends WitherEntity {
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(200.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+                .setBaseValue(400D * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
-        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(44.0D);
-        this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(2.0D);
+        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(44D);
+        this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(4.0D);
     }
 
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {

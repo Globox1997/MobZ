@@ -99,8 +99,8 @@
     "item.mobz.whitebag.tooltip": "Ultra Rare",
     "item.mobz.orb2": "§5Orb of Levitation",
     "item.mobz.showegg": "Spawn Egg",
-    "item.mobz.pillagerstaff": "Staff of the mighty Pillager",
-    "item.mobz.pillagerstaff.tooltip": "Currently useless",
+    "item.mobz.pillagerstaff": "§6Staff of the Mighty Pillager",
+    "item.mobz.pillagerstaff.tooltip": "Witherinfused",
     "item.mobz.enderheader": "§eEnderman Head",
     "block.mobz.enderheader": "§eEnderman Head",
     "item.mobz.spawn_tank": "Tank Spawn Egg",
@@ -265,5 +265,7 @@
     "mobz.advancements.withender.title": "Withender",
     "mobz.advancements.withender.description": "With..ender? How did this happen?",
     "mobz.advancements.witherblaze.title": "Wither Blaze",
-    "mobz.advancements.witherblaze.description": "Witherinfused Blazes exist!"
+    "mobz.advancements.witherblaze.description": "Witherinfused Blazes exist!",
+    "text.mobz.withendermissing": "Something is missing",
+    "text.mobz.withenderdimension": "Summonable in the End"
 }
