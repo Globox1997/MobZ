@@ -29,9 +29,10 @@ public class jungleglo extends Biome {
 				new Biome.SpawnEntry(Entityinit.KNIGHT2ENTITY, Configinit.CONFIGZ.WarriorSpawnRate, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER,
 				new Biome.SpawnEntry(Entityinit.STONEGOLEM, Configinit.CONFIGZ.StoneGolemSpawnRate, 1, 1));
-		this.addSpawn(EntityCategory.AMBIENT,
+
+		this.addSpawn(EntityCategory.MONSTER,
 				new Biome.SpawnEntry(Entityinit.BOAR, Configinit.CONFIGZ.WildBoarSpawnRate, 1, 4));
-		this.addSpawn(EntityCategory.AMBIENT,
+		this.addSpawn(EntityCategory.MONSTER,
 				new Biome.SpawnEntry(Entityinit.BLACKBEAR, Configinit.CONFIGZ.BlackBearSpawnRate, 1, 2));
 	}
 

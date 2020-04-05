@@ -35,7 +35,8 @@ public class taigaglo extends Biome {
 				new Biome.SpawnEntry(Entityinit.ARCHER2ENTITY, Configinit.CONFIGZ.ArcherSpawnRate, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER,
 				new Biome.SpawnEntry(Entityinit.ILLUSIONER, Configinit.CONFIGZ.IllusionerSpawnRate, 1, 1));
-		this.addSpawn(EntityCategory.AMBIENT,
+
+		this.addSpawn(EntityCategory.MONSTER,
 				new Biome.SpawnEntry(Entityinit.BOAR, Configinit.CONFIGZ.BoarSpawnRate, 2, 4));
 	}
 

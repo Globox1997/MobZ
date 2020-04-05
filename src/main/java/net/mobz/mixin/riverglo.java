@@ -33,14 +33,15 @@ public class riverglo extends Biome {
 				new Biome.SpawnEntry(Entityinit.KNIGHT2ENTITY, Configinit.CONFIGZ.WarriorSpawnRate, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER,
 				new Biome.SpawnEntry(Entityinit.STONEGOLEM, Configinit.CONFIGZ.StoneGolemSpawnRate, 1, 1));
-		this.addSpawn(EntityCategory.AMBIENT,
-				new Biome.SpawnEntry(Entityinit.BOAR, Configinit.CONFIGZ.WildBoarSpawnRate, 2, 4));
-		this.addSpawn(EntityCategory.AMBIENT,
-				new Biome.SpawnEntry(Entityinit.FRIEND, Configinit.CONFIGZ.AlexSpawnRate, 1, 1));
 		this.addSpawn(EntityCategory.MONSTER,
 				new Biome.SpawnEntry(Entityinit.SKELI4, Configinit.CONFIGZ.LostSkeletonSpawnRate, 1, 4));
 		this.addSpawn(EntityCategory.MONSTER,
 				new Biome.SpawnEntry(Entityinit.TSPIDER, Configinit.CONFIGZ.TinySpiderSpawnRate, 1, 1));
+
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.BOAR, Configinit.CONFIGZ.WildBoarSpawnRate, 2, 4));
+		this.addSpawn(EntityCategory.MONSTER,
+				new Biome.SpawnEntry(Entityinit.FRIEND, Configinit.CONFIGZ.AlexSpawnRate, 1, 1));
 	}
 
 }

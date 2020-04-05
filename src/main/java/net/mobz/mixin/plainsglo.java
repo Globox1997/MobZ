@@ -29,11 +29,12 @@ public class plainsglo extends Biome {
 				new Biome.SpawnEntry(Entityinit.SKELI2, Configinit.CONFIGZ.OvergrownSkeletonSpawnRate, 1, 2));
 		this.addSpawn(EntityCategory.MONSTER,
 				new Biome.SpawnEntry(Entityinit.ARCHER2ENTITY, Configinit.CONFIGZ.ArcherSpawnRate, 1, 1));
-		this.addSpawn(EntityCategory.AMBIENT,
+
+		this.addSpawn(EntityCategory.MONSTER,
 				new Biome.SpawnEntry(Entityinit.BOAR2, Configinit.CONFIGZ.BoarSpawnRate, 1, 3));
-		this.addSpawn(EntityCategory.AMBIENT,
+		this.addSpawn(EntityCategory.MONSTER,
 				new Biome.SpawnEntry(Entityinit.BROWNBEAR, Configinit.CONFIGZ.BrownBearSpawnRate, 1, 2));
-		this.addSpawn(EntityCategory.AMBIENT,
+		this.addSpawn(EntityCategory.MONSTER,
 				new Biome.SpawnEntry(Entityinit.GCHICKEN, Configinit.CONFIGZ.GoldenChickenSpawnRate, 1, 2));
 		this.addSpawn(EntityCategory.MONSTER,
 				new Biome.SpawnEntry(Entityinit.SLIMO, Configinit.CONFIGZ.GrassSlimeSpawnRate, 1, 2));
