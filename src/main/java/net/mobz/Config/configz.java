@@ -268,15 +268,13 @@ public class configz implements ConfigData {
     public int BigBossSpawnRate = 1;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    @Comment("Caution! Friendly Mobs Spawnrate should stay at 1!")
-    public int BlackBearSpawnRate = 1;
+    public int BlackBearSpawnRate = 5;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int BlueSpiderSpawnRate = 20;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    @Comment("Caution! Friendly Mobs Spawnrate should stay at 1!")
-    public int BoarSpawnRate = 1;
+    public int BoarSpawnRate = 5;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int BossSkeletonSpawnRate = 3;
@@ -288,15 +286,13 @@ public class configz implements ConfigData {
     public int BowmanSpawnRate = 5;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    @Comment("Caution! Friendly Mobs Spawnrate should stay at 1!")
-    public int BrownBearSpawnRate = 1;
+    public int BrownBearSpawnRate = 5;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int CookieCreeperSpawnRate = 10;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    @Comment("Caution! Friendly Mobs Spawnrate should stay at 1!")
-    public int DirtyBoarSpawnRate = 1;
+    public int DirtyBoarSpawnRate = 5;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int DwarfSpawnRate = 5;
@@ -320,12 +316,10 @@ public class configz implements ConfigData {
     public int FrostCreeperSpawnRate = 10;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    @Comment("Caution! Friendly Mobs Spawnrate should stay at 1!")
-    public int GoldenChickenSpawnRate = 1;
+    public int GoldenChickenSpawnRate = 3;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    @Comment("Caution! Friendly Mobs Spawnrate should stay at 1!")
-    public int GrassSlimeSpawnRate = 1;
+    public int GrassSlimeSpawnRate = 3;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int IceGolemSpawnRate = 10;
@@ -379,15 +373,13 @@ public class configz implements ConfigData {
     public int TemplarSpawnRate = 5;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    @Comment("Caution! Friendly Mobs Spawnrate should stay at 1!")
-    public int TinySpiderSpawnRate = 1;
+    public int TinySpiderSpawnRate = 5;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int WarriorSpawnRate = 7;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    @Comment("Caution! Friendly Mobs Spawnrate should stay at 1!")
-    public int WildBoarSpawnRate = 1;
+    public int WildBoarSpawnRate = 5;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int WitherBlazeSpawnRate = 6;
