@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
+import net.mobz.Inits.Entityinit;
 
 public class skeli2 extends SkeletonEntity {
 
@@ -24,13 +25,15 @@ public class skeli2 extends SkeletonEntity {
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(1.0D);
     }
 
-    public boolean canSpawn(WorldView viewableWorld_1) {
-        BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
-        BlockPos lighto = new BlockPos(this.getX(), this.getY(), this.getZ());
-        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
-                && !viewableWorld_1.isAir(entityPos)
-                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getLightLevel(lighto) <= 7 && !this.world.isWater(entityPos)
+    public boolean canSpawn(WorldView view) {
+        BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+        BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
+        return view.intersectsEntities(this)
+                && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
+                && this.world.getLightLevel(posentity) <= 7
+                && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
+                && this.world.getBlockState(blockunderentity).getBlock().allowsSpawning(
+                        world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.SKELI2)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().OvergrownSkeletonSpawn;
 
     }

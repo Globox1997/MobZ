@@ -256,10 +256,10 @@ public class configz implements ConfigData {
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.Gui.PrefixText
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    public int AlexSpawnRate = 5;
+    public int AlexSpawnRate = 2;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    public int ArcherSpawnRate = 5;
+    public int ArcherSpawnRate = 2;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int ArmoredZombieSpawnRate = 15;
@@ -295,7 +295,7 @@ public class configz implements ConfigData {
     public int DirtyBoarSpawnRate = 5;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    public int DwarfSpawnRate = 5;
+    public int DwarfSpawnRate = 3;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int EnderKnightSpawnRate = 3;
@@ -307,7 +307,7 @@ public class configz implements ConfigData {
     public int EnderzombieSpawnRate = 8;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    public int FioraSpawnRate = 5;
+    public int FioraSpawnRate = 2;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int FrostBlazeSpawnRate = 10;
@@ -322,10 +322,10 @@ public class configz implements ConfigData {
     public int GrassSlimeSpawnRate = 3;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    public int IceGolemSpawnRate = 10;
+    public int IceGolemSpawnRate = 5;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    public int IllusionerSpawnRate = 5;
+    public int IllusionerSpawnRate = 2;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int LavaGolemSpawnRate = 10;
@@ -349,9 +349,6 @@ public class configz implements ConfigData {
     public int PigmanSpawnRate = 10;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    public int PillagerBossSpawnRate = 1;
-    @ConfigEntry.Category("spawnratesetting")
-    @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int PurpleSpiderSpawnRate = 15;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
@@ -361,22 +358,22 @@ public class configz implements ConfigData {
     public int SpiderMageSpawnRate = 6;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    public int SteveSpawnRate = 4;
+    public int SteveSpawnRate = 2;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    public int StoneGolemSpawnRate = 10;
+    public int StoneGolemSpawnRate = 2;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int TankSpawnRate = 30;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    public int TemplarSpawnRate = 5;
+    public int TemplarSpawnRate = 2;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int TinySpiderSpawnRate = 5;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
-    public int WarriorSpawnRate = 7;
+    public int WarriorSpawnRate = 3;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int WildBoarSpawnRate = 5;

@@ -4,7 +4,6 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.function.Predicate;
 
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
@@ -53,10 +52,7 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
-import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.SwordItems;
@@ -73,18 +69,6 @@ public class Knight4Entity extends TameableEntity {
     public Knight4Entity(EntityType<? extends Knight4Entity> entityType_1, World world_1) {
         super(entityType_1, world_1);
         equiping();
-    }
-
-    public boolean canSpawn(WorldView viewableWorld_1) {
-
-        BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
-        BlockPos lighto = new BlockPos(this.getX(), this.getY(), this.getZ());
-        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
-                && !viewableWorld_1.isAir(entityPos)
-                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getLightLevel(lighto) < 9 && !this.world.isWater(entityPos)
-                && AutoConfig.getConfigHolder(configz.class).getConfig().FioraSpawn;
-
     }
 
     public void equiping() {

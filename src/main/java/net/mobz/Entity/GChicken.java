@@ -1,6 +1,5 @@
 package net.mobz.Entity;
 
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityPose;
@@ -29,8 +28,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
-import net.mobz.Config.configz;
 import net.mobz.Inits.Entityinit;
 
 public class GChicken extends ChickenEntity {
@@ -50,14 +47,6 @@ public class GChicken extends ChickenEntity {
    }
 
    private void setPathNodeTypeWeight(PathNodeType water, float f) {
-   }
-
-   public boolean canSpawn(WorldView viewableWorld_1) {
-      BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
-      return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
-            && !viewableWorld_1.isAir(entityPos) && !this.world.isWater(entityPos)
-            && AutoConfig.getConfigHolder(configz.class).getConfig().GoldenChickenSpawn;
-
    }
 
    protected void initGoals() {

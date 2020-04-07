@@ -110,15 +110,17 @@ public class PillagerBoss extends PillagerEntity {
         world.spawnEntity(skull3);
 
     }
-
-    public boolean canSpawn(WorldView viewableWorld_1) {
-        BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
-        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
-                && !viewableWorld_1.isAir(entityPos)
-                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.isDay() && !this.world.isWater(entityPos)
-                && AutoConfig.getConfigHolder(configz.class).getConfig().PillagerBossSpawn;
-
-    }
+    /*
+     * public boolean canSpawn(WorldView viewableWorld_1) { BlockPos entityPos = new
+     * BlockPos(this.getX(), this.getY() - 1, this.getZ()); return
+     * viewableWorld_1.intersectsEntities(this) &&
+     * !viewableWorld_1.containsFluid(this.getBoundingBox()) &&
+     * !viewableWorld_1.isAir(entityPos) &&
+     * this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() !=
+     * Difficulty.PEACEFUL && this.world.isDay() && !this.world.isWater(entityPos)
+     * && AutoConfig.getConfigHolder(configz.class).getConfig().PillagerBossSpawn;
+     * 
+     * }
+     */
 
 }

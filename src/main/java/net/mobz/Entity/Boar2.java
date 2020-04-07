@@ -1,6 +1,5 @@
 package net.mobz.Entity;
 
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.PassiveEntity;
@@ -8,10 +7,7 @@ import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
-import net.mobz.Config.configz;
 import net.mobz.Inits.Entityinit;
 
 public class Boar2 extends PigEntity {
@@ -28,14 +24,6 @@ public class Boar2 extends PigEntity {
 
     public boolean canBeControlledByRider() {
         return false;
-    }
-
-    public boolean canSpawn(WorldView viewableWorld_1) {
-        BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
-        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
-                && !viewableWorld_1.isAir(entityPos) && !this.world.isWater(entityPos)
-                && AutoConfig.getConfigHolder(configz.class).getConfig().BoarSpawn;
-
     }
 
     public boolean isSaddled() {

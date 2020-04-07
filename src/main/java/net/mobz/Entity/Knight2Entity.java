@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
+import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.Soundinit;
 import net.mobz.Inits.SwordItems;
 
@@ -67,14 +68,16 @@ public class Knight2Entity extends VindicatorEntity {
         return SoundEvents.ENTITY_PLAYER_DEATH;
     }
 
-    public boolean canSpawn(WorldView viewableWorld_1) {
-        BlockPos entityPos = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
-        BlockPos lighto = new BlockPos(this.getX(), this.getY(), this.getZ());
-        return viewableWorld_1.intersectsEntities(this) && !viewableWorld_1.containsFluid(this.getBoundingBox())
-                && !viewableWorld_1.isAir(entityPos)
-                && this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getLightLevel(lighto) < 9 && !this.world.isWater(entityPos)
+    public boolean canSpawn(WorldView view) {
+        BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
+        BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
+        return view.intersectsEntities(this) && this.world.getLightLevel(posentity) < 10
+                && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
+                && this.world.isDay() && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
+                && this.world.getBlockState(blockunderentity).getBlock().allowsSpawning(
+                        world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.KNIGHT2ENTITY)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().WarriorSpawn;
+
     }
 
 }
