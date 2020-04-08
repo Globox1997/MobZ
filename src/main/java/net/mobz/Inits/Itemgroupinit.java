@@ -57,6 +57,15 @@ public class Itemgroupinit {
                 stacks.add(new ItemStack(Iteminit.BOSSBARREN));
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(ItemStack.EMPTY);
+                stacks.add(new ItemStack(Blockinit.TOTEM_BASE));
+                stacks.add(new ItemStack(Blockinit.TOTEM_MIDDLE));
+                stacks.add(new ItemStack(Blockinit.TOTEM_TOP));
+                stacks.add(new ItemStack(Blockinit.ENDERHEADER));
+                stacks.add(ItemStack.EMPTY);
+                stacks.add(ItemStack.EMPTY);
+                stacks.add(ItemStack.EMPTY);
+                stacks.add(ItemStack.EMPTY);
+                stacks.add(ItemStack.EMPTY);
                 stacks.add(new ItemStack(Iteminit.MEDIVEAL_DISC));
                 stacks.add(new ItemStack(Iteminit.MEDIVEAL_DISC2));
                 stacks.add(new ItemStack(Iteminit.ORB));
