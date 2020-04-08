@@ -87,7 +87,7 @@ public class MageEntity extends SpellcastingIllagerEntity {
    public boolean canSpawn(WorldView view) {
       BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
-      return view.intersectsEntities(this)
+      return view.intersectsEntities(this) && !this.isPatrolLeader()
             && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
             && this.world.isNight() && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
             && this.world.getBlockState(blockunderentity).getBlock()

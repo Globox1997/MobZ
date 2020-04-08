@@ -43,13 +43,14 @@ public class Pillagerstaff extends Item {
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
+
         World world = context.getWorld();
         PlayerEntity player = context.getPlayer();
         if (context.getWorld().isClient)
             return ActionResult.PASS;
         BlockState state = context.getWorld().getBlockState(context.getBlockPos());
         if (state.getBlock() == Blockinit.ENDERHEADER) {
-            if (context.getWorld().getDimension().getType() == DimensionType.OVERWORLD) {
+            if (context.getWorld().getDimension().getType() == DimensionType.THE_END) {
                 if (Enderheader.isValid(context.getWorld(), context.getBlockPos(), state)) {
                     Withender wither = (Withender) Entityinit.WITHENDER.create(world);
                     BlockPos oke = context.getBlockPos();
@@ -58,7 +59,6 @@ public class Pillagerstaff extends Item {
                     return ActionResult.SUCCESS;
                 } else {
                     player.addChatMessage(new TranslatableText("text.mobz.withendermissing"), true);
-
                 }
             } else {
                 player.addChatMessage(new TranslatableText("text.mobz.withenderdimension"), true);

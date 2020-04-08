@@ -418,5 +418,8 @@
     "mobz.advancements.pillagerboss.title": "Pillager Boss",
     "mobz.advancements.pillagerboss.description": "One of the most feared Pillagers",
     "text.mobz.withendermissing": "Something is missing",
-    "text.mobz.withenderdimension": "Summonable in the End"
+    "text.mobz.withenderdimension": "Summonable in the End",
+    "text.mobz.pillagermissing": "Totem Part is missing",
+    "text.mobz.pillagerdimension": "Summonable in the Overworld",
+    "text.mobz.pillagerspawnable": "Spawn is set to false"
 }

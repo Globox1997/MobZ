@@ -7,6 +7,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+import net.mobz.Inits.Blockinit;
 
 public class TotemMiddle extends Block {
 
@@ -14,6 +16,29 @@ public class TotemMiddle extends Block {
 
   public TotemMiddle(Settings settings) {
     super(settings);
+
+  }
+
+  public static boolean isValid(World world, BlockPos pos, BlockState state) {
+    if (state.getBlock() != Blockinit.TOTEM_MIDDLE) {
+      return false;
+    }
+
+    BlockState bottom = world.getBlockState(pos.down());
+    BlockState middle = world.getBlockState(pos);
+    BlockState top = world.getBlockState(pos.up());
+    if (bottom.getBlock() == Blockinit.TOTEM_BASE) {
+      if (middle.getBlock() == Blockinit.TOTEM_MIDDLE) {
+        if (top.getBlock() == Blockinit.TOTEM_TOP) {
+          world.breakBlock(pos, false);
+          world.breakBlock(pos.down(), false);
+          world.breakBlock(pos.up(), false);
+          return true;
+        }
+      }
+    }
+
+    return false;
 
   }
 

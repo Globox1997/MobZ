@@ -1,6 +1,5 @@
 package net.mobz.Entity;
 
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -17,13 +16,8 @@ import net.minecraft.entity.mob.PillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.WitherSkullEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.Difficulty;
-import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
-import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Iteminit;
 import net.mobz.Inits.SwordItems;
@@ -35,6 +29,10 @@ public class PillagerBoss extends PillagerEntity {
     public PillagerBoss(EntityType<PillagerBoss> entityType_1, World world_1) {
         super(entityType_1, world_1);
         this.experiencePoints = 100;
+        ItemStack itemStack = new ItemStack(SwordItems.ArmoredSword);
+        ItemStack itemStack2 = new ItemStack(Iteminit.PILLAGERSTAFF);
+        this.equipStack(EquipmentSlot.MAINHAND, itemStack2);
+        this.equipStack(EquipmentSlot.OFFHAND, itemStack);
     }
 
     protected void initGoals() {
@@ -45,13 +43,6 @@ public class PillagerBoss extends PillagerEntity {
         this.goalSelector.add(3, new LookAtEntityGoal(this, MobEntity.class, 15.0F));
         this.goalSelector.add(4, new WanderAroundGoal(this, 1.0D));
         this.targetSelector.add(1, new FollowTargetGoal(this, PlayerEntity.class, true));
-    }
-
-    protected void initEquipment(LocalDifficulty difficulty) {
-        ItemStack itemStack = new ItemStack(SwordItems.ArmoredSword);
-        ItemStack itemStack2 = new ItemStack(Iteminit.PILLAGERSTAFF);
-        this.equipStack(EquipmentSlot.MAINHAND, itemStack2);
-        this.equipStack(EquipmentSlot.OFFHAND, itemStack);
     }
 
     protected void initAttributes() {
@@ -110,17 +101,5 @@ public class PillagerBoss extends PillagerEntity {
         world.spawnEntity(skull3);
 
     }
-    /*
-     * public boolean canSpawn(WorldView viewableWorld_1) { BlockPos entityPos = new
-     * BlockPos(this.getX(), this.getY() - 1, this.getZ()); return
-     * viewableWorld_1.intersectsEntities(this) &&
-     * !viewableWorld_1.containsFluid(this.getBoundingBox()) &&
-     * !viewableWorld_1.isAir(entityPos) &&
-     * this.world.getLocalDifficulty(entityPos).getGlobalDifficulty() !=
-     * Difficulty.PEACEFUL && this.world.isDay() && !this.world.isWater(entityPos)
-     * && AutoConfig.getConfigHolder(configz.class).getConfig().PillagerBossSpawn;
-     * 
-     * }
-     */
 
 }
