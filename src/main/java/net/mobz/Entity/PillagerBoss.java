@@ -9,6 +9,7 @@ import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.WanderAroundGoal;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.MobEntity;
@@ -100,6 +101,10 @@ public class PillagerBoss extends PillagerEntity {
         world.spawnEntity(skull2);
         world.spawnEntity(skull3);
 
+    }
+
+    protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
+        return;
     }
 
 }

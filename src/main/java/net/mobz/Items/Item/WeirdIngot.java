@@ -65,6 +65,7 @@ public class WeirdIngot extends Item {
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
         PlayerEntity player = context.getPlayer();
+        ItemStack ingot = player.getMainHandStack();
         if (context.getWorld().isClient)
             return ActionResult.PASS;
         BlockState state = context.getWorld().getBlockState(context.getBlockPos());
@@ -75,6 +76,7 @@ public class WeirdIngot extends Item {
                         PillagerBoss pillager = (PillagerBoss) Entityinit.PILLAGERBOSS.create(world);
                         BlockPos oke = context.getBlockPos();
                         pillager.refreshPositionAndAngles(oke, 0.0F, 0.0F);
+                        ingot.decrement(1);
                         world.spawnEntity(pillager);
                         return ActionResult.SUCCESS;
                     } else {
