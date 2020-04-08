@@ -1,8 +1,5 @@
 package net.mobz.Blocks;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityContext;
@@ -15,11 +12,11 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class Pillagertotem extends Block {
+public class TotemBase extends Block {
 
   protected static final VoxelShape SHAPE;
 
-  public Pillagertotem(Settings settings) {
+  public TotemBase(Settings settings) {
     super(settings);
 
   }
@@ -34,8 +31,8 @@ public class Pillagertotem extends Block {
   }
 
   static {
-    SHAPE = VoxelShapes.union(createCuboidShape(1D, 0D, 1D, 15D, 1D, 15D), createCuboidShape(2D, 1D, 2D, 14D, 2D, 14D),
-        createCuboidShape(4D, 2D, 4D, 12D, 1D, 12D), createCuboidShape(3D, 5D, 4D, 4D, 8D, 5D),
+    SHAPE = VoxelShapes.union(createCuboidShape(1D, 0, 1D, 15D, 1D, 15D), createCuboidShape(2D, 1D, 2D, 14D, 2D, 14D),
+        createCuboidShape(4D, 2D, 4D, 12D, 16D, 12D), createCuboidShape(3D, 5D, 4D, 4D, 8D, 5D),
         createCuboidShape(3D, 5D, 11D, 4D, 8D, 12D), createCuboidShape(2D, 6D, 4D, 3D, 9D, 5D),
         createCuboidShape(1D, 8D, 4D, 2D, 11D, 5D), createCuboidShape(2D, 6D, 11D, 3D, 9D, 12D),
         createCuboidShape(1D, 8D, 11D, 2D, 11D, 12D), createCuboidShape(4D, 5D, 3D, 5D, 8D, 4D),
@@ -47,6 +44,12 @@ public class Pillagertotem extends Block {
         createCuboidShape(4D, 8D, 14D, 5D, 11D, 15D), createCuboidShape(12D, 5D, 11D, 13D, 8D, 12D),
         createCuboidShape(13D, 6D, 11D, 14D, 9D, 12D), createCuboidShape(14D, 8D, 11D, 15D, 11D, 12D),
         createCuboidShape(12D, 5D, 4D, 13D, 8D, 5D), createCuboidShape(13D, 6D, 4D, 14D, 9D, 5D),
-        createCuboidShape(14D, 8D, 4D, 15D, 11D, 5D));
+        createCuboidShape(14D, 8D, 4D, 15D, 11D, 5D), createCuboidShape(4D, 14D, 3D, 5D, 16D, 4D),
+        createCuboidShape(11D, 14D, 3D, 12D, 16D, 4D), createCuboidShape(12D, 14D, 4D, 13D, 16D, 5D),
+        createCuboidShape(12D, 14D, 11D, 13D, 16D, 12D), createCuboidShape(11D, 14D, 12D, 12D, 16D, 13D),
+        createCuboidShape(4D, 14D, 12D, 5D, 16D, 13D), createCuboidShape(3D, 14D, 11D, 4D, 16D, 12D),
+        createCuboidShape(3D, 14D, 4D, 4D, 16D, 5D), createCuboidShape(3D, 15D, 3D, 4D, 16D, 4D),
+        createCuboidShape(12D, 15D, 3D, 13D, 16D, 4D), createCuboidShape(12D, 15D, 12D, 13D, 16D, 13D),
+        createCuboidShape(3D, 15D, 12D, 4D, 16D, 13D));
   }
 }

@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "mobz:block/totemmiddle"
+      },
+      {
+        "model": "mobz:block/totemmiddle",
+        "y": 90
+      },
+      {
+        "model": "mobz:block/totemmiddle",
+        "y": 180
+      },
+      {
+        "model": "mobz:block/totemmiddle",
+        "y": 270
+      }
+    ]
+  }
+}

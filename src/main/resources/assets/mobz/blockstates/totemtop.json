@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "mobz:block/totemtop"
+      },
+      {
+        "model": "mobz:block/totemtop",
+        "y": 90
+      },
+      {
+        "model": "mobz:block/totemtop",
+        "y": 180
+      },
+      {
+        "model": "mobz:block/totemtop",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -4,10 +4,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityContext;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -58,14 +55,13 @@ public class Enderheader extends Block {
   public boolean hasEmissiveLighting(BlockState state) {
     return true;
   }
-
-  public void onStacksDropped(BlockState state, World world, BlockPos pos, ItemStack stack) {
-    ItemStack headdrop = new ItemStack(Blockinit.ENDERHEADER);
-    super.onStacksDropped(state, world, pos, stack);
-    if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 1) {
-      Block.dropStack(world, pos, headdrop);
-    }
-  }
+  /*
+   * public void onStacksDropped(BlockState state, World world, BlockPos pos,
+   * ItemStack stack) { ItemStack headdrop = new ItemStack(Blockinit.ENDERHEADER);
+   * super.onStacksDropped(state, world, pos, stack); if
+   * (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 1) {
+   * Block.dropStack(world, pos, headdrop); } }
+   */
 
   static {
     SHAPE = Block.createCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
