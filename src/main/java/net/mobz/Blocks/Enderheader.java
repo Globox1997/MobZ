@@ -95,16 +95,17 @@ public class Enderheader extends Block {
   public boolean hasEmissiveLighting(BlockState state) {
     return true;
   }
-  /*
-   * public void onStacksDropped(BlockState state, World world, BlockPos pos,
-   * ItemStack stack) { ItemStack headdrop = new ItemStack(Blockinit.ENDERHEADER);
-   * super.onStacksDropped(state, world, pos, stack); if
-   * (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 1) {
-   * Block.dropStack(world, pos, headdrop); } }
-   */
 
   static {
     SHAPE = Block.createCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
   }
 
 }
+
+/*
+ * public void onStacksDropped(BlockState state, World world, BlockPos pos,
+ * ItemStack stack) { ItemStack headdrop = new ItemStack(Blockinit.ENDERHEADER);
+ * super.onStacksDropped(state, world, pos, stack); if
+ * (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 1) {
+ * Block.dropStack(world, pos, headdrop); } }
+ */
