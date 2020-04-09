@@ -29,7 +29,7 @@ public class PillagerBoss extends PillagerEntity {
 
     public PillagerBoss(EntityType<PillagerBoss> entityType_1, World world_1) {
         super(entityType_1, world_1);
-        this.experiencePoints = 100;
+        this.experiencePoints = 50;
         ItemStack itemStack = new ItemStack(SwordItems.ArmoredSword);
         ItemStack itemStack2 = new ItemStack(Iteminit.PILLAGERSTAFF);
         this.equipStack(EquipmentSlot.MAINHAND, itemStack2);

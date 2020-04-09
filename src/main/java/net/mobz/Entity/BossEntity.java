@@ -26,7 +26,7 @@ public class BossEntity extends ZombieEntity {
 
     public BossEntity(EntityType<? extends ZombieEntity> entityType, World world) {
         super(entityType, world);
-        this.experiencePoints = 100;
+        this.experiencePoints = 60;
     }
 
     protected void initAttributes() {

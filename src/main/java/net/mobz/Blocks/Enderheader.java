@@ -6,17 +6,42 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityContext;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.IntProperty;
+import net.minecraft.state.property.Properties;
+import net.minecraft.util.BlockMirror;
+import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.mobz.Inits.Blockinit;
 
 public class Enderheader extends Block {
+  public static final IntProperty ROTATION;
   protected static final VoxelShape SHAPE;
 
   public Enderheader(Settings settings) {
     super(settings);
+  }
+
+  public BlockState getPlacementState(ItemPlacementContext ctx) {
+    return (BlockState) this.getDefaultState().with(ROTATION,
+        MathHelper.floor((double) (ctx.getPlayerYaw() * 16.0F / 360.0F) + 0.5D) & 15);
+  }
+
+  public BlockState rotate(BlockState state, BlockRotation rotation) {
+    return (BlockState) state.with(ROTATION, rotation.rotate((Integer) state.get(ROTATION), 16));
+  }
+
+  public BlockState mirror(BlockState state, BlockMirror mirror) {
+    return (BlockState) state.with(ROTATION, mirror.mirror((Integer) state.get(ROTATION), 16));
+  }
+
+  protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    builder.add(ROTATION);
   }
 
   public static boolean isValid(World world, BlockPos pos, BlockState state) {
@@ -97,6 +122,7 @@ public class Enderheader extends Block {
   }
 
   static {
+    ROTATION = Properties.ROTATION;
     SHAPE = Block.createCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
   }
 
@@ -108,4 +134,10 @@ public class Enderheader extends Block {
  * super.onStacksDropped(state, world, pos, stack); if
  * (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 1) {
  * Block.dropStack(world, pos, headdrop); } }
+ */
+
+/*
+ * public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity
+ * player) { world.playSound(player, pos, SoundEvents.ENTITY_WITHER_SPAWN,
+ * SoundCategory.AMBIENT, 1F, 0.3F); }
  */

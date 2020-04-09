@@ -12,15 +12,21 @@ import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
-public class TotemTop extends Block {
+public class Bosstrophy extends Block {
   public static final IntProperty ROTATION;
   protected static final VoxelShape SHAPE;
 
-  public TotemTop(Settings settings) {
+  public Bosstrophy(Settings settings) {
     super(settings);
 
+  }
+
+  @Override
+  public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
+    return SHAPE;
   }
 
   public BlockState getPlacementState(ItemPlacementContext ctx) {
@@ -40,13 +46,16 @@ public class TotemTop extends Block {
     builder.add(ROTATION);
   }
 
-  @Override
-  public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
-    return SHAPE;
-  }
-
   static {
     ROTATION = Properties.ROTATION;
-    SHAPE = createCuboidShape(4D, 0, 4D, 12D, 10D, 12D);
+    SHAPE = VoxelShapes.union(createCuboidShape(4D, 0, 4D, 12D, 8D, 12D), createCuboidShape(4D, 8D, 4D, 5D, 9D, 12D),
+        createCuboidShape(11D, 8D, 4D, 12D, 9D, 12D), createCuboidShape(5D, 8D, 4D, 11D, 9D, 5D),
+        createCuboidShape(5D, 8D, 11D, 11D, 9D, 12D), createCuboidShape(4D, 9D, 11D, 6D, 10D, 12D),
+        createCuboidShape(10D, 9D, 11D, 12D, 10D, 12D), createCuboidShape(7D, 9D, 11D, 9D, 10D, 12D),
+        createCuboidShape(7D, 9D, 4D, 9D, 10D, 5D), createCuboidShape(10D, 9D, 4D, 12D, 10D, 5D),
+        createCuboidShape(4D, 9D, 4D, 6D, 10D, 5D), createCuboidShape(4D, 9D, 7D, 5D, 10D, 9D),
+        createCuboidShape(11D, 9D, 7D, 12D, 10D, 9D), createCuboidShape(11D, 9D, 10D, 12D, 10D, 11D),
+        createCuboidShape(4D, 9D, 10D, 5D, 10D, 11D), createCuboidShape(4D, 9D, 5D, 5D, 10D, 6D),
+        createCuboidShape(11D, 9D, 5D, 12D, 10D, 6D));
   }
 }

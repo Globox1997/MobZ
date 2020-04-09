@@ -22,7 +22,7 @@ public class BigBossEntity extends ZombieEntity {
 
     public BigBossEntity(EntityType<? extends ZombieEntity> entityType, World world) {
         super(entityType, world);
-        this.experiencePoints = 100;
+        this.experiencePoints = 60;
     }
 
     protected void initAttributes() {
