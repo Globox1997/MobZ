@@ -4,8 +4,6 @@ import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -33,8 +31,8 @@ public class BigBossEntity extends ZombieEntity {
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
                 .setBaseValue(Configinit.CONFIGZ.BigBossAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
         this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
-        this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(-4.0D);
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+        this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(0D);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.22D);
     }
 
     @Override
@@ -45,14 +43,6 @@ public class BigBossEntity extends ZombieEntity {
     @Override
     protected boolean burnsInDaylight() {
         return false;
-    }
-
-    @Override
-    public void tick() {
-        if (isGlowing() == true) {
-            StatusEffectInstance wither = new StatusEffectInstance(StatusEffect.byRawId(20), 200, 1, false, false);
-            this.addStatusEffect(wither);
-        }
     }
 
     @Override

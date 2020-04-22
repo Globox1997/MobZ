@@ -26,10 +26,12 @@ public class Archer2Entity extends PillagerEntity {
     @Override
     protected void initAttributes() {
         super.initAttributes();
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.345D);
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
                 .setBaseValue(Configinit.CONFIGZ.ArcherLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
                 .setBaseValue(Configinit.CONFIGZ.ArcherAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
     }
 
     @Override

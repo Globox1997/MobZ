@@ -24,7 +24,7 @@ public class CreepEntity extends CreeperEntity {
    @Override
    protected void initAttributes() {
       super.initAttributes();
-      this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
+      this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.26D);
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
             .setBaseValue(Configinit.CONFIGZ.FrostCreeperLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }

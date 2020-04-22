@@ -6,7 +6,6 @@ import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -21,6 +20,7 @@ import net.minecraft.entity.ai.goal.FollowTargetGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
+import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -44,7 +44,7 @@ public class ArcherEntity extends SkeletonEntity {
                 .setBaseValue(Configinit.CONFIGZ.BowmanLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
                 .setBaseValue(Configinit.CONFIGZ.BowmanAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
+        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(34.0D);
     }
 
     @Override
@@ -84,12 +84,12 @@ public class ArcherEntity extends SkeletonEntity {
 
     @Override
     protected void initGoals() {
+        this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(4, new WanderAroundFarGoal(this, 1.0D));
-        this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(3, new LookAroundGoal(this));
+        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(8, new LookAroundGoal(this));
         this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.add(2, new FollowTargetGoal<>(this, IronGolemEntity.class, true));
-        this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(VillagerEntity.class));
         this.targetSelector.add(4, (new RevengeGoal(this, new Class[0])).setGroupRevenge(IronGolemEntity.class));
     }
 

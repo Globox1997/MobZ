@@ -1,10 +1,18 @@
 package net.mobz.Entity;
 
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.goal.LookAroundGoal;
+import net.minecraft.entity.ai.goal.LookAtEntityGoal;
+import net.minecraft.entity.ai.goal.PounceAtTargetGoal;
+import net.minecraft.entity.ai.goal.SwimGoal;
+import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.passive.WolfEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -12,6 +20,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.mobz.Config.configz;
+import net.mobz.Entity.Attack.WolfAttack;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.Soundinit;
@@ -23,8 +32,19 @@ public class Dog extends WolfEntity {
     }
 
     @Override
+    protected void initGoals() {
+        this.goalSelector.add(1, new SwimGoal(this));
+        this.goalSelector.add(3, new PounceAtTargetGoal(this, 0.4F));
+        this.goalSelector.add(2, new WolfAttack(this, 1.0D, true));
+        this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D));
+        this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(10, new LookAroundGoal(this));
+    }
+
+    @Override
     protected void initAttributes() {
         super.initAttributes();
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.3D);
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
                 .setBaseValue(Configinit.CONFIGZ.NetherWolfLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
@@ -37,8 +57,25 @@ public class Dog extends WolfEntity {
     }
 
     @Override
-    public boolean isAngry() {
-        return true;
+    public boolean tryAttack(Entity target) {
+        boolean bl = target.damage(DamageSource.mob(this),
+                (float) ((int) this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).getValue()));
+        if (bl) {
+            this.dealDamage(this, target);
+        }
+
+        return bl;
+    }
+
+    @Override
+    public void setTarget(@Nullable LivingEntity target) {
+        super.setTarget(target);
+        if (target == null) {
+            this.setAngry(false);
+        } else {
+            this.setAngry(true);
+        }
+
     }
 
     @Override

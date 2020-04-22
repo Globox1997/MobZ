@@ -5,16 +5,16 @@ import net.minecraft.entity.passive.IronGolemEntity;
 
 public class GolemAttack extends MeleeAttackGoal {
    private final IronGolemEntity golem;
-   private int field_6627;
+   private int ticks;
 
-   public GolemAttack(IronGolemEntity golem_1, double double_1, boolean boolean_1) {
-      super(golem_1, double_1, boolean_1);
-      this.golem = golem_1;
+   public GolemAttack(IronGolemEntity golem, double speed, boolean pauseWhenMobIdle) {
+      super(golem, speed, pauseWhenMobIdle);
+      this.golem = golem;
    }
 
    public void start() {
       super.start();
-      this.field_6627 = 0;
+      this.ticks = 0;
    }
 
    public void stop() {
@@ -24,8 +24,8 @@ public class GolemAttack extends MeleeAttackGoal {
 
    public void tick() {
       super.tick();
-      ++this.field_6627;
-      if (this.field_6627 >= 5 && this.ticksUntilAttack < 10) {
+      ++this.ticks;
+      if (this.ticks >= 5 && this.ticksUntilAttack < 10) {
          this.golem.setAttacking(true);
       } else {
          this.golem.setAttacking(false);

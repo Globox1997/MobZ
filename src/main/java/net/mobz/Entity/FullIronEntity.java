@@ -12,9 +12,10 @@ import net.minecraft.entity.SpawnType;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
+import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
-import net.minecraft.entity.ai.goal.ZombieAttackGoal;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -88,24 +89,20 @@ public class FullIronEntity extends ZombieEntity {
 
    @Override
    protected void initGoals() {
-      this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-      this.goalSelector.add(5, new LookAroundGoal(this));
-      this.initCustomGoals();
-   }
-
-   @Override
-   protected void initCustomGoals() {
-      this.goalSelector.add(2, new ZombieAttackGoal(this, 1.0D, false));
-      this.goalSelector.add(4, new WanderAroundFarGoal(this, 1.0D));
-      this.targetSelector.add(1, new FullIronEntity.AvoidZombiesGoal(this));
-      this.targetSelector.add(2, new FullIronEntity.FollowPlayerIfAngryGoal(this));
+      this.goalSelector.add(0, new SwimGoal(this));
+      this.goalSelector.add(2, new MeleeAttackGoal(this, 1.0D, false));
+      this.goalSelector.add(7, new WanderAroundFarGoal(this, 0.9D));
+      this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 3.0F, 1.0F));
+      this.goalSelector.add(8, new LookAroundGoal(this));
+      this.goalSelector.add(10, new LookAtEntityGoal(this, MobEntity.class, 8.0F));
+      this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
    }
 
    @Override
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
-      this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
+      this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.26D);
       this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
             .setBaseValue(Configinit.CONFIGZ.SteveLife * Configinit.CONFIGZ.DamageMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH)

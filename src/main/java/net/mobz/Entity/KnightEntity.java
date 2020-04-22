@@ -1,8 +1,7 @@
 package net.mobz.Entity;
 
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.ZombieEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -16,9 +15,8 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
-import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.ai.goal.RevengeGoal;
+import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.ai.goal.ZombieAttackGoal;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -44,18 +42,12 @@ public class KnightEntity extends ZombieEntity {
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(4, new LookAroundGoal(this));
-        this.initCustomGoals();
-    }
-
-    @Override
-    protected void initCustomGoals() {
+        this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(2, new ZombieAttackGoal(this, 1.0D, false));
-        this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D));
-        this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(VillagerEntity.class));
-        this.targetSelector.add(2, (new RevengeGoal(this, new Class[0])).setGroupRevenge(IronGolemEntity.class));
         this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
+        this.goalSelector.add(8, new WanderAroundFarGoal(this, 0.9D));
+        this.goalSelector.add(9, new LookAtEntityGoal(this, PlayerEntity.class, 3.0F, 1.0F));
+        this.goalSelector.add(10, new LookAtEntityGoal(this, MobEntity.class, 8.0F));
     }
 
     @Override

@@ -1,6 +1,5 @@
 package net.mobz.Entity;
 
-import java.util.Random;
 import java.util.UUID;
 import java.util.function.Predicate;
 
@@ -25,6 +24,7 @@ import net.minecraft.entity.ai.goal.SitGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.TrackOwnerAttackerGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
+import net.minecraft.entity.ai.goal.WanderAroundGoal;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
@@ -58,7 +58,6 @@ import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.SwordItems;
 
 public class Knight4Entity extends TameableEntity {
-    private int z;
     private static final TrackedData<Float> ALEX_HEALTH;
     private static final TrackedData<Boolean> BEGGING;
     private static final TrackedData<Integer> COLLAR_COLOR;
@@ -68,30 +67,8 @@ public class Knight4Entity extends TameableEntity {
 
     public Knight4Entity(EntityType<? extends Knight4Entity> entityType_1, World world_1) {
         super(entityType_1, world_1);
-        equiping();
-    }
-
-    public void equiping() {
         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.ArmoredSword));
-        Random random = new Random();
-        z = random.nextInt() % 5;
-        if (z < 0) {
-            z = z * (-1);
-        }
-        switch (z) {
-            case 0:
-                this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.BLUE_ORCHID));
-            case 1:
-                this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.CORNFLOWER));
-            case 2:
-                this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.WHITE_TULIP));
-            case 3:
-                this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.PINK_TULIP));
-            case 4:
-                this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.RED_TULIP));
-            default:
-                this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.ORANGE_TULIP));
-        }
+
     }
 
     @Override
@@ -108,19 +85,19 @@ public class Knight4Entity extends TameableEntity {
         this.goalSelector.add(4, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
         this.goalSelector.add(5, new AnimalMateGoal(this, 1.0D));
         this.goalSelector.add(6, new WanderAroundFarGoal(this, 1.0D));
-        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.add(8, new WanderAroundGoal(this, 0.8D));
+        this.goalSelector.add(9, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
         this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
         this.targetSelector.add(2, new AttackWithOwnerGoal(this));
         this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge());
         this.targetSelector.add(4, new FollowTargetGoal<>(this, AbstractSkeletonEntity.class, false));
-
     }
 
     @Override
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.31D);
         if (this.isTamed()) {
             this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
                     .setBaseValue(Configinit.CONFIGZ.FioraLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
@@ -263,6 +240,58 @@ public class Knight4Entity extends TameableEntity {
         Item item_1 = itemStack_1.getItem();
         if (this.isTamed()) {
             if (!itemStack_1.isEmpty()) {
+                if (itemStack_1.isItemEqual(new ItemStack(Items.BLUE_ORCHID))) {
+                    this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.BLUE_ORCHID));
+                    return true;
+                }
+                if (itemStack_1.isItemEqual(new ItemStack(Items.CORNFLOWER))) {
+                    this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.CORNFLOWER));
+                    return true;
+                }
+                if (itemStack_1.isItemEqual(new ItemStack(Items.WHITE_TULIP))) {
+                    this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.WHITE_TULIP));
+                    return true;
+                }
+                if (itemStack_1.isItemEqual(new ItemStack(Items.PINK_TULIP))) {
+                    this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.PINK_TULIP));
+                    return true;
+                }
+                if (itemStack_1.isItemEqual(new ItemStack(Items.RED_TULIP))) {
+                    this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.RED_TULIP));
+                    return true;
+                }
+                if (itemStack_1.isItemEqual(new ItemStack(Items.ORANGE_TULIP))) {
+                    this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.ORANGE_TULIP));
+                    return true;
+                }
+                if (itemStack_1.isItemEqual(new ItemStack(Items.ALLIUM))) {
+                    this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.ALLIUM));
+                    return true;
+                }
+                if (itemStack_1.isItemEqual(new ItemStack(Items.AZURE_BLUET))) {
+                    this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.AZURE_BLUET));
+                    return true;
+                }
+                if (itemStack_1.isItemEqual(new ItemStack(Items.DANDELION))) {
+                    this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.DANDELION));
+                    return true;
+                }
+                if (itemStack_1.isItemEqual(new ItemStack(Items.OXEYE_DAISY))) {
+                    this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.OXEYE_DAISY));
+                    return true;
+                }
+                if (itemStack_1.isItemEqual(new ItemStack(Items.LILY_OF_THE_VALLEY))) {
+                    this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.LILY_OF_THE_VALLEY));
+                    return true;
+                }
+                if (itemStack_1.isItemEqual(new ItemStack(Items.POPPY))) {
+                    this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.POPPY));
+                    return true;
+                }
+                if (itemStack_1.isItemEqual(new ItemStack(Items.SHIELD))) {
+                    this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
+                    return true;
+                }
                 if (item_1.isFood()) {
                     if (item_1.getFoodComponent().isMeat() && (Float) this.dataTracker.get(ALEX_HEALTH) < 20.0F) {
                         if (!playerEntity_1.abilities.creativeMode) {

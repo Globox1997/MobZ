@@ -10,6 +10,8 @@ import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
+import net.minecraft.entity.ai.goal.GoToEntityTargetGoal;
+import net.minecraft.entity.ai.goal.IronGolemLookGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
@@ -19,7 +21,6 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.entity.mob.WitherSkeletonEntity;
 import net.minecraft.entity.mob.ZombiePigmanEntity;
-import net.minecraft.entity.passive.AbstractTraderEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -36,21 +37,23 @@ public class LavaGolem extends IronGolemEntity {
 
    @Override
    protected void initGoals() {
-      this.goalSelector.add(1, new GolemAttack(this, 1.0D, false));
-      this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+      this.goalSelector.add(1, new GolemAttack(this, 1.0D, true));
+      this.goalSelector.add(2, new GoToEntityTargetGoal(this, 0.9D, 32.0F));
+      this.goalSelector.add(5, new IronGolemLookGoal(this));
+      this.goalSelector.add(6, new WanderAroundFarGoal(this, 0.8D));
+      this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
       this.goalSelector.add(8, new LookAroundGoal(this));
+      this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
       this.initCustomGoals();
    }
 
    protected void initCustomGoals() {
-      this.goalSelector.add(6, new WanderAroundFarGoal(this, 1.0D));
       this.targetSelector.add(2, (new RevengeGoal(this, new Class[0])).setGroupRevenge(ZombiePigmanEntity.class));
       this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(skeli3.class));
       this.targetSelector.add(4, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SkeletonEntity.class));
       this.targetSelector.add(5, (new RevengeGoal(this, new Class[0])).setGroupRevenge(WitherSkeletonEntity.class));
-      this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
-      this.targetSelector.add(6, new FollowTargetGoal<>(this, AbstractTraderEntity.class, false));
-      this.targetSelector.add(7, new FollowTargetGoal<>(this, IronGolemEntity.class, true));
+      this.targetSelector.add(6, (new RevengeGoal(this, new Class[0])).setGroupRevenge(Dog.class));
+      this.targetSelector.add(7, (new RevengeGoal(this, new Class[0])).setGroupRevenge(WithEntity.class));
    }
 
    @Override

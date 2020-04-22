@@ -60,11 +60,11 @@ public class FrostEntity extends BlazeEntity {
 
    @Override
    protected void initGoals() {
-      this.goalSelector.add(1, new FrostEntity.ShootFireballGoal(this));
-      this.goalSelector.add(2, new GoToWalkTargetGoal(this, 1.0D));
-      this.goalSelector.add(4, new WanderAroundFarGoal(this, 1.0D, 0.0F));
-      this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-      this.goalSelector.add(5, new LookAroundGoal(this));
+      this.goalSelector.add(4, new FrostEntity.ShootFireballGoal(this));
+      this.goalSelector.add(5, new GoToWalkTargetGoal(this, 1.0D));
+      this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D, 0.0F));
+      this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+      this.goalSelector.add(8, new LookAroundGoal(this));
       this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge());
       this.targetSelector.add(2, new FollowTargetGoal<>(this, PlayerEntity.class, true));
    }
@@ -74,7 +74,7 @@ public class FrostEntity extends BlazeEntity {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
             .setBaseValue(Configinit.CONFIGZ.FrostBlazeAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-      this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
+      this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
       this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
             .setBaseValue(Configinit.CONFIGZ.FrostBlazeLife * Configinit.CONFIGZ.LifeMultiplicatorMob);

@@ -50,19 +50,17 @@ public class Pillagerstaff extends Item {
             return ActionResult.PASS;
         BlockState state = context.getWorld().getBlockState(context.getBlockPos());
         if (state.getBlock() == Blockinit.ENDERHEADER) {
-            if (context.getWorld().getDimension().getType() == DimensionType.THE_END) {
-                if (Enderheader.isValid(context.getWorld(), context.getBlockPos(), state)) {
-                    Withender wither = (Withender) Entityinit.WITHENDER.create(world);
-                    BlockPos oke = context.getBlockPos();
-                    wither.refreshPositionAndAngles(oke, 0.0F, 0.0F);
-                    world.spawnEntity(wither);
-                    return ActionResult.SUCCESS;
-                } else {
-                    player.addChatMessage(new TranslatableText("text.mobz.withendermissing"), true);
-                }
+
+            if (Enderheader.isValid(context.getWorld(), context.getBlockPos(), state)) {
+                Withender wither = (Withender) Entityinit.WITHENDER.create(world);
+                BlockPos oke = context.getBlockPos();
+                wither.refreshPositionAndAngles(oke, 0.0F, 0.0F);
+                world.spawnEntity(wither);
+                return ActionResult.SUCCESS;
             } else {
-                player.addChatMessage(new TranslatableText("text.mobz.withenderdimension"), true);
+                player.addChatMessage(new TranslatableText("text.mobz.withendermissing"), true);
             }
+
         }
         return ActionResult.PASS;
     }

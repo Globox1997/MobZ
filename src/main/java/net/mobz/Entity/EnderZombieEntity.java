@@ -28,6 +28,10 @@ public class EnderZombieEntity extends ZombieEntity {
         this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(10.0D);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
                 .setBaseValue(Configinit.CONFIGZ.EnderzombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
+        this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(2.0D);
+        this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
     }
 
     @Override

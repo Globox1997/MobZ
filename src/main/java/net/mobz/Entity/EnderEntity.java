@@ -25,6 +25,8 @@ public class EnderEntity extends EndermanEntity {
                 .setBaseValue(Configinit.CONFIGZ.EndermanLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
                 .setBaseValue(Configinit.CONFIGZ.EndermanAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
+        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(64.0D);
     }
 
     @Override

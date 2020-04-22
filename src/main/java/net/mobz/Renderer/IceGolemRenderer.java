@@ -11,6 +11,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.util.Identifier;
+import net.mobz.Entity.IceGolem;
 
 @Environment(EnvType.CLIENT)
 public class IceGolemRenderer extends MobEntityRenderer<IronGolemEntity, IronGolemEntityModel<IronGolemEntity>> {
@@ -24,6 +25,10 @@ public class IceGolemRenderer extends MobEntityRenderer<IronGolemEntity, IronGol
 
     public Identifier getTexture(IronGolemEntity ice) {
         return SKIN;
+    }
+
+    protected void scale(IceGolem golem, MatrixStack matrixStack, float f) {
+        matrixStack.scale(1.1F, 1.1F, 1.1F);
     }
 
     protected void setupTransforms(IronGolemEntity ironGolemEntity, MatrixStack matrixStack, float f, float g,

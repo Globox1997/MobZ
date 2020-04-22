@@ -52,7 +52,7 @@ public class Entityinit {
                         .create(EntityCategory.MONSTER, LavaGolem::new).setImmuneToFire()
                         .size(EntityDimensions.fixed(1.4F, 2.7F)).build();
         public static final EntityType<IceGolem> ICEGOLEM = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, IceGolem::new).size(EntityDimensions.fixed(1.4F, 2.7F)).build();
+                        .create(EntityCategory.MONSTER, IceGolem::new).size(EntityDimensions.fixed(1.54F, 3F)).build();
         public static final EntityType<skeli1> SKELI1 = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, skeli1::new).setImmuneToFire()
                         .size(EntityDimensions.fixed(0.6F, 1.99F)).build();

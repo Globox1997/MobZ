@@ -19,6 +19,9 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.BlazeEntity;
+import net.minecraft.entity.mob.SkeletonEntity;
+import net.minecraft.entity.mob.WitherSkeletonEntity;
+import net.minecraft.entity.mob.ZombiePigmanEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.SmallFireballEntity;
 import net.minecraft.particle.ParticleTypes;
@@ -63,13 +66,24 @@ public class WithEntity extends BlazeEntity {
 
    @Override
    protected void initGoals() {
-      this.goalSelector.add(1, new WithEntity.ShootFireballGoal(this));
-      this.goalSelector.add(3, new GoToWalkTargetGoal(this, 1.0D));
+      this.goalSelector.add(4, new WithEntity.ShootFireballGoal(this));
+      this.goalSelector.add(5, new GoToWalkTargetGoal(this, 1.0D));
       this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D, 0.0F));
-      this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+      this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
       this.goalSelector.add(8, new LookAroundGoal(this));
       this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge());
       this.targetSelector.add(2, new FollowTargetGoal<>(this, PlayerEntity.class, true));
+      this.initCustomGoals();
+   }
+
+   protected void initCustomGoals() {
+      this.targetSelector.add(2, (new RevengeGoal(this, new Class[0])).setGroupRevenge(ZombiePigmanEntity.class));
+      this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(skeli3.class));
+      this.targetSelector.add(4, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SkeletonEntity.class));
+      this.targetSelector.add(5, (new RevengeGoal(this, new Class[0])).setGroupRevenge(WitherSkeletonEntity.class));
+      this.targetSelector.add(6, (new RevengeGoal(this, new Class[0])).setGroupRevenge(Dog.class));
+      this.targetSelector.add(7, (new RevengeGoal(this, new Class[0])).setGroupRevenge(WithEntity.class));
+      this.targetSelector.add(8, (new RevengeGoal(this, new Class[0])).setGroupRevenge(LavaGolem.class));
    }
 
    @Override

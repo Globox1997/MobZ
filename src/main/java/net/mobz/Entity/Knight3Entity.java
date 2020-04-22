@@ -32,7 +32,7 @@ public class Knight3Entity extends VindicatorEntity {
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
+        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(18.0D);
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
                 .setBaseValue(Configinit.CONFIGZ.EnderKnightLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)

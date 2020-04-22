@@ -43,6 +43,8 @@ public class FastEntity extends ZombieEntity {
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
                 .setBaseValue(Configinit.CONFIGZ.SpeedyZombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
+        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
     }
 
     @Override

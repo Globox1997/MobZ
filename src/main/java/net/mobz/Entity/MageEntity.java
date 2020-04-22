@@ -75,7 +75,7 @@ public class MageEntity extends SpellcastingIllagerEntity {
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
-      this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(12.0D);
+      this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
             .setBaseValue(Configinit.CONFIGZ.SpiderMageLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
       this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)

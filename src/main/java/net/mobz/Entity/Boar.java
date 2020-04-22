@@ -23,8 +23,8 @@ public class Boar extends PigEntity {
     @Override
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(14.0D);
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.28D);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(12.0D);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
     }
 
     @Override

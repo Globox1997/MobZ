@@ -10,8 +10,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -38,6 +36,7 @@ public class BossEntity extends ZombieEntity {
                 .setBaseValue(Configinit.CONFIGZ.BossZombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
         this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(-4.0D);
+        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(36.0D);
     }
 
     @Override
@@ -48,14 +47,6 @@ public class BossEntity extends ZombieEntity {
     @Override
     protected boolean burnsInDaylight() {
         return false;
-    }
-
-    @Override
-    public void tick() {
-        if (isGlowing() == true) {
-            StatusEffectInstance wither = new StatusEffectInstance(StatusEffect.byRawId(20), 200, 1, false, false);
-            this.addStatusEffect(wither);
-        }
     }
 
     @Override

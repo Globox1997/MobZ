@@ -30,8 +30,8 @@ public class Knight5Entity extends VindicatorEntity {
     @Override
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.345D);
-        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
+        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
                 .setBaseValue(Configinit.CONFIGZ.LordofDarknessLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)

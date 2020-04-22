@@ -9,9 +9,13 @@ import net.minecraft.entity.passive.IronGolemEntity;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.goal.FollowTargetGoal;
+import net.minecraft.entity.ai.goal.GoToEntityTargetGoal;
+import net.minecraft.entity.ai.goal.IronGolemLookGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
+import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.CreeperEntity;
@@ -35,9 +39,13 @@ public class IceGolem extends IronGolemEntity {
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(1, new GolemAttack(this, 1.0D, false));
-        this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(6, new LookAroundGoal(this));
+        this.goalSelector.add(1, new GolemAttack(this, 1.0D, true));
+        this.goalSelector.add(2, new GoToEntityTargetGoal(this, 0.9D, 32.0F));
+        this.goalSelector.add(5, new IronGolemLookGoal(this));
+        this.goalSelector.add(6, new WanderAroundFarGoal(this, 0.8D));
+        this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
+        this.goalSelector.add(8, new LookAroundGoal(this));
+        this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
         this.initCustomGoals();
     }
 
@@ -60,6 +68,10 @@ public class IceGolem extends IronGolemEntity {
         this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SpiderEntity.class));
         this.targetSelector.add(4, (new RevengeGoal(this, new Class[0])).setGroupRevenge(CreeperEntity.class));
         this.targetSelector.add(5, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SlimeEntity.class));
+        this.targetSelector.add(6, (new RevengeGoal(this, new Class[0])).setGroupRevenge(FrostEntity.class));
+        this.targetSelector.add(7, (new RevengeGoal(this, new Class[0])).setGroupRevenge(CreepEntity.class));
+        this.targetSelector.add(8, (new RevengeGoal(this, new Class[0])).setGroupRevenge(Boar2.class));
+        this.targetSelector.add(9, (new RevengeGoal(this, new Class[0])).setGroupRevenge(Blackbear.class));
     }
 
     @Override
@@ -92,4 +104,5 @@ public class IceGolem extends IronGolemEntity {
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
                 .setBaseValue(Configinit.CONFIGZ.IceGolemAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
+
 }

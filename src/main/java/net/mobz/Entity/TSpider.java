@@ -26,7 +26,7 @@ public class TSpider extends SpiderEntity {
 
     @Override
     protected void initGoals() {
-        this.goalSelector.add(1, new WanderAroundGoal(this, 0.1D));
+        this.goalSelector.add(1, new WanderAroundGoal(this, 0.5D));
         this.goalSelector.add(4, new LookAroundGoal(this));
     }
 

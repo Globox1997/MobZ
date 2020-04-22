@@ -42,9 +42,9 @@ public class PillagerBoss extends PillagerEntity {
         super.initGoals();
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 30.0F, 1.0F));
-        this.goalSelector.add(3, new LookAtEntityGoal(this, MobEntity.class, 15.0F));
-        this.goalSelector.add(4, new WanderAroundGoal(this, 1.0D));
+        this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 30.0F, 1.0F));
+        this.goalSelector.add(6, new LookAtEntityGoal(this, MobEntity.class, 15.0F));
+        this.goalSelector.add(5, new WanderAroundGoal(this, 1.0D));
         this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
     }
 

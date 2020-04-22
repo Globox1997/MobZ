@@ -75,10 +75,12 @@ public class FriendEntity extends TameableEntity {
 
     }
 
+    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }
 
+    @Override
     protected void initGoals() {
         this.sitGoal = new SitGoal(this);
         this.goalSelector.add(1, new SwimGoal(this));
@@ -242,6 +244,10 @@ public class FriendEntity extends TameableEntity {
         Item item_1 = itemStack_1.getItem();
         if (this.isTamed()) {
             if (!itemStack_1.isEmpty()) {
+                if (itemStack_1.isItemEqual(new ItemStack(Items.SHIELD))) {
+                    this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
+                    return true;
+                }
                 if (item_1.isFood()) {
                     if (item_1.getFoodComponent().isMeat() && (Float) this.dataTracker.get(ALEX_HEALTH) < 20.0F) {
                         if (!playerEntity_1.abilities.creativeMode) {

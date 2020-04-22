@@ -28,6 +28,8 @@ public class PigmanEntity extends ZombiePigmanEntity {
                 .setBaseValue(Configinit.CONFIGZ.PigmanLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
                 .setBaseValue(Configinit.CONFIGZ.PigmanAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
+        this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
     }
 
     @Override
