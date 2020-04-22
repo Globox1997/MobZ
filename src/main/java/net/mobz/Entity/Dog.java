@@ -58,13 +58,11 @@ public class Dog extends WolfEntity {
 
     @Override
     public boolean tryAttack(Entity target) {
-        boolean bl = target.damage(DamageSource.mob(this),
-                (float) ((int) this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).getValue()));
-        if (bl) {
-            this.dealDamage(this, target);
-        }
+        return true;
+    }
 
-        return bl;
+    public boolean isAngry() {
+        return true;
     }
 
     @Override
