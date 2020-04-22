@@ -14,7 +14,8 @@ public class SpawnInit {
                                 && biome.getCategory() != Biome.Category.OCEAN
                                 && biome.getCategory() != Biome.Category.MUSHROOM
                                 && biome.getCategory() != Biome.Category.EXTREME_HILLS
-                                && biome.getCategory() != Biome.Category.MESA) {
+                                && biome.getCategory() != Biome.Category.MESA
+                                && biome.getCategory() != Biome.Category.DESERT) {
 
                         biome.getEntitySpawnList(Entityinit.ARCHERENTITY.getCategory()).add(new Biome.SpawnEntry(
                                         Entityinit.ARCHERENTITY, Configinit.CONFIGZ.BowmanSpawnRate, 1, 2));

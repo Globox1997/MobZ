@@ -1,7 +1,5 @@
 package net.mobz.Blocks;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -115,11 +113,10 @@ public class Enderheader extends Block {
   public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
     return SHAPE;
   }
-
-  @Environment(EnvType.CLIENT)
-  public boolean hasEmissiveLighting(BlockState state) {
-    return true;
-  }
+  /*
+   * @Environment(EnvType.CLIENT) public boolean hasEmissiveLighting(BlockState
+   * state) { return true; }
+   */
 
   static {
     ROTATION = Properties.ROTATION;

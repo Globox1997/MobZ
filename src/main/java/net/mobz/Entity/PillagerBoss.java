@@ -18,6 +18,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.WitherSkullEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Iteminit;
@@ -54,6 +55,10 @@ public class PillagerBoss extends PillagerEntity {
         this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
                 .setBaseValue(Configinit.CONFIGZ.PillagerBossAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
+    }
+
+    protected void initEquipment(LocalDifficulty difficulty) {
+
     }
 
     protected void mobTick() {

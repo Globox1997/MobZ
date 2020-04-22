@@ -126,4 +126,8 @@ public class KnightEntity extends ZombieEntity {
 
         return bl;
     }
+
+    public boolean isBaby() {
+        return false;
+    }
 }
