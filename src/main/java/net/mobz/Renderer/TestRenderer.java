@@ -65,8 +65,8 @@ public class TestRenderer extends IllagerEntityRenderer<TestEntity> {
    private static final Identifier SKIN = new Identifier("mobz:textures/entity/test.png");
 
    public TestRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-      super(entityRenderDispatcher, new IllagerEntityModel(0.0F, 0.0F, 64, 64), 0.5F);
-      this.addFeature(new HeldItemFeatureRenderer(this));
+      super(entityRenderDispatcher, new IllagerEntityModel<>(0.0F, 0.0F, 64, 64), 0.5F);
+      this.addFeature(new HeldItemFeatureRenderer<>(this));
    }
 
    public Identifier getTexture(PillagerEntity pillagerEntity) {

@@ -30,6 +30,7 @@ public class Knight2Entity extends VindicatorEntity {
 
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
@@ -40,6 +41,7 @@ public class Knight2Entity extends VindicatorEntity {
                 .setBaseValue(Configinit.CONFIGZ.WarriorAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
+    @Override
     protected void initEquipment(LocalDifficulty localDifficulty_1) {
         super.initEquipment(localDifficulty_1);
         if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
@@ -48,26 +50,32 @@ public class Knight2Entity extends VindicatorEntity {
         }
     }
 
+    @Override
     public EntityGroup getGroup() {
         return EntityGroup.DEFAULT;
     }
 
+    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.NOTHINGEVENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return SoundEvents.ENTITY_PLAYER_HURT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENTITY_PLAYER_DEATH;
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());

@@ -15,9 +15,9 @@ import net.minecraft.util.Identifier;
 public class Knight5Renderer extends BipedEntityRenderer<Knight5Entity, PlayerEntityModel<Knight5Entity>> {
 
     public Knight5Renderer(EntityRenderDispatcher dispatcher) {
-        super(dispatcher, new PlayerEntityModel(0.0F, false), 0.5F);
-        this.addFeature(new ArmorBipedFeatureRenderer(this, new PlayerEntityModel(0.5F, true),
-                new PlayerEntityModel(1.0F, true)));
+        super(dispatcher, new PlayerEntityModel<>(0.0F, false), 0.5F);
+        this.addFeature(new ArmorBipedFeatureRenderer<>(this, new PlayerEntityModel<>(0.5F, true),
+                new PlayerEntityModel<>(1.0F, true)));
     }
 
     @Override

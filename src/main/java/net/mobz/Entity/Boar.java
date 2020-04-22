@@ -20,28 +20,34 @@ public class Boar extends PigEntity {
         super(entityType, world);
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(14.0D);
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.28D);
     }
 
+    @Override
     public boolean canBeControlledByRider() {
         return false;
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.BOARSAYEVENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return Soundinit.BOARSAYEVENT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return Soundinit.BOARDEATHEVENT;
     }
 
+    @Override
     public boolean isSaddled() {
         return false;
     }
@@ -50,16 +56,17 @@ public class Boar extends PigEntity {
         return (Boar) Entityinit.BOAR.create(this.world);
     }
 
+    @Override
     public boolean isBreedingItem(ItemStack stack) {
         return BREEDING_INGREDIENT.test(stack);
     }
 
+    @Override
     public Boar createChild(PassiveEntity passiveEntity) {
         return (Boar) Entityinit.BOAR.create(this.world);
     }
 
     static {
-
         BREEDING_INGREDIENT = Ingredient.ofItems(Items.CARROT, Items.POTATO, Items.BEETROOT);
     }
 

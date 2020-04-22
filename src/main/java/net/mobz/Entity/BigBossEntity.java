@@ -2,7 +2,6 @@ package net.mobz.Entity;
 
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
@@ -25,6 +24,7 @@ public class BigBossEntity extends ZombieEntity {
         this.experiencePoints = 60;
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -37,32 +37,35 @@ public class BigBossEntity extends ZombieEntity {
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
     }
 
+    @Override
     public boolean isConvertingInWater() {
         return false;
     }
 
+    @Override
     protected boolean burnsInDaylight() {
         return false;
     }
 
-    public boolean Damage(LivingEntity entity) {
-
+    @Override
+    public void tick() {
         if (isGlowing() == true) {
             StatusEffectInstance wither = new StatusEffectInstance(StatusEffect.byRawId(20), 200, 1, false, false);
-            entity.addStatusEffect(wither);
+            this.addStatusEffect(wither);
         }
-        ;
-        return true;
     }
 
+    @Override
     public boolean isBaby() {
         return false;
     }
 
+    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
@@ -76,18 +79,22 @@ public class BigBossEntity extends ZombieEntity {
 
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.AMBIENTTANKEVENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return Soundinit.HURTTANKEVENT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return Soundinit.DEATHTANKEVENT;
     }
 
+    @Override
     protected SoundEvent getStepSound() {
         return Soundinit.STEPTANKEVENT;
     }

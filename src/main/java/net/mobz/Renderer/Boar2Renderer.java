@@ -11,7 +11,7 @@ import net.mobz.Entity.Boar2;
 @Environment(EnvType.CLIENT)
 public class Boar2Renderer extends MobEntityRenderer<Boar2, PigEntityModel<Boar2>> {
     public Boar2Renderer(EntityRenderDispatcher dispatcher) {
-        super(dispatcher, new PigEntityModel(), 0.7F);
+        super(dispatcher, new PigEntityModel<>(), 0.7F);
 
     }
 

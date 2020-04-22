@@ -36,6 +36,7 @@ public class ArcherEntity extends SkeletonEntity {
         this.experiencePoints = 20;
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.33D);
@@ -46,45 +47,53 @@ public class ArcherEntity extends SkeletonEntity {
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.NOTHINGEVENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return SoundEvents.ENTITY_PLAYER_HURT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENTITY_PLAYER_DEATH;
     }
 
-    SoundEvent getStepSound() {
+    protected SoundEvent getStepSound() {
         return SoundEvents.BLOCK_GRASS_STEP;
     }
 
+    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }
 
+    @Override
     protected void initEquipment(LocalDifficulty localDifficulty_1) {
         super.initEquipment(localDifficulty_1);
         this.equipStack(EquipmentSlot.HEAD, new ItemStack(Items.CHAINMAIL_HELMET));
     }
 
+    @Override
     public EntityGroup getGroup() {
         return EntityGroup.DEFAULT;
     }
 
+    @Override
     protected void initGoals() {
         this.goalSelector.add(4, new WanderAroundFarGoal(this, 1.0D));
         this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(3, new LookAroundGoal(this));
-        this.targetSelector.add(1, new FollowTargetGoal(this, PlayerEntity.class, true));
-        this.targetSelector.add(2, new FollowTargetGoal(this, IronGolemEntity.class, true));
+        this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
+        this.targetSelector.add(2, new FollowTargetGoal<>(this, IronGolemEntity.class, true));
         this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(VillagerEntity.class));
         this.targetSelector.add(4, (new RevengeGoal(this, new Class[0])).setGroupRevenge(IronGolemEntity.class));
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());

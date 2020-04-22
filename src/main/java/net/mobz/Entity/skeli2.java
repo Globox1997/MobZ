@@ -18,6 +18,7 @@ public class skeli2 extends SkeletonEntity {
         super(entityType, world);
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -25,6 +26,7 @@ public class skeli2 extends SkeletonEntity {
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(1.0D);
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());

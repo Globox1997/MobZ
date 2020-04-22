@@ -51,11 +51,12 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       this.experiencePoints = 20;
    }
 
+   @Override
    protected void initGoals() {
       super.initGoals();
       this.goalSelector.add(0, new SwimGoal(this));
       this.goalSelector.add(1, new Mage2Entity.LookAtTargetOrWololoTarget());
-      this.goalSelector.add(2, new FleeEntityGoal(this, PlayerEntity.class, 8.0F, 0.6D, 1.0D));
+      this.goalSelector.add(2, new FleeEntityGoal<>(this, PlayerEntity.class, 8.0F, 0.6D, 1.0D));
       this.goalSelector.add(4, new Mage2Entity.SummonVexGoal());
       this.goalSelector.add(5, new Mage2Entity.ConjureFangsGoal());
       this.goalSelector.add(6, new Mage2Entity.WololoGoal());
@@ -64,12 +65,13 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       this.goalSelector.add(10, new LookAtEntityGoal(this, MobEntity.class, 8.0F));
       this.targetSelector.add(1, (new RevengeGoal(this, new Class[] { RaiderEntity.class })).setGroupRevenge());
       this.targetSelector.add(2,
-            (new FollowTargetGoal(this, PlayerEntity.class, true)).setMaxTimeWithoutVisibility(300));
+            (new FollowTargetGoal<>(this, PlayerEntity.class, true)).setMaxTimeWithoutVisibility(300));
       this.targetSelector.add(3,
-            (new FollowTargetGoal(this, AbstractTraderEntity.class, false)).setMaxTimeWithoutVisibility(300));
-      this.targetSelector.add(4, new FollowTargetGoal(this, IronGolemEntity.class, false));
+            (new FollowTargetGoal<>(this, AbstractTraderEntity.class, false)).setMaxTimeWithoutVisibility(300));
+      this.targetSelector.add(4, new FollowTargetGoal<>(this, IronGolemEntity.class, false));
    }
 
+   @Override
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
@@ -80,6 +82,7 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
             .setBaseValue(Configinit.CONFIGZ.ZombieMageAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
    }
 
+   @Override
    public boolean canSpawn(WorldView view) {
       BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
@@ -92,26 +95,32 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
 
    }
 
+   @Override
    protected void initDataTracker() {
       super.initDataTracker();
    }
 
+   @Override
    public void readCustomDataFromTag(CompoundTag tag) {
       super.readCustomDataFromTag(tag);
    }
 
+   @Override
    public SoundEvent getCelebratingSound() {
       return SoundEvents.ENTITY_EVOKER_CELEBRATE;
    }
 
+   @Override
    public void writeCustomDataToTag(CompoundTag tag) {
       super.writeCustomDataToTag(tag);
    }
 
+   @Override
    protected void mobTick() {
       super.mobTick();
    }
 
+   @Override
    public boolean isTeammate(Entity other) {
       if (other == null) {
          return false;
@@ -128,14 +137,17 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       }
    }
 
+   @Override
    protected SoundEvent getAmbientSound() {
       return SoundEvents.ENTITY_EVOKER_AMBIENT;
    }
 
+   @Override
    protected SoundEvent getDeathSound() {
       return SoundEvents.ENTITY_EVOKER_DEATH;
    }
 
+   @Override
    protected SoundEvent getHurtSound(DamageSource source) {
       return SoundEvents.ENTITY_EVOKER_HURT;
    }
@@ -149,10 +161,12 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       return this.wololoTarget;
    }
 
+   @Override
    protected SoundEvent getCastSpellSound() {
       return SoundEvents.ENTITY_EVOKER_CAST_SPELL;
    }
 
+   @Override
    public void addBonusForWave(int wave, boolean unused) {
    }
 

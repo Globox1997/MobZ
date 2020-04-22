@@ -1,9 +1,7 @@
 package net.mobz.Entity;
 
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -13,11 +11,9 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.minecraft.world.biome.Biome;
 import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
@@ -30,6 +26,7 @@ public class TankEntity extends ZombieEntity {
         this.experiencePoints = 10;
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -42,14 +39,17 @@ public class TankEntity extends ZombieEntity {
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
     }
 
+    @Override
     public boolean isConvertingInWater() {
         return false;
     }
 
+    @Override
     protected boolean burnsInDaylight() {
         return false;
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
@@ -63,9 +63,9 @@ public class TankEntity extends ZombieEntity {
 
     }
 
-    StatusEffectInstance str = new StatusEffectInstance(StatusEffect.byRawId(18), 80, 0, false, false);
-
+    @Override
     public boolean tryAttack(Entity target) {
+        StatusEffectInstance str = new StatusEffectInstance(StatusEffect.byRawId(18), 80, 0, false, false);
         boolean bl = super.tryAttack(target);
         if (bl) {
             ((LivingEntity) target).addStatusEffect(str);
@@ -78,14 +78,17 @@ public class TankEntity extends ZombieEntity {
         return bl;
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.AMBIENTTANKEVENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return Soundinit.HURTTANKEVENT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return Soundinit.DEATHTANKEVENT;
     }
@@ -94,6 +97,7 @@ public class TankEntity extends ZombieEntity {
         return Soundinit.STEPTANKEVENT;
     }
 
+    @Override
     public boolean isBaby() {
         return false;
     }

@@ -18,6 +18,7 @@ public class EnderEntity extends EndermanEntity {
         super(entityType, world);
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -26,10 +27,12 @@ public class EnderEntity extends EndermanEntity {
                 .setBaseValue(Configinit.CONFIGZ.EndermanAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
+    @Override
     public boolean isBaby() {
         return false;
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());

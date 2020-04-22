@@ -17,6 +17,7 @@ public class SpiEntity extends SpiderEntity {
         super(entityType, world);
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -26,6 +27,7 @@ public class SpiEntity extends SpiderEntity {
                 .setBaseValue(Configinit.CONFIGZ.BlueSpiderAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());

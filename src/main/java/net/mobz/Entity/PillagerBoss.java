@@ -37,6 +37,7 @@ public class PillagerBoss extends PillagerEntity {
         this.equipStack(EquipmentSlot.OFFHAND, itemStack);
     }
 
+    @Override
     protected void initGoals() {
         super.initGoals();
         this.goalSelector.add(0, new SwimGoal(this));
@@ -44,9 +45,10 @@ public class PillagerBoss extends PillagerEntity {
         this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 30.0F, 1.0F));
         this.goalSelector.add(3, new LookAtEntityGoal(this, MobEntity.class, 15.0F));
         this.goalSelector.add(4, new WanderAroundGoal(this, 1.0D));
-        this.targetSelector.add(1, new FollowTargetGoal(this, PlayerEntity.class, true));
+        this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -57,10 +59,12 @@ public class PillagerBoss extends PillagerEntity {
                 .setBaseValue(Configinit.CONFIGZ.PillagerBossAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
+    @Override
     protected void initEquipment(LocalDifficulty difficulty) {
 
     }
 
+    @Override
     protected void mobTick() {
         StatusEffectInstance slow = new StatusEffectInstance(StatusEffect.byRawId(2), 60, 0, false, false);
 
@@ -79,10 +83,12 @@ public class PillagerBoss extends PillagerEntity {
         }
     }
 
+    @Override
     public boolean cannotDespawn() {
         return true;
     }
 
+    @Override
     public void attack(LivingEntity target, float f) {
         Vec3d vec3d_1 = this.getRotationVec(1.0F);
         double double_3 = target.getX() - (this.getX() + vec3d_1.x * 2.0D);
@@ -108,6 +114,7 @@ public class PillagerBoss extends PillagerEntity {
 
     }
 
+    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }

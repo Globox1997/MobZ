@@ -49,6 +49,7 @@ public class GChicken extends ChickenEntity {
    private void setPathNodeTypeWeight(PathNodeType water, float f) {
    }
 
+   @Override
    protected void initGoals() {
       this.goalSelector.add(0, new SwimGoal(this));
       this.goalSelector.add(1, new EscapeDangerGoal(this, 1.4D));
@@ -60,16 +61,19 @@ public class GChicken extends ChickenEntity {
       this.goalSelector.add(7, new LookAroundGoal(this));
    }
 
+   @Override
    protected float getActiveEyeHeight(EntityPose entityPose_1, EntityDimensions entityDimensions_1) {
       return this.isBaby() ? entityDimensions_1.height * 0.85F : entityDimensions_1.height * 0.92F;
    }
 
+   @Override
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(4.0D);
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
    }
 
+   @Override
    public void tickMovement() {
       super.tickMovement();
       this.field_6736 = this.field_6741;
@@ -96,26 +100,32 @@ public class GChicken extends ChickenEntity {
 
    }
 
+   @Override
    protected SoundEvent getAmbientSound() {
       return SoundEvents.ENTITY_CHICKEN_AMBIENT;
    }
 
+   @Override
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
       return SoundEvents.ENTITY_CHICKEN_HURT;
    }
 
+   @Override
    protected SoundEvent getDeathSound() {
       return SoundEvents.ENTITY_CHICKEN_DEATH;
    }
 
+   @Override
    protected void playStepSound(BlockPos blockPos_1, BlockState blockState_1) {
       this.playSound(SoundEvents.ENTITY_CHICKEN_STEP, 0.15F, 1.0F);
    }
 
+   @Override
    public GChicken createChild(PassiveEntity passiveEntity_1) {
       return (GChicken) Entityinit.GCHICKEN.create(this.world);
    }
 
+   @Override
    public boolean isBreedingItem(ItemStack stack) {
       return BREEDING_INGREDIENT.test(stack);
    }
@@ -124,20 +134,24 @@ public class GChicken extends ChickenEntity {
       return this.hasJockey() ? 10 : super.getCurrentExperience(playerEntity_1);
    }
 
+   @Override
    public void writeCustomDataToTag(CompoundTag compoundTag_1) {
       super.writeCustomDataToTag(compoundTag_1);
       compoundTag_1.putBoolean("IsChickenJockey", this.jockey);
       compoundTag_1.putInt("EggLayTime", this.eggLayTime);
    }
 
+   @Override
    public boolean canImmediatelyDespawn(double double_1) {
       return true;
    }
 
+   @Override
    public boolean hasJockey() {
       return false;
    }
 
+   @Override
    public void setHasJockey(boolean boolean_1) {
       this.jockey = boolean_1;
    }

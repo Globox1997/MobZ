@@ -21,9 +21,11 @@ public class SpiSmall extends CaveSpiderEntity {
         super(entityType, world);
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(6.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
+        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
+                .setBaseValue(6.0D * Configinit.CONFIGZ.LifeMultiplicatorMob);
     }
 
     public void setLifeTicks(int lifeTicks) {
@@ -31,6 +33,7 @@ public class SpiSmall extends CaveSpiderEntity {
         this.lifeTicks = lifeTicks;
     }
 
+    @Override
     public void tick() {
         super.tick();
         if (this.alive && --this.lifeTicks <= 0) {
@@ -40,6 +43,7 @@ public class SpiSmall extends CaveSpiderEntity {
 
     }
 
+    @Override
     public boolean tryAttack(Entity target) {
         return true;
     }

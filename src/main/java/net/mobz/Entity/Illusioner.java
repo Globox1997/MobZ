@@ -22,18 +22,22 @@ public class Illusioner extends IllusionerEntity {
       this.experiencePoints = 20;
    }
 
+   @Override
    protected SoundEvent getAmbientSound() {
       return Soundinit.ILLUIDLEEVENT;
    }
 
+   @Override
    protected SoundEvent getDeathSound() {
       return Soundinit.ILLUDEATHEVENT;
    }
 
+   @Override
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
       return Soundinit.ILLUHURTEVENT;
    }
 
+   @Override
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(14.0D);
@@ -43,6 +47,7 @@ public class Illusioner extends IllusionerEntity {
             .setBaseValue(Configinit.CONFIGZ.IllusionerAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
    }
 
+   @Override
    public boolean canSpawn(WorldView view) {
       BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());

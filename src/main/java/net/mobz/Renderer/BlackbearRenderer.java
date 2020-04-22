@@ -11,7 +11,7 @@ import net.mobz.Entity.Blackbear;
 @Environment(EnvType.CLIENT)
 public class BlackbearRenderer extends MobEntityRenderer<Blackbear, PandaEntityModel<Blackbear>> {
     public BlackbearRenderer(EntityRenderDispatcher dispatcher) {
-        super(dispatcher, new PandaEntityModel(0, 0.0F), 0.8F);
+        super(dispatcher, new PandaEntityModel<>(0, 0.0F), 0.8F);
 
     }
 

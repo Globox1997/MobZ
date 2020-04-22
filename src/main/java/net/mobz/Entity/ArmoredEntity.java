@@ -24,6 +24,7 @@ public class ArmoredEntity extends ZombieEntity {
       this.experiencePoints = 20;
    }
 
+   @Override
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -35,6 +36,7 @@ public class ArmoredEntity extends ZombieEntity {
 
    }
 
+   @Override
    protected void initEquipment(LocalDifficulty localDifficulty_1) {
       super.initEquipment(localDifficulty_1);
       if (this.world.getDifficulty() == Difficulty.NORMAL) {
@@ -57,10 +59,12 @@ public class ArmoredEntity extends ZombieEntity {
       }
    }
 
+   @Override
    protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
       return;
    }
 
+   @Override
    public boolean canSpawn(WorldView view) {
       BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
@@ -74,6 +78,7 @@ public class ArmoredEntity extends ZombieEntity {
 
    }
 
+   @Override
    public boolean isBaby() {
       return false;
    }

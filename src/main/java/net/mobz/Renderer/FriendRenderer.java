@@ -16,7 +16,8 @@ public class FriendRenderer extends BipedEntityRenderer<FriendEntity, PlayerEnti
 
     public FriendRenderer(EntityRenderDispatcher dispatcher) {
         super(dispatcher, new PlayerEntityModel<>(0.0F, true), 0.5F);
-        this.addFeature(new ArmorBipedFeatureRenderer(this, new BipedEntityModel(0.5F), new BipedEntityModel(1.0F)));
+        this.addFeature(
+                new ArmorBipedFeatureRenderer<>(this, new BipedEntityModel<>(0.5F), new BipedEntityModel<>(1.0F)));
     }
 
     @Override

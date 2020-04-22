@@ -21,6 +21,7 @@ public class PigmanEntity extends ZombiePigmanEntity {
         super(entityType, world);
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -29,18 +30,22 @@ public class PigmanEntity extends ZombiePigmanEntity {
                 .setBaseValue(Configinit.CONFIGZ.PigmanAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.SAYPIGEVENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return Soundinit.HURTPIGEVENT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return Soundinit.DEATHPIGEVENT;
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());

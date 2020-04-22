@@ -24,11 +24,13 @@ public class TSpider extends SpiderEntity {
         super(entityType, world);
     }
 
+    @Override
     protected void initGoals() {
         this.goalSelector.add(1, new WanderAroundGoal(this, 0.1D));
         this.goalSelector.add(4, new LookAroundGoal(this));
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(Configinit.CONFIGZ.TinySpiderLife);
@@ -36,6 +38,7 @@ public class TSpider extends SpiderEntity {
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(Configinit.CONFIGZ.TinySpiderAttack);
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
@@ -49,18 +52,22 @@ public class TSpider extends SpiderEntity {
 
     }
 
+    @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
         this.playSound(SoundEvents.ENTITY_SPIDER_STEP, 0.10F, 1.0F);
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.NOTHINGEVENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource source) {
         return Soundinit.NOTHINGEVENT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return Soundinit.NOTHINGEVENT;
     }

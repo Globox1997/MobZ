@@ -29,6 +29,7 @@ public class FrostballEntity extends AbstractFireballEntity {
       super(EntityType.SMALL_FIREBALL, double_1, double_2, double_3, double_4, double_5, double_6, world_1);
    }
 
+   @Override
    protected void onCollision(HitResult hitResult_1) {
       super.onCollision(hitResult_1);
       if (!this.world.isClient) {
@@ -58,10 +59,12 @@ public class FrostballEntity extends AbstractFireballEntity {
 
    }
 
+   @Override
    public boolean collides() {
       return false;
    }
 
+   @Override
    public boolean damage(DamageSource damageSource_1, float float_1) {
       return false;
    }

@@ -16,7 +16,8 @@ public class FullIronRenderer extends BipedEntityRenderer<FullIronEntity, Player
 
     public FullIronRenderer(EntityRenderDispatcher dispatcher) {
         super(dispatcher, new PlayerEntityModel<>(0.0F, false), 0.5F);
-        this.addFeature(new ArmorBipedFeatureRenderer(this, new BipedEntityModel(0.5F), new BipedEntityModel(1.0F)));
+        this.addFeature(
+                new ArmorBipedFeatureRenderer<>(this, new BipedEntityModel<>(0.5F), new BipedEntityModel<>(1.0F)));
     }
 
     @Override

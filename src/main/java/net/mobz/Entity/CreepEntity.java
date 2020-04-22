@@ -21,6 +21,7 @@ public class CreepEntity extends CreeperEntity {
       super(entityType, world);
    }
 
+   @Override
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
@@ -28,14 +29,17 @@ public class CreepEntity extends CreeperEntity {
             .setBaseValue(Configinit.CONFIGZ.FrostCreeperLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
+   @Override
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
       return Soundinit.SAYCREEPEVENT;
    }
 
+   @Override
    protected SoundEvent getDeathSound() {
       return Soundinit.DEATHCREEPEVENT;
    }
 
+   @Override
    public boolean canSpawn(WorldView view) {
       BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());

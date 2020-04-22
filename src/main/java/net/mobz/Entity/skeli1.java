@@ -22,6 +22,7 @@ public class skeli1 extends SkeletonEntity {
         this.experiencePoints = 50;
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -29,14 +30,17 @@ public class skeli1 extends SkeletonEntity {
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(2.0D);
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.SKELASAYEVENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return Soundinit.SKELAHURTEVENT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return Soundinit.SKELADEATHEVENT;
     }
@@ -45,6 +49,7 @@ public class skeli1 extends SkeletonEntity {
         return Soundinit.SKELASTEPEVENT;
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());

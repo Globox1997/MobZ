@@ -22,6 +22,7 @@ public class skeli3 extends SkeletonEntity {
         super(entityType, world);
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -29,14 +30,17 @@ public class skeli3 extends SkeletonEntity {
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.26D);
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.SKELISAYEVENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return Soundinit.SKELIHURTEVENT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return Soundinit.SKELIDEATHEVENT;
     }
@@ -45,10 +49,12 @@ public class skeli3 extends SkeletonEntity {
         return Soundinit.SKELISTEPEVENT;
     }
 
+    @Override
     protected void initGoals() {
         this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(LavaGolem.class));
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());

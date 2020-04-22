@@ -35,6 +35,7 @@ public class Withender extends WitherEntity {
         this.experiencePoints = 50;
     }
 
+    @Override
     protected void initGoals() {
         this.goalSelector.add(0, new Withender.DescendAtHalfHealthGoal());
         this.goalSelector.add(2, new ProjectileAttackGoal(this, 1.0D, 40, 20.0F));
@@ -43,9 +44,11 @@ public class Withender extends WitherEntity {
         this.goalSelector.add(7, new LookAroundGoal(this));
         this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(EndermanEntity.class));
         this.targetSelector.add(2, (new RevengeGoal(this, new Class[0])).setGroupRevenge(EnderEntity.class));
-        this.targetSelector.add(3, new FollowTargetGoal(this, MobEntity.class, 0, false, false, CAN_ATTACK_PREDICATE));
+        this.targetSelector.add(3,
+                new FollowTargetGoal<>(this, MobEntity.class, 0, false, false, CAN_ATTACK_PREDICATE));
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -55,23 +58,28 @@ public class Withender extends WitherEntity {
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(4.0D);
     }
 
+    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
 
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.WITHIDLEEVENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return Soundinit.WITHHURTEVENT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return Soundinit.WITHDEATHEVENT;
     }
 
+    @Override
     public boolean canSpawn(WorldView viewableWorld_1) {
         return viewableWorld_1.intersectsEntities(this)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().WithenderSpawn;

@@ -31,7 +31,8 @@ public class Sbow extends BowItem {
          if (entity == null) {
             return 0.0F;
          } else {
-            return entity.getActiveItem().getItem() != Items.BOW ? 0.0F : (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F;
+            return entity.getActiveItem().getItem() != Items.BOW ? 0.0F
+                  : (float) (stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F;
          }
       });
       this.addPropertyGetter(new Identifier("pulling"), (stack, world, entity) -> {
@@ -44,17 +45,18 @@ public class Sbow extends BowItem {
    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 
       if (selected == true) {
-      
-          LivingEntity bob = (LivingEntity) entity;
-          bob.addStatusEffect(spd);
+
+         LivingEntity bob = (LivingEntity) entity;
+         bob.addStatusEffect(spd);
       }
 
-  }
+   }
 
    public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
       if (user instanceof PlayerEntity) {
-         PlayerEntity playerEntity = (PlayerEntity)user;
-         boolean bl = playerEntity.abilities.creativeMode || EnchantmentHelper.getLevel(Enchantments.INFINITY, stack) > 0;
+         PlayerEntity playerEntity = (PlayerEntity) user;
+         boolean bl = playerEntity.abilities.creativeMode
+               || EnchantmentHelper.getLevel(Enchantments.INFINITY, stack) > 0;
          ItemStack itemStack = playerEntity.getArrowType(stack);
          if (!itemStack.isEmpty() || bl) {
             if (itemStack.isEmpty()) {
@@ -63,19 +65,22 @@ public class Sbow extends BowItem {
 
             int i = this.getMaxUseTime(stack) - remainingUseTicks;
             float f = getPullProgress(i);
-            if ((double)f >= 0.1D) {
+            if ((double) f >= 0.1D) {
                boolean bl2 = bl && itemStack.getItem() == Items.ARROW;
                if (!world.isClient) {
-                  ArrowItem arrowItem = (ArrowItem)((ArrowItem)(itemStack.getItem() instanceof ArrowItem ? itemStack.getItem() : Items.ARROW));
+                  ArrowItem arrowItem = (ArrowItem) ((ArrowItem) (itemStack.getItem() instanceof ArrowItem
+                        ? itemStack.getItem()
+                        : Items.ARROW));
                   ProjectileEntity projectileEntity = arrowItem.createArrow(world, itemStack, playerEntity);
-                  projectileEntity.setProperties(playerEntity, playerEntity.pitch, playerEntity.yaw, 0.0F, f * 3.0F, 1.0F);
+                  projectileEntity.setProperties(playerEntity, playerEntity.pitch, playerEntity.yaw, 0.0F, f * 3.0F,
+                        1.0F);
                   if (f == 1.0F) {
                      projectileEntity.setCritical(true);
                   }
 
                   int j = EnchantmentHelper.getLevel(Enchantments.POWER, stack);
                   if (j > 0) {
-                     projectileEntity.setDamage(projectileEntity.getDamage() + (double)j * 0.5D + 0.5D);
+                     projectileEntity.setDamage(projectileEntity.getDamage() + (double) j * 0.5D + 0.5D);
                   }
 
                   int k = EnchantmentHelper.getLevel(Enchantments.PUNCH, stack);
@@ -87,17 +92,20 @@ public class Sbow extends BowItem {
                      projectileEntity.setOnFireFor(100);
                   }
 
-                  stack.damage(1, (LivingEntity)playerEntity, (Consumer)((p) -> {
-                            ((LivingEntity) p).sendToolBreakStatus(playerEntity.getActiveHand());
+                  stack.damage(1, (LivingEntity) playerEntity, (Consumer) ((p) -> {
+                     ((LivingEntity) p).sendToolBreakStatus(playerEntity.getActiveHand());
                   }));
-                  if (bl2 || playerEntity.abilities.creativeMode && (itemStack.getItem() == Items.SPECTRAL_ARROW || itemStack.getItem() == Items.TIPPED_ARROW)) {
+                  if (bl2 || playerEntity.abilities.creativeMode
+                        && (itemStack.getItem() == Items.SPECTRAL_ARROW || itemStack.getItem() == Items.TIPPED_ARROW)) {
                      projectileEntity.pickupType = ProjectileEntity.PickupPermission.CREATIVE_ONLY;
                   }
 
                   world.spawnEntity(projectileEntity);
                }
 
-               world.playSound((PlayerEntity)null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F / (RANDOM.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+               world.playSound((PlayerEntity) null, playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
+                     SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F,
+                     1.0F / (RANDOM.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
                if (!bl2 && !playerEntity.abilities.creativeMode) {
                   itemStack.decrement(1);
                   if (itemStack.isEmpty()) {
@@ -112,7 +120,7 @@ public class Sbow extends BowItem {
    }
 
    public static float getPullProgress(int useTicks) {
-      float f = (float)useTicks / 15.0F;
+      float f = (float) useTicks / 15.0F;
       f = (f * f + f * 2.0F) / 3.0F;
       if (f > 1.0F) {
          f = 1.0F;

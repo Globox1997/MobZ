@@ -21,6 +21,7 @@ public class FastEntity extends ZombieEntity {
 
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
@@ -34,6 +35,7 @@ public class FastEntity extends ZombieEntity {
 
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -43,18 +45,22 @@ public class FastEntity extends ZombieEntity {
                 .setBaseValue(Configinit.CONFIGZ.SpeedyZombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
+    @Override
     public boolean canBreakDoors() {
         return false;
     }
 
+    @Override
     protected SoundEvent getStepSound() {
         return Soundinit.STEPSPEEDEVENT;
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.SAYSPEEDEVENT;
     }
 
+    @Override
     public boolean isBaby() {
         return false;
     }

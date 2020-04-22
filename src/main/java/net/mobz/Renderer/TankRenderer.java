@@ -14,9 +14,9 @@ public class TankRenderer extends BipedEntityRenderer<TankEntity, ZombieEntityMo
    private static final Identifier SKIN = new Identifier("mobz:textures/entity/tank.png");
 
    public TankRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-      super(entityRenderDispatcher, new ZombieEntityModel(0.0F, false), 0.5F);
-      this.addFeature(
-            new ArmorBipedFeatureRenderer(this, new ZombieEntityModel(0.5F, true), new ZombieEntityModel(1.0F, true)));
+      super(entityRenderDispatcher, new ZombieEntityModel<>(0.0F, false), 0.5F);
+      this.addFeature(new ArmorBipedFeatureRenderer<>(this, new ZombieEntityModel<>(0.5F, true),
+            new ZombieEntityModel<>(1.0F, true)));
    }
 
    public Identifier getTexture(TankEntity Tanky) {

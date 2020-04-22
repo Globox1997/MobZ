@@ -14,7 +14,7 @@ public class GChickenRenderer extends MobEntityRenderer<ChickenEntity, ChickenEn
    private static final Identifier SKIN = new Identifier("mobz:textures/entity/gchicken.png");
 
    public GChickenRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-      super(entityRenderDispatcher, new ChickenEntityModel(), 0.3F);
+      super(entityRenderDispatcher, new ChickenEntityModel<>(), 0.3F);
    }
 
    public Identifier getTexture(ChickenEntity chickenEntity) {
@@ -27,4 +27,3 @@ public class GChickenRenderer extends MobEntityRenderer<ChickenEntity, ChickenEn
       return (MathHelper.sin(g) + 1.0F) * h;
    }
 }
-

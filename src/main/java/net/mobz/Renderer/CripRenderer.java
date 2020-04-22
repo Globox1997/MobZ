@@ -16,7 +16,7 @@ public class CripRenderer extends MobEntityRenderer<CreeperEntity, CreeperEntity
    private static final Identifier SKIN = new Identifier("mobz:textures/entity/crip.png");
 
    public CripRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-      super(entityRenderDispatcher, new CreeperEntityModel(), 0.5F);
+      super(entityRenderDispatcher, new CreeperEntityModel<>(), 0.5F);
       this.addFeature(new CreeperChargeFeatureRenderer(this));
    }
 

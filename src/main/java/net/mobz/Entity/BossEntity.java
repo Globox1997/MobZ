@@ -8,7 +8,6 @@ import net.mobz.Inits.SwordItems;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
@@ -29,6 +28,7 @@ public class BossEntity extends ZombieEntity {
         this.experiencePoints = 60;
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -40,28 +40,30 @@ public class BossEntity extends ZombieEntity {
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(-4.0D);
     }
 
+    @Override
     public boolean isConvertingInWater() {
         return false;
     }
 
+    @Override
     protected boolean burnsInDaylight() {
         return false;
     }
 
-    public boolean Damage(LivingEntity entity) {
-
+    @Override
+    public void tick() {
         if (isGlowing() == true) {
-            StatusEffectInstance wither = new StatusEffectInstance(StatusEffect.byRawId(20), 200, 2, false, false);
+            StatusEffectInstance wither = new StatusEffectInstance(StatusEffect.byRawId(20), 200, 1, false, false);
             this.addStatusEffect(wither);
         }
-        ;
-        return true;
     }
 
+    @Override
     public boolean isBaby() {
         return false;
     }
 
+    @Override
     protected void initEquipment(LocalDifficulty localDifficulty_1) {
         super.initEquipment(localDifficulty_1);
         this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.BossSword));
@@ -72,14 +74,17 @@ public class BossEntity extends ZombieEntity {
         this.equipStack(EquipmentSlot.HEAD, new ItemStack(ArmorItems.boss_helmet));
     }
 
+    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }
 
+    @Override
     public boolean canImmediatelyDespawn(double double_1) {
         return false;
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());

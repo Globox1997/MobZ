@@ -17,15 +17,18 @@ public class Boar2 extends PigEntity {
         super(entityType, world);
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(16.0D);
     }
 
+    @Override
     public boolean canBeControlledByRider() {
         return false;
     }
 
+    @Override
     public boolean isSaddled() {
         return false;
     }
@@ -34,10 +37,12 @@ public class Boar2 extends PigEntity {
         return (Boar2) Entityinit.BOAR2.create(this.world);
     }
 
+    @Override
     public boolean isBreedingItem(ItemStack stack) {
         return BREEDING_INGREDIENT.test(stack);
     }
 
+    @Override
     public Boar2 createChild(PassiveEntity passiveEntity) {
         return (Boar2) Entityinit.BOAR2.create(this.world);
     }

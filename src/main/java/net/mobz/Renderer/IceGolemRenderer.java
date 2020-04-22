@@ -17,7 +17,7 @@ public class IceGolemRenderer extends MobEntityRenderer<IronGolemEntity, IronGol
     private static final Identifier SKIN = new Identifier("mobz:textures/entity/icegolem.png");
 
     public IceGolemRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-        super(entityRenderDispatcher, new IronGolemEntityModel(), 0.7F);
+        super(entityRenderDispatcher, new IronGolemEntityModel<>(), 0.7F);
         this.addFeature(new IronGolemCrackFeatureRenderer(this));
         this.addFeature(new IronGolemFlowerFeatureRenderer(this));
     }
@@ -30,7 +30,6 @@ public class IceGolemRenderer extends MobEntityRenderer<IronGolemEntity, IronGol
             float h) {
         super.setupTransforms(ironGolemEntity, matrixStack, f, g, h);
         if ((double) ironGolemEntity.limbDistance >= 0.01D) {
-            float i = 13.0F;
             float j = ironGolemEntity.limbAngle - ironGolemEntity.limbDistance * (1.0F - h) + 6.0F;
             float k = (Math.abs(j % 13.0F - 6.5F) - 3.25F) / 3.25F;
             matrixStack.multiply(Vector3f.POSITIVE_Z.getDegreesQuaternion(6.5F * k));

@@ -15,7 +15,7 @@ public class TSpiderRenderer extends SpiderEntityRenderer<TSpider> {
 
    public TSpiderRenderer(EntityRenderDispatcher dispatcher) {
       super(dispatcher);
-      this.addFeature(new SpiderEyesFeatureRenderer(this));
+      this.addFeature(new SpiderEyesFeatureRenderer<>(this));
    }
 
    protected void scale(TSpider caveSpiderEntity, MatrixStack matrixStack, float f) {

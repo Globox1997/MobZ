@@ -48,6 +48,7 @@ public class WithEntity extends BlazeEntity {
       this.experiencePoints = 14;
    }
 
+   @Override
    public boolean canSpawn(WorldView view) {
       BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
@@ -60,6 +61,7 @@ public class WithEntity extends BlazeEntity {
 
    }
 
+   @Override
    protected void initGoals() {
       this.goalSelector.add(1, new WithEntity.ShootFireballGoal(this));
       this.goalSelector.add(3, new GoToWalkTargetGoal(this, 1.0D));
@@ -67,9 +69,10 @@ public class WithEntity extends BlazeEntity {
       this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
       this.goalSelector.add(8, new LookAroundGoal(this));
       this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge());
-      this.targetSelector.add(2, new FollowTargetGoal(this, PlayerEntity.class, true));
+      this.targetSelector.add(2, new FollowTargetGoal<>(this, PlayerEntity.class, true));
    }
 
+   @Override
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
@@ -80,27 +83,33 @@ public class WithEntity extends BlazeEntity {
             .setBaseValue(Configinit.CONFIGZ.WitherBlazeLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
+   @Override
    protected void initDataTracker() {
       super.initDataTracker();
       this.dataTracker.startTracking(BLAZE_FLAGS, (byte) 0);
    }
 
+   @Override
    protected SoundEvent getAmbientSound() {
       return SoundEvents.ENTITY_BLAZE_AMBIENT;
    }
 
+   @Override
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
       return SoundEvents.ENTITY_BLAZE_HURT;
    }
 
+   @Override
    protected SoundEvent getDeathSound() {
       return SoundEvents.ENTITY_BLAZE_DEATH;
    }
 
+   @Override
    public float getBrightnessAtEyes() {
       return 1.0F;
    }
 
+   @Override
    public void tickMovement() {
       if (!this.onGround && this.getVelocity().y < 0.0D) {
          this.setVelocity(this.getVelocity().multiply(1.0D, 0.6D, 1.0D));
@@ -122,6 +131,7 @@ public class WithEntity extends BlazeEntity {
       super.tickMovement();
    }
 
+   @Override
    protected void mobTick() {
       if (this.isTouchingWater()) {
          this.damage(DamageSource.DROWN, 1.0F);
@@ -145,10 +155,12 @@ public class WithEntity extends BlazeEntity {
       super.mobTick();
    }
 
+   @Override
    public boolean handleFallDamage(float float_1, float float_2) {
       return false;
    }
 
+   @Override
    public boolean isOnFire() {
       return this.isFireActive();
    }

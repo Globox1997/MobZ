@@ -81,6 +81,7 @@ public class Blackbear extends PandaEntity {
 
    }
 
+   @Override
    public boolean canPickUp(ItemStack itemStack_1) {
       EquipmentSlot equipmentSlot_1 = MobEntity.getPreferredEquipmentSlot(itemStack_1);
       if (!this.getEquippedStack(equipmentSlot_1).isEmpty()) {
@@ -90,38 +91,47 @@ public class Blackbear extends PandaEntity {
       }
    }
 
+   @Override
    public int getAskForBambooTicks() {
       return (Integer) this.dataTracker.get(ASK_FOR_BAMBOO_TICKS);
    }
 
+   @Override
    public void setAskForBambooTicks(int int_1) {
       this.dataTracker.set(ASK_FOR_BAMBOO_TICKS, int_1);
    }
 
+   @Override
    public boolean isSneezing() {
       return this.hasPandaFlag(2);
    }
 
+   @Override
    public boolean isScared() {
       return this.hasPandaFlag(8);
    }
 
+   @Override
    public void setScared(boolean boolean_1) {
       this.setPandaFlag(8, boolean_1);
    }
 
+   @Override
    public boolean isLyingOnBack() {
       return this.hasPandaFlag(16);
    }
 
+   @Override
    public void setLyingOnBack(boolean boolean_1) {
       this.setPandaFlag(16, boolean_1);
    }
 
+   @Override
    public boolean isEating() {
       return (Integer) this.dataTracker.get(EATING_TICKS) > 0;
    }
 
+   @Override
    public void setEating(boolean boolean_1) {
       this.dataTracker.set(EATING_TICKS, boolean_1 ? 1 : 0);
    }
@@ -134,6 +144,7 @@ public class Blackbear extends PandaEntity {
       this.dataTracker.set(EATING_TICKS, int_1);
    }
 
+   @Override
    public void setSneezing(boolean boolean_1) {
       this.setPandaFlag(2, boolean_1);
       if (!boolean_1) {
@@ -142,10 +153,12 @@ public class Blackbear extends PandaEntity {
 
    }
 
+   @Override
    public int getSneezeProgress() {
       return (Integer) this.dataTracker.get(SNEEZE_PROGRESS);
    }
 
+   @Override
    public void setSneezeProgress(int int_1) {
       this.dataTracker.set(SNEEZE_PROGRESS, int_1);
    }
@@ -166,14 +179,17 @@ public class Blackbear extends PandaEntity {
       this.dataTracker.set(HIDDEN_GENE, (byte) Blackbear$Gene_1.getId());
    }
 
+   @Override
    public boolean isPlaying() {
       return this.hasPandaFlag(4);
    }
 
+   @Override
    public void setPlaying(boolean boolean_1) {
       this.setPandaFlag(4, boolean_1);
    }
 
+   @Override
    protected void initDataTracker() {
       super.initDataTracker();
       this.dataTracker.startTracking(ASK_FOR_BAMBOO_TICKS, 0);
@@ -198,18 +214,21 @@ public class Blackbear extends PandaEntity {
 
    }
 
+   @Override
    public void writeCustomDataToTag(CompoundTag compoundTag_1) {
       super.writeCustomDataToTag(compoundTag_1);
       compoundTag_1.putString("MainGene", this.getMainGene().getName());
       compoundTag_1.putString("HiddenGene", this.getHiddenGene().getName());
    }
 
+   @Override
    public void readCustomDataFromTag(CompoundTag compoundTag_1) {
       super.readCustomDataFromTag(compoundTag_1);
       this.setMainGene(Blackbear.Gene.byName(compoundTag_1.getString("MainGene")));
       this.setHiddenGene(Blackbear.Gene.byName(compoundTag_1.getString("HiddenGene")));
    }
 
+   @Override
    protected void initGoals() {
       this.goalSelector.add(0, new SwimGoal(this));
       this.goalSelector.add(1, new Blackbear.ExtinguishFireGoal(this, 2.0D));
@@ -226,10 +245,12 @@ public class Blackbear extends PandaEntity {
       this.targetSelector.add(1, (new Blackbear.PandaRevengeGoal(this, new Class[0])).setGroupRevenge(new Class[0]));
    }
 
+   @Override
    public boolean canBeLeashedBy(PlayerEntity playerEntity_1) {
       return false;
    }
 
+   @Override
    public boolean tryAttack(Entity entity_1) {
       this.playSound(Soundinit.PBITEEVENT, 1.0F, 1.0F);
       if (!this.isAttacking()) {
@@ -239,6 +260,7 @@ public class Blackbear extends PandaEntity {
       return super.tryAttack(entity_1);
    }
 
+   @Override
    public void tick() {
       super.tick();
       if (this.isWorried()) {
@@ -293,6 +315,7 @@ public class Blackbear extends PandaEntity {
       this.updateRollOverAnimation();
    }
 
+   @Override
    public boolean method_6524() {
       return this.isWorried() && this.world.isThundering();
    }
@@ -446,6 +469,7 @@ public class Blackbear extends PandaEntity {
 
    }
 
+   @Override
    protected void loot(ItemEntity itemEntity_1) {
       if (this.getEquippedStack(EquipmentSlot.MAINHAND).isEmpty() && IS_FOOD.test(itemEntity_1)) {
          ItemStack itemStack_1 = itemEntity_1.getStack();
@@ -457,6 +481,7 @@ public class Blackbear extends PandaEntity {
 
    }
 
+   @Override
    public boolean damage(DamageSource damageSource_1, float float_1) {
       this.setScared(false);
       return super.damage(damageSource_1, float_1);
@@ -471,10 +496,12 @@ public class Blackbear extends PandaEntity {
       }
    }
 
+   @Override
    protected void playStepSound(BlockPos blockPos_1, BlockState blockState_1) {
       this.playSound(SoundEvents.ENTITY_POLAR_BEAR_STEP, 0.15F, 1.0F);
    }
 
+   @Override
    public boolean isBreedingItem(ItemStack itemStack_1) {
       return itemStack_1.getItem() == Blocks.BAMBOO.asItem();
    }
@@ -493,6 +520,7 @@ public class Blackbear extends PandaEntity {
       return SoundEvents.ENTITY_POLAR_BEAR_HURT;
    }
 
+   @Override
    public boolean method_18442() {
       return !this.isLyingOnBack() && !this.method_6524() && !this.isEating() && !this.isPlaying() && !this.isScared();
    }

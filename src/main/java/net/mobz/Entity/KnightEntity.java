@@ -42,20 +42,23 @@ public class KnightEntity extends ZombieEntity {
         this.experiencePoints = 20;
     }
 
+    @Override
     protected void initGoals() {
         this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(4, new LookAroundGoal(this));
         this.initCustomGoals();
     }
 
+    @Override
     protected void initCustomGoals() {
         this.goalSelector.add(2, new ZombieAttackGoal(this, 1.0D, false));
         this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D));
         this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(VillagerEntity.class));
         this.targetSelector.add(2, (new RevengeGoal(this, new Class[0])).setGroupRevenge(IronGolemEntity.class));
-        this.targetSelector.add(1, new FollowTargetGoal(this, PlayerEntity.class, true));
+        this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -64,6 +67,7 @@ public class KnightEntity extends ZombieEntity {
                 .setBaseValue(Configinit.CONFIGZ.TemplarAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
+    @Override
     protected void initEquipment(LocalDifficulty localDifficulty_1) {
         super.initEquipment(localDifficulty_1);
         if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
@@ -72,34 +76,42 @@ public class KnightEntity extends ZombieEntity {
         }
     }
 
+    @Override
     public EntityGroup getGroup() {
         return EntityGroup.DEFAULT;
     }
 
+    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.NOTHINGEVENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return SoundEvents.ENTITY_PLAYER_HURT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENTITY_PLAYER_DEATH;
     }
 
+    @Override
     protected boolean burnsInDaylight() {
         return false;
     }
 
+    @Override
     protected SoundEvent getStepSound() {
         return SoundEvents.BLOCK_GRASS_STEP;
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
@@ -112,9 +124,9 @@ public class KnightEntity extends ZombieEntity {
 
     }
 
-    StatusEffectInstance str = new StatusEffectInstance(StatusEffect.byRawId(18), 140, 0, false, false);
-
+    @Override
     public boolean tryAttack(Entity target) {
+        StatusEffectInstance str = new StatusEffectInstance(StatusEffect.byRawId(18), 140, 0, false, false);
         boolean bl = super.tryAttack(target);
         if (bl) {
             ((LivingEntity) target).addStatusEffect(str);
@@ -127,7 +139,13 @@ public class KnightEntity extends ZombieEntity {
         return bl;
     }
 
+    @Override
     public boolean isBaby() {
+        return false;
+    }
+
+    @Override
+    public boolean isConvertingInWater() {
         return false;
     }
 }

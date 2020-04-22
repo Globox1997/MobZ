@@ -11,7 +11,7 @@ import net.mobz.Entity.Brownbear;
 @Environment(EnvType.CLIENT)
 public class BrownbearRenderer extends MobEntityRenderer<Brownbear, PolarBearEntityModel<Brownbear>> {
     public BrownbearRenderer(EntityRenderDispatcher dispatcher) {
-        super(dispatcher, new PolarBearEntityModel(), 0.8F);
+        super(dispatcher, new PolarBearEntityModel<>(), 0.8F);
 
     }
 

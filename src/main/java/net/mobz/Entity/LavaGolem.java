@@ -34,6 +34,7 @@ public class LavaGolem extends IronGolemEntity {
       this.experiencePoints = 20;
    }
 
+   @Override
    protected void initGoals() {
       this.goalSelector.add(1, new GolemAttack(this, 1.0D, false));
       this.goalSelector.add(4, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
@@ -47,19 +48,22 @@ public class LavaGolem extends IronGolemEntity {
       this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(skeli3.class));
       this.targetSelector.add(4, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SkeletonEntity.class));
       this.targetSelector.add(5, (new RevengeGoal(this, new Class[0])).setGroupRevenge(WitherSkeletonEntity.class));
-      this.targetSelector.add(1, new FollowTargetGoal(this, PlayerEntity.class, true));
-      this.targetSelector.add(6, new FollowTargetGoal(this, AbstractTraderEntity.class, false));
-      this.targetSelector.add(7, new FollowTargetGoal(this, IronGolemEntity.class, true));
+      this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
+      this.targetSelector.add(6, new FollowTargetGoal<>(this, AbstractTraderEntity.class, false));
+      this.targetSelector.add(7, new FollowTargetGoal<>(this, IronGolemEntity.class, true));
    }
 
+   @Override
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
       return Soundinit.GOLEMHITEVENT;
    }
 
+   @Override
    protected SoundEvent getDeathSound() {
       return Soundinit.GOLEMDEATHEVENT;
    }
 
+   @Override
    protected void playStepSound(BlockPos blockPos_1, BlockState blockState_1) {
       this.playSound(Soundinit.GOLEMWALKEVENT, 1.0F, 1.0F);
    }
@@ -69,6 +73,7 @@ public class LavaGolem extends IronGolemEntity {
       return true;
    }
 
+   @Override
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -79,6 +84,7 @@ public class LavaGolem extends IronGolemEntity {
             .setBaseValue(Configinit.CONFIGZ.LavaGolemAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
    }
 
+   @Override
    public boolean canSpawn(WorldView view) {
       BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());

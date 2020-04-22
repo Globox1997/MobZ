@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 public class WithRenderer extends MobEntityRenderer<WithEntity, BlazeEntityModel<WithEntity>> {
 
     public WithRenderer(EntityRenderDispatcher dispatcher) {
-        super(dispatcher, new BlazeEntityModel(), 0.5F);
+        super(dispatcher, new BlazeEntityModel<>(), 0.5F);
     }
 
     @Override

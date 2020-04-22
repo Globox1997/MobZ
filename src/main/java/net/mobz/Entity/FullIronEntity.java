@@ -51,6 +51,7 @@ public class FullIronEntity extends ZombieEntity {
       this.experiencePoints = 20;
    }
 
+   @Override
    public boolean canSpawn(WorldView view) {
       BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
@@ -63,6 +64,7 @@ public class FullIronEntity extends ZombieEntity {
 
    }
 
+   @Override
    protected void initEquipment(LocalDifficulty localDifficulty_1) {
       super.initEquipment(localDifficulty_1);
       if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
@@ -75,6 +77,7 @@ public class FullIronEntity extends ZombieEntity {
       }
    }
 
+   @Override
    public void setAttacker(@Nullable LivingEntity livingEntity_1) {
       super.setAttacker(livingEntity_1);
       if (livingEntity_1 != null) {
@@ -83,12 +86,14 @@ public class FullIronEntity extends ZombieEntity {
 
    }
 
+   @Override
    protected void initGoals() {
       this.goalSelector.add(1, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
       this.goalSelector.add(5, new LookAroundGoal(this));
       this.initCustomGoals();
    }
 
+   @Override
    protected void initCustomGoals() {
       this.goalSelector.add(2, new ZombieAttackGoal(this, 1.0D, false));
       this.goalSelector.add(4, new WanderAroundFarGoal(this, 1.0D));
@@ -96,6 +101,7 @@ public class FullIronEntity extends ZombieEntity {
       this.targetSelector.add(2, new FullIronEntity.FollowPlayerIfAngryGoal(this));
    }
 
+   @Override
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
@@ -106,30 +112,37 @@ public class FullIronEntity extends ZombieEntity {
             .setBaseValue(Configinit.CONFIGZ.SteveAttack * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
+   @Override
    protected boolean canConvertInWater() {
       return false;
    }
 
+   @Override
    protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
       return;
    }
 
+   @Override
    protected SoundEvent getAmbientSound() {
       return Soundinit.NOTHINGEVENT;
    }
 
+   @Override
    protected SoundEvent getHurtSound(DamageSource damageSource_1) {
       return SoundEvents.ENTITY_PLAYER_HURT;
    }
 
+   @Override
    protected SoundEvent getDeathSound() {
       return SoundEvents.ENTITY_PLAYER_DEATH;
    }
 
+   @Override
    protected SoundEvent getStepSound() {
       return SoundEvents.BLOCK_GRASS_STEP;
    }
 
+   @Override
    protected void mobTick() {
       EntityAttributeInstance entityAttributeInstance_1 = this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED);
       LivingEntity livingEntity_1 = this.getAttacker();
@@ -172,6 +185,7 @@ public class FullIronEntity extends ZombieEntity {
       return iWorld_1.getDifficulty() != Difficulty.PEACEFUL;
    }
 
+   @Override
    public void writeCustomDataToTag(CompoundTag compoundTag_1) {
       super.writeCustomDataToTag(compoundTag_1);
       compoundTag_1.putShort("Anger", (short) this.anger);
@@ -183,6 +197,7 @@ public class FullIronEntity extends ZombieEntity {
 
    }
 
+   @Override
    public void readCustomDataFromTag(CompoundTag compoundTag_1) {
       super.readCustomDataFromTag(compoundTag_1);
       this.anger = compoundTag_1.getShort("Anger");
@@ -199,6 +214,7 @@ public class FullIronEntity extends ZombieEntity {
 
    }
 
+   @Override
    public boolean damage(DamageSource damageSource_1, float float_1) {
       if (this.isInvulnerableTo(damageSource_1)) {
          return false;
@@ -230,14 +246,17 @@ public class FullIronEntity extends ZombieEntity {
       return this.anger > 0;
    }
 
+   @Override
    public boolean interactMob(PlayerEntity playerEntity_1, Hand hand_1) {
       return false;
    }
 
+   @Override
    protected ItemStack getSkull() {
       return ItemStack.EMPTY;
    }
 
+   @Override
    public boolean isAngryAt(PlayerEntity playerEntity_1) {
       return this.isAngry();
    }

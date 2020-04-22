@@ -12,8 +12,8 @@ import net.mobz.Entity.SmallZombie;
 @Environment(EnvType.CLIENT)
 public class SmallZombieRenderer extends ZombieBaseEntityRenderer<SmallZombie, ZombieEntityModel<SmallZombie>> {
    public SmallZombieRenderer(EntityRenderDispatcher dispatcher) {
-      super(dispatcher, new ZombieEntityModel(0.0F, false), new ZombieEntityModel(0.5F, true),
-            new ZombieEntityModel(0.5F, true));
+      super(dispatcher, new ZombieEntityModel<>(0.0F, false), new ZombieEntityModel<>(0.5F, true),
+            new ZombieEntityModel<>(0.5F, true));
    }
 
    protected void scale(SmallZombie smallZombie, MatrixStack matrixStack, float f) {

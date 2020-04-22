@@ -19,22 +19,27 @@ public class Boar3 extends PigEntity {
         super(entityType, world);
     }
 
+    @Override
     public boolean canBeControlledByRider() {
         return false;
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.BOARSAYEVENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return Soundinit.BOARSAYEVENT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return Soundinit.BOARDEATHEVENT;
     }
 
+    @Override
     public boolean isSaddled() {
         return false;
     }
@@ -43,10 +48,12 @@ public class Boar3 extends PigEntity {
         return (Boar3) Entityinit.BOAR3.create(this.world);
     }
 
+    @Override
     public Boar3 createChild(PassiveEntity passiveEntity) {
         return (Boar3) Entityinit.BOAR3.create(this.world);
     }
 
+    @Override
     public boolean isBreedingItem(ItemStack stack) {
         return BREEDING_INGREDIENT.test(stack);
     }

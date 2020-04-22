@@ -58,7 +58,7 @@ import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.SwordItems;
 
 public class Knight4Entity extends TameableEntity {
-    int z;
+    private int z;
     private static final TrackedData<Float> ALEX_HEALTH;
     private static final TrackedData<Boolean> BEGGING;
     private static final TrackedData<Integer> COLLAR_COLOR;
@@ -94,10 +94,12 @@ public class Knight4Entity extends TameableEntity {
         }
     }
 
+    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }
 
+    @Override
     protected void initGoals() {
         this.sitGoal = new SitGoal(this);
         this.goalSelector.add(1, new SwimGoal(this));
@@ -111,10 +113,11 @@ public class Knight4Entity extends TameableEntity {
         this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
         this.targetSelector.add(2, new AttackWithOwnerGoal(this));
         this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge());
-        this.targetSelector.add(4, new FollowTargetGoal(this, AbstractSkeletonEntity.class, false));
+        this.targetSelector.add(4, new FollowTargetGoal<>(this, AbstractSkeletonEntity.class, false));
 
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
@@ -130,6 +133,7 @@ public class Knight4Entity extends TameableEntity {
                 .setBaseValue(Configinit.CONFIGZ.FioraAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
+    @Override
     public void setTarget(@Nullable LivingEntity livingEntity_1) {
         super.setTarget(livingEntity_1);
         if (livingEntity_1 == null) {
@@ -140,10 +144,12 @@ public class Knight4Entity extends TameableEntity {
 
     }
 
+    @Override
     protected void mobTick() {
         this.dataTracker.set(ALEX_HEALTH, this.getHealth());
     }
 
+    @Override
     protected void initDataTracker() {
         super.initDataTracker();
         this.dataTracker.startTracking(ALEX_HEALTH, this.getHealth());
@@ -151,16 +157,19 @@ public class Knight4Entity extends TameableEntity {
         this.dataTracker.startTracking(COLLAR_COLOR, DyeColor.RED.getId());
     }
 
+    @Override
     protected void playStepSound(BlockPos blockPos_1, BlockState blockState_1) {
         this.playSound(SoundEvents.BLOCK_GRASS_STEP, 0.15F, 1.0F);
     }
 
+    @Override
     public void writeCustomDataToTag(CompoundTag compoundTag_1) {
         super.writeCustomDataToTag(compoundTag_1);
         compoundTag_1.putBoolean("Angry", this.isAngry());
         compoundTag_1.putByte("CollarColor", (byte) this.getCollarColor().getId());
     }
 
+    @Override
     public void readCustomDataFromTag(CompoundTag compoundTag_1) {
         super.readCustomDataFromTag(compoundTag_1);
         this.setAngry(compoundTag_1.getBoolean("Angry"));
@@ -170,18 +179,22 @@ public class Knight4Entity extends TameableEntity {
 
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return SoundEvents.ENTITY_PLAYER_HURT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENTITY_PLAYER_DEATH;
     }
 
+    @Override
     protected float getSoundVolume() {
         return 0.4F;
     }
 
+    @Override
     public void setOwner(PlayerEntity playerEntity_1) {
         this.setTamed(true);
         this.setOwnerUuid(playerEntity_1.getUuid());
@@ -193,14 +206,17 @@ public class Knight4Entity extends TameableEntity {
         return MathHelper.lerp(float_1, this.lastBegAnimationProgress, this.begAnimationProgress) * 0.15F * 3.1415927F;
     }
 
+    @Override
     protected float getActiveEyeHeight(EntityPose entityPose_1, EntityDimensions entityDimensions_1) {
         return entityDimensions_1.height * 0.8F;
     }
 
+    @Override
     public int getLookPitchSpeed() {
         return this.isSitting() ? 20 : super.getLookPitchSpeed();
     }
 
+    @Override
     public boolean damage(DamageSource damageSource_1, float float_1) {
         if (this.isInvulnerableTo(damageSource_1)) {
             return false;
@@ -218,6 +234,7 @@ public class Knight4Entity extends TameableEntity {
         }
     }
 
+    @Override
     public boolean tryAttack(Entity entity_1) {
         boolean boolean_1 = entity_1.damage(DamageSource.mob(this),
                 (float) ((int) this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).getValue()));
@@ -228,6 +245,7 @@ public class Knight4Entity extends TameableEntity {
         return boolean_1;
     }
 
+    @Override
     public void setTamed(boolean boolean_1) {
         super.setTamed(boolean_1);
         if (boolean_1) {
@@ -239,6 +257,7 @@ public class Knight4Entity extends TameableEntity {
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
     }
 
+    @Override
     public boolean interactMob(PlayerEntity playerEntity_1, Hand hand_1) {
         ItemStack itemStack_1 = playerEntity_1.getStackInHand(hand_1);
         Item item_1 = itemStack_1.getItem();
@@ -299,6 +318,7 @@ public class Knight4Entity extends TameableEntity {
         return super.interactMob(playerEntity_1, hand_1);
     }
 
+    @Override
     protected void showEmoteParticle(boolean boolean_1) {
         ParticleEffect particleEffect_1 = ParticleTypes.HAPPY_VILLAGER;
         if (!boolean_1) {
@@ -330,6 +350,7 @@ public class Knight4Entity extends TameableEntity {
         }
     }
 
+    @Override
     public int getLimitPerChunk() {
         return 8;
     }
@@ -375,6 +396,7 @@ public class Knight4Entity extends TameableEntity {
         return (Boolean) this.dataTracker.get(BEGGING);
     }
 
+    @Override
     public boolean canAttackWithOwner(LivingEntity livingEntity_1, LivingEntity livingEntity_2) {
         if (!(livingEntity_1 instanceof CreeperEntity) && !(livingEntity_1 instanceof GhastEntity)) {
             if (livingEntity_1 instanceof Knight4Entity) {
@@ -397,10 +419,12 @@ public class Knight4Entity extends TameableEntity {
         }
     }
 
+    @Override
     public boolean canBeLeashedBy(PlayerEntity playerEntity_1) {
         return !this.isAngry() && super.canBeLeashedBy(playerEntity_1);
     }
 
+    @Override
     public PassiveEntity createChild(PassiveEntity var1) {
         return this.method_6717(var1);
     }

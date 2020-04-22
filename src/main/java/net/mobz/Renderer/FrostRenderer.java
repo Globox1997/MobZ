@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 public class FrostRenderer extends MobEntityRenderer<FrostEntity, BlazeEntityModel<FrostEntity>> {
 
     public FrostRenderer(EntityRenderDispatcher dispatcher) {
-        super(dispatcher, new BlazeEntityModel(), 0.5F);
+        super(dispatcher, new BlazeEntityModel<>(), 0.5F);
     }
 
     @Override

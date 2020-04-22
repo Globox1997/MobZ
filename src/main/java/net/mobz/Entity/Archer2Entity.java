@@ -23,6 +23,7 @@ public class Archer2Entity extends PillagerEntity {
         this.experiencePoints = 20;
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -31,18 +32,22 @@ public class Archer2Entity extends PillagerEntity {
                 .setBaseValue(Configinit.CONFIGZ.ArcherAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return SoundEvents.ENTITY_PLAYER_HURT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENTITY_PLAYER_DEATH;
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.NOTHINGEVENT;
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
@@ -55,6 +60,7 @@ public class Archer2Entity extends PillagerEntity {
 
     }
 
+    @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
     }

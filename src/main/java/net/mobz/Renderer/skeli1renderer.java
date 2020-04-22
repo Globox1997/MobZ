@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier;
 public class skeli1renderer extends BipedEntityRenderer<skeli1, SkeletonEntityModel<skeli1>> {
 
     public skeli1renderer(EntityRenderDispatcher dispatcher) {
-        super(dispatcher, new SkeletonEntityModel(), 0.5F);
+        super(dispatcher, new SkeletonEntityModel<>(), 0.5F);
     }
 
     @Override

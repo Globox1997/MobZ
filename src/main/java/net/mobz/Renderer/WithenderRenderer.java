@@ -15,7 +15,7 @@ public class WithenderRenderer extends MobEntityRenderer<Withender, WitherEntity
    private static final Identifier SKIN = new Identifier("textures/entity/wither/wither.png");
 
    public WithenderRenderer(EntityRenderDispatcher entityRenderDispatcher_1) {
-      super(entityRenderDispatcher_1, new WitherEntityModel(0.0F), 1.0F);
+      super(entityRenderDispatcher_1, new WitherEntityModel<>(0.0F), 1.0F);
 
    }
 

@@ -20,6 +20,7 @@ public class EnderZombieEntity extends ZombieEntity {
         super(entityType, world);
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
@@ -29,22 +30,27 @@ public class EnderZombieEntity extends ZombieEntity {
                 .setBaseValue(Configinit.CONFIGZ.EnderzombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.SAYENDEVENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return Soundinit.ENDHURTEVENT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return Soundinit.DEATHENDEVENT;
     }
 
+    @Override
     protected SoundEvent getStepSound() {
         return Soundinit.STEPTANKEVENT;
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
@@ -58,6 +64,7 @@ public class EnderZombieEntity extends ZombieEntity {
 
     }
 
+    @Override
     public boolean isBaby() {
         return false;
     }

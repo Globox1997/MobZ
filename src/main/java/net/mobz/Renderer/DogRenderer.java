@@ -15,13 +15,12 @@ public class DogRenderer extends MobEntityRenderer<WolfEntity, WolfEntityModel<W
    private static final Identifier ANGRY_SKIN = new Identifier("mobz:textures/entity/dogangry.png");
 
    public DogRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-      super(entityRenderDispatcher, new WolfEntityModel(), 0.5F);
+      super(entityRenderDispatcher, new WolfEntityModel<>(), 0.5F);
    }
 
    protected float getAnimationProgress(WolfEntity wolfEntity, float f) {
       return wolfEntity.method_6714();
    }
-
 
    public Identifier getTexture(WolfEntity wolfEntity) {
       if (wolfEntity.isTamed()) {

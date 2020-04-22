@@ -31,26 +31,32 @@ public class Dog extends WolfEntity {
                 .setBaseValue(Configinit.CONFIGZ.NetherWolfAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
+    @Override
     public boolean isBreedingItem(ItemStack itemStack_1) {
         return false;
     }
 
+    @Override
     public boolean isAngry() {
         return true;
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return Soundinit.WGROWLEVENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource source) {
         return Soundinit.WHURTEVENT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return Soundinit.WDEATHEVENT;
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());

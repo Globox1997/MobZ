@@ -41,6 +41,7 @@ public class IceGolem extends IronGolemEntity {
         this.initCustomGoals();
     }
 
+    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
@@ -61,14 +62,17 @@ public class IceGolem extends IronGolemEntity {
         this.targetSelector.add(5, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SlimeEntity.class));
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource damageSource_1) {
         return Soundinit.GOLEMHITEVENT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return Soundinit.GOLEMDEATHEVENT;
     }
 
+    @Override
     protected void playStepSound(BlockPos blockPos_1, BlockState blockState_1) {
         this.playSound(Soundinit.GOLEMWALKEVENT, 1.0F, 1.0F);
     }
@@ -78,6 +82,7 @@ public class IceGolem extends IronGolemEntity {
         return true;
     }
 
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
