@@ -25,11 +25,12 @@ public class Orb extends Item {
 
     StatusEffectInstance life = new StatusEffectInstance(StatusEffect.byRawId(8), 20, 1, false, false);
 
+    @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 
         LivingEntity bob = (LivingEntity) entity;
         if (slot == 0 || slot == 1 || slot == 2 || slot == 3 || slot == 4 || slot == 5 || slot == 6 || slot == 7
-                || slot == 8) {
+                || slot == 8 && !world.isClient) {
 
             bob.addStatusEffect(life);
         }

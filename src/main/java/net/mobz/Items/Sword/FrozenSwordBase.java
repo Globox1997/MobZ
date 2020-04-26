@@ -20,6 +20,7 @@ public class FrozenSwordBase extends SwordItem {
     StatusEffectInstance slow3 = new StatusEffectInstance(StatusEffect.byRawId(2), 100, 1, false, false, false);
     StatusEffectInstance slow4 = new StatusEffectInstance(StatusEffect.byRawId(2), 150, 1, false, false, false);
 
+    @Override
     public boolean postHit(ItemStack itemStack_1, LivingEntity livingEntity_1, LivingEntity livingEntity_2) {
         itemStack_1.damage(1, (LivingEntity) livingEntity_2, (Consumer) ((livingEntity_1x) -> {
             ((LivingEntity) livingEntity_1x).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);

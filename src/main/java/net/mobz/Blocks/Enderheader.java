@@ -25,19 +25,23 @@ public class Enderheader extends Block {
     super(settings);
   }
 
+  @Override
   public BlockState getPlacementState(ItemPlacementContext ctx) {
     return (BlockState) this.getDefaultState().with(ROTATION,
         MathHelper.floor((double) (ctx.getPlayerYaw() * 16.0F / 360.0F) + 0.5D) & 15);
   }
 
+  @Override
   public BlockState rotate(BlockState state, BlockRotation rotation) {
     return (BlockState) state.with(ROTATION, rotation.rotate((Integer) state.get(ROTATION), 16));
   }
 
+  @Override
   public BlockState mirror(BlockState state, BlockMirror mirror) {
     return (BlockState) state.with(ROTATION, mirror.mirror((Integer) state.get(ROTATION), 16));
   }
 
+  @Override
   protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
     builder.add(ROTATION);
   }

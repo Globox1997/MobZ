@@ -22,6 +22,7 @@ public class ArmorBase2 extends ArmorItem {
         super(material, slot, new Item.Settings());
     }
 
+    @Override
     public Multimap<String, EntityAttributeModifier> getModifiers(EquipmentSlot equipmentSlot_1) {
         Multimap<String, EntityAttributeModifier> multimap_1 = super.getModifiers(equipmentSlot_1);
         if (equipmentSlot_1 == this.slot) {

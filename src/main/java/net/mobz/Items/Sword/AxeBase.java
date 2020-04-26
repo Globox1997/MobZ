@@ -32,6 +32,7 @@ public class AxeBase extends SwordItem {
         StatusEffectInstance strength4 = new StatusEffectInstance(StatusEffect.byRawId(5), 70, 0, false, false, false);
         StatusEffectInstance defense4 = new StatusEffectInstance(StatusEffect.byRawId(11), 40, 0, false, false, false);
 
+        @Override
         public boolean postHit(ItemStack itemStack_1, LivingEntity livingEntity_1, LivingEntity livingEntity_2) {
                 itemStack_1.damage(1, (LivingEntity) livingEntity_2, (Consumer) ((livingEntity_1x) -> {
                         ((LivingEntity) livingEntity_1x).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);

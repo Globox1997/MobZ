@@ -42,6 +42,7 @@ public class Sbow extends BowItem {
 
    StatusEffectInstance spd = new StatusEffectInstance(StatusEffect.byRawId(1), 0, 0, false, false);
 
+   @Override
    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 
       if (selected == true) {
@@ -52,6 +53,7 @@ public class Sbow extends BowItem {
 
    }
 
+   @Override
    public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
       if (user instanceof PlayerEntity) {
          PlayerEntity playerEntity = (PlayerEntity) user;
@@ -129,14 +131,17 @@ public class Sbow extends BowItem {
       return f;
    }
 
+   @Override
    public int getMaxUseTime(ItemStack stack) {
       return 72000;
    }
 
+   @Override
    public UseAction getUseAction(ItemStack stack) {
       return UseAction.BOW;
    }
 
+   @Override
    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
       ItemStack itemStack = user.getStackInHand(hand);
       boolean bl = !user.getArrowType(itemStack).isEmpty();
@@ -148,6 +153,7 @@ public class Sbow extends BowItem {
       }
    }
 
+   @Override
    public Predicate<ItemStack> getProjectiles() {
       return BOW_PROJECTILES;
    }

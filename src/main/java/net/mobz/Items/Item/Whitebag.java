@@ -22,14 +22,17 @@ public class Whitebag extends Item {
         super(settings);
     }
 
+    @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         tooltip.add(new TranslatableText("item.mobz.whitebag.tooltip"));
     }
 
+    @Override
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.NONE;
     }
 
+    @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity entity) {
 
         Random random = new Random();
@@ -56,10 +59,12 @@ public class Whitebag extends Item {
 
     }
 
+    @Override
     public int getMaxUseTime(ItemStack itemStack_1) {
         return 1;
     }
 
+    @Override
     public TypedActionResult<ItemStack> use(World world_1, PlayerEntity playerEntity_1, Hand hand_1) {
         playerEntity_1.setCurrentHand(hand_1);
         return new TypedActionResult(ActionResult.SUCCESS, playerEntity_1.getStackInHand(hand_1));

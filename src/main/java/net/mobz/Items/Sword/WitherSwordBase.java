@@ -19,14 +19,16 @@ public class WitherSwordBase extends SwordItem {
     StatusEffectInstance with1 = new StatusEffectInstance(StatusEffect.byRawId(20), 60, 0, false, false, false);
     StatusEffectInstance with2 = new StatusEffectInstance(StatusEffect.byRawId(20), 120, 0, false, false, false);
     StatusEffectInstance with3 = new StatusEffectInstance(StatusEffect.byRawId(20), 180, 0, false, false, false);
+    StatusEffectInstance with4 = new StatusEffectInstance(StatusEffect.byRawId(20), 240, 0, false, false, false);
 
+    @Override
     public boolean postHit(ItemStack itemStack_1, LivingEntity livingEntity_1, LivingEntity livingEntity_2) {
         itemStack_1.damage(1, (LivingEntity) livingEntity_2, (Consumer) ((livingEntity_1x) -> {
             ((LivingEntity) livingEntity_1x).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
         }));
 
         Random random = new Random();
-        int randomNumber = random.nextInt() % 3;
+        int randomNumber = random.nextInt() % 4;
         if (randomNumber < 0) {
             randomNumber = randomNumber * (-1);
         }
@@ -40,6 +42,9 @@ public class WitherSwordBase extends SwordItem {
                 return true;
             case 2:
                 livingEntity_1.addStatusEffect(with3);
+                return true;
+            case 3:
+                livingEntity_1.addStatusEffect(with4);
                 return true;
             default:
                 return true;

@@ -40,6 +40,7 @@ public class WeirdIngot extends Item {
 
     StatusEffectInstance slow = new StatusEffectInstance(StatusEffect.byRawId(2), 0, 0, false, false);
 
+    @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 
         LivingEntity bob = (LivingEntity) entity;

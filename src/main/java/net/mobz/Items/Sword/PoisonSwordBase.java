@@ -20,6 +20,7 @@ public class PoisonSwordBase extends SwordItem {
     StatusEffectInstance pois2 = new StatusEffectInstance(StatusEffect.byRawId(19), 160, 0, false, false, false);
     StatusEffectInstance pois3 = new StatusEffectInstance(StatusEffect.byRawId(19), 200, 0, false, false, false);
 
+    @Override
     public boolean postHit(ItemStack itemStack_1, LivingEntity livingEntity_1, LivingEntity livingEntity_2) {
         itemStack_1.damage(1, (LivingEntity) livingEntity_2, (Consumer) ((livingEntity_1x) -> {
             ((LivingEntity) livingEntity_1x).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);

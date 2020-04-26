@@ -9,8 +9,9 @@ public class Shield extends ShieldItem {
         super(new Item.Settings().maxCount(1));
     }
 
+    @Override
     public boolean canRepair(ItemStack stack, ItemStack ingredient) {
         return false;
-     }
+    }
 
 }
