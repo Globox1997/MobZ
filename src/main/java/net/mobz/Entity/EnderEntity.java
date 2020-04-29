@@ -19,6 +19,11 @@ public class EnderEntity extends EndermanEntity {
     }
 
     @Override
+    public boolean canPickUpLoot() {
+        return false;
+    }
+
+    @Override
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(EntityAttributes.MAX_HEALTH)

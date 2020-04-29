@@ -41,6 +41,11 @@ public class KnightEntity extends ZombieEntity {
     }
 
     @Override
+    public boolean canPickUpLoot() {
+        return false;
+    }
+
+    @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(2, new ZombieAttackGoal(this, 1.0D, false));

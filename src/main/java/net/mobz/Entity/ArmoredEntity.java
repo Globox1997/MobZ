@@ -25,6 +25,11 @@ public class ArmoredEntity extends ZombieEntity {
    }
 
    @Override
+   public boolean canPickUpLoot() {
+      return false;
+   }
+
+   @Override
    protected void initAttributes() {
       super.initAttributes();
       this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
