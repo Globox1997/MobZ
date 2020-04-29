@@ -234,7 +234,7 @@ public class configz implements ConfigData {
     @ConfigEntry.Category("damagesetting")
     public double SpiderMageAttack = 7D;
     @ConfigEntry.Category("damagesetting")
-    public double SteveAttack = 10D;
+    public double SteveAttack = 9D;
     @ConfigEntry.Category("damagesetting")
     public double StoneGolemAttack = 14D;
     @ConfigEntry.Category("damagesetting")
