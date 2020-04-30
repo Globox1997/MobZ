@@ -122,6 +122,7 @@ public class client implements ClientModInitializer {
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.TOTEM_MIDDLE, RenderLayer.getCutout());
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.TOTEM_TOP, RenderLayer.getCutout());
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.BOSSTROPHY, RenderLayer.getCutout());
+                BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.SPAWNBLOCK, RenderLayer.getCutout());
 
         }
 
