@@ -67,6 +67,7 @@ public class Whitebag extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world_1, PlayerEntity playerEntity_1, Hand hand_1) {
         playerEntity_1.setCurrentHand(hand_1);
-        return new TypedActionResult(ActionResult.SUCCESS, playerEntity_1.getStackInHand(hand_1));
+        return new TypedActionResult<>(ActionResult.SUCCESS, playerEntity_1.getStackInHand(hand_1));
     }
+
 }

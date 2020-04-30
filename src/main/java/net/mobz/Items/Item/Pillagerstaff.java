@@ -45,23 +45,25 @@ public class Pillagerstaff extends Item {
 
         World world = context.getWorld();
         PlayerEntity player = context.getPlayer();
-        if (context.getWorld().isClient)
+        if (context.getWorld().isClient) {
             return ActionResult.PASS;
-        BlockState state = context.getWorld().getBlockState(context.getBlockPos());
-        if (state.getBlock() == Blockinit.ENDERHEADER) {
+        } else {
+            BlockState state = context.getWorld().getBlockState(context.getBlockPos());
+            if (state.getBlock() == Blockinit.ENDERHEADER) {
 
-            if (Enderheader.isValid(context.getWorld(), context.getBlockPos(), state)) {
-                Withender wither = (Withender) Entityinit.WITHENDER.create(world);
-                BlockPos oke = context.getBlockPos();
-                wither.refreshPositionAndAngles(oke, 0.0F, 0.0F);
-                world.spawnEntity(wither);
-                return ActionResult.SUCCESS;
-            } else {
-                player.addChatMessage(new TranslatableText("text.mobz.withendermissing"), true);
+                if (Enderheader.isValid(context.getWorld(), context.getBlockPos(), state)) {
+                    Withender wither = (Withender) Entityinit.WITHENDER.create(world);
+                    BlockPos oke = context.getBlockPos();
+                    wither.refreshPositionAndAngles(oke, 0.0F, 0.0F);
+                    world.spawnEntity(wither);
+                    return ActionResult.SUCCESS;
+                } else {
+                    player.addChatMessage(new TranslatableText("text.mobz.withendermissing"), true);
+                }
+
             }
-
+            return ActionResult.PASS;
         }
-        return ActionResult.PASS;
     }
 
     @Override
@@ -77,7 +79,6 @@ public class Pillagerstaff extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (user instanceof PlayerEntity) {
             PlayerEntity playerEntity = (PlayerEntity) user;
-
             if (!world.isClient) {
                 if (!playerEntity.isSneaking()) {
                     Random random = new Random();
@@ -107,7 +108,6 @@ public class Pillagerstaff extends Item {
                         particlecounter = 0;
                     }
                     return TypedActionResult.success(user.getStackInHand(hand));
-
                 } else {
                     return TypedActionResult.pass(user.getStackInHand(hand));
                 }
@@ -115,5 +115,4 @@ public class Pillagerstaff extends Item {
         }
         return TypedActionResult.pass(user.getStackInHand(hand));
     }
-
 }

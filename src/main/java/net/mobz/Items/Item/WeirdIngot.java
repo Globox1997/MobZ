@@ -67,31 +67,33 @@ public class WeirdIngot extends Item {
         World world = context.getWorld();
         PlayerEntity player = context.getPlayer();
         ItemStack ingot = player.getMainHandStack();
-        if (context.getWorld().isClient)
+        if (context.getWorld().isClient) {
             return ActionResult.PASS;
-        BlockState state = context.getWorld().getBlockState(context.getBlockPos());
-        if (state.getBlock() == Blockinit.TOTEM_MIDDLE) {
-            if (context.getWorld().getDimension().getType() == DimensionType.OVERWORLD) {
-                if (TotemMiddle.isValid(context.getWorld(), context.getBlockPos(), state)) {
-                    if (AutoConfig.getConfigHolder(configz.class).getConfig().PillagerBossSpawn) {
-                        PillagerBoss pillager = (PillagerBoss) Entityinit.PILLAGERBOSS.create(world);
-                        BlockPos oke = context.getBlockPos();
-                        pillager.refreshPositionAndAngles(oke, 0.0F, 0.0F);
-                        ingot.decrement(1);
-                        world.spawnEntity(pillager);
-                        return ActionResult.SUCCESS;
+        } else {
+            BlockState state = context.getWorld().getBlockState(context.getBlockPos());
+            if (state.getBlock() == Blockinit.TOTEM_MIDDLE) {
+                if (context.getWorld().getDimension().getType() == DimensionType.OVERWORLD) {
+                    if (TotemMiddle.isValid(context.getWorld(), context.getBlockPos(), state)) {
+                        if (AutoConfig.getConfigHolder(configz.class).getConfig().PillagerBossSpawn) {
+                            PillagerBoss pillager = (PillagerBoss) Entityinit.PILLAGERBOSS.create(world);
+                            BlockPos oke = context.getBlockPos();
+                            pillager.refreshPositionAndAngles(oke, 0.0F, 0.0F);
+                            ingot.decrement(1);
+                            world.spawnEntity(pillager);
+                            return ActionResult.SUCCESS;
+                        } else {
+                            player.addChatMessage(new TranslatableText("text.mobz.pillagerspawnable"), true);
+                        }
                     } else {
-                        player.addChatMessage(new TranslatableText("text.mobz.pillagerspawnable"), true);
+                        player.addChatMessage(new TranslatableText("text.mobz.pillagermissing"), true);
+
                     }
                 } else {
-                    player.addChatMessage(new TranslatableText("text.mobz.pillagermissing"), true);
-
+                    player.addChatMessage(new TranslatableText("text.mobz.pillagerdimension"), true);
                 }
-            } else {
-                player.addChatMessage(new TranslatableText("text.mobz.pillagerdimension"), true);
             }
+            return ActionResult.PASS;
         }
-        return ActionResult.PASS;
     }
 
 }
