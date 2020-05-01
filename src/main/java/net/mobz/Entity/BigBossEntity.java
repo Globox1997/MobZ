@@ -37,7 +37,7 @@ public class BigBossEntity extends ZombieEntity {
                 .setBaseValue(Configinit.CONFIGZ.BigBossAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
         this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
         this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(0D);
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.22D);
+        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.21D);
     }
 
     @Override

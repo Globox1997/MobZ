@@ -69,18 +69,12 @@ public class TankEntity extends ZombieEntity {
     }
 
     @Override
-    public boolean tryAttack(Entity target) {
-        StatusEffectInstance str = new StatusEffectInstance(StatusEffect.byRawId(18), 80, 0, false, false);
-        boolean bl = super.tryAttack(target);
-        if (bl) {
-            ((LivingEntity) target).addStatusEffect(str);
-            float f = this.world.getLocalDifficulty(new BlockPos(this)).getLocalDifficulty();
-            if (this.getMainHandStack().isEmpty() && this.isOnFire() && this.random.nextFloat() < f * 0.3F) {
-                target.setOnFireFor(2 * (int) f);
-            }
+    protected void dealDamage(LivingEntity attacker, Entity target) {
+        LivingEntity bob = (LivingEntity) target;
+        StatusEffectInstance weakness = new StatusEffectInstance(StatusEffect.byRawId(18), 100, 0, false, false);
+        if (target instanceof LivingEntity) {
+            bob.addStatusEffect(weakness);
         }
-
-        return bl;
     }
 
     @Override

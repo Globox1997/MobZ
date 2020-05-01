@@ -5,10 +5,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
@@ -25,6 +29,17 @@ public class Knight5Entity extends VindicatorEntity {
         super(entityType, world);
         this.experiencePoints = 20;
 
+    }
+
+    @Override
+    protected void dealDamage(LivingEntity attacker, Entity target) {
+        LivingEntity bob = (LivingEntity) target;
+        StatusEffectInstance nausea = new StatusEffectInstance(StatusEffect.byRawId(9), 100, 0, false, false);
+        StatusEffectInstance wither = new StatusEffectInstance(StatusEffect.byRawId(20), 80, 0, false, false);
+        if (target instanceof LivingEntity) {
+            bob.addStatusEffect(nausea);
+            bob.addStatusEffect(wither);
+        }
     }
 
     @Override

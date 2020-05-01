@@ -6,10 +6,14 @@ import net.mobz.Config.configz;
 import net.mobz.Inits.ArmorItems;
 import net.mobz.Inits.SwordItems;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -91,6 +95,14 @@ public class BossEntity extends ZombieEntity {
                 && this.world.getBlockState(blockunderentity).getBlock()
                         .allowsSpawning(world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.BOSS)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().BossZombieSpawn;
+    }
 
+    @Override
+    protected void dealDamage(LivingEntity attacker, Entity target) {
+        LivingEntity bob = (LivingEntity) target;
+        StatusEffectInstance fatigue = new StatusEffectInstance(StatusEffect.byRawId(4), 120, 0, false, false);
+        if (target instanceof LivingEntity) {
+            bob.addStatusEffect(fatigue);
+        }
     }
 }
