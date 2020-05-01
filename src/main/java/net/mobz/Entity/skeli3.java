@@ -4,6 +4,7 @@ import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -45,8 +46,11 @@ public class skeli3 extends SkeletonEntity {
         return Soundinit.SKELIDEATHEVENT;
     }
 
-    protected SoundEvent getStepSound() {
-        return Soundinit.SKELISTEPEVENT;
+    @Override
+    protected void playStepSound(BlockPos pos, BlockState state) {
+        if (!state.getMaterial().isLiquid()) {
+            this.playSound(Soundinit.SKELISTEPEVENT, 0.15F, 1F);
+        }
     }
 
     @Override
