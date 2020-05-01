@@ -141,7 +141,7 @@ public class FullIronEntity extends ZombieEntity {
 
    @Override
    protected SoundEvent getStepSound() {
-      return SoundEvents.BLOCK_GRASS_STEP;
+      return Soundinit.LIGHTERARMORWALKEVENT;
    }
 
    @Override

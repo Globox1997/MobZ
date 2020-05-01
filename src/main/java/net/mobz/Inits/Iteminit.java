@@ -13,7 +13,7 @@ public class Iteminit {
     public static final HardenedMetal HARDENEDMETAL = new HardenedMetal(new Item.Settings().maxCount(64));
     public static final MedivealDisc MEDIVEAL_DISC = new MedivealDisc(1, Soundinit.MEDIVEALSOUNDEVENT,
             new Item.Settings().maxCount(1));
-    public static final MedivealDisc2 MEDIVEAL_DISC2 = new MedivealDisc2(1, Soundinit.MEDIVEALSOUND2EVENT,
+    public static final MedivealDisc2 MEDIVEAL_DISC2 = new MedivealDisc2(0, Soundinit.MEDIVEALSOUND2EVENT,
             new Item.Settings().maxCount(1));
     public static final Shield SHIELD = new Shield(new Item.Settings().maxCount(1));
     public static final Rottenflesh ROTTENFLESH = new Rottenflesh();

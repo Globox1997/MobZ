@@ -105,9 +105,9 @@
 
 /*
  * package net.mobz.Entity; import net.minecraft.entity.EntityType; import
- * net.minecraft.entity.mob.ZombieEntity; import net.minecraft.world.World;
- * public class TestEntity extends ZombieEntity { public TestEntity(EntityType<?
- * extends ZombieEntity> entityType, World world) { super(entityType, world); }
+ * net.minecraft.entity.mob.RavagerEntity; import net.minecraft.world.World;
+ * public class TestEntity extends RavagerEntity { public TestEntity(EntityType<?
+ * extends RavagerEntity> entityType, World world) { super(entityType, world); }
  * }
  */
 
@@ -137,12 +137,12 @@
 package net.mobz.Entity;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.mob.ZombieEntity;
+import net.minecraft.entity.mob.RavagerEntity;
 import net.minecraft.world.World;
 
-public class TestEntity extends ZombieEntity {
+public class TestEntity extends RavagerEntity {
 
-    public TestEntity(EntityType<? extends ZombieEntity> type, World world) {
+    public TestEntity(EntityType<? extends RavagerEntity> type, World world) {
         super(type, world);
     }
 

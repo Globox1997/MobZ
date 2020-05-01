@@ -105,7 +105,7 @@ public class KnightEntity extends ZombieEntity {
 
     @Override
     protected SoundEvent getStepSound() {
-        return SoundEvents.BLOCK_GRASS_STEP;
+        return Soundinit.ARMORWALKEVENT;
     }
 
     @Override

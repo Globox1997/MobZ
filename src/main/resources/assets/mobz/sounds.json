@@ -350,5 +350,34 @@
       "mobz:wgrowl2",
       "mobz:wgrowl3"
     ]
+  },
+  "armorwalk": {
+    "sounds": [
+      "mobz:armorwalk1",
+      "mobz:armorwalk2",
+      "mobz:armorwalk3"
+    ]
+  },
+  "leatherwalk": {
+    "sounds": [
+      "mobz:lightstep1",
+      "mobz:lightstep2"
+    ]
+  },
+  "lighterarmorwalk": {
+    "sounds": [
+      "mobz:lighterarmorstep1",
+      "mobz:lighterarmorstep2",
+      "mobz:lighterarmorstep3",
+      "mobz:lighterarmorstep4",
+      "mobz:lighterarmorstep5",
+      "mobz:lighterarmorstep6"
+    ]
+  },
+  "lessheavyarmorwalk": {
+    "sounds": [
+      "mobz:moreheavystep1",
+      "mobz:moreheavystep2"
+    ]
   }
 }

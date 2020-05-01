@@ -110,6 +110,14 @@ public class Soundinit {
     public static SoundEvent WDEATHEVENT = new SoundEvent(WDEATH);
     public static final Identifier WGROWL = new Identifier("mobz:wgrowl");
     public static SoundEvent WGROWLEVENT = new SoundEvent(WGROWL);
+    public static final Identifier ARMORWALK = new Identifier("mobz:armorwalk");
+    public static SoundEvent ARMORWALKEVENT = new SoundEvent(ARMORWALK);
+    public static final Identifier LEATHERWALK = new Identifier("mobz:leatherwalk");
+    public static SoundEvent LEATHERWALKEVENT = new SoundEvent(LEATHERWALK);
+    public static final Identifier LIGHTERARMORWALK = new Identifier("mobz:lighterarmorwalk");
+    public static SoundEvent LIGHTERARMORWALKEVENT = new SoundEvent(LIGHTERARMORWALK);
+    public static final Identifier LESSHEAVYARMORWALK = new Identifier("mobz:lessheavyarmorwalk");
+    public static SoundEvent LESSHEAVYARMORWALKEVENT = new SoundEvent(LESSHEAVYARMORWALK);
 
     public static void init() {
 
@@ -165,6 +173,10 @@ public class Soundinit {
         Registry.register(Registry.SOUND_EVENT, Soundinit.WHURT, WHURTEVENT);
         Registry.register(Registry.SOUND_EVENT, Soundinit.WGROWL, WGROWLEVENT);
         Registry.register(Registry.SOUND_EVENT, Soundinit.WDEATH, WDEATHEVENT);
+        Registry.register(Registry.SOUND_EVENT, Soundinit.ARMORWALK, ARMORWALKEVENT);
+        Registry.register(Registry.SOUND_EVENT, Soundinit.LEATHERWALK, LEATHERWALKEVENT);
+        Registry.register(Registry.SOUND_EVENT, Soundinit.LIGHTERARMORWALK, LIGHTERARMORWALKEVENT);
+        Registry.register(Registry.SOUND_EVENT, Soundinit.LESSHEAVYARMORWALK, LESSHEAVYARMORWALKEVENT);
     }
 
 }

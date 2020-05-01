@@ -6,6 +6,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -26,6 +27,13 @@ public class Knight3Entity extends VindicatorEntity {
         super(entityType, world);
         this.experiencePoints = 20;
 
+    }
+
+    @Override
+    protected void playStepSound(BlockPos pos, BlockState state) {
+        if (!state.getMaterial().isLiquid()) {
+            this.playSound(Soundinit.LEATHERWALKEVENT, 0.15F, 1F);
+        }
     }
 
     @Override

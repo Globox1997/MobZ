@@ -1,6 +1,7 @@
 package net.mobz.Entity;
 
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -42,6 +43,13 @@ public class Archer2Entity extends PillagerEntity {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.ENTITY_PLAYER_DEATH;
+    }
+
+    @Override
+    protected void playStepSound(BlockPos pos, BlockState state) {
+        if (!state.getMaterial().isLiquid()) {
+            this.playSound(Soundinit.LEATHERWALKEVENT, 0.15F, 1F);
+        }
     }
 
     @Override

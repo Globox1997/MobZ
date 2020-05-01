@@ -55,6 +55,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
+import net.mobz.Inits.Soundinit;
 import net.mobz.Inits.SwordItems;
 
 public class Knight4Entity extends TameableEntity {
@@ -136,7 +137,7 @@ public class Knight4Entity extends TameableEntity {
 
     @Override
     protected void playStepSound(BlockPos blockPos_1, BlockState blockState_1) {
-        this.playSound(SoundEvents.BLOCK_GRASS_STEP, 0.15F, 1.0F);
+        this.playSound(Soundinit.LEATHERWALKEVENT, 0.15F, 1.0F);
     }
 
     @Override
