@@ -39,7 +39,7 @@ public class Knight2Entity extends VindicatorEntity {
     protected void dealDamage(LivingEntity attacker, Entity target) {
         LivingEntity bob = (LivingEntity) target;
         StatusEffectInstance poison = new StatusEffectInstance(StatusEffect.byRawId(19), 100, 0, false, false);
-        if (target instanceof LivingEntity) {
+        if (target instanceof LivingEntity && !world.isClient) {
             bob.addStatusEffect(poison);
         }
     }

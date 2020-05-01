@@ -44,7 +44,7 @@ public class DwarfEntity extends VindicatorEntity {
     protected void dealDamage(LivingEntity attacker, Entity target) {
         LivingEntity bob = (LivingEntity) target;
         StatusEffectInstance slow = new StatusEffectInstance(StatusEffect.byRawId(2), 70, 0, false, false);
-        if (target instanceof LivingEntity) {
+        if (target instanceof LivingEntity && !world.isClient) {
             bob.addStatusEffect(slow);
         }
     }

@@ -36,7 +36,7 @@ public class Knight5Entity extends VindicatorEntity {
         LivingEntity bob = (LivingEntity) target;
         StatusEffectInstance nausea = new StatusEffectInstance(StatusEffect.byRawId(9), 100, 0, false, false);
         StatusEffectInstance wither = new StatusEffectInstance(StatusEffect.byRawId(20), 80, 0, false, false);
-        if (target instanceof LivingEntity) {
+        if (target instanceof LivingEntity && !world.isClient) {
             bob.addStatusEffect(nausea);
             bob.addStatusEffect(wither);
         }

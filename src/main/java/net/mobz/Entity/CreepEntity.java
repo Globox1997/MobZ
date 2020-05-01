@@ -5,6 +5,8 @@ import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.Soundinit;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;

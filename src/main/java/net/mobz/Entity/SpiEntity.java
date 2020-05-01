@@ -42,7 +42,7 @@ public class SpiEntity extends SpiderEntity {
         }
         LivingEntity bob = (LivingEntity) target;
         StatusEffectInstance poison = new StatusEffectInstance(StatusEffect.byRawId(19), 120, 0, false, false);
-        if (target instanceof LivingEntity && randomNumber == 3) {
+        if (target instanceof LivingEntity && randomNumber == 3 && !world.isClient) {
             bob.addStatusEffect(poison);
         }
     }

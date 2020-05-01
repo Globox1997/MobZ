@@ -72,7 +72,7 @@ public class TankEntity extends ZombieEntity {
     protected void dealDamage(LivingEntity attacker, Entity target) {
         LivingEntity bob = (LivingEntity) target;
         StatusEffectInstance weakness = new StatusEffectInstance(StatusEffect.byRawId(18), 100, 0, false, false);
-        if (target instanceof LivingEntity) {
+        if (target instanceof LivingEntity && !world.isClient) {
             bob.addStatusEffect(weakness);
         }
     }
