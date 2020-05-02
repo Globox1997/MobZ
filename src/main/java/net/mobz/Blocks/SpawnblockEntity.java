@@ -8,6 +8,7 @@ import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 import net.mobz.Inits.Blockinit;
 
@@ -20,6 +21,7 @@ public class SpawnblockEntity extends BlockEntity implements Tickable {
   private int spawntimecounter = 0;
   private int maxcapofspawns = 10;
   private int spawnRange = 4;
+  private int maxNearbyEntities = 4;
 
   public SpawnblockEntity() {
     super(Blockinit.SPAWNBLOCKENTITY);
@@ -47,29 +49,38 @@ public class SpawnblockEntity extends BlockEntity implements Tickable {
         world.addParticle(ParticleTypes.SMOKE, d, e, f, 0.0D, 0.0D, 0.0D);
         world.addParticle(ParticleTypes.FLAME, d, e, f, 0.0D, 0.0D, 0.0D);
       } else {
+        CowEntity entity = new CowEntity(EntityType.COW, world);
+        int currentmobcount = world.getNonSpectatingEntities(entity.getClass(),
+            (new Box((double) blockPos.getX(), (double) blockPos.getY(), (double) blockPos.getZ(),
+                (double) (blockPos.getX() + 1), (double) (blockPos.getY() + 1), (double) (blockPos.getZ() + 1)))
+                    .expand((double) this.spawnRange))
+            .size();
         spawntimecounter++;
+        if (currentmobcount >= this.maxNearbyEntities) {
+          return;
+        } else {
+          if (spawntimecounter >= spawndelay) {
+            double g = (double) blockPos.getX()
+                + (world.random.nextDouble() - world.random.nextDouble()) * (double) this.spawnRange + 0.5D;
+            double h = (double) (blockPos.getY() + world.random.nextInt(3) - 1);
+            double k = (double) blockPos.getZ()
+                + (world.random.nextDouble() - world.random.nextDouble()) * (double) this.spawnRange + 0.5D;
+            if (world.doesNotCollide((EntityType.COW.createSimpleBoundingBox(g, h, k))) && SpawnRestriction.canSpawn(
+                EntityType.COW, world.getWorld(), SpawnType.SPAWNER, new BlockPos(g, h, k), world.getRandom())) {
 
-        if (spawntimecounter >= spawndelay) {
-          double g = (double) blockPos.getX()
-              + (world.random.nextDouble() - world.random.nextDouble()) * (double) this.spawnRange + 0.5D;
-          double h = (double) (blockPos.getY() + world.random.nextInt(3) - 1);
-          double k = (double) blockPos.getZ()
-              + (world.random.nextDouble() - world.random.nextDouble()) * (double) this.spawnRange + 0.5D;
-          if (world.doesNotCollide((EntityType.COW.createSimpleBoundingBox(g, h, k))) && SpawnRestriction.canSpawn(
-              EntityType.COW, world.getWorld(), SpawnType.SPAWNER, new BlockPos(g, h, k), world.getRandom())) {
+              // CowEntity entity = new CowEntity(EntityType.COW, world);
+              entity.updatePosition(g, h, k);
+              world.playLevelEvent(2004, blockPos, 0);
+              entity.playSpawnEffects();
 
-            CowEntity entity = new CowEntity(EntityType.COW, world);
-            entity.updatePosition(g, h, k);
-            world.playLevelEvent(2004, blockPos, 0);
-            entity.playSpawnEffects();
-
-            world.spawnEntity(entity);
-            maxcapofspawns--;
-            spawntimecounter = 0;
+              world.spawnEntity(entity);
+              maxcapofspawns--;
+              spawntimecounter = 0;
+            }
           }
-        }
-        if (maxcapofspawns == 0) {
-          world.removeBlock(pos, false);
+          if (maxcapofspawns == 0) {
+            world.removeBlock(pos, false);
+          }
         }
       }
     }
