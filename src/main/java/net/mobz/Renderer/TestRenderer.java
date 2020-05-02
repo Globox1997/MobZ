@@ -1,104 +1,35 @@
-// package net.mobz.Renderer;
-
-// import net.fabricmc.api.EnvType;
-// import net.fabricmc.api.Environment;
-// import net.minecraft.client.render.entity.BipedEntityRenderer;
-// import net.minecraft.client.render.entity.EntityRenderDispatcher;
-// import net.minecraft.client.render.entity.feature.ArmorBipedFeatureRenderer;
-// import net.minecraft.client.render.entity.model.ZombieEntityModel;
-// import net.mobz.Entity.*;
-// import net.minecraft.util.Identifier;
-
-// @Environment(EnvType.CLIENT)
-// public class TestRenderer extends BipedEntityRenderer<TestEntity, ZombieEntityModel<TestEntity>> {
-//    private static final Identifier SKIN = new Identifier("mobz:textures/entity/test.png");
-
-//    public TestRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-//       super(entityRenderDispatcher, new ZombieEntityModel(0.0F, false), 0.5F);
-//       this.addFeature(
-//             new ArmorBipedFeatureRenderer(this, new ZombieEntityModel(0.5F, true), new ZombieEntityModel(1.0F, true)));
-//    }
-
-//    public Identifier getTexture(TestEntity Tanky) {
-//       return SKIN;
-//    }
-// }
-
-// import net.minecraft.client.render.entity.EntityRenderDispatcher;
-
-// import net.minecraft.client.render.entity.MobEntityRenderer;
-// import net.minecraft.client.render.entity.model.BipedEntityModel;
-// import net.minecraft.util.Identifier;
-// import net.mobz.Entity.TestEntity;
-
-// public class TestRenderer extends MobEntityRenderer<TestEntity, BipedEntityModel> {
-//    public TestRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-//       super(entityRenderDispatcher, new EntityModel(), 1);
-//    }
-
-//    @Override
-//    public Identifier getTexture(TestEntity entity) {
-//       return new Identifier("mobz:textures/entity/test.png");
-//    }
-
-// }
-
-// package net.mobz.Renderer;
-
-// import net.fabricmc.api.EnvType;
-// import net.fabricmc.api.Environment;
-// import net.minecraft.client.render.entity.EntityRenderDispatcher;
-// import net.minecraft.client.render.entity.IllagerEntityRenderer;
-// import net.minecraft.client.render.entity.feature.HeldItemFeatureRenderer;
-// import net.minecraft.client.render.entity.model.IllagerEntityModel;
-// import net.minecraft.entity.mob.PillagerEntity;
-// import net.minecraft.util.Identifier;
-// import net.mobz.Entity.TestEntity;
-
-// @Environment(EnvType.CLIENT)
-// public class TestRenderer extends IllagerEntityRenderer<TestEntity> {
-//    private static final Identifier SKIN = new Identifier("mobz:textures/entity/test.png");
-
-//    public TestRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-//       super(entityRenderDispatcher, new IllagerEntityModel<>(0.0F, 0.0F, 64, 64), 0.5F);
-//       this.addFeature(new HeldItemFeatureRenderer<>(this));
-//    }
-
-//    public Identifier getTexture(PillagerEntity pillagerEntity) {
-//       return SKIN;
-//    }
-
-//    @Override
-//    public Identifier getTexture(TestEntity entity) {
-//       return new Identifier("mobz:textures/entity/test.png");
-//    }
-// }
-
 package net.mobz.Renderer;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.render.entity.BipedEntityRenderer;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
-import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.model.RavagerEntityModel;
+import net.minecraft.client.render.entity.model.VexEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.mob.RavagerEntity;
+import net.minecraft.entity.mob.VexEntity;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
-public class TestRenderer extends MobEntityRenderer<RavagerEntity, RavagerEntityModel> {
-   private static final Identifier SKIN = new Identifier("mobz:textures/entity/ravo.png");
+public class TestRenderer extends BipedEntityRenderer<VexEntity, VexEntityModel> {
+   private static final Identifier TEXTURE = new Identifier("mobz:textures/entity/test.png");
+   private static final Identifier CHARGING_TEXTURE = new Identifier("mobz:textures/entity/test.png");
 
    public TestRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-      super(entityRenderDispatcher, new RavagerEntityModel(), 1.1F);
+      super(entityRenderDispatcher, new VexEntityModel(), 0.3F);
    }
 
    @Override
-   public Identifier getTexture(RavagerEntity ravagerEntity) {
-      return SKIN;
+   protected int getBlockLight(VexEntity vexEntity, float f) {
+      return 15;
    }
 
-   protected void scale(RavagerEntity caveSpiderEntity, MatrixStack matrixStack, float f) {
+   @Override
+   public Identifier getTexture(VexEntity vexEntity) {
+      return vexEntity.isCharging() ? CHARGING_TEXTURE : TEXTURE;
+   }
+
+   @Override
+   protected void scale(VexEntity vexEntity, MatrixStack matrixStack, float f) {
       matrixStack.scale(0.4F, 0.4F, 0.4F);
    }
 }
