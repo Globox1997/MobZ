@@ -4,14 +4,14 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnRestriction;
 import net.minecraft.entity.SpawnType;
-import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
+import net.mobz.Entity.BabyravagerEntity;
 import net.mobz.Inits.Blockinit;
-
+import net.mobz.Inits.Entityinit;
 import net.minecraft.block.SpawnerBlock;
 import net.minecraft.world.MobSpawnerLogic;
 
@@ -49,7 +49,7 @@ public class SpawnblockEntity extends BlockEntity implements Tickable {
         world.addParticle(ParticleTypes.SMOKE, d, e, f, 0.0D, 0.0D, 0.0D);
         world.addParticle(ParticleTypes.FLAME, d, e, f, 0.0D, 0.0D, 0.0D);
       } else {
-        CowEntity entity = new CowEntity(EntityType.COW, world);
+        BabyravagerEntity entity = new BabyravagerEntity(Entityinit.BABYRAVAGERENTITY, world);
         int currentmobcount = world.getNonSpectatingEntities(entity.getClass(),
             (new Box((double) blockPos.getX(), (double) blockPos.getY(), (double) blockPos.getZ(),
                 (double) (blockPos.getX() + 1), (double) (blockPos.getY() + 1), (double) (blockPos.getZ() + 1)))
@@ -65,10 +65,9 @@ public class SpawnblockEntity extends BlockEntity implements Tickable {
             double h = (double) (blockPos.getY() + world.random.nextInt(3) - 1);
             double k = (double) blockPos.getZ()
                 + (world.random.nextDouble() - world.random.nextDouble()) * (double) this.spawnRange + 0.5D;
-            if (world.doesNotCollide((EntityType.COW.createSimpleBoundingBox(g, h, k))) && SpawnRestriction.canSpawn(
-                EntityType.COW, world.getWorld(), SpawnType.SPAWNER, new BlockPos(g, h, k), world.getRandom())) {
-
-              // CowEntity entity = new CowEntity(EntityType.COW, world);
+            if (world.doesNotCollide((Entityinit.BABYRAVAGERENTITY.createSimpleBoundingBox(g, h, k)))
+                && SpawnRestriction.canSpawn(Entityinit.BABYRAVAGERENTITY, world.getWorld(), SpawnType.SPAWNER,
+                    new BlockPos(g, h, k), world.getRandom())) {
               entity.updatePosition(g, h, k);
               world.playLevelEvent(2004, blockPos, 0);
               entity.playSpawnEffects();

@@ -42,6 +42,7 @@ public class TankEntity extends ZombieEntity {
         this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
                 .setBaseValue(Configinit.CONFIGZ.TankAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
         this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
+        this.getAttributeInstance(EntityAttributes.ATTACK_KNOCKBACK).setBaseValue(1.2D);
     }
 
     @Override

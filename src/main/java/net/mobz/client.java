@@ -117,6 +117,19 @@ public class client implements ClientModInitializer {
                 EntityRendererRegistry.INSTANCE.register(Entityinit.PILLAGERBOSS,
                                 (dispatcher, context) -> new PillagerBossRenderer(dispatcher));
 
+                EntityRendererRegistry.INSTANCE.register(Entityinit.BABYRAVAGERENTITY,
+                                (dispatcher, context) -> new BabyravagerRenderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(Entityinit.ISLANDKING,
+                                (dispatcher, context) -> new IslandKingRenderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(Entityinit.ISLANDKNIGHTNORMAL,
+                                (dispatcher, context) -> new IslandKnightNRenderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(Entityinit.ISLANDKNIGHTSPECIAL,
+                                (dispatcher, context) -> new IslandKnightSpecialRenderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(Entityinit.ISLANDKNIGHTSPECIAL2,
+                                (dispatcher, context) -> new IslandKnightSpecial2Renderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(Entityinit.ISLANDVEXENTITY,
+                                (dispatcher, context) -> new IslandVexEntityRenderer(dispatcher));
+
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.ENDERHEADER, RenderLayer.getCutout());
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.TOTEM_BASE, RenderLayer.getCutout());
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.TOTEM_MIDDLE, RenderLayer.getCutout());

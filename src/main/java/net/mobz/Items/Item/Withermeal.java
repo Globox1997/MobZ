@@ -29,6 +29,14 @@ public class Withermeal extends Item {
                 world.setBlockState(oke, Blocks.WITHER_ROSE.getDefaultState(), 3);
                 mealitem.decrement(1);
                 return ActionResult.SUCCESS;
+            }
+            if (state.getBlock() == Blocks.FARMLAND) {
+                BlockPos farm = context.getBlockPos();
+                BlockPos oke = context.getBlockPos().up();
+                world.setBlockState(oke, Blocks.WITHER_ROSE.getDefaultState(), 3);
+                world.setBlockState(farm, Blocks.SOUL_SAND.getDefaultState(), 3);
+                mealitem.decrement(1);
+                return ActionResult.SUCCESS;
             } else {
                 return ActionResult.PASS;
             }

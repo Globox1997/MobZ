@@ -146,6 +146,25 @@ public class Entityinit {
         public static final EntityType<PillagerBoss> PILLAGERBOSS = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, PillagerBoss::new).size(EntityDimensions.fixed(0.78F, 2.675F))
                         .build();
+        // New
+        public static final EntityType<BabyravagerEntity> BABYRAVAGERENTITY = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, BabyravagerEntity::new)
+                        .size(EntityDimensions.fixed(0.78F, 0.88F)).build();
+        public static final EntityType<IslandKing> ISLANDKING = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, IslandKing::new).size(EntityDimensions.fixed(0.6F, 1.8F))
+                        .build();
+        public static final EntityType<IslandKnightNormal> ISLANDKNIGHTNORMAL = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, IslandKnightNormal::new)
+                        .size(EntityDimensions.fixed(0.6F, 1.8F)).build();
+        public static final EntityType<IslandKnightSpecial> ISLANDKNIGHTSPECIAL = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, IslandKnightSpecial::new)
+                        .size(EntityDimensions.fixed(0.6F, 1.8F)).build();
+        public static final EntityType<IslandKnightSpecial2> ISLANDKNIGHTSPECIAL2 = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, IslandKnightSpecial2::new)
+                        .size(EntityDimensions.fixed(0.6F, 1.8F)).build();
+        public static final EntityType<IslandVexEntity> ISLANDVEXENTITY = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, IslandVexEntity::new).size(EntityDimensions.fixed(0.4F, 0.8F))
+                        .build();
 
         public static void init() {
 
@@ -197,6 +216,17 @@ public class Entityinit {
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "withender_entity"), WITHENDER);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "tspider_entity"), TSPIDER);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "pillagerboss_entity"), PILLAGERBOSS);
+
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "babyravager_entity"),
+                                BABYRAVAGERENTITY);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "islandking_entity"), ISLANDKING);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "islandknightnormal_entity"),
+                                ISLANDKNIGHTNORMAL);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "islandknightspecial_entity"),
+                                ISLANDKNIGHTSPECIAL);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "islandknightspecial2_entity"),
+                                ISLANDKNIGHTSPECIAL2);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "islandvex_entity"), ISLANDVEXENTITY);
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_friend"), new SpawnEggItem(FRIEND,
                                 11123336, 15043903, new Item.Settings().maxCount(64).group(Itemgroupinit.EGGZ_GROUP)));
