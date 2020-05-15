@@ -15,13 +15,13 @@ public class Iteminit {
             new Item.Settings().maxCount(1));
     public static final MedivealDisc2 MEDIVEAL_DISC2 = new MedivealDisc2(0, Soundinit.MEDIVEALSOUND2EVENT,
             new Item.Settings().maxCount(1));
-    public static final Shield SHIELD = new Shield(new Item.Settings().maxCount(1).maxDamage(789));
-    public static final Shield2 SHIELD2 = new Shield2(new Item.Settings().maxCount(1).maxDamage(478));
+    public static final Shield SHIELD = new Shield(new Item.Settings().maxDamage(789));
+    public static final Shield2 SHIELD2 = new Shield2(new Item.Settings().maxDamage(478));
     public static final Rottenflesh ROTTENFLESH = new Rottenflesh();
     public static final Redd REDD = new Redd(new Item.Settings());
     public static final Withermeal WITHERMEAL = new Withermeal(new Item.Settings());
     public static final Bearleather BEARLEATHER = new Bearleather(new Item.Settings());
-    public static final Sbow SBOW = new Sbow(new Item.Settings().maxCount(1).maxDamage(461));
+    public static final Sbow SBOW = new Sbow(new Item.Settings().maxDamage(461));
     public static final Orb ORB = new Orb(new Item.Settings().maxCount(1));
     public static final Whitebag WHITEBAG = new Whitebag(new Item.Settings().maxCount(1));
     public static final Orb2 ORB2 = new Orb2(new Item.Settings().maxCount(1));

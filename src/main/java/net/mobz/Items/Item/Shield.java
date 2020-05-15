@@ -6,5 +6,4 @@ public class Shield extends ShieldItem {
     public Shield(Settings settings) {
         super(settings);
     }
-
 }
