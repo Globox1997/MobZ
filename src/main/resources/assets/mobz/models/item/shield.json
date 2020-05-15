@@ -5525,5 +5525,19 @@
                 0.82
             ]
         }
-    }
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "lefthanded": 1
+            },
+            "model": "mobz:item/shield"
+        },
+        {
+            "predicate": {
+                "blocking": 1
+            },
+            "model": "mobz:item/shield_blocking"
+        }
+    ]
 }
