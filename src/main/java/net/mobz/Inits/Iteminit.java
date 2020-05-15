@@ -16,6 +16,7 @@ public class Iteminit {
     public static final MedivealDisc2 MEDIVEAL_DISC2 = new MedivealDisc2(0, Soundinit.MEDIVEALSOUND2EVENT,
             new Item.Settings().maxCount(1));
     public static final Shield SHIELD = new Shield(new Item.Settings().maxCount(1));
+    public static final Shield2 SHIELD2 = new Shield2(new Item.Settings().maxCount(1));
     public static final Rottenflesh ROTTENFLESH = new Rottenflesh();
     public static final Redd REDD = new Redd(new Item.Settings());
     public static final Withermeal WITHERMEAL = new Withermeal(new Item.Settings());
@@ -65,6 +66,7 @@ public class Iteminit {
         Registry.register(Registry.ITEM, new Identifier("mobz", "weird_ingot"), WEIRDINGOT);
         Registry.register(Registry.ITEM, new Identifier("mobz", "hardenedmetal_ingot"), HARDENEDMETAL);
         Registry.register(Registry.ITEM, new Identifier("mobz", "shield"), SHIELD);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "shield2"), SHIELD2);
         Registry.register(Registry.ITEM, new Identifier("mobz", "rottenflesh"), ROTTENFLESH);
         Registry.register(Registry.ITEM, new Identifier("mobz", "redd"), REDD);
         Registry.register(Registry.ITEM, new Identifier("mobz", "withermeal"), WITHERMEAL);
