@@ -16,11 +16,11 @@ import net.mobz.Inits.Entityinit;
 
 public class SpawnblockEntity extends BlockEntity implements Tickable {
   private int requiredPlayerRange = 16;
-  private int spawndelay = 40;
-  private int spawntimecounter = 0;
-  private int maxcapofspawns = 10;
-  private int spawnRange = 4;
-  private int maxNearbyEntities = 4;
+  private int spawnDelay = 40;
+  private int spawnTimeCounter = 0;
+  private int maxCapofSpawns = 10;
+  private int spawnRange = 5;
+  private int maxNearbyEntities = 3;
 
   public SpawnblockEntity() {
     super(Blockinit.SPAWNBLOCKENTITY);
@@ -54,11 +54,11 @@ public class SpawnblockEntity extends BlockEntity implements Tickable {
                 (double) (blockPos.getX() + 1), (double) (blockPos.getY() + 1), (double) (blockPos.getZ() + 1)))
                     .expand((double) this.spawnRange))
             .size();
-        spawntimecounter++;
+        spawnTimeCounter++;
         if (currentmobcount >= this.maxNearbyEntities) {
           return;
         } else {
-          if (spawntimecounter >= spawndelay) {
+          if (spawnTimeCounter >= spawnDelay) {
             double g = (double) blockPos.getX()
                 + (world.random.nextDouble() - world.random.nextDouble()) * (double) this.spawnRange + 0.5D;
             double h = (double) (blockPos.getY() + world.random.nextInt(3) - 1);
@@ -72,11 +72,11 @@ public class SpawnblockEntity extends BlockEntity implements Tickable {
               entity.playSpawnEffects();
 
               world.spawnEntity(entity);
-              maxcapofspawns--;
-              spawntimecounter = 0;
+              maxCapofSpawns--;
+              spawnTimeCounter = 0;
             }
           }
-          if (maxcapofspawns == 0) {
+          if (maxCapofSpawns == 0) {
             world.removeBlock(pos, false);
           }
         }
