@@ -379,5 +379,31 @@
       "mobz:moreheavystep1",
       "mobz:moreheavystep2"
     ]
+  },
+  "ravidle": {
+    "sounds": [
+      "mobz:ravidle1",
+      "mobz:ravidle2",
+      "mobz:ravidle3",
+      "mobz:ravidle4",
+      "mobz:ravidle5",
+      "mobz:ravidle6",
+      "mobz:ravidle7"
+    ]
+  },
+  "ravhurt": {
+    "sounds": [
+      "mobz:ravhurt1",
+      "mobz:ravhurt2",
+      "mobz:ravhurt3",
+      "mobz:ravhurt4"
+    ]
+  },
+  "ravdeath": {
+    "sounds": [
+      "mobz:ravdeath1",
+      "mobz:ravdeath2",
+      "mobz:ravdeath3"
+    ]
   }
 }

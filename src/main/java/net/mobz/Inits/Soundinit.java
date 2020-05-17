@@ -118,6 +118,12 @@ public class Soundinit {
     public static SoundEvent LIGHTERARMORWALKEVENT = new SoundEvent(LIGHTERARMORWALK);
     public static final Identifier LESSHEAVYARMORWALK = new Identifier("mobz:lessheavyarmorwalk");
     public static SoundEvent LESSHEAVYARMORWALKEVENT = new SoundEvent(LESSHEAVYARMORWALK);
+    public static final Identifier RAVIDLE = new Identifier("mobz:ravidle");
+    public static SoundEvent RAVIDLEEVENT = new SoundEvent(RAVIDLE);
+    public static final Identifier RAVHURT = new Identifier("mobz:ravhurt");
+    public static SoundEvent RAVHURTEVENT = new SoundEvent(RAVHURT);
+    public static final Identifier RAVDEATH = new Identifier("mobz:ravdeath");
+    public static SoundEvent RAVDEATHEVENT = new SoundEvent(RAVDEATH);
 
     public static void init() {
 
@@ -177,6 +183,9 @@ public class Soundinit {
         Registry.register(Registry.SOUND_EVENT, Soundinit.LEATHERWALK, LEATHERWALKEVENT);
         Registry.register(Registry.SOUND_EVENT, Soundinit.LIGHTERARMORWALK, LIGHTERARMORWALKEVENT);
         Registry.register(Registry.SOUND_EVENT, Soundinit.LESSHEAVYARMORWALK, LESSHEAVYARMORWALKEVENT);
+        Registry.register(Registry.SOUND_EVENT, Soundinit.RAVIDLE, RAVIDLEEVENT);
+        Registry.register(Registry.SOUND_EVENT, Soundinit.RAVDEATH, RAVDEATHEVENT);
+        Registry.register(Registry.SOUND_EVENT, Soundinit.RAVHURT, RAVHURTEVENT);
     }
 
 }
