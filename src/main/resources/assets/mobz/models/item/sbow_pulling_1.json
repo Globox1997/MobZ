@@ -1540,12 +1540,12 @@
 			"scale":  [ 0.81, 0.55, 0.6 ]
 		},
 		"firstperson_righthand": {
-			"rotation":  [ 3, 20, 88 ],
-			"translation":  [ 4, 4, -13 ],
+			"rotation":  [ 23, 20, 92 ],
+			"translation":  [ 4, 7, -13 ],
 			"scale":  [ 1.2, 1.04, 0.9 ]
 		},
 		"firstperson_lefthand": {
-			"rotation":  [ 3, 20, 88 ],
+			"rotation":  [ 23, 20, 92 ],
 			"translation":  [ 4, 6, -13 ],
 			"scale":  [ 1.2, 1.04, 0.9 ]
 		},
