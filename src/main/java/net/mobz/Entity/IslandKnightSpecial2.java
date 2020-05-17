@@ -23,7 +23,7 @@ public class IslandKnightSpecial2 extends VindicatorEntity {
 
   public IslandKnightSpecial2(EntityType<? extends VindicatorEntity> entityType, World world) {
     super(entityType, world);
-    this.experiencePoints = 20;
+    this.experiencePoints = 30;
 
   }
 
@@ -62,6 +62,11 @@ public class IslandKnightSpecial2 extends VindicatorEntity {
   @Override
   protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
     return;
+  }
+
+  @Override
+  public boolean cannotDespawn() {
+    return true;
   }
 
   @Override

@@ -26,7 +26,7 @@ import net.mobz.Inits.SwordItems;
 
 public class PillagerBoss extends PillagerEntity {
     private int cooldown = 0;
-    private final int requiredcooldown = 120;
+    private final int requiredCooldown = 120;
 
     public PillagerBoss(EntityType<PillagerBoss> entityType_1, World world_1) {
         super(entityType_1, world_1);
@@ -71,11 +71,11 @@ public class PillagerBoss extends PillagerEntity {
         if (getTarget() != null && !world.isClient && squaredDistanceTo(getTarget()) < 4096D && canSee(getTarget())) {
 
             cooldown++;
-            if (cooldown >= requiredcooldown) {
+            if (cooldown >= requiredCooldown) {
                 cooldown = 0;
                 attack(getTarget(), 1);
             }
-            if (cooldown >= (requiredcooldown - 20)) {
+            if (cooldown >= (requiredCooldown - 20)) {
                 getTarget().addStatusEffect(slow);
             }
         } else {

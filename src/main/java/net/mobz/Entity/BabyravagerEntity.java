@@ -1,13 +1,10 @@
 package net.mobz.Entity;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.RavagerEntity;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.mobz.Inits.Soundinit;
 
@@ -27,14 +24,24 @@ public class BabyravagerEntity extends RavagerEntity {
     this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
   }
 
-  public boolean tryAttack(Entity target) {
-    this.world.sendEntityStatus(this, (byte) 4);
-    this.playSound(Soundinit.NOTHINGEVENT, 1.0F, 1.0F);
-    return super.tryAttack(target);
+  @Override
+  public SoundEvent getCelebratingSound() {
+    return Soundinit.NOTHINGEVENT;
   }
 
+  @Override
+  protected SoundEvent getAmbientSound() {
+    return Soundinit.RAVIDLEEVENT;
+  }
+
+  @Override
   protected SoundEvent getHurtSound(DamageSource source) {
-    return Soundinit.NOTHINGEVENT;
+    return Soundinit.RAVHURTEVENT;
+  }
+
+  @Override
+  protected SoundEvent getDeathSound() {
+    return Soundinit.RAVDEATHEVENT;
   }
 
 }

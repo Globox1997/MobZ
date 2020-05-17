@@ -836,14 +836,6 @@ public class Blackbear extends PandaEntity {
          return this.recessive;
       }
 
-      private static Blackbear.Gene getProductGene(Blackbear.Gene Blackbear$Gene_1, Blackbear.Gene Blackbear$Gene_2) {
-         if (Blackbear$Gene_1.isRecessive()) {
-            return Blackbear$Gene_1 == Blackbear$Gene_2 ? Blackbear$Gene_1 : NORMAL;
-         } else {
-            return Blackbear$Gene_1;
-         }
-      }
-
       public static Blackbear.Gene byId(int int_1) {
          if (int_1 < 0 || int_1 >= VALUES.length) {
             int_1 = 0;

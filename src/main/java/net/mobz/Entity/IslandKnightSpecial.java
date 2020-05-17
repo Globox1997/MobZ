@@ -32,7 +32,7 @@ public class IslandKnightSpecial extends ZombieEntity {
 
   public IslandKnightSpecial(EntityType<? extends ZombieEntity> entityType, World world) {
     super(entityType, world);
-    this.experiencePoints = 20;
+    this.experiencePoints = 30;
   }
 
   @Override
@@ -76,6 +76,11 @@ public class IslandKnightSpecial extends ZombieEntity {
   @Override
   protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
     return;
+  }
+
+  @Override
+  public boolean cannotDespawn() {
+    return true;
   }
 
   @Override
