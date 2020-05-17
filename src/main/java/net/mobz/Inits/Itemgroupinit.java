@@ -26,7 +26,7 @@ public class Itemgroupinit {
                 stacks.add(new ItemStack(Iteminit.SBOW));
                 stacks.add(new ItemStack(Iteminit.PILLAGERSTAFF));
                 stacks.add(new ItemStack(Iteminit.SHIELD2));
-                stacks.add(ItemStack.EMPTY);
+                stacks.add(new ItemStack(Iteminit.SACRIFICEKNIFE));
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(ItemStack.EMPTY);

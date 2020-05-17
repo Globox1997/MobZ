@@ -57,6 +57,7 @@ public class Iteminit {
     public static final Witherblazehead WITHERBLAZEHEAD = new Witherblazehead(new Item.Settings().maxCount(1));
     public static final Pillagerbosshead PILLAGERBOSSHEAD = new Pillagerbosshead(new Item.Settings().maxCount(1));
     public static final Pillagerstaff PILLAGERSTAFF = new Pillagerstaff(new Item.Settings().maxCount(1));
+    public static final Sacrificeknife SACRIFICEKNIFE = new Sacrificeknife(new Item.Settings().maxCount(1));
 
     public static void init() {
 
@@ -75,6 +76,7 @@ public class Iteminit {
         Registry.register(Registry.ITEM, new Identifier("mobz", "orb"), ORB);
         Registry.register(Registry.ITEM, new Identifier("mobz", "whitebag"), WHITEBAG);
         Registry.register(Registry.ITEM, new Identifier("mobz", "orb2"), ORB2);
+        Registry.register(Registry.ITEM, new Identifier("mobz", "sacrificeknife"), SACRIFICEKNIFE);
         Registry.register(Registry.ITEM, new Identifier("mobz", "showegg"), SHOWEGG);
         Registry.register(Registry.ITEM, new Identifier("mobz", "archerhead"), ARCHERHEAD);
         Registry.register(Registry.ITEM, new Identifier("mobz", "bosshead"), BOSSHEAD);

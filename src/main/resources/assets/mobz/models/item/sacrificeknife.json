@@ -1,0 +1,20 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "mobz:item/sacrificeknife"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "bloody": 1
+      },
+      "model": "mobz:item/sacrificeknifebloody"
+    },
+    {
+      "predicate": {
+        "lessbloody": 0.5
+      },
+      "model": "mobz:item/sacrificeknifelessbloody"
+    }
+  ]
+}

@@ -110,6 +110,7 @@
     "item.mobz.pillagerstaff": "§6Staff of the Mighty Pillager",
     "item.mobz.pillagerstaff.tooltip": "Witherinfused",
     "item.mobz.shield2": "Metal Shield",
+    "item.mobz.sacrificeknife": "Sacrifice Knife",
     "item.mobz.enderheader": "§eEnderman Head",
     "item.mobz.totembase": "Pillager Totem Base",
     "item.mobz.totemmiddle": "Pillager Totem Middle",
@@ -443,5 +444,6 @@
     "text.mobz.withendermissing": "Something is missing",
     "text.mobz.pillagermissing": "Totem Part is missing",
     "text.mobz.pillagerdimension": "Summonable in the Overworld",
-    "text.mobz.pillagerspawnable": "Spawn is set to false"
+    "text.mobz.pillagerspawnable": "Spawn is set to false",
+    "text.mobz.sacrificeknifeblood": "Knife is too bloody"
 }
