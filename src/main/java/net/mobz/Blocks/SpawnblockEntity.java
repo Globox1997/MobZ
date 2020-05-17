@@ -1,7 +1,6 @@
 package net.mobz.Blocks;
 
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnRestriction;
 import net.minecraft.entity.SpawnType;
 import net.minecraft.particle.ParticleTypes;
@@ -12,8 +11,8 @@ import net.minecraft.world.World;
 import net.mobz.Entity.BabyravagerEntity;
 import net.mobz.Inits.Blockinit;
 import net.mobz.Inits.Entityinit;
-import net.minecraft.block.SpawnerBlock;
-import net.minecraft.world.MobSpawnerLogic;
+//import net.minecraft.block.SpawnerBlock;
+//import net.minecraft.world.MobSpawnerLogic;
 
 public class SpawnblockEntity extends BlockEntity implements Tickable {
   private int requiredPlayerRange = 16;

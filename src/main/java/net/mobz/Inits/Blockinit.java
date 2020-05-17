@@ -17,10 +17,14 @@ public class Blockinit {
         public static final TotemMiddle TOTEM_MIDDLE = new TotemMiddle(
                         FabricBlockSettings.copy(Blocks.OAK_LOG).build());
         public static final TotemTop TOTEM_TOP = new TotemTop(FabricBlockSettings.copy(Blocks.OAK_LOG).build());
-        public static final Bosstrophy BOSSTROPHY = new Bosstrophy(
+        public static final Bosstrophy BOSS_TROPHY = new Bosstrophy(
                         FabricBlockSettings.copy(Blocks.ZOMBIE_HEAD).build());
-        public static final Spawnblock SPAWNBLOCK = new Spawnblock(FabricBlockSettings.copy(Blocks.SPAWNER).build());
+        public static final Spawnblock SPAWN_BLOCK = new Spawnblock(FabricBlockSettings.copy(Blocks.SPAWNER).build());
         public static BlockEntityType<SpawnblockEntity> SPAWNBLOCKENTITY;
+        public static final Reddblock REDD_BLOCK = new Reddblock(
+                        FabricBlockSettings.copy(Blocks.DIAMOND_BLOCK).build());
+        public static final HardenedMetalblock HARDENED_METALBLOCK = new HardenedMetalblock(
+                        FabricBlockSettings.copy(Blocks.GOLD_BLOCK).build());
 
         public static void init() {
 
@@ -37,12 +41,18 @@ public class Blockinit {
                                 new BlockItem(TOTEM_TOP, new Item.Settings()));
                 Registry.register(Registry.BLOCK, new Identifier("mobz", "totemtop"), TOTEM_TOP);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "bosstrophy"),
-                                new BlockItem(BOSSTROPHY, new Item.Settings()));
-                Registry.register(Registry.BLOCK, new Identifier("mobz", "bosstrophy"), BOSSTROPHY);
+                                new BlockItem(BOSS_TROPHY, new Item.Settings()));
+                Registry.register(Registry.BLOCK, new Identifier("mobz", "bosstrophy"), BOSS_TROPHY);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawnblock"),
-                                new BlockItem(SPAWNBLOCK, new Item.Settings()));
-                Registry.register(Registry.BLOCK, new Identifier("mobz", "spawnblock"), SPAWNBLOCK);
+                                new BlockItem(SPAWN_BLOCK, new Item.Settings()));
+                Registry.register(Registry.BLOCK, new Identifier("mobz", "spawnblock"), SPAWN_BLOCK);
                 SPAWNBLOCKENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "mobz:spawnblockentity",
-                                BlockEntityType.Builder.create(SpawnblockEntity::new, SPAWNBLOCK).build(null));
+                                BlockEntityType.Builder.create(SpawnblockEntity::new, SPAWN_BLOCK).build(null));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "reddblock"),
+                                new BlockItem(REDD_BLOCK, new Item.Settings()));
+                Registry.register(Registry.BLOCK, new Identifier("mobz", "reddblock"), REDD_BLOCK);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "hardenedmetal_block"),
+                                new BlockItem(HARDENED_METALBLOCK, new Item.Settings()));
+                Registry.register(Registry.BLOCK, new Identifier("mobz", "hardenedmetal_block"), HARDENED_METALBLOCK);
         }
 }

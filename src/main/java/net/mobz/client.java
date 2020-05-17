@@ -134,8 +134,10 @@ public class client implements ClientModInitializer {
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.TOTEM_BASE, RenderLayer.getCutout());
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.TOTEM_MIDDLE, RenderLayer.getCutout());
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.TOTEM_TOP, RenderLayer.getCutout());
-                BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.BOSSTROPHY, RenderLayer.getCutout());
-                BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.SPAWNBLOCK, RenderLayer.getCutout());
+                BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.BOSS_TROPHY, RenderLayer.getCutout());
+                BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.SPAWN_BLOCK, RenderLayer.getCutout());
+                BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.REDD_BLOCK, RenderLayer.getSolid());
+                BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.HARDENED_METALBLOCK, RenderLayer.getSolid());
 
         }
 
