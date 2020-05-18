@@ -52,9 +52,9 @@ public class Itemgroupinit {
                 stacks.add(new ItemStack(Iteminit.BEARLEATHER));
                 stacks.add(new ItemStack(Iteminit.WITHERMEAL));
                 stacks.add(new ItemStack(Iteminit.REDD));
-                stacks.add(new ItemStack(Iteminit.WEIRDINGOT));
                 stacks.add(new ItemStack(Iteminit.HARDENEDMETAL));
                 stacks.add(new ItemStack(Iteminit.BOSSBARREN));
+                stacks.add(ItemStack.EMPTY);
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(new ItemStack(Blockinit.TOTEM_BASE));

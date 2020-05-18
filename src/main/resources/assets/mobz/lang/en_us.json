@@ -68,7 +68,6 @@
     "item.mobz.axe": "§5Eragons Axe",
     "item.mobz.shield": "§5Eragons Shield",
     "item.mobz.sword": "Rainbow Sword",
-    "item.mobz.weird_ingot": "Weird Ingot",
     "item.mobz.hardenedmetal_ingot": "§7Metal Ingot",
     "item.mobz.hardenedmetal_ingot.tooltip": "Uncommon Material",
     "item.mobz.speed_boots": "Speed Boots",
@@ -81,7 +80,6 @@
     "item.mobz.life_leggings": "§7Leggings of Life",
     "item.mobz.poison_sword": "§2Snakes Sword",
     "item.mobz.frozen_sword": "§3Frozen Sword",
-    "item.mobz.weird_ingot.tooltip": "...",
     "item.mobz.rottenflesh": "Thick Rotten Flesh",
     "item.mobz.amat_boots": "§4Aryas Boots",
     "item.mobz.amat_chestplate": "§4Aryas Chestplate",
@@ -111,6 +109,7 @@
     "item.mobz.pillagerstaff.tooltip": "Witherinfused",
     "item.mobz.shield2": "Metal Shield",
     "item.mobz.sacrificeknife": "Sacrifice Knife",
+    "item.mobz.sacrificeknife.tooltip": "Blood for blood",
     "item.mobz.enderheader": "§eEnderman Head",
     "item.mobz.totembase": "Pillager Totem Base",
     "item.mobz.totemmiddle": "Pillager Totem Middle",
@@ -443,7 +442,6 @@
     "mobz.advancements.pillagerboss.description": "One of the most feared Pillagers",
     "text.mobz.withendermissing": "Something is missing",
     "text.mobz.pillagermissing": "Totem Part is missing",
-    "text.mobz.pillagerdimension": "Summonable in the Overworld",
     "text.mobz.pillagerspawnable": "Spawn is set to false",
-    "text.mobz.sacrificeknifeblood": "Knife is too bloody"
+    "text.mobz.sacrificeknifeblood": "Knife is too less bloody"
 }

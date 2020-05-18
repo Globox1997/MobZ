@@ -25,6 +25,7 @@ public class Blockinit {
                         FabricBlockSettings.copy(Blocks.DIAMOND_BLOCK).build());
         public static final HardenedMetalblock HARDENED_METALBLOCK = new HardenedMetalblock(
                         FabricBlockSettings.copy(Blocks.GOLD_BLOCK).build());
+        public static BlockEntityType<TotemMiddleEntity> TOTEMMIDDLEENTITY;
 
         public static void init() {
 
@@ -54,5 +55,7 @@ public class Blockinit {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "hardenedmetal_block"),
                                 new BlockItem(HARDENED_METALBLOCK, new Item.Settings()));
                 Registry.register(Registry.BLOCK, new Identifier("mobz", "hardenedmetal_block"), HARDENED_METALBLOCK);
+                TOTEMMIDDLEENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "mobz:totemmiddleentity",
+                                BlockEntityType.Builder.create(TotemMiddleEntity::new, TOTEM_MIDDLE).build(null));
         }
 }

@@ -6,37 +6,37 @@ import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.dimension.DimensionType;
-import net.mobz.Blocks.TotemMiddle;
 import net.mobz.Config.configz;
-import net.mobz.Entity.PillagerBoss;
 import net.mobz.Inits.Blockinit;
-import net.mobz.Inits.Entityinit;
 
 public class Sacrificeknife extends Item {
   private int bloodCounter = 0;
-  private int spawnTimer;
 
   public Sacrificeknife(Settings settings) {
     super(settings);
     this.addPropertyGetter(new Identifier("bloody"), (stack, world, entity) -> {
-      if (bloodCounter <= 120 && bloodCounter > 60) {
+      if (bloodCounter > 3400) {
         return 1F;
       }
       return 0F;
     });
     this.addPropertyGetter(new Identifier("lessbloody"), (stack, world, entity) -> {
-      if (bloodCounter <= 60 && bloodCounter > 0) {
+      if (bloodCounter > 0 && bloodCounter < 3400) {
         return 0.5F;
       }
       return 0F;
@@ -49,6 +49,14 @@ public class Sacrificeknife extends Item {
   }
 
   @Override
+  public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    ItemStack itemStack = user.getStackInHand(hand);
+    user.damage(DamageSource.MAGIC, 2F);
+    bloodCounter = bloodCounter + 800;
+    return TypedActionResult.success(itemStack);
+  }
+
+  @Override
   public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
     if (bloodCounter > 0 && !world.isClient) {
       bloodCounter--;
@@ -58,39 +66,31 @@ public class Sacrificeknife extends Item {
   @Override
   public ActionResult useOnBlock(ItemUsageContext context) {
     World world = context.getWorld();
+    BlockPos pos = context.getBlockPos();
     PlayerEntity player = context.getPlayer();
-    if (context.getWorld().isClient) {
+    BlockState state = context.getWorld().getBlockState(context.getBlockPos());
+    if (world.isClient) {
       return ActionResult.PASS;
     } else {
-      BlockState state = context.getWorld().getBlockState(context.getBlockPos());
-      if (state.getBlock() == Blockinit.TOTEM_MIDDLE) {
-        if (context.getWorld().getDimension().getType() == DimensionType.OVERWORLD) {
-          if (TotemMiddle.isValid(context.getWorld(), context.getBlockPos(), state)) {
-            if (AutoConfig.getConfigHolder(configz.class).getConfig().PillagerBossSpawn) {
-              if (bloodCounter == 0) {
-                bloodCounter = 120;
-                PillagerBoss pillager = (PillagerBoss) Entityinit.PILLAGERBOSS.create(world);
-                BlockPos oke = context.getBlockPos();
-                pillager.refreshPositionAndAngles(oke, 0.0F, 0.0F);
-                spawnTimer = (int) (world.getTime());
-                world.spawnEntity(pillager);
-                return ActionResult.SUCCESS;
-              } else {
-                player.addChatMessage(new TranslatableText("text.mobz.sacrificeknifeblood"), true);
-              }
-            } else {
-              player.addChatMessage(new TranslatableText("text.mobz.pillagerspawnable"), true);
-            }
+      if (AutoConfig.getConfigHolder(configz.class).getConfig().PillagerBossSpawn) {
+        if (state.getBlock() == Blockinit.TOTEM_MIDDLE) {
+          if (bloodCounter >= 3400) {
+            bloodCounter = 2500;
+            world.playSound(null, pos, SoundEvents.ENTITY_WITHER_SPAWN, SoundCategory.HOSTILE, 1F, 1F);
+            Blockinit.TOTEMMIDDLEENTITY.get(world, pos).startTimer = true;
+            return ActionResult.SUCCESS;
           } else {
-            player.addChatMessage(new TranslatableText("text.mobz.pillagermissing"), true);
-
+            player.addChatMessage(new TranslatableText("text.mobz.sacrificeknifeblood"), true);
+            return ActionResult.PASS;
           }
         } else {
-          player.addChatMessage(new TranslatableText("text.mobz.pillagerdimension"), true);
+          player.addChatMessage(new TranslatableText("text.mobz.pillagermissing"), true);
+          return ActionResult.PASS;
         }
+      } else {
+        player.addChatMessage(new TranslatableText("text.mobz.pillagerspawnable"), true);
+        return ActionResult.PASS;
       }
-      return ActionResult.PASS;
     }
   }
-
 }

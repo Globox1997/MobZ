@@ -1,7 +1,9 @@
 package net.mobz.Blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityContext;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
@@ -14,16 +16,19 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.mobz.Inits.Blockinit;
 
-public class TotemMiddle extends Block {
+public class TotemMiddle extends Block implements BlockEntityProvider {
   public static final IntProperty ROTATION;
   protected static final VoxelShape SHAPE;
 
   public TotemMiddle(Settings settings) {
     super(settings);
 
+  }
+
+  @Override
+  public BlockEntity createBlockEntity(BlockView view) {
+    return new TotemMiddleEntity();
   }
 
   @Override
@@ -45,29 +50,6 @@ public class TotemMiddle extends Block {
   @Override
   protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
     builder.add(ROTATION);
-  }
-
-  public static boolean isValid(World world, BlockPos pos, BlockState state) {
-    if (state.getBlock() != Blockinit.TOTEM_MIDDLE) {
-      return false;
-    }
-
-    BlockState bottom = world.getBlockState(pos.down());
-    BlockState middle = world.getBlockState(pos);
-    BlockState top = world.getBlockState(pos.up());
-    if (bottom.getBlock() == Blockinit.TOTEM_BASE) {
-      if (middle.getBlock() == Blockinit.TOTEM_MIDDLE) {
-        if (top.getBlock() == Blockinit.TOTEM_TOP) {
-          world.breakBlock(pos, false);
-          world.breakBlock(pos.down(), false);
-          world.breakBlock(pos.up(), false);
-          return true;
-        }
-      }
-    }
-
-    return false;
-
   }
 
   @Override

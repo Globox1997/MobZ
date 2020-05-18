@@ -9,7 +9,6 @@ import net.mobz.Items.Item.*;
 public class Iteminit {
 
     public static final BossIngot BOSSBARREN = new BossIngot(new Item.Settings());
-    public static final WeirdIngot WEIRDINGOT = new WeirdIngot(new Item.Settings().maxCount(1));
     public static final HardenedMetal HARDENEDMETAL = new HardenedMetal(new Item.Settings());
     public static final MedivealDisc MEDIVEAL_DISC = new MedivealDisc(1, Soundinit.MEDIVEALSOUNDEVENT,
             new Item.Settings().maxCount(1));
@@ -64,7 +63,6 @@ public class Iteminit {
         Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc"), MEDIVEAL_DISC);
         Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc2"), MEDIVEAL_DISC2);
         Registry.register(Registry.ITEM, new Identifier("mobz", "boss_ingot"), BOSSBARREN);
-        Registry.register(Registry.ITEM, new Identifier("mobz", "weird_ingot"), WEIRDINGOT);
         Registry.register(Registry.ITEM, new Identifier("mobz", "hardenedmetal_ingot"), HARDENEDMETAL);
         Registry.register(Registry.ITEM, new Identifier("mobz", "shield"), SHIELD);
         Registry.register(Registry.ITEM, new Identifier("mobz", "shield2"), SHIELD2);
