@@ -116,7 +116,6 @@ public class client implements ClientModInitializer {
                                 (dispatcher, context) -> new TSpiderRenderer(dispatcher));
                 EntityRendererRegistry.INSTANCE.register(Entityinit.PILLAGERBOSS,
                                 (dispatcher, context) -> new PillagerBossRenderer(dispatcher));
-
                 EntityRendererRegistry.INSTANCE.register(Entityinit.BABYRAVAGERENTITY,
                                 (dispatcher, context) -> new BabyravagerRenderer(dispatcher));
                 EntityRendererRegistry.INSTANCE.register(Entityinit.ISLANDKING,
@@ -129,6 +128,8 @@ public class client implements ClientModInitializer {
                                 (dispatcher, context) -> new IslandKnightSpecial2Renderer(dispatcher));
                 EntityRendererRegistry.INSTANCE.register(Entityinit.ISLANDVEXENTITY,
                                 (dispatcher, context) -> new IslandVexEntityRenderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(Entityinit.METALGOLEM,
+                                (dispatcher, context) -> new MetalGolemRenderer(dispatcher));
 
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.ENDERHEADER, RenderLayer.getCutout());
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.TOTEM_BASE, RenderLayer.getCutout());

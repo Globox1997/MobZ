@@ -146,7 +146,6 @@ public class Entityinit {
         public static final EntityType<PillagerBoss> PILLAGERBOSS = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, PillagerBoss::new).size(EntityDimensions.fixed(0.78F, 2.675F))
                         .build();
-        // New
         public static final EntityType<BabyravagerEntity> BABYRAVAGERENTITY = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, BabyravagerEntity::new)
                         .size(EntityDimensions.fixed(0.78F, 0.88F)).build();
@@ -164,6 +163,9 @@ public class Entityinit {
                         .size(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<IslandVexEntity> ISLANDVEXENTITY = FabricEntityTypeBuilder
                         .create(EntityCategory.MONSTER, IslandVexEntity::new).size(EntityDimensions.fixed(0.4F, 0.8F))
+                        .build();
+        public static final EntityType<MetalGolem> METALGOLEM = FabricEntityTypeBuilder
+                        .create(EntityCategory.MONSTER, MetalGolem::new).size(EntityDimensions.fixed(1.59F, 3F))
                         .build();
 
         public static void init() {
@@ -216,7 +218,6 @@ public class Entityinit {
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "withender_entity"), WITHENDER);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "tspider_entity"), TSPIDER);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "pillagerboss_entity"), PILLAGERBOSS);
-
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "babyravager_entity"),
                                 BABYRAVAGERENTITY);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "islandking_entity"), ISLANDKING);
@@ -227,6 +228,7 @@ public class Entityinit {
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "islandknightspecial2_entity"),
                                 ISLANDKNIGHTSPECIAL2);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "islandvex_entity"), ISLANDVEXENTITY);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "metalgolem_entity"), METALGOLEM);
                 // A
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_friend"), new SpawnEggItem(FRIEND,
                                 11123336, 15043903, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
@@ -305,6 +307,8 @@ public class Entityinit {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_skeli4"), new SpawnEggItem(SKELI4,
                                 4079166, 11776947, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 // M
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_metalgolem"), new SpawnEggItem(
+                                METALGOLEM, 4801614, 5121582, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 // N
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_skeli3"), new SpawnEggItem(SKELI3,
                                 4801614, 5121582, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));

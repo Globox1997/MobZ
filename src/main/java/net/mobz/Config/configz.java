@@ -67,6 +67,8 @@ public class configz implements ConfigData {
     @ConfigEntry.Category("spawnsetting")
     public boolean LostSkeletonSpawn = true;
     @ConfigEntry.Category("spawnsetting")
+    public boolean MetalGolemSpawn = true;
+    @ConfigEntry.Category("spawnsetting")
     public boolean NetherSkeletonSpawn = true;
     @ConfigEntry.Category("spawnsetting")
     public boolean NetherWolfSpawn = true;
@@ -147,6 +149,8 @@ public class configz implements ConfigData {
     @ConfigEntry.Category("lifesetting")
     public double LostSkeletonLife = 20D;
     @ConfigEntry.Category("lifesetting")
+    public double MetalGolemLife = 140D;
+    @ConfigEntry.Category("lifesetting")
     public double NetherSkeletonLife = 28D;
     @ConfigEntry.Category("lifesetting")
     public double NetherWolfLife = 20D;
@@ -221,6 +225,8 @@ public class configz implements ConfigData {
     public double LordofDarknessAttack = 7D;
     @ConfigEntry.Category("damagesetting")
     public double LostSkeletonAttack = 5D;
+    @ConfigEntry.Category("damagesetting")
+    public double MetalGolemAttack = 16D;
     @ConfigEntry.Category("damagesetting")
     public double NetherWolfAttack = 6D;
     @ConfigEntry.Category("damagesetting")
