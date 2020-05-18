@@ -27,6 +27,7 @@ public class MetalGolemRenderer extends MobEntityRenderer<IronGolemEntity, IronG
     return SKIN;
   }
 
+  @Override
   protected void scale(IronGolemEntity golem, MatrixStack matrixStack, float f) {
     matrixStack.scale(1.15F, 1.15F, 1.15F);
   }

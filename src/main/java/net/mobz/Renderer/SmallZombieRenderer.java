@@ -16,6 +16,7 @@ public class SmallZombieRenderer extends ZombieBaseEntityRenderer<SmallZombie, Z
             new ZombieEntityModel<>(0.5F, true));
    }
 
+   @Override
    protected void scale(SmallZombie smallZombie, MatrixStack matrixStack, float f) {
       matrixStack.scale(0.5F, 0.5F, 0.5F);
    }

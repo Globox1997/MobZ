@@ -22,10 +22,12 @@ public class StoneGolemRenderer extends MobEntityRenderer<IronGolemEntity, IronG
         this.addFeature(new IronGolemFlowerFeatureRenderer(this));
     }
 
+    @Override
     public Identifier getTexture(IronGolemEntity stone) {
         return SKIN;
     }
 
+    @Override
     protected void setupTransforms(IronGolemEntity ironGolemEntity, MatrixStack matrixStack, float f, float g,
             float h) {
         super.setupTransforms(ironGolemEntity, matrixStack, f, g, h);

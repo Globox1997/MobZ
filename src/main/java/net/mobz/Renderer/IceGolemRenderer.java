@@ -23,6 +23,7 @@ public class IceGolemRenderer extends MobEntityRenderer<IronGolemEntity, IronGol
         this.addFeature(new IronGolemFlowerFeatureRenderer(this));
     }
 
+    @Override
     public Identifier getTexture(IronGolemEntity ice) {
         return SKIN;
     }
@@ -31,6 +32,7 @@ public class IceGolemRenderer extends MobEntityRenderer<IronGolemEntity, IronGol
         matrixStack.scale(1.1F, 1.1F, 1.1F);
     }
 
+    @Override
     protected void setupTransforms(IronGolemEntity ironGolemEntity, MatrixStack matrixStack, float f, float g,
             float h) {
         super.setupTransforms(ironGolemEntity, matrixStack, f, g, h);

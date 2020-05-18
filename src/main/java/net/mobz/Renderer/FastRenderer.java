@@ -19,6 +19,7 @@ public class FastRenderer extends BipedEntityRenderer<FastEntity, ZombieEntityMo
             new ZombieEntityModel<>(1.0F, true)));
    }
 
+   @Override
    public Identifier getTexture(FastEntity Fasty) {
       return SKIN;
    }

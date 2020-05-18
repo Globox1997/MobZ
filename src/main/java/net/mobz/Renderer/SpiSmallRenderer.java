@@ -19,6 +19,7 @@ public class SpiSmallRenderer extends SpiderEntityRenderer<SpiSmall> {
       this.addFeature(new SpiderEyesFeatureRenderer<>(this));
    }
 
+   @Override
    protected void scale(SpiSmall caveSpiderEntity, MatrixStack matrixStack, float f) {
       matrixStack.scale(0.7F, 0.7F, 0.7F);
    }

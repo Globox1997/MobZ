@@ -19,6 +19,7 @@ public class TankRenderer extends BipedEntityRenderer<TankEntity, ZombieEntityMo
             new ZombieEntityModel<>(1.0F, true)));
    }
 
+   @Override
    public Identifier getTexture(TankEntity Tanky) {
       return SKIN;
    }

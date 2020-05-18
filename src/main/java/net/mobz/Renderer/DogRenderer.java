@@ -18,10 +18,12 @@ public class DogRenderer extends MobEntityRenderer<WolfEntity, WolfEntityModel<W
       super(entityRenderDispatcher, new WolfEntityModel<>(), 0.5F);
    }
 
+   @Override
    protected float getAnimationProgress(WolfEntity wolfEntity, float f) {
       return wolfEntity.method_6714();
    }
 
+   @Override
    public Identifier getTexture(WolfEntity wolfEntity) {
       if (wolfEntity.isTamed()) {
          return TAMED_SKIN;

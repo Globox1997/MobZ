@@ -19,6 +19,7 @@ public class ArmoredRenderer extends BipedEntityRenderer<ArmoredEntity, ZombieEn
                 new ZombieEntityModel<>(1.0F, true)));
     }
 
+    @Override
     public Identifier getTexture(ArmoredEntity Army) {
         return SKIN;
     }

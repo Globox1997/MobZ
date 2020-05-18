@@ -18,6 +18,7 @@ public class TSpiderRenderer extends SpiderEntityRenderer<TSpider> {
       this.addFeature(new SpiderEyesFeatureRenderer<>(this));
    }
 
+   @Override
    protected void scale(TSpider caveSpiderEntity, MatrixStack matrixStack, float f) {
       matrixStack.scale(0.1F, 0.1F, 0.1F);
    }

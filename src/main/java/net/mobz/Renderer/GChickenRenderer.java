@@ -17,10 +17,12 @@ public class GChickenRenderer extends MobEntityRenderer<ChickenEntity, ChickenEn
       super(entityRenderDispatcher, new ChickenEntityModel<>(), 0.3F);
    }
 
+   @Override
    public Identifier getTexture(ChickenEntity chickenEntity) {
       return SKIN;
    }
 
+   @Override
    protected float getAnimationProgress(ChickenEntity chickenEntity, float f) {
       float g = MathHelper.lerp(f, chickenEntity.field_6736, chickenEntity.field_6741);
       float h = MathHelper.lerp(f, chickenEntity.field_6738, chickenEntity.field_6743);

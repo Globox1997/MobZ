@@ -17,10 +17,9 @@ public class Rottenflesh extends Item {
     super(new Item.Settings().food(FOOD_COMPONENT));
   }
 
-  StatusEffectInstance hunger = new StatusEffectInstance(StatusEffect.byRawId(17), 600, 0, true, false);
-
   @Override
   public ItemStack finishUsing(ItemStack stack, World world, LivingEntity entity) {
+    StatusEffectInstance hunger = new StatusEffectInstance(StatusEffect.byRawId(17), 600, 0, true, false);
     Random random = new Random();
     int randomNumber = random.nextInt() % 2;
 

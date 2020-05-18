@@ -22,10 +22,12 @@ public class LavaGolemRenderer extends MobEntityRenderer<IronGolemEntity, IronGo
         this.addFeature(new IronGolemFlowerFeatureRenderer(this));
     }
 
+    @Override
     public Identifier getTexture(IronGolemEntity lava) {
         return SKIN;
     }
 
+    @Override
     protected void setupTransforms(IronGolemEntity ironGolemEntity, MatrixStack matrixStack, float f, float g,
             float h) {
         super.setupTransforms(ironGolemEntity, matrixStack, f, g, h);

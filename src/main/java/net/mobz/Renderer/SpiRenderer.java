@@ -16,6 +16,7 @@ public class SpiRenderer extends SpiderEntityRenderer<SpiEntity> {
         this.addFeature(new SpiEyes<>(this));
     }
 
+    @Override
     public Identifier getTexture(SpiEntity spiEntity) {
         return new Identifier("mobz:textures/entity/spi.png");
     }

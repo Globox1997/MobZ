@@ -20,6 +20,7 @@ public class CreepRenderer extends MobEntityRenderer<CreeperEntity, CreeperEntit
         this.addFeature(new CreeperChargeFeatureRenderer(this));
     }
 
+    @Override
     protected void scale(CreeperEntity creeperEntity, MatrixStack matrixStack, float f) {
         float g = creeperEntity.getClientFuseTime(f);
         float h = 1.0F + MathHelper.sin(g * 100.0F) * g * 0.01F;
@@ -31,11 +32,13 @@ public class CreepRenderer extends MobEntityRenderer<CreeperEntity, CreeperEntit
         matrixStack.scale(i, j, i);
     }
 
+    @Override
     protected float getWhiteOverlayProgress(CreeperEntity creeperEntity, float f) {
         float g = creeperEntity.getClientFuseTime(f);
         return (int) (g * 10.0F) % 2 == 0 ? 0.0F : MathHelper.clamp(g, 0.5F, 1.0F);
     }
 
+    @Override
     public Identifier getTexture(CreeperEntity creeperEntity) {
         return SKIN;
     }

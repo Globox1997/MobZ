@@ -26,6 +26,7 @@ public class EnderRenderer extends MobEntityRenderer<EndermanEntity, EndermanEnt
       this.addFeature(new EndermanBlockFeatureRenderer(this));
    }
 
+   @Override
    public void render(EndermanEntity endermanEntity, float f, float g, MatrixStack matrixStack,
          VertexConsumerProvider vertexConsumerProvider, int i) {
       BlockState blockState = endermanEntity.getCarriedBlock();
@@ -35,6 +36,7 @@ public class EnderRenderer extends MobEntityRenderer<EndermanEntity, EndermanEnt
       super.render((EndermanEntity) endermanEntity, f, g, matrixStack, vertexConsumerProvider, i);
    }
 
+   @Override
    public Vec3d getPositionOffset(EndermanEntity endermanEntity, float f) {
       if (endermanEntity.isAngry()) {
          double d = 0.02D;

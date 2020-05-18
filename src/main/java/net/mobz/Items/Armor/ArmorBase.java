@@ -18,6 +18,7 @@ public class ArmorBase extends ArmorItem {
         super(material, slot, new Item.Settings());
     }
 
+    @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         LivingEntity bob = (LivingEntity) entity;
         StatusEffectInstance spd = new StatusEffectInstance(StatusEffect.byRawId(1), 9, 0, false, false);

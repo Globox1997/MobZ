@@ -19,6 +19,7 @@ public class PigmanRenderer extends BipedEntityRenderer<PigmanEntity, ZombieEnti
             new ZombieEntityModel<>(1.0F, true)));
    }
 
+   @Override
    public Identifier getTexture(PigmanEntity PigomanEntity) {
       return SKIN;
    }

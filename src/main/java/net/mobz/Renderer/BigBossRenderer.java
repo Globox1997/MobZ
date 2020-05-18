@@ -20,10 +20,12 @@ public class BigBossRenderer extends BipedEntityRenderer<BigBossEntity, ZombieEn
             new ZombieEntityModel<>(1.0F, true)));
    }
 
+   @Override
    protected void scale(BigBossEntity smallZombie, MatrixStack matrixStack, float f) {
       matrixStack.scale(2.5F, 2.5F, 2.5F);
    }
 
+   @Override
    public Identifier getTexture(BigBossEntity Bigy) {
       return SKIN;
    }

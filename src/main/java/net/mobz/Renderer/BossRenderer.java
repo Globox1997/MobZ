@@ -19,6 +19,7 @@ public class BossRenderer extends BipedEntityRenderer<BossEntity, ZombieEntityMo
             new ZombieEntityModel<>(1.0F, true)));
    }
 
+   @Override
    public Identifier getTexture(BossEntity Bossy) {
       return SKIN;
    }

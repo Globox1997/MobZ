@@ -19,6 +19,7 @@ public class EnderZombieRenderer extends BipedEntityRenderer<EnderZombieEntity, 
             new ZombieEntityModel<>(1.0F, true)));
    }
 
+   @Override
    public Identifier getTexture(EnderZombieEntity Endy) {
       return SKIN;
    }

@@ -24,6 +24,7 @@ public class PillagerBossRenderer extends IllagerEntityRenderer<PillagerBoss> {
       return SKIN;
    }
 
+   @Override
    protected void scale(PillagerBoss pilli, MatrixStack matrixStack, float f) {
       matrixStack.scale(1.3F, 1.3F, 1.3F);
    }
