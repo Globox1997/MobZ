@@ -405,5 +405,19 @@
       "mobz:ravdeath2",
       "mobz:ravdeath3"
     ]
+  },
+  "mgolemhit": {
+    "sounds": [
+      "mobz:mgolemhit1",
+      "mobz:mgolemhit2",
+      "mobz:mgolemhit3",
+      "mobz:mgolemhit4"
+    ]
+  },
+  "mgolembreak": {
+    "sounds": [
+      "mobz:mgolembreak1",
+      "mobz:mgolembreak1"
+    ]
   }
 }

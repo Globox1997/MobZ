@@ -38,19 +38,19 @@ public class MetalGolem extends IronGolemEntity {
 
   public MetalGolem(EntityType<? extends IronGolemEntity> entityType, World world) {
     super(entityType, world);
-    this.experiencePoints = 20;
+    this.experiencePoints = 25;
   }
 
   @Override
   protected void initGoals() {
     this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, true));
-    this.goalSelector.add(2, new GoToEntityTargetGoal(this, 0.9D, 32.0F));
-    this.goalSelector.add(2, new WanderAroundPointOfInterestGoal(this, 0.6D));
-    this.goalSelector.add(3, new MoveThroughVillageGoal(this, 0.6D, false, 4, () -> {
+    this.goalSelector.add(2, new GoToEntityTargetGoal(this, 0.9D, 36.0F));
+    this.goalSelector.add(2, new WanderAroundPointOfInterestGoal(this, 0.8D));
+    this.goalSelector.add(3, new MoveThroughVillageGoal(this, 0.9D, false, 10, () -> {
       return false;
     }));
     this.goalSelector.add(5, new IronGolemLookGoal(this));
-    this.goalSelector.add(6, new WanderAroundFarGoal(this, 0.6D));
+    this.goalSelector.add(6, new WanderAroundFarGoal(this, 0.65D));
     this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
     this.goalSelector.add(8, new LookAroundGoal(this));
     this.targetSelector.add(1, new TrackIronGolemTargetGoal(this));
@@ -61,8 +61,19 @@ public class MetalGolem extends IronGolemEntity {
   }
 
   @Override
+  public boolean damage(DamageSource source, float amount) {
+    IronGolemEntity.Crack crack = this.getCrack();
+    boolean bl = super.damage(source, amount);
+    if (bl && this.getCrack() != crack) {
+      this.playSound(Soundinit.MGOLEMBREAKEVENT, 1.0F, 1.0F);
+    }
+
+    return bl;
+  }
+
+  @Override
   protected SoundEvent getHurtSound(DamageSource damageSource_1) {
-    return Soundinit.GOLEMHITEVENT;
+    return Soundinit.MGOLEMHITEVENT;
   }
 
   @Override
@@ -109,7 +120,7 @@ public class MetalGolem extends IronGolemEntity {
       return false;
     } else {
       float f = this.getHealth();
-      this.heal(25.0F);
+      this.heal(40.0F);
       if (this.getHealth() == f) {
         return false;
       } else {

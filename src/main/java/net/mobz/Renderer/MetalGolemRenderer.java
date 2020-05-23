@@ -11,6 +11,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.util.Identifier;
+import net.mobz.Renderer.RenderFeatures.GolemCrack;
 
 @Environment(EnvType.CLIENT)
 public class MetalGolemRenderer extends MobEntityRenderer<IronGolemEntity, IronGolemEntityModel<IronGolemEntity>> {
@@ -18,7 +19,7 @@ public class MetalGolemRenderer extends MobEntityRenderer<IronGolemEntity, IronG
 
   public MetalGolemRenderer(EntityRenderDispatcher entityRenderDispatcher) {
     super(entityRenderDispatcher, new IronGolemEntityModel<>(), 0.7F);
-    this.addFeature(new IronGolemCrackFeatureRenderer(this));
+    this.addFeature(new GolemCrack(this));
     this.addFeature(new IronGolemFlowerFeatureRenderer(this));
   }
 

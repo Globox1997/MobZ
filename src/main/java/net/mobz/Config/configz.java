@@ -149,7 +149,7 @@ public class configz implements ConfigData {
     @ConfigEntry.Category("lifesetting")
     public double LostSkeletonLife = 20D;
     @ConfigEntry.Category("lifesetting")
-    public double MetalGolemLife = 140D;
+    public double MetalGolemLife = 160D;
     @ConfigEntry.Category("lifesetting")
     public double NetherSkeletonLife = 28D;
     @ConfigEntry.Category("lifesetting")

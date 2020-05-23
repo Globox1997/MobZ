@@ -308,7 +308,7 @@ public class Entityinit {
                                 4079166, 11776947, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 // M
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_metalgolem"), new SpawnEggItem(
-                                METALGOLEM, 4801614, 5121582, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                                METALGOLEM, 2930848, 5197390, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 // N
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_skeli3"), new SpawnEggItem(SKELI3,
                                 4801614, 5121582, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));

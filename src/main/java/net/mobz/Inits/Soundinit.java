@@ -124,6 +124,10 @@ public class Soundinit {
     public static SoundEvent RAVHURTEVENT = new SoundEvent(RAVHURT);
     public static final Identifier RAVDEATH = new Identifier("mobz:ravdeath");
     public static SoundEvent RAVDEATHEVENT = new SoundEvent(RAVDEATH);
+    public static final Identifier MGOLEMHIT = new Identifier("mobz:mgolemhit");
+    public static SoundEvent MGOLEMHITEVENT = new SoundEvent(MGOLEMHIT);
+    public static final Identifier MGOLEMBREAK = new Identifier("mobz:mgolembreak");
+    public static SoundEvent MGOLEMBREAKEVENT = new SoundEvent(MGOLEMBREAK);
 
     public static void init() {
 
@@ -186,6 +190,8 @@ public class Soundinit {
         Registry.register(Registry.SOUND_EVENT, Soundinit.RAVIDLE, RAVIDLEEVENT);
         Registry.register(Registry.SOUND_EVENT, Soundinit.RAVDEATH, RAVDEATHEVENT);
         Registry.register(Registry.SOUND_EVENT, Soundinit.RAVHURT, RAVHURTEVENT);
+        Registry.register(Registry.SOUND_EVENT, Soundinit.MGOLEMBREAK, MGOLEMBREAKEVENT);
+        Registry.register(Registry.SOUND_EVENT, Soundinit.MGOLEMHIT, MGOLEMHITEVENT);
     }
 
 }
