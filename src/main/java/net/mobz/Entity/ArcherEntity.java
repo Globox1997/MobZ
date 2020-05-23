@@ -70,6 +70,10 @@ public class ArcherEntity extends SkeletonEntity {
         }
     }
 
+    SoundEvent getStepSound() {
+        return Soundinit.LEATHERWALKEVENT;
+    }
+
     @Override
     protected void dropEquipment(DamageSource damageSource_1, int int_1, boolean boolean_1) {
         return;
