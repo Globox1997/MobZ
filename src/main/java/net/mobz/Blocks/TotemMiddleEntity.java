@@ -13,13 +13,13 @@ import net.mobz.Inits.Entityinit;
 public class TotemMiddleEntity extends BlockEntity implements Tickable {
   public int spawnTimer = 0;
   private int needspawnTime = 200;
-  public boolean startTimer = false;
+  public boolean startTimer;
 
   public TotemMiddleEntity() {
     super(Blockinit.TOTEMMIDDLEENTITY);
   }
 
-  public static boolean isValid(World world, BlockPos pos, BlockState state) {
+  public boolean isValid(World world, BlockPos pos, BlockState state) {
     if (state.getBlock() != Blockinit.TOTEM_MIDDLE) {
       return false;
     }
@@ -45,8 +45,9 @@ public class TotemMiddleEntity extends BlockEntity implements Tickable {
     World world = this.getWorld();
     BlockPos blockPos = this.getPos();
     BlockState state = this.getCachedState();
+
     if (isValid(world, pos, state)) {
-      if (world.isClient) {
+      if (world.isClient && startTimer) {
         double d = (double) blockPos.getX() + (double) world.random.nextFloat();
         double e = (double) blockPos.getY() + (double) world.random.nextFloat();
         double f = (double) blockPos.getZ() + (double) world.random.nextFloat();
@@ -55,10 +56,8 @@ public class TotemMiddleEntity extends BlockEntity implements Tickable {
         world.addParticle(ParticleTypes.SMOKE, d, e, f, 0.0D, 0.0D, 0.0D);
         world.addParticle(ParticleTypes.SMOKE, d, o, f, 0.0D, 0.0D, 0.0D);
         world.addParticle(ParticleTypes.SMOKE, d, r, f, 0.0D, 0.0D, 0.0D);
-      } else {
-        if (startTimer == true) {
-          spawnTimer++;
-        }
+      } else if (startTimer) {
+        spawnTimer++;
       }
     }
     if (spawnTimer == needspawnTime) {

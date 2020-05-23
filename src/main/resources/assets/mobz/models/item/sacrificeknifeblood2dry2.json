@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "mobz:item/sacrificeknifebloody"
+    "layer0": "mobz:item/sacrificeknifeblood2dry2"
   }
 }
