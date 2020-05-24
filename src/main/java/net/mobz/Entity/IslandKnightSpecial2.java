@@ -2,7 +2,6 @@ package net.mobz.Entity;
 
 import net.minecraft.entity.mob.VindicatorEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -49,8 +48,7 @@ public class IslandKnightSpecial2 extends VindicatorEntity {
   protected void initEquipment(LocalDifficulty localDifficulty_1) {
     super.initEquipment(localDifficulty_1);
     if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
-      this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.PoisonSword));
-      this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
+      this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.FrozenSword));
     }
   }
 

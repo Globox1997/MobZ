@@ -4,7 +4,6 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.entity.Entity;
@@ -25,6 +24,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.mobz.Inits.Configinit;
+import net.mobz.Inits.Iteminit;
 import net.mobz.Inits.Soundinit;
 import net.mobz.Inits.SwordItems;
 
@@ -64,7 +64,7 @@ public class IslandKnightSpecial extends ZombieEntity {
     super.initEquipment(localDifficulty_1);
     if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
       this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.ArmoredSword));
-      this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
+      this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Iteminit.SHIELD2));
     }
   }
 

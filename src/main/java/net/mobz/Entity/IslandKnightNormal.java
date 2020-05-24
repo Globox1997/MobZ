@@ -16,8 +16,8 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.mobz.Inits.Configinit;
+import net.mobz.Inits.Iteminit;
 import net.mobz.Inits.Soundinit;
-import net.mobz.Inits.SwordItems;
 
 public class IslandKnightNormal extends VindicatorEntity {
 
@@ -47,8 +47,8 @@ public class IslandKnightNormal extends VindicatorEntity {
   protected void initEquipment(LocalDifficulty localDifficulty_1) {
     super.initEquipment(localDifficulty_1);
     if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
-      this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.PoisonSword));
-      this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Items.SHIELD));
+      this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
+      this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Iteminit.SHIELD2));
     }
   }
 
