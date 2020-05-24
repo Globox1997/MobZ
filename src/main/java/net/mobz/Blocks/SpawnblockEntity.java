@@ -1,13 +1,16 @@
 package net.mobz.Blocks;
 
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.SpawnRestriction;
 import net.minecraft.entity.SpawnType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
+import net.mobz.Config.configz;
 import net.mobz.Entity.BabyravagerEntity;
 import net.mobz.Inits.Blockinit;
 import net.mobz.Inits.Entityinit;
@@ -16,11 +19,11 @@ import net.mobz.Inits.Entityinit;
 
 public class SpawnblockEntity extends BlockEntity implements Tickable {
   private int requiredPlayerRange = 16;
-  private int spawnDelay = 40;
+  private int spawnDelay = 200;
   private int spawnTimeCounter = 0;
-  private int maxCapofSpawns = 10;
   private int spawnRange = 5;
   private int maxNearbyEntities = 3;
+  private int maxCapofSpawns = AutoConfig.getConfigHolder(configz.class).getConfig().SpawnCountBabyRavagerBlock;
 
   public SpawnblockEntity() {
     super(Blockinit.SPAWNBLOCKENTITY);
@@ -41,13 +44,15 @@ public class SpawnblockEntity extends BlockEntity implements Tickable {
     if (this.isPlayerInRange()) {
       World world = this.getWorld();
       BlockPos blockPos = this.getPos();
+
+      PlayerEntity player = world.getClosestPlayer(pos.getX(), pos.getZ(), 16D);
       if (world.isClient) {
         double d = (double) blockPos.getX() + (double) world.random.nextFloat();
         double e = (double) blockPos.getY() + (double) world.random.nextFloat();
         double f = (double) blockPos.getZ() + (double) world.random.nextFloat();
         world.addParticle(ParticleTypes.SMOKE, d, e, f, 0.0D, 0.0D, 0.0D);
         world.addParticle(ParticleTypes.FLAME, d, e, f, 0.0D, 0.0D, 0.0D);
-      } else {
+      } else if (!player.isCreative()) {
         BabyravagerEntity entity = new BabyravagerEntity(Entityinit.BABYRAVAGERENTITY, world);
         int currentmobcount = world.getNonSpectatingEntities(entity.getClass(),
             (new Box((double) blockPos.getX(), (double) blockPos.getY(), (double) blockPos.getZ(),
@@ -70,7 +75,6 @@ public class SpawnblockEntity extends BlockEntity implements Tickable {
               entity.updatePosition(g, h, k);
               world.playLevelEvent(2004, blockPos, 0);
               entity.playSpawnEffects();
-
               world.spawnEntity(entity);
               maxCapofSpawns--;
               spawnTimeCounter = 0;
