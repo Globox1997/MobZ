@@ -112,7 +112,7 @@ public class Sacrificeknife extends Item {
   @Override
   public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
     ItemStack itemStack = user.getStackInHand(hand);
-    if (!world.isClient) {
+    if (!world.isClient && user.getHealth() > 2F) {
       user.damage(DamageSource.MAGIC, 2F);
       if (dryingNumber < 4) {
         dryingNumber = dryingNumber + 1;
