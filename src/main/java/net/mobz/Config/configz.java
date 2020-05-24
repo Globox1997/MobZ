@@ -19,7 +19,7 @@ public class configz implements ConfigData {
     @ConfigEntry.Category("spawnsetting")
     public boolean ArmoredZombieSpawn = true;
     @ConfigEntry.Category("spawnsetting")
-    public boolean BigBossSpawn = true;
+    public boolean BigBossSpawn = false;
     @ConfigEntry.Category("spawnsetting")
     public boolean BlackBearSpawn = true;
     @ConfigEntry.Category("spawnsetting")
