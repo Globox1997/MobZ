@@ -185,6 +185,18 @@ public class configz implements ConfigData {
     @ConfigEntry.Category("lifesetting")
     public double ZombieMageLife = 28D;
     @ConfigEntry.Category("lifesetting")
+    public double KingCharlesLife = 120D;
+    @ConfigEntry.Category("lifesetting")
+    public double WilliamLife = 60D;
+    @ConfigEntry.Category("lifesetting")
+    public double AndriuLife = 60D;
+    @ConfigEntry.Category("lifesetting")
+    public double IslandKnightLife = 26D;
+    @ConfigEntry.Category("lifesetting")
+    public double DeathSpiritLife = 16D;
+    @ConfigEntry.Category("lifesetting")
+    public double BabyRavagerLife = 40D;
+    @ConfigEntry.Category("lifesetting")
     @Comment("Be carefull with this setting! Multiplicator must be > 0!")
     public double LifeMultiplicatorMob = 1.0D;
 
@@ -255,6 +267,18 @@ public class configz implements ConfigData {
     public double WitherBlazeAttack = 8D;
     @ConfigEntry.Category("damagesetting")
     public double ZombieMageAttack = 7D;
+    @ConfigEntry.Category("damagesetting")
+    public double KingCharlesAttack = 10D;
+    @ConfigEntry.Category("damagesetting")
+    public double WilliamAttack = 8D;
+    @ConfigEntry.Category("damagesetting")
+    public double AndriuAttack = 8D;
+    @ConfigEntry.Category("damagesetting")
+    public double IslandKnightAttack = 6D;
+    @ConfigEntry.Category("damagesetting")
+    public double DeathSpiritAttack = 5D;
+    @ConfigEntry.Category("damagesetting")
+    public double BabyRavagerAttack = 10D;
     @ConfigEntry.Category("damagesetting")
     @Comment("Be carefull with this setting! Multiplicator must be > 0!")
     public double DamageMultiplicatorMob = 1.0D;
@@ -389,5 +413,9 @@ public class configz implements ConfigData {
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int ZombieMageSpawnRate = 5;
+
+    @ConfigEntry.Category("miscsetting")
+    @ConfigEntry.Gui.PrefixText
+    public int SpawnCountBabyRavagerBlock = 12;
 
 }

@@ -54,9 +54,9 @@ public class IslandKnightSpecial extends ZombieEntity {
   protected void initAttributes() {
     super.initAttributes();
     this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-        .setBaseValue(Configinit.CONFIGZ.TemplarLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
+        .setBaseValue(Configinit.CONFIGZ.WilliamLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
     this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-        .setBaseValue(Configinit.CONFIGZ.TemplarAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
+        .setBaseValue(Configinit.CONFIGZ.WilliamAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
   }
 
   @Override

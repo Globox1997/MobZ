@@ -40,9 +40,9 @@ public class IslandKnightSpecial2 extends VindicatorEntity {
     this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
     this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(18.0D);
     this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-        .setBaseValue(Configinit.CONFIGZ.WarriorLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
+        .setBaseValue(Configinit.CONFIGZ.AndriuLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
     this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-        .setBaseValue(Configinit.CONFIGZ.WarriorAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
+        .setBaseValue(Configinit.CONFIGZ.AndriuAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
   }
 
   @Override
