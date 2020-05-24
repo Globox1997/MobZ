@@ -4,7 +4,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.feature.IronGolemCrackFeatureRenderer;
 import net.minecraft.client.render.entity.feature.IronGolemFlowerFeatureRenderer;
 import net.minecraft.client.render.entity.model.IronGolemEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
