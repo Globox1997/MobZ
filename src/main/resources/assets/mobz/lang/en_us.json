@@ -390,6 +390,7 @@
     "text.autoconfig.mobz.option.AndriuAttack": "Andriu Attack Damage",
     "text.autoconfig.mobz.option.DeathSpiritLife": "Death Spirit Life Points",
     "text.autoconfig.mobz.option.DeathSpiritAttack": "Death Spirit Attack Damage",
+    "text.autoconfig.mobz.option.SpawnCountBabyRavagerBlock.@PrefixText": "Different Settings",
     "text.autoconfig.mobz.option.SpawnCountBabyRavagerBlock": "Baby Ravager Spawner Cap",
     "mobz.advancements.archer.title": "Bowman",
     "mobz.advancements.archer.description": "Kill the Bowman!",
