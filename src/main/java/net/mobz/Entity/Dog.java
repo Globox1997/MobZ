@@ -31,15 +31,16 @@ public class Dog extends WolfEntity {
         super(entityType, world);
     }
 
-    @Override
-    protected void initGoals() {
-        this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(3, new PounceAtTargetGoal(this, 0.4F));
-        this.goalSelector.add(2, new WolfAttack(this, 1.0D, true));
-        this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D));
-        this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.add(10, new LookAroundGoal(this));
-    }
+    // @Override
+    // protected void initGoals() {
+    // this.goalSelector.add(1, new SwimGoal(this));
+    // this.goalSelector.add(3, new PounceAtTargetGoal(this, 0.4F));
+    // this.goalSelector.add(2, new WolfAttack(this, 1.0D, false));
+    // this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D));
+    // this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class,
+    // 8.0F));
+    // this.goalSelector.add(10, new LookAroundGoal(this));
+    // }
 
     @Override
     protected void initAttributes() {
@@ -54,26 +55,6 @@ public class Dog extends WolfEntity {
     @Override
     public boolean isBreedingItem(ItemStack itemStack_1) {
         return false;
-    }
-
-    @Override
-    public boolean tryAttack(Entity target) {
-        return true;
-    }
-
-    public boolean isAngry() {
-        return true;
-    }
-
-    @Override
-    public void setTarget(@Nullable LivingEntity target) {
-        super.setTarget(target);
-        if (target == null) {
-            this.setAngry(false);
-        } else {
-            this.setAngry(true);
-        }
-
     }
 
     @Override
