@@ -10,7 +10,7 @@
       "item": "mobz:hardenedmetal_ingot"
     },
     "e": {
-      "item": "minecraft:spruce_planks"
+      "tag": "minecraft:planks"
     },
     "f": {
       "item": "mobz:bearleather"
