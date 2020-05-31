@@ -25,6 +25,9 @@ import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.Soundinit;
 import net.mobz.Inits.SwordItems;
 
+//import net.minecraft.entity.mob.MobEntity;
+//import net.minecraft.entity.ai.goal.RevengeGoal;
+
 public class IslandKing extends VindicatorEntity {
   private int cooldown = 0;
   private final int requiredCooldown = 200;

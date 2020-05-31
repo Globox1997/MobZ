@@ -1,6 +1,6 @@
 package net.mobz.Inits;
 
-import net.fabricmc.fabric.api.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
@@ -11,19 +11,15 @@ import net.mobz.Blocks.*;
 
 public class Blockinit {
 
-        public static final Enderheader ENDERHEADER = new Enderheader(
-                        FabricBlockSettings.copy(Blocks.ZOMBIE_HEAD).build());
-        public static final TotemBase TOTEM_BASE = new TotemBase(FabricBlockSettings.copy(Blocks.OAK_LOG).build());
-        public static final TotemMiddle TOTEM_MIDDLE = new TotemMiddle(
-                        FabricBlockSettings.copy(Blocks.OAK_LOG).build());
-        public static final TotemTop TOTEM_TOP = new TotemTop(FabricBlockSettings.copy(Blocks.OAK_LOG).build());
-        public static final Bosstrophy BOSS_TROPHY = new Bosstrophy(
-                        FabricBlockSettings.copy(Blocks.ZOMBIE_HEAD).build());
-        public static final Spawnblock SPAWN_BLOCK = new Spawnblock(FabricBlockSettings.copy(Blocks.SPAWNER).build());
-        public static final Reddblock REDD_BLOCK = new Reddblock(
-                        FabricBlockSettings.copy(Blocks.DIAMOND_BLOCK).build());
+        public static final Enderheader ENDERHEADER = new Enderheader(FabricBlockSettings.copy(Blocks.ZOMBIE_HEAD));
+        public static final TotemBase TOTEM_BASE = new TotemBase(FabricBlockSettings.copy(Blocks.OAK_LOG));
+        public static final TotemMiddle TOTEM_MIDDLE = new TotemMiddle(FabricBlockSettings.copy(Blocks.OAK_LOG));
+        public static final TotemTop TOTEM_TOP = new TotemTop(FabricBlockSettings.copy(Blocks.OAK_LOG));
+        public static final Bosstrophy BOSS_TROPHY = new Bosstrophy(FabricBlockSettings.copy(Blocks.ZOMBIE_HEAD));
+        public static final Spawnblock SPAWN_BLOCK = new Spawnblock(FabricBlockSettings.copy(Blocks.SPAWNER));
+        public static final Reddblock REDD_BLOCK = new Reddblock(FabricBlockSettings.copy(Blocks.DIAMOND_BLOCK));
         public static final HardenedMetalblock HARDENED_METALBLOCK = new HardenedMetalblock(
-                        FabricBlockSettings.copy(Blocks.GOLD_BLOCK).build());
+                        FabricBlockSettings.copy(Blocks.GOLD_BLOCK));
         public static BlockEntityType<SpawnblockEntity> SPAWNBLOCKENTITY;
         public static BlockEntityType<TotemMiddleEntity> TOTEMMIDDLEENTITY;
         public static BlockEntityType<HardenedMetalblockEntity> HARDENEDMETALBLOCKENTITY;

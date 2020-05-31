@@ -6,11 +6,15 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
@@ -80,6 +84,15 @@ public class IslandKnightSpecial2 extends VindicatorEntity {
   @Override
   protected SoundEvent getDeathSound() {
     return SoundEvents.ENTITY_PLAYER_DEATH;
+  }
+
+  @Override
+  protected void dealDamage(LivingEntity attacker, Entity target) {
+    LivingEntity bob = (LivingEntity) target;
+    StatusEffectInstance slow = new StatusEffectInstance(StatusEffect.byRawId(2), 120, 0, false, false);
+    if (target instanceof LivingEntity) {
+      bob.addStatusEffect(slow);
+    }
   }
 
 }
