@@ -6,17 +6,12 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "n": 1,
-                "p": 1.0,
-                "type": "minecraft:binomial"
-              }
-            }
-          ],
           "name": "mobz:enderheader"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
         }
       ]
     }
