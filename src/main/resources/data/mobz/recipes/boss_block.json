@@ -7,10 +7,10 @@
   ],
   "key": {
     "d": {
-      "item": "mobz:redd"
+      "item": "mobz:boss_ingot"
     }
   },
   "result": {
-    "item": "mobz:reddblock"
+    "item": "mobz:bossblock"
   }
 }

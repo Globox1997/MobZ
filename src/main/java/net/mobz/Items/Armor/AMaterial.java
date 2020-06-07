@@ -33,7 +33,7 @@ public class AMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Iteminit.REDD);
+        return Ingredient.ofItems(Iteminit.AMAT_INGOT);
     }
 
     @Override

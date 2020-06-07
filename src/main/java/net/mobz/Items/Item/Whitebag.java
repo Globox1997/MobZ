@@ -36,7 +36,7 @@ public class Whitebag extends Item {
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity entity) {
 
         Random random = new Random();
-        int randomNumber = (random.nextInt() + 7) % 4;
+        int randomNumber = (random.nextInt() + 7) % 5;
         if (randomNumber < 0) {
             randomNumber = randomNumber * (-1);
         }
@@ -49,7 +49,9 @@ public class Whitebag extends Item {
                 case 2:
                     return new ItemStack(SwordItems.Sword);
                 case 3:
-                    return new ItemStack(Iteminit.ORB2);
+                    return new ItemStack(Iteminit.ORB_2);
+                case 4:
+                    return new ItemStack(Iteminit.BOSS_INGOT, 2);
                 default:
                     return stack;
             }

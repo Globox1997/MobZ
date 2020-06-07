@@ -107,6 +107,7 @@ public class Sacrificeknife extends Item {
   @Override
   public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
     tooltip.add(new TranslatableText("item.mobz.sacrificeknife.tooltip"));
+    tooltip.add(new TranslatableText("item.mobz.sacrificeknife.tooltip2"));
   }
 
   @Override

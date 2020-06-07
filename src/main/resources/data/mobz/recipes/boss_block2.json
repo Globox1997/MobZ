@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "mobz:reddblock"
+      "item": "mobz:bossblock"
     }
   ],
   "result": {
-    "item": "mobz:redd",
+    "item": "mobz:boss_ingot",
     "count": 9
   }
 }

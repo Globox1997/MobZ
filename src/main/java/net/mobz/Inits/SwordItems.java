@@ -22,7 +22,7 @@ public class SwordItems {
     public static final Item Sword = register("sword", new SwordBase((SWORDMATERIAL)));
     public static final Item FrozenSword = register("frozen_sword", new FrozenSwordBase((POISONSWORDMATERIAL)));
     public static final Item BossSword = register("boss_sword", new SwordGloBase((BOSS_MATERIAL)));
-    public static final Item ArmoredSword = register("armored_sword", new SwordGloBase((ARMORED_MATERIAL)));
+    public static final Item ArmoredSword = register("armored_sword", new ArmoredSwordBase((ARMORED_MATERIAL)));
     public static final Item WitherSword = register("wither_sword", new WitherSwordBase((WITHERSWORDMATERIAL)));
     public static final Item VSword = register("v_sword", new VSwordBase((WITHERSWORDMATERIAL)));
     public static final Item Debuger = register("debuger", new Debugo((DEBUGOMAT)));

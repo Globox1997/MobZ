@@ -33,7 +33,7 @@ public class BossArmorMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Iteminit.BOSSBARREN);
+        return Ingredient.ofItems(Iteminit.BOSS_INGOT);
     }
 
     @Override

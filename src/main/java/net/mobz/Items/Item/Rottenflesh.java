@@ -1,8 +1,14 @@
 package net.mobz.Items.Item;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.world.World;
+
+import java.util.List;
 import java.util.Random;
+
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -15,6 +21,11 @@ public class Rottenflesh extends Item {
 
   public Rottenflesh() {
     super(new Item.Settings().food(FOOD_COMPONENT));
+  }
+
+  @Override
+  public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+    tooltip.add(new TranslatableText("item.mobz.rottenflesh.tooltip"));
   }
 
   @Override

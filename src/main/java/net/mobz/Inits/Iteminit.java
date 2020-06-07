@@ -8,22 +8,22 @@ import net.mobz.Items.Item.*;
 
 public class Iteminit {
 
-        public static final BossIngot BOSSBARREN = new BossIngot(new Item.Settings());
-        public static final HardenedMetal HARDENEDMETAL = new HardenedMetal(new Item.Settings());
+        public static final BossIngot BOSS_INGOT = new BossIngot(new Item.Settings());
+        public static final HardenedMetal HARDENEDMETAL_INGOT = new HardenedMetal(new Item.Settings());
         public static final MedivealDisc MEDIVEAL_DISC = new MedivealDisc(1, Soundinit.MEDIVEALSOUNDEVENT,
                         new Item.Settings().maxCount(1));
         public static final MedivealDisc2 MEDIVEAL_DISC2 = new MedivealDisc2(0, Soundinit.MEDIVEALSOUND2EVENT,
                         new Item.Settings().maxCount(1));
         public static final Shield SHIELD = new Shield(new Item.Settings().maxDamage(789));
-        public static final Shield2 SHIELD2 = new Shield2(new Item.Settings().maxDamage(478));
+        public static final Shield2 SHIELD_2 = new Shield2(new Item.Settings().maxDamage(478));
         public static final Rottenflesh ROTTENFLESH = new Rottenflesh();
-        public static final Redd REDD = new Redd(new Item.Settings());
+        public static final AmatIngot AMAT_INGOT = new AmatIngot(new Item.Settings());
         public static final Withermeal WITHERMEAL = new Withermeal(new Item.Settings());
         public static final Bearleather BEARLEATHER = new Bearleather(new Item.Settings());
         public static final Sbow SBOW = new Sbow(new Item.Settings().maxDamage(461));
         public static final Orb ORB = new Orb(new Item.Settings().maxCount(1));
         public static final Whitebag WHITEBAG = new Whitebag(new Item.Settings().maxCount(1));
-        public static final Orb2 ORB2 = new Orb2(new Item.Settings().maxCount(1));
+        public static final Orb2 ORB_2 = new Orb2(new Item.Settings().maxCount(1));
         public static final Showegg SHOWEGG = new Showegg(new Item.Settings().maxCount(1));
         public static final Archerhead ARCHERHEAD = new Archerhead(new Item.Settings().maxCount(1));
         public static final Bosshead BOSSHEAD = new Bosshead(new Item.Settings().maxCount(1));
@@ -71,18 +71,18 @@ public class Iteminit {
 
                 Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc"), MEDIVEAL_DISC);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "medivealdisc2"), MEDIVEAL_DISC2);
-                Registry.register(Registry.ITEM, new Identifier("mobz", "boss_ingot"), BOSSBARREN);
-                Registry.register(Registry.ITEM, new Identifier("mobz", "hardenedmetal_ingot"), HARDENEDMETAL);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "boss_ingot"), BOSS_INGOT);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "hardenedmetal_ingot"), HARDENEDMETAL_INGOT);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "shield"), SHIELD);
-                Registry.register(Registry.ITEM, new Identifier("mobz", "shield2"), SHIELD2);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "shield2"), SHIELD_2);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "rottenflesh"), ROTTENFLESH);
-                Registry.register(Registry.ITEM, new Identifier("mobz", "redd"), REDD);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "amat_ingot"), AMAT_INGOT);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "withermeal"), WITHERMEAL);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "bearleather"), BEARLEATHER);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "sbow"), SBOW);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "orb"), ORB);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "whitebag"), WHITEBAG);
-                Registry.register(Registry.ITEM, new Identifier("mobz", "orb2"), ORB2);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "orb2"), ORB_2);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "sacrificeknife"), SACRIFICEKNIFE);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "showegg"), SHOWEGG);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "archerhead"), ARCHERHEAD);

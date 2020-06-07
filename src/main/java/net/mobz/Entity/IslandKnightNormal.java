@@ -48,7 +48,7 @@ public class IslandKnightNormal extends VindicatorEntity {
     super.initEquipment(localDifficulty_1);
     if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
       this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
-      this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Iteminit.SHIELD2));
+      this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Iteminit.SHIELD_2));
     }
   }
 

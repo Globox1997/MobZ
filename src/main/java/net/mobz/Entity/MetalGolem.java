@@ -116,7 +116,7 @@ public class MetalGolem extends IronGolemEntity {
   protected boolean interactMob(PlayerEntity player, Hand hand) {
     ItemStack itemStack = player.getStackInHand(hand);
     Item item = itemStack.getItem();
-    if (item != Iteminit.HARDENEDMETAL) {
+    if (item != Iteminit.HARDENEDMETAL_INGOT) {
       return false;
     } else {
       float f = this.getHealth();

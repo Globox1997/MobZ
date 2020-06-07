@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "mobz:block/spawnblock"
+      "model": "mobz:block/boss_block"
     }
   }
 }

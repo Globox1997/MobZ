@@ -17,7 +17,7 @@ public class Blockinit {
         public static final TotemTop TOTEM_TOP = new TotemTop(FabricBlockSettings.copy(Blocks.OAK_LOG));
         public static final Bosstrophy BOSS_TROPHY = new Bosstrophy(FabricBlockSettings.copy(Blocks.ZOMBIE_HEAD));
         public static final Spawnblock SPAWN_BLOCK = new Spawnblock(FabricBlockSettings.copy(Blocks.SPAWNER));
-        public static final Reddblock REDD_BLOCK = new Reddblock(FabricBlockSettings.copy(Blocks.DIAMOND_BLOCK));
+        public static final Bossblock BOSS_BLOCK = new Bossblock(FabricBlockSettings.copy(Blocks.DIAMOND_BLOCK));
         public static final HardenedMetalblock HARDENED_METALBLOCK = new HardenedMetalblock(
                         FabricBlockSettings.copy(Blocks.GOLD_BLOCK));
         public static BlockEntityType<SpawnblockEntity> SPAWNBLOCKENTITY;
@@ -43,14 +43,14 @@ public class Blockinit {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "bosstrophy"),
                                 new BlockItem(BOSS_TROPHY, new Item.Settings()));
                 Registry.register(Registry.BLOCK, new Identifier("mobz", "bosstrophy"), BOSS_TROPHY);
-                Registry.register(Registry.ITEM, new Identifier("mobz", "spawnblock"),
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_block"),
                                 new BlockItem(SPAWN_BLOCK, new Item.Settings()));
-                Registry.register(Registry.BLOCK, new Identifier("mobz", "spawnblock"), SPAWN_BLOCK);
+                Registry.register(Registry.BLOCK, new Identifier("mobz", "spawn_block"), SPAWN_BLOCK);
                 SPAWNBLOCKENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "mobz:spawnblockentity",
                                 BlockEntityType.Builder.create(SpawnblockEntity::new, SPAWN_BLOCK).build(null));
-                Registry.register(Registry.ITEM, new Identifier("mobz", "reddblock"),
-                                new BlockItem(REDD_BLOCK, new Item.Settings()));
-                Registry.register(Registry.BLOCK, new Identifier("mobz", "reddblock"), REDD_BLOCK);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "boss_block"),
+                                new BlockItem(BOSS_BLOCK, new Item.Settings()));
+                Registry.register(Registry.BLOCK, new Identifier("mobz", "boss_block"), BOSS_BLOCK);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "hardenedmetal_block"),
                                 new BlockItem(HARDENED_METALBLOCK, new Item.Settings()));
                 Registry.register(Registry.BLOCK, new Identifier("mobz", "hardenedmetal_block"), HARDENED_METALBLOCK);

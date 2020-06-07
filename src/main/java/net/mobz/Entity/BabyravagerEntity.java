@@ -47,4 +47,9 @@ public class BabyravagerEntity extends RavagerEntity {
     return Soundinit.RAVDEATHEVENT;
   }
 
+  @Override
+  public boolean canBeControlledByRider() {
+    return false;
+  }
+
 }

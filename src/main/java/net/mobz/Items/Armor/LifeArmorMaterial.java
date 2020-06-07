@@ -33,7 +33,7 @@ public class LifeArmorMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Iteminit.HARDENEDMETAL);
+        return Ingredient.ofItems(Iteminit.HARDENEDMETAL_INGOT);
     }
 
     @Override

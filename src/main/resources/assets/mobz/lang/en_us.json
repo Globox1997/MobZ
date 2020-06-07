@@ -54,79 +54,122 @@
     "entity.mobz.islandknightspecial2_entity": "Andriu the Humble",
     "entity.mobz.islandvex_entity": "Spirit of Death",
     "entity.mobz.metalgolem_entity": "Metal Golem",
-    "item.mobz.boss_sword": "§6Enchanted Golden Sword",
-    "item.mobz.armored_sword": "§7Armored Sword",
-    "item.mobz.boss_boots": "§6Enchanted Golden Boots",
-    "item.mobz.boss_chestplate": "§6Enchanted Golden Chestplate",
-    "item.mobz.boss_helmet": "§6Enchanted Golden Helmet",
-    "item.mobz.boss_leggings": "§6Enchanted Golden Leggings",
-    "item.mobz.boss_ingot": "§6Enchanted Gold Ingot",
-    "item.mobz.boss_ingot.tooltip": "Rare Material",
+
+
+    "item.mobz.boss_sword": "Enchanted Golden Sword",
+    "item.mobz.boss_sword.tooltip": "§5Epic",
+
+    "item.mobz.armored_sword": "Armored Sword",
+    "item.mobz.armored_sword.tooltip": "§2Uncommon",
+
+    "item.mobz.boss_boots": "Enchanted Golden Boots",
+    "item.mobz.boss_chestplate": "Enchanted Golden Chestplate",
+    "item.mobz.boss_helmet": "Enchanted Golden Helmet",
+    "item.mobz.boss_leggings": "Enchanted Golden Leggings",
+    "item.mobz.boss_armor.tooltip": "§5Epic",
+
+    "item.mobz.boss_ingot": "Enchanted Gold Ingot",
+    "item.mobz.boss_ingot.tooltip": "§5Epic Material",
+
     "item.mobz.medivealdisc": "§bMediveal Music Disc",
     "item.mobz.medivealdisc2": "§bMediveal Music Disc II",
-    "item.mobz.medivealdisc.desc": "Z418 mediveal",
-    "item.mobz.medivealdisc2.desc": "Z418 mediveal II",
-    "item.mobz.axe": "§5Eragons Axe",
-    "item.mobz.shield": "§5Eragons Shield",
+    "item.mobz.medivealdisc.desc": "Z418 Mediveal",
+    "item.mobz.medivealdisc2.desc": "Z418 Mediveal II",
+    
+    "item.mobz.axe": "Eragons Axe",
+    "item.mobz.axe.tooltip": "§bRare",
+
+    "item.mobz.shield": "Eragons Shield",
+    "item.mobz.shield.tooltip": "§bRare",
+
     "item.mobz.sword": "Rainbow Sword",
-    "item.mobz.hardenedmetal_ingot": "§7Metal Ingot",
-    "item.mobz.hardenedmetal_ingot.tooltip": "Uncommon Material",
+    "item.mobz.sword.tooltip": "§6Legendary",
+
+    "item.mobz.hardenedmetal_ingot": "Metal Ingot",
+    "item.mobz.hardenedmetal_ingot.tooltip": "§2Uncommon Material",
+
     "item.mobz.speed_boots": "Speed Boots",
-    "item.mobz.speed_chestplate": "Chestplate of Speed",
-    "item.mobz.speed_helmet": "Helmet of Speed",
-    "item.mobz.speed_leggings": "Leggings of Speed",
-    "item.mobz.life_boots": "§7Boots of Life",
-    "item.mobz.life_chestplate": "§7Chestplate of Life",
-    "item.mobz.life_helmet": "§7Helmet of Life",
-    "item.mobz.life_leggings": "§7Leggings of Life",
-    "item.mobz.poison_sword": "§2Snakes Sword",
-    "item.mobz.frozen_sword": "§3Frozen Sword",
-    "item.mobz.rottenflesh": "Thick Rotten Flesh",
-    "item.mobz.amat_boots": "§4Aryas Boots",
-    "item.mobz.amat_chestplate": "§4Aryas Chestplate",
-    "item.mobz.amat_helmet": "§4Aryas Helmet",
-    "item.mobz.amat_leggings": "§4Aryas Leggings",
-    "item.mobz.redd": "§4Red Diamond",
-    "item.mobz.redd.tooltip": "Epic Material",
+    "item.mobz.speed_boots.tooltip": "§2Uncommon",
+
     "item.mobz.speed2_boots": "Speed Boots II",
-    "item.mobz.speed2_chestplate": "Chestplate of Speed  II",
-    "item.mobz.speed2_helmet": "Helmet of Speed II",
-    "item.mobz.speed2_leggings": "Leggings of Speed II",
-    "item.mobz.wither_sword": "§8Artus Sword",
+    "item.mobz.speed2_boots.tooltip": "§2Uncommon",
+
+    "item.mobz.life_boots": "Boots of Life",
+    "item.mobz.life_chestplate": "Chestplate of Life",
+    "item.mobz.life_helmet": "Helmet of Life",
+    "item.mobz.life_leggings": "Leggings of Life",
+    "item.mobz.life_armor.tooltip": "§bRare",
+
+    "item.mobz.poison_sword": "Snakes Sword",
+    "item.mobz.poison_sword.tooltip": "§2Uncommon",
+
+    "item.mobz.frozen_sword": "Frozen Sword",
+    "item.mobz.frozen_sword.tooltip": "§2Uncommon",
+
+    "item.mobz.rottenflesh": "Thick Rotten Flesh",
+    "item.mobz.rottenflesh.tooltip": "§7Common",
+
+    "item.mobz.amat_boots": "Aryas Boots",
+    "item.mobz.amat_chestplate": "Aryas Chestplate",
+    "item.mobz.amat_helmet": "Aryas Helmet",
+    "item.mobz.amat_leggings": "Aryas Leggings",
+    "item.mobz.amat_armor.tooltip": "§bRare",
+
+    "item.mobz.amat_ingot": "Red Diamond",
+    "item.mobz.amat_ingot.tooltip": "§bRare Material",
+
+    "item.mobz.wither_sword": "Artus Sword",
+    "item.mobz.wither_sword.tooltip": "§2Uncommon",
+
     "item.mobz.withermeal": "Wither Powder",
+    "item.mobz.withermeal.tooltip": "§2Uncommon Material",
+
     "item.mobz.bearleather": "Bear Leather",
+    "item.mobz.bearleather.tooltip": "§7Common",
+
     "item.mobz.v_sword": "Visible Sword",
-    "item.mobz.sbow": "§5Lilith´s Bow",
-    "item.mobz.orb": "§5Orb of Immunity",
+    "item.mobz.v_sword.tooltip": "§2Uncommon",
+
+    "item.mobz.sbow": "Lilith´s Bow",
+    "item.mobz.sbow.tooltip": "§bRare",
+
+    "item.mobz.orb": "Orb of Immunity",
     "item.mobz.orb.tooltip": "§9Immune to Wither + Poison",
+    "item.mobz.orb.tooltip2": "§5Epic",
+
     "item.mobz.debuger": "Debug Stick",
+
     "item.mobz.whitebag": "White Bag",
-    "item.mobz.whitebag.tooltip": "Ultra Rare",
-    "item.mobz.orb2": "§5Orb of Levitation",
+    "item.mobz.whitebag.tooltip": "§6Legendary",
+
+    "item.mobz.orb2": "Orb of Levitation",
     "item.mobz.orb2.tooltip": "§9Levitation",
-    "item.mobz.orb2.tooltip2": "Right Click to Activate",
+    "item.mobz.orb2.tooltip2": "§6Legendary",
+
     "item.mobz.showegg": "Spawn Egg",
-    "item.mobz.pillagerstaff": "§6Staff of the Mighty Pillager",
-    "item.mobz.pillagerstaff.tooltip": "Witherinfused",
+
+    "item.mobz.pillagerstaff": "Staff of the Mighty Pillager",
+    "item.mobz.pillagerstaff.tooltip": "§5Epic",
+
     "item.mobz.shield2": "Metal Shield",
+
     "item.mobz.sacrificeknife": "Sacrifice Knife",
     "item.mobz.sacrificeknife.tooltip": "§4Blood for blood",
-    "item.mobz.enderheader": "§eEnderman Head",
-    "item.mobz.totembase": "Pillager Totem Base",
-    "item.mobz.totemmiddle": "Pillager Totem Middle",
-    "item.mobz.totemtop": "Pillager Totem Top",
-    "item.mobz.bosstrophy": "§eBoss Head Trophy",
-    "item.mobz.reddblock": "§4Red Diamond Block",
-    "item.mobz.hardenedmetal_block": "§7Metal Block",
-    "block.mobz.hardenedmetal_block": "§7Metal Block",
-    "block.mobz.reddblock": "§4Red Diamond Block",
+    "item.mobz.sacrificeknife.tooltip2": "§2Uncommon",
+
+    "block.mobz.boss_block": "Enchanted Gold Block",
+    "block.mobz.boss_block.tooltip": "§6Legendary Material",
+
+    "block.mobz.hardenedmetal_block": "Metal Block",
+    "block.mobz.hardenedmetal_block.tooltip": "§2Uncommon Material",
+
     "block.mobz.bosstrophy": "§eBoss Head Trophy",
     "block.mobz.totembase": "Pillager Totem Base",
     "block.mobz.totemmiddle": "Pillager Totem Middle",
     "block.mobz.totemtop": "Pillager Totem Top",
     "block.mobz.enderheader": "§eEnderman Head",
-    "block.mobz.spawnblock": "Limited Baby Ravager Spawner",
-    "item.mobz.spawnblock": "Limited Baby Ravager Spawner",
+    "block.mobz.spawn_block": "Limited Baby Ravager Spawner",
+
     "item.mobz.spawn_tank": "Tank Spawn Egg",
     "item.mobz.spawn_fast": "Fast Zombie Spawn Egg",
     "item.mobz.spawn_spi": "Blue Spider Spawn Egg",

@@ -1,15 +1,21 @@
 package net.mobz.Items.Armor;
 
+import java.util.List;
 import java.util.UUID;
 
 import com.google.common.collect.Multimap;
 
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.world.World;
 
 public class SpeedShoeBase extends ArmorItem {
     double b = 0.02D;
@@ -20,6 +26,11 @@ public class SpeedShoeBase extends ArmorItem {
 
     public SpeedShoeBase(ArmorMaterial material, EquipmentSlot slot) {
         super(material, slot, new Item.Settings());
+    }
+
+    @Override
+    public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        tooltip.add(new TranslatableText("item.mobz.speed_boots.tooltip"));
     }
 
     @Override

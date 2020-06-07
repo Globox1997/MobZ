@@ -1,22 +1,22 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-      " df",
-      "e f",
-      " df"
-    ],
-    "key": {
-      "d": {
-        "item": "mobz:rottenflesh"
-      },
-      "e": {
-        "item": "minecraft:diamond"
-      },
-      "f": {
-        "item": "minecraft:string"
-      }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " df",
+    "e f",
+    " df"
+  ],
+  "key": {
+    "d": {
+      "item": "mobz:amat_ingot"
     },
-    "result": {
-      "item": "mobz:sbow"
+    "e": {
+      "item": "minecraft:gold_ingot"
+    },
+    "f": {
+      "item": "minecraft:string"
     }
+  },
+  "result": {
+    "item": "mobz:sbow"
   }
+}

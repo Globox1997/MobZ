@@ -12,11 +12,11 @@ public class Itemgroupinit {
 
     public static final ItemGroup MOBZ_GROUP = FabricItemGroupBuilder.create(new Identifier("mobz", "glomod"))
             .icon(() -> new ItemStack(SwordItems.ArmoredSword)).appendItems(stacks -> {
+                stacks.add(new ItemStack(SwordItems.VSword));
                 stacks.add(new ItemStack(SwordItems.ArmoredSword));
                 stacks.add(new ItemStack(SwordItems.PoisonSword));
                 stacks.add(new ItemStack(SwordItems.FrozenSword));
                 stacks.add(new ItemStack(SwordItems.WitherSword));
-                stacks.add(new ItemStack(SwordItems.VSword));
                 stacks.add(new ItemStack(SwordItems.BossSword));
                 stacks.add(new ItemStack(SwordItems.Sword));
                 stacks.add(ItemStack.EMPTY);
@@ -25,7 +25,7 @@ public class Itemgroupinit {
                 stacks.add(new ItemStack(Iteminit.SHIELD));
                 stacks.add(new ItemStack(Iteminit.SBOW));
                 stacks.add(new ItemStack(Iteminit.PILLAGERSTAFF));
-                stacks.add(new ItemStack(Iteminit.SHIELD2));
+                stacks.add(new ItemStack(Iteminit.SHIELD_2));
                 stacks.add(new ItemStack(Iteminit.SACRIFICEKNIFE));
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(ItemStack.EMPTY);
@@ -51,9 +51,9 @@ public class Itemgroupinit {
                 stacks.add(new ItemStack(Iteminit.ROTTENFLESH));
                 stacks.add(new ItemStack(Iteminit.BEARLEATHER));
                 stacks.add(new ItemStack(Iteminit.WITHERMEAL));
-                stacks.add(new ItemStack(Iteminit.REDD));
-                stacks.add(new ItemStack(Iteminit.HARDENEDMETAL));
-                stacks.add(new ItemStack(Iteminit.BOSSBARREN));
+                stacks.add(new ItemStack(Iteminit.HARDENEDMETAL_INGOT));
+                stacks.add(new ItemStack(Iteminit.AMAT_INGOT));
+                stacks.add(new ItemStack(Iteminit.BOSS_INGOT));
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(ItemStack.EMPTY);
@@ -62,14 +62,14 @@ public class Itemgroupinit {
                 stacks.add(new ItemStack(Blockinit.TOTEM_TOP));
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(new ItemStack(Blockinit.HARDENED_METALBLOCK));
-                stacks.add(new ItemStack(Blockinit.REDD_BLOCK));
+                stacks.add(new ItemStack(Blockinit.BOSS_BLOCK));
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(new ItemStack(Blockinit.ENDERHEADER));
                 stacks.add(new ItemStack(Blockinit.BOSS_TROPHY));
                 stacks.add(new ItemStack(Iteminit.MEDIVEAL_DISC));
                 stacks.add(new ItemStack(Iteminit.MEDIVEAL_DISC2));
                 stacks.add(new ItemStack(Iteminit.ORB));
-                stacks.add(new ItemStack(Iteminit.ORB2));
+                stacks.add(new ItemStack(Iteminit.ORB_2));
                 stacks.add(new ItemStack(Iteminit.WHITEBAG));
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(ItemStack.EMPTY);
