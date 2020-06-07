@@ -14,6 +14,11 @@ public class BossIngot extends Item {
     }
 
     @Override
+    public boolean hasEnchantmentGlint(ItemStack stack) {
+        return true;
+    }
+
+    @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
         tooltip.add(new TranslatableText("item.mobz.boss_ingot.tooltip"));
     }

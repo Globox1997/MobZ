@@ -19,6 +19,11 @@ public class ArmorBase extends ArmorItem {
     }
 
     @Override
+    public boolean hasEnchantmentGlint(ItemStack stack) {
+        return true;
+    }
+
+    @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         LivingEntity bob = (LivingEntity) entity;
         StatusEffectInstance spd = new StatusEffectInstance(StatusEffect.byRawId(1), 9, 0, false, false);
