@@ -1,5 +1,6 @@
 {
     "parent": "mobz:item/shield",
+    "gui_light": "front",
     "display": {
         "thirdperson_righthand": {
             "rotation": [

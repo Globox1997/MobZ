@@ -2,6 +2,7 @@
     "textures": {
         "pillagerstaff": "mobz:item/pillagerstaff"
     },
+    "gui_light": "front",
     "display": {
         "gui": {
             "rotation": [ 0, 185, 46 ],
