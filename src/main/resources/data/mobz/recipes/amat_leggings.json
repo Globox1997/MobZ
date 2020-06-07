@@ -1,16 +1,13 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "ded",
+        "ddd",
         "d d",
         "d d"
     ],
     "key": {
         "d": {
-            "item": "mobz:rottenflesh"
-        },
-        "e": {
-            "item": "mobz:redd"
+            "item": "mobz:amat_ingot"
         }
     },
     "result": {

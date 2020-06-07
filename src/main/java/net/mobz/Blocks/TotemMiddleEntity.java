@@ -3,6 +3,8 @@ package net.mobz.Blocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -67,6 +69,10 @@ public class TotemMiddleEntity extends BlockEntity implements Tickable {
       PillagerBoss pillager = (PillagerBoss) Entityinit.PILLAGERBOSS.create(world);
       BlockPos spawnPos = new BlockPos(pos.getX(), pos.getY() - 1, pos.getZ());
       pillager.refreshPositionAndAngles(spawnPos, 0.0F, 0.0F);
+      if (world.isClient) {
+        world.playSound(world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), 16D, false), pos,
+            SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.HOSTILE, 1F, 1F);
+      }
       world.spawnEntity(pillager);
     }
   }

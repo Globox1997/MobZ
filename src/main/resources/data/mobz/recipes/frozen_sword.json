@@ -1,30 +1,25 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {
-            "item": "minecraft:iron_sword"
-        },
-        {
-            "item": "minecraft:snowball"
-        },
-        {
-            "item": "minecraft:ice"
-        },
-        {
-            "item": "minecraft:snowball"
-        },
-        {
-            "item": "minecraft:snowball"
-        },
-        {
-            "item": "minecraft:ice"
-        },
-        {
-            "item": "minecraft:ice"
-        }
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "odo",
+        "fdf",
+        "oeo"
     ],
+    "key": {
+        "d": {
+            "item": "minecraft:diamond"
+        },
+        "e": {
+            "item": "minecraft:stick"
+        },
+        "f": {
+            "item": "mobz:frozenmeal"
+        },
+        "o": {
+            "item": "minecraft:snowball"
+        }
+    },
     "result": {
-        "item": "mobz:frozen_sword",
-        "count": 1
+        "item": "mobz:frozen_sword"
     }
 }

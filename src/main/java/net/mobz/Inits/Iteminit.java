@@ -19,6 +19,7 @@ public class Iteminit {
         public static final Rottenflesh ROTTENFLESH = new Rottenflesh();
         public static final AmatIngot AMAT_INGOT = new AmatIngot(new Item.Settings());
         public static final Withermeal WITHERMEAL = new Withermeal(new Item.Settings());
+        public static final Frozenmeal FROZENMEAL = new Frozenmeal(new Item.Settings());
         public static final Bearleather BEARLEATHER = new Bearleather(new Item.Settings());
         public static final Sbow SBOW = new Sbow(new Item.Settings().maxDamage(461));
         public static final Orb ORB = new Orb(new Item.Settings().maxCount(1));
@@ -78,6 +79,7 @@ public class Iteminit {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "rottenflesh"), ROTTENFLESH);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "amat_ingot"), AMAT_INGOT);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "withermeal"), WITHERMEAL);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "frozenmeal"), FROZENMEAL);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "bearleather"), BEARLEATHER);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "sbow"), SBOW);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "orb"), ORB);

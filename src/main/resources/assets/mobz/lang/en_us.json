@@ -115,7 +115,7 @@
     "item.mobz.amat_leggings": "Aryas Leggings",
     "item.mobz.amat_armor.tooltip": "§bRare",
 
-    "item.mobz.amat_ingot": "Red Diamond",
+    "item.mobz.amat_ingot": "Nether Reinforced Ingot",
     "item.mobz.amat_ingot.tooltip": "§bRare Material",
 
     "item.mobz.wither_sword": "Artus Sword",
@@ -123,6 +123,8 @@
 
     "item.mobz.withermeal": "Wither Powder",
     "item.mobz.withermeal.tooltip": "§2Uncommon Material",
+    "item.mobz.frozenmeal": "Frozen Powder",
+    "item.mobz.frozenmeal.tooltip": "§2Uncommon Material",
 
     "item.mobz.bearleather": "Bear Leather",
     "item.mobz.bearleather.tooltip": "§7Common",
@@ -160,13 +162,22 @@
     "block.mobz.boss_block": "Enchanted Gold Block",
     "block.mobz.boss_block.tooltip": "§6Legendary Material",
 
+    "block.mobz.amat_block": "Nether Reinforced Block",
+    "block.mobz.amat_block.tooltip": "§2Uncommon Material",
+
     "block.mobz.hardenedmetal_block": "Metal Block",
     "block.mobz.hardenedmetal_block.tooltip": "§2Uncommon Material",
 
     "block.mobz.bosstrophy": "§eBoss Head Trophy",
+
     "block.mobz.totembase": "Pillager Totem Base",
     "block.mobz.totemmiddle": "Pillager Totem Middle",
     "block.mobz.totemtop": "Pillager Totem Top",
+
+    "block.mobz.totembase.tooltip": "§bRare",
+    "block.mobz.totemmiddle.tooltip": "§7Common",
+    "block.mobz.totemtop.tooltip": "§bRare",
+
     "block.mobz.enderheader": "§eEnderman Head",
     "block.mobz.spawn_block": "Limited Baby Ravager Spawner",
 
@@ -224,8 +235,10 @@
     "item.mobz.spawn_islandknightspecial2": "Andriu the Humble Spawn Egg",
     "item.mobz.spawn_islandvex": "Spirit of Death Spawn Egg",
     "item.mobz.spawn_metalgolem": "Metal Golem Spawn Egg",
+
     "itemGroup.mobz.glomod": "MobZ",
     "itemGroup.mobz.glomodegg": "MobZ Spawn Eggs",
+
     "text.autoconfig.mobz.title": "MobZ Config",
     "text.autoconfig.mobz.category.spawnsetting": "Spawn Settings",
     "text.autoconfig.mobz.category.lifesetting": "Life Settings",
@@ -435,6 +448,7 @@
     "text.autoconfig.mobz.option.DeathSpiritAttack": "Death Spirit Attack Damage",
     "text.autoconfig.mobz.option.SpawnCountBabyRavagerBlock.@PrefixText": "Different Settings",
     "text.autoconfig.mobz.option.SpawnCountBabyRavagerBlock": "Baby Ravager Spawner Cap",
+
     "mobz.advancements.archer.title": "Bowman",
     "mobz.advancements.archer.description": "Kill the Bowman!",
     "mobz.advancements.archer2.title": "Archer",
@@ -513,10 +527,12 @@
     "mobz.advancements.islandknightspecial.description": "Trusted main guard of the floating castle",
     "mobz.advancements.islandknightspecial2.title": "Andriu the Humble",
     "mobz.advancements.islandknightspecial2.description": "A great man is always willing to be little",
+
     "text.mobz.withendermissing": "Something is missing",
     "text.mobz.pillagermissing": "Totem Part is missing",
     "text.mobz.pillagerspawnable": "Spawn is set to false",
     "text.mobz.sacrificeknifeblood": "Knife is too less bloody",
+    
     "item.mobz.archerhead": "Archer Image",
     "item.mobz.bosshead": "Boss Image",
     "item.mobz.dwarfhead": "Dwarf Image",

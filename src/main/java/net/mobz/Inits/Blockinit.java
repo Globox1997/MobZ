@@ -17,9 +17,10 @@ public class Blockinit {
         public static final TotemTop TOTEM_TOP = new TotemTop(FabricBlockSettings.copy(Blocks.OAK_LOG));
         public static final Bosstrophy BOSS_TROPHY = new Bosstrophy(FabricBlockSettings.copy(Blocks.ZOMBIE_HEAD));
         public static final Spawnblock SPAWN_BLOCK = new Spawnblock(FabricBlockSettings.copy(Blocks.SPAWNER));
-        public static final Bossblock BOSS_BLOCK = new Bossblock(FabricBlockSettings.copy(Blocks.DIAMOND_BLOCK));
+        public static final Bossblock BOSS_BLOCK = new Bossblock(FabricBlockSettings.copy(Blocks.IRON_BLOCK));
+        public static final Amatblock AMAT_BLOCK = new Amatblock(FabricBlockSettings.copy(Blocks.IRON_BLOCK));
         public static final HardenedMetalblock HARDENED_METALBLOCK = new HardenedMetalblock(
-                        FabricBlockSettings.copy(Blocks.GOLD_BLOCK));
+                        FabricBlockSettings.copy(Blocks.IRON_BLOCK));
         public static BlockEntityType<SpawnblockEntity> SPAWNBLOCKENTITY;
         public static BlockEntityType<TotemMiddleEntity> TOTEMMIDDLEENTITY;
         public static BlockEntityType<HardenedMetalblockEntity> HARDENEDMETALBLOCKENTITY;
@@ -51,6 +52,9 @@ public class Blockinit {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "boss_block"),
                                 new BlockItem(BOSS_BLOCK, new Item.Settings()));
                 Registry.register(Registry.BLOCK, new Identifier("mobz", "boss_block"), BOSS_BLOCK);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "amat_block"),
+                                new BlockItem(AMAT_BLOCK, new Item.Settings()));
+                Registry.register(Registry.BLOCK, new Identifier("mobz", "amat_block"), AMAT_BLOCK);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "hardenedmetal_block"),
                                 new BlockItem(HARDENED_METALBLOCK, new Item.Settings()));
                 Registry.register(Registry.BLOCK, new Identifier("mobz", "hardenedmetal_block"), HARDENED_METALBLOCK);
