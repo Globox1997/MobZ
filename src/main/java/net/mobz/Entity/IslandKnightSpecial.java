@@ -64,7 +64,7 @@ public class IslandKnightSpecial extends ZombieEntity {
     super.initEquipment(localDifficulty_1);
     if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
       this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(SwordItems.ArmoredSword));
-      this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Iteminit.SHIELD_2));
+      this.equipStack(EquipmentSlot.OFFHAND, new ItemStack(Iteminit.SHIELD));
     }
   }
 

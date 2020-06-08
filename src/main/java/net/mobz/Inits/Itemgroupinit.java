@@ -12,7 +12,6 @@ public class Itemgroupinit {
 
     public static final ItemGroup MOBZ_GROUP = FabricItemGroupBuilder.create(new Identifier("mobz", "glomod"))
             .icon(() -> new ItemStack(SwordItems.ArmoredSword)).appendItems(stacks -> {
-                stacks.add(new ItemStack(SwordItems.VSword));
                 stacks.add(new ItemStack(SwordItems.ArmoredSword));
                 stacks.add(new ItemStack(SwordItems.PoisonSword));
                 stacks.add(new ItemStack(SwordItems.FrozenSword));
@@ -21,12 +20,13 @@ public class Itemgroupinit {
                 stacks.add(new ItemStack(SwordItems.Sword));
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(ItemStack.EMPTY);
-                stacks.add(new ItemStack(SwordItems.Axe));
+                stacks.add(ItemStack.EMPTY);
+                stacks.add(new ItemStack(SwordItems.VSword));
+                stacks.add(new ItemStack(Iteminit.SACRIFICEKNIFE));
                 stacks.add(new ItemStack(Iteminit.SHIELD));
+                stacks.add(new ItemStack(SwordItems.Axe));
                 stacks.add(new ItemStack(Iteminit.SBOW));
                 stacks.add(new ItemStack(Iteminit.PILLAGERSTAFF));
-                stacks.add(new ItemStack(Iteminit.SHIELD_2));
-                stacks.add(new ItemStack(Iteminit.SACRIFICEKNIFE));
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(ItemStack.EMPTY);

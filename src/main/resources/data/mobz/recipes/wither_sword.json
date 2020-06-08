@@ -1,24 +1,25 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "efe",
+        "odo",
+        "efe"
+    ],
+    "key": {
+        "d": {
             "item": "minecraft:iron_sword"
         },
-        {
+        "e": {
             "item": "mobz:withermeal"
         },
-        {
-            "item": "mobz:withermeal"
+        "f": {
+            "item": "minecraft:end_crystal"
         },
-        {
-            "item": "mobz:withermeal"
-        },
-        {
-            "item": "mobz:withermeal"
+        "o": {
+            "item": "minecraft:dragon_breath"
         }
-    ],
+    },
     "result": {
-        "item": "mobz:wither_sword",
-        "count": 1
+        "item": "mobz:wither_sword"
     }
 }

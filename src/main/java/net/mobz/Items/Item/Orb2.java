@@ -48,19 +48,22 @@ public class Orb2 extends Item {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         StatusEffectInstance lev = new StatusEffectInstance(StatusEffect.byRawId(25), 9, 1, false, false);
         LivingEntity bob = (LivingEntity) entity;
-
-        if (sam <= 160 && sam > 0 && selected == true && !world.isClient) {
-            bob.addStatusEffect(lev);
-            sam++;
-        } else {
-            if (sam > 160) {
-                sam = -80;
+        PlayerEntity player = (PlayerEntity) bob;
+        if (!world.isClient) {
+            if (sam <= 160 && sam > 0 && selected == true) {
+                bob.addStatusEffect(lev);
+                sam++;
             } else {
-                if (selected == false && sam >= 1) {
-                    sam = sam - 1;
+                if (sam > 160) {
+                    player.getItemCooldownManager().set(this, 80);
+                    sam = -80;
                 } else {
-                    if (sam < 0) {
-                        sam++;
+                    if (selected == false && sam >= 1) {
+                        sam = sam - 1;
+                    } else {
+                        if (sam < 0) {
+                            sam++;
+                        }
                     }
                 }
             }

@@ -79,8 +79,8 @@
     "item.mobz.axe": "Eragons Axe",
     "item.mobz.axe.tooltip": "§bRare",
 
-    "item.mobz.shield": "Eragons Shield",
-    "item.mobz.shield.tooltip": "§bRare",
+    "item.mobz.shield": "Metal Shield",
+    "item.mobz.shield.tooltip": "§2Uncommon",
 
     "item.mobz.sword": "Rainbow Sword",
     "item.mobz.sword.tooltip": "§6Legendary",
@@ -129,7 +129,7 @@
     "item.mobz.bearleather": "Bear Leather",
     "item.mobz.bearleather.tooltip": "§7Common",
 
-    "item.mobz.v_sword": "Visible Sword",
+    "item.mobz.v_sword": "Stone Tomahawk",
     "item.mobz.v_sword.tooltip": "§2Uncommon",
 
     "item.mobz.sbow": "Lilith´s Bow",
@@ -152,8 +152,6 @@
 
     "item.mobz.pillagerstaff": "Staff of the Mighty Pillager",
     "item.mobz.pillagerstaff.tooltip": "§5Epic",
-
-    "item.mobz.shield2": "Metal Shield",
 
     "item.mobz.sacrificeknife": "Sacrifice Knife",
     "item.mobz.sacrificeknife.tooltip": "§4Blood for blood",
