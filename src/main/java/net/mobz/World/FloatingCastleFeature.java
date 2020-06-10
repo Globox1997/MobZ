@@ -98,10 +98,12 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.BiomeAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.chunk.ChunkGeneratorConfig;
 import net.minecraft.world.gen.feature.AbstractTempleFeature;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 import net.minecraft.world.Heightmap;
+import net.minecraft.world.IWorld;
 
 public class FloatingCastleFeature extends StructureFeature<DefaultFeatureConfig> {
   public FloatingCastleFeature(Function<Dynamic<?>, ? extends DefaultFeatureConfig> configFactory) {
@@ -149,15 +151,14 @@ public class FloatingCastleFeature extends StructureFeature<DefaultFeatureConfig
     @Override
     public void initialize(ChunkGenerator<?> chunkGenerator, StructureManager structureManager, int x, int z,
         Biome biome) {
-      FloatingCastleGenerator.addPieces(chunkGenerator, structureManager,
-          new BlockPos(x * 16,
-              chunkGenerator.getHeightOnGround(x * 16 + 15, z * 16 + 15, Heightmap.Type.WORLD_SURFACE) + 100, z * 16),
-          children, random);
+      FloatingCastleGenerator.addPieces(chunkGenerator, structureManager, new BlockPos(x * 16, 60, z * 16), children,
+          random);
       this.setBoundingBoxFromChildren();
     }
   }
 
-}
+} // chunkGenerator.getHeightOnGround(x * 16 + 15, z * 16 + 15,
+  // Heightmap.Type.WORLD_SURFACE) + 100
 
 // package net.mobz.World;
 

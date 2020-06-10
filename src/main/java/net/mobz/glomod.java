@@ -17,7 +17,7 @@ public class glomod implements ModInitializer {
                 Soundinit.init();
                 SwordItems.init();
                 SpawnInit.init();
-                Worldinit.init();
+                // Worldinit.init(); Wait for 1.16 update
         }
 }
 

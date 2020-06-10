@@ -297,20 +297,19 @@ import net.mobz.Inits.Worldinit;
 import java.util.List;
 
 public class FloatingCastleGenerator {
-  private static final Identifier OK2 = new Identifier("mobz:trol");
-  private static final Identifier OK3 = new Identifier("mobz:ok");
+  private static final Identifier OK2 = new Identifier("mobz:ok");
+  private static final Identifier OK3 = new Identifier("mobz:trol");
 
   static {
     StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(OK2, new Identifier("empty"),
-        ImmutableList.of(new Pair<>(new SinglePoolElement("mobz:cde"), 1)), StructurePool.Projection.RIGID));
+        ImmutableList.of(new Pair<>(new SinglePoolElement("mobz:gx"), 1)), StructurePool.Projection.RIGID));
     StructurePoolBasedGenerator.REGISTRY.add(new StructurePool(OK3, new Identifier("empty"),
-        ImmutableList.of(new Pair<>(new SinglePoolElement("mobz:abc"), 1)), StructurePool.Projection.RIGID));
+        ImmutableList.of(new Pair<>(new SinglePoolElement("mobz:lol"), 1)), StructurePool.Projection.RIGID));
   }
 
   public static void addPieces(ChunkGenerator<?> chunkGenerator, StructureManager structureManager, BlockPos pos,
       List<StructurePiece> pieces, ChunkRandom random) {
-    // pos = new BlockPos(pos.getX(), 120, pos.getZ());
-    StructurePoolBasedGenerator.addPieces(OK2, 2, FloatingCastleGenerator.Piece::new, chunkGenerator, structureManager,
+    StructurePoolBasedGenerator.addPieces(OK2, 1, FloatingCastleGenerator.Piece::new, chunkGenerator, structureManager,
         pos, pieces, random);
   }
 
@@ -321,8 +320,7 @@ public class FloatingCastleGenerator {
 
     public Piece(StructureManager structureManager, StructurePoolElement structurePoolElement, BlockPos blockPos, int i,
         BlockRotation blockRotation, BlockBox blockBox) {
-      // maybe no blockrotation11111111111111111111111111
-      super(Worldinit.FLOATING_CASTLE_PIECES, structureManager, structurePoolElement, blockPos, i, blockRotation,
+      super(Worldinit.FLOATING_CASTLE_PIECES, structureManager, structurePoolElement, blockPos, i, BlockRotation.NONE,
           blockBox);
     }
   }

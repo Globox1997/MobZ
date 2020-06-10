@@ -38,7 +38,7 @@ public class Worldinit {
                 // ChanceDecoratorConfig(10))));
                 Registry.BIOME.forEach(biome -> biome.addFeature(GenerationStep.Feature.SURFACE_STRUCTURES,
                                 Worldinit.FLOATING_CASTLE.configure(FeatureConfig.DEFAULT).createDecoratedFeature(
-                                                Decorator.CHANCE_PASSTHROUGH.configure(new ChanceDecoratorConfig(1)))));
+                                                Decorator.CHANCE_PASSTHROUGH.configure(new ChanceDecoratorConfig(6)))));
         }
 
 }
