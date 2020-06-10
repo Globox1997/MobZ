@@ -148,7 +148,7 @@ public class Entityinit {
                         .create(EntityCategory.MONSTER, Withender::new).trackable(74, 2).fireImmune()
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
         public static final EntityType<Slimo> SLIMO = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Slimo::new)
-                        .trackable(74, 2).dimensions(EntityDimensions.fixed(2.04F, 2.04F)).build();
+                        .trackable(74, 2).dimensions(EntityDimensions.fixed(0.51F, 0.51F)).build();
         public static final EntityType<TSpider> TSPIDER = FabricEntityTypeBuilder
                         .create(EntityCategory.AMBIENT, TSpider::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.2F, 0.1F)).build();

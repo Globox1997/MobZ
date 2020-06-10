@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 public class DogRenderer extends MobEntityRenderer<WolfEntity, WolfEntityModel<WolfEntity>> {
    private static final Identifier WILD_SKIN = new Identifier("mobz:textures/entity/dog.png");
    private static final Identifier TAMED_SKIN = new Identifier("mobz:textures/entity/dog.png");
-   private static final Identifier ANGRY_SKIN = new Identifier("mobz:textures/entity/dogangry.png");
+   private static final Identifier ANGRY_SKIN = new Identifier("mobz:textures/entity/dog.png");
 
    public DogRenderer(EntityRenderDispatcher entityRenderDispatcher) {
       super(entityRenderDispatcher, new WolfEntityModel<>(), 0.5F);

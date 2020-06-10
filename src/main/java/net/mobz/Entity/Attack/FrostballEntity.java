@@ -1,4 +1,4 @@
-package net.mobz.Entity;
+package net.mobz.Entity.Attack;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;

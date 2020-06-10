@@ -20,6 +20,7 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.BlazeEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.thrown.SnowballEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -30,6 +31,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.mobz.Config.configz;
+import net.mobz.Entity.Attack.FrostballEntity;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.Soundinit;
@@ -130,10 +132,6 @@ public class FrostEntity extends BlazeEntity {
 
    @Override
    protected void mobTick() {
-      if (this.isTouchingWater()) {
-         this.damage(DamageSource.DROWN, 1.0F);
-      }
-
       --this.field_7215;
       if (this.field_7215 <= 0) {
          this.field_7215 = 100;
@@ -177,6 +175,20 @@ public class FrostEntity extends BlazeEntity {
       this.dataTracker.set(BLAZE_FLAGS, byte_1);
    }
 
+   ////////////////////////////////////////////////
+   public void attack(LivingEntity target, float f) {
+      SnowballEntity snowballEntity = new SnowballEntity(this.world, this);
+      double d = target.getEyeY() - 1.100000023841858D;
+      double e = target.getX() - this.getX();
+      double g = d - snowballEntity.getY();
+      double h = target.getZ() - this.getZ();
+      float i = MathHelper.sqrt(e * e + h * h) * 0.2F;
+      snowballEntity.setVelocity(e, g + (double) i, h, 1.6F, 12.0F);
+      this.playSound(SoundEvents.ENTITY_SNOW_GOLEM_SHOOT, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
+      this.world.spawnEntity(snowballEntity);
+   }
+
+   /////////////////////////////////////
    static {
       BLAZE_FLAGS = DataTracker.registerData(FrostEntity.class, TrackedDataHandlerRegistry.BYTE);
    }

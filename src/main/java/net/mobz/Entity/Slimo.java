@@ -30,4 +30,9 @@ public class Slimo extends SlimeEntity {
 
     }
 
+    @Override
+    public boolean isSmall() {
+        return true;
+    }
+
 }
