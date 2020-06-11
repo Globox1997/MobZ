@@ -21,9 +21,11 @@ public class Blockinit {
         public static final Amatblock AMAT_BLOCK = new Amatblock(FabricBlockSettings.copy(Blocks.IRON_BLOCK));
         public static final HardenedMetalblock HARDENED_METALBLOCK = new HardenedMetalblock(
                         FabricBlockSettings.copy(Blocks.IRON_BLOCK));
+        public static final Treasureblock TREASURE_BLOCK = new Treasureblock(FabricBlockSettings.copy(Blocks.BEDROCK));
         public static BlockEntityType<SpawnblockEntity> SPAWNBLOCKENTITY;
         public static BlockEntityType<TotemMiddleEntity> TOTEMMIDDLEENTITY;
         public static BlockEntityType<HardenedMetalblockEntity> HARDENEDMETALBLOCKENTITY;
+        public static BlockEntityType<TreasureblockEntity> TREASUREBLOCKENTITY;
 
         public static void init() {
 
@@ -62,5 +64,10 @@ public class Blockinit {
                                 "mobz:hardenedmetalblockentity",
                                 BlockEntityType.Builder.create(HardenedMetalblockEntity::new, HARDENED_METALBLOCK)
                                                 .build(null));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "treasure_block"),
+                                new BlockItem(TREASURE_BLOCK, new Item.Settings()));
+                Registry.register(Registry.BLOCK, new Identifier("mobz", "treasure_block"), TREASURE_BLOCK);
+                TREASUREBLOCKENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "mobz:treasureblockentity",
+                                BlockEntityType.Builder.create(TreasureblockEntity::new, TREASURE_BLOCK).build(null));
         }
 }

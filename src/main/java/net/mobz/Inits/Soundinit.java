@@ -128,6 +128,8 @@ public class Soundinit {
     public static SoundEvent MGOLEMHITEVENT = new SoundEvent(MGOLEMHIT);
     public static final Identifier MGOLEMBREAK = new Identifier("mobz:mgolembreak");
     public static SoundEvent MGOLEMBREAKEVENT = new SoundEvent(MGOLEMBREAK);
+    public static final Identifier UNSEAL = new Identifier("mobz:unseal");
+    public static SoundEvent UNSEALEVENT = new SoundEvent(UNSEAL);
 
     public static void init() {
 
@@ -192,6 +194,7 @@ public class Soundinit {
         Registry.register(Registry.SOUND_EVENT, Soundinit.RAVHURT, RAVHURTEVENT);
         Registry.register(Registry.SOUND_EVENT, Soundinit.MGOLEMBREAK, MGOLEMBREAKEVENT);
         Registry.register(Registry.SOUND_EVENT, Soundinit.MGOLEMHIT, MGOLEMHITEVENT);
+        Registry.register(Registry.SOUND_EVENT, Soundinit.UNSEAL, UNSEALEVENT);
     }
 
 }

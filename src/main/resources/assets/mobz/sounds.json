@@ -419,5 +419,10 @@
       "mobz:mgolembreak1",
       "mobz:mgolembreak1"
     ]
+  },
+  "unseal": {
+    "sounds": [
+      "mobz:unseal"
+    ]
   }
 }
