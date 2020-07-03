@@ -2,8 +2,10 @@ package net.mobz.Entity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.ZombieEntity;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -18,21 +20,17 @@ public class SmallZombie extends ZombieEntity {
         super(entityType, world);
     }
 
-    @Override
-    public boolean canPickUpLoot() {
-        return false;
+    public static DefaultAttributeContainer.Builder createSmallZombieAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 6D * Configinit.CONFIGZ.LifeMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.24D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3D * Configinit.CONFIGZ.DamageMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 15.0D);
     }
 
     @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(6D * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(15.0D);
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.24D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(3D * Configinit.CONFIGZ.DamageMultiplicatorMob);
-
+    public boolean canPickUpLoot() {
+        return false;
     }
 
     @Override

@@ -33,7 +33,7 @@ public class CripRenderer extends MobEntityRenderer<CreeperEntity, CreeperEntity
    }
 
    @Override
-   protected float getWhiteOverlayProgress(CreeperEntity creeperEntity, float f) {
+   protected float getAnimationCounter(CreeperEntity creeperEntity, float f) {
       float g = creeperEntity.getClientFuseTime(f);
       return (int) (g * 10.0F) % 2 == 0 ? 0.0F : MathHelper.clamp(g, 0.5F, 1.0F);
    }

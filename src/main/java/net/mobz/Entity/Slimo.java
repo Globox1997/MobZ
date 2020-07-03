@@ -2,6 +2,9 @@ package net.mobz.Entity;
 
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.SlimeEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
@@ -16,6 +19,11 @@ public class Slimo extends SlimeEntity {
         super(entityType, world);
     }
 
+    public static DefaultAttributeContainer.Builder createSlimoAttributes() {
+        return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 4D)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 1D);
+    }
+
     @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
@@ -24,8 +32,7 @@ public class Slimo extends SlimeEntity {
                 && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(posentity) <= 7
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-                && this.world.getBlockState(blockunderentity).getBlock()
-                        .allowsSpawning(world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.SLIMO)
+                && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.SLIMO)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().GrassSlimeSpawn;
 
     }

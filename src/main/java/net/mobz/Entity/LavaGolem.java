@@ -10,17 +10,20 @@ import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
-import net.minecraft.entity.ai.goal.GoToEntityTargetGoal;
 import net.minecraft.entity.ai.goal.IronGolemLookGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
+import net.minecraft.entity.ai.goal.WanderNearTargetGoal;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.entity.mob.WitherSkeletonEntity;
-import net.minecraft.entity.mob.ZombiePigmanEntity;
+import net.minecraft.entity.mob.ZoglinEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -35,10 +38,20 @@ public class LavaGolem extends IronGolemEntity {
       this.experiencePoints = 20;
    }
 
+   public static DefaultAttributeContainer.Builder createLavaGolemAttributes() {
+      return HostileEntity.createHostileAttributes()
+            .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                  Configinit.CONFIGZ.LavaGolemLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D)
+            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                  Configinit.CONFIGZ.LavaGolemAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+            .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 30.0D).add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1.5D);
+   }
+
    @Override
    protected void initGoals() {
       this.goalSelector.add(1, new GolemAttack(this, 1.0D, true));
-      this.goalSelector.add(2, new GoToEntityTargetGoal(this, 0.9D, 32.0F));
+      this.goalSelector.add(2, new WanderNearTargetGoal(this, 0.9D, 32.0F));
       this.goalSelector.add(5, new IronGolemLookGoal(this));
       this.goalSelector.add(6, new WanderAroundFarGoal(this, 0.8D));
       this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
@@ -48,12 +61,13 @@ public class LavaGolem extends IronGolemEntity {
    }
 
    protected void initCustomGoals() {
-      this.targetSelector.add(2, (new RevengeGoal(this, new Class[0])).setGroupRevenge(ZombiePigmanEntity.class));
+      this.targetSelector.add(2, (new RevengeGoal(this, new Class[0])).setGroupRevenge(ZoglinEntity.class));
       this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(skeli3.class));
       this.targetSelector.add(4, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SkeletonEntity.class));
       this.targetSelector.add(5, (new RevengeGoal(this, new Class[0])).setGroupRevenge(WitherSkeletonEntity.class));
       this.targetSelector.add(6, (new RevengeGoal(this, new Class[0])).setGroupRevenge(Dog.class));
       this.targetSelector.add(7, (new RevengeGoal(this, new Class[0])).setGroupRevenge(WithEntity.class));
+      this.targetSelector.add(8, (new RevengeGoal(this, new Class[0])).setGroupRevenge(PiglinEntity.class));
    }
 
    @Override
@@ -77,25 +91,13 @@ public class LavaGolem extends IronGolemEntity {
    }
 
    @Override
-   protected void initAttributes() {
-      super.initAttributes();
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-            .setBaseValue(Configinit.CONFIGZ.LavaGolemLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-      this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
-      this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.5D);
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-            .setBaseValue(Configinit.CONFIGZ.LavaGolemAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-   }
-
-   @Override
    public boolean canSpawn(WorldView view) {
       BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
       return view.intersectsEntities(this)
             && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
             && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-            && this.world.getBlockState(blockunderentity).getBlock()
-                  .allowsSpawning(world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.LAVAGOLEM)
+            && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.LAVAGOLEM)
             && AutoConfig.getConfigHolder(configz.class).getConfig().LavaGolemSpawn;
 
    }

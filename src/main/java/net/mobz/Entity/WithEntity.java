@@ -13,15 +13,17 @@ import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.ai.pathing.PathNodeType;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.BlazeEntity;
+import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.entity.mob.WitherSkeletonEntity;
-import net.minecraft.entity.mob.ZombiePigmanEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.SmallFireballEntity;
 import net.minecraft.particle.ParticleTypes;
@@ -51,6 +53,16 @@ public class WithEntity extends BlazeEntity {
       this.experiencePoints = 14;
    }
 
+   public static DefaultAttributeContainer.Builder createWithEntityAttributes() {
+      return HostileEntity.createHostileAttributes()
+            .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                  Configinit.CONFIGZ.WitherBlazeLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23D)
+            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                  Configinit.CONFIGZ.WitherBlazeAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+            .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 48.0D);
+   }
+
    @Override
    public boolean canSpawn(WorldView view) {
       BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
@@ -58,8 +70,7 @@ public class WithEntity extends BlazeEntity {
       return view.intersectsEntities(this)
             && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
             && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-            && this.world.getBlockState(blockunderentity).getBlock()
-                  .allowsSpawning(world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.WITHENTITY)
+            && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.WITHENTITY)
             && AutoConfig.getConfigHolder(configz.class).getConfig().WitherBlazeSpawn;
 
    }
@@ -77,24 +88,13 @@ public class WithEntity extends BlazeEntity {
    }
 
    protected void initCustomGoals() {
-      this.targetSelector.add(2, (new RevengeGoal(this, new Class[0])).setGroupRevenge(ZombiePigmanEntity.class));
+      this.targetSelector.add(2, (new RevengeGoal(this, new Class[0])).setGroupRevenge(PiglinEntity.class));
       this.targetSelector.add(3, (new RevengeGoal(this, new Class[0])).setGroupRevenge(skeli3.class));
       this.targetSelector.add(4, (new RevengeGoal(this, new Class[0])).setGroupRevenge(SkeletonEntity.class));
       this.targetSelector.add(5, (new RevengeGoal(this, new Class[0])).setGroupRevenge(WitherSkeletonEntity.class));
       this.targetSelector.add(6, (new RevengeGoal(this, new Class[0])).setGroupRevenge(Dog.class));
       this.targetSelector.add(7, (new RevengeGoal(this, new Class[0])).setGroupRevenge(WithEntity.class));
       this.targetSelector.add(8, (new RevengeGoal(this, new Class[0])).setGroupRevenge(LavaGolem.class));
-   }
-
-   @Override
-   protected void initAttributes() {
-      super.initAttributes();
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-            .setBaseValue(Configinit.CONFIGZ.WitherBlazeAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-      this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
-      this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-            .setBaseValue(Configinit.CONFIGZ.WitherBlazeLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
    }
 
    @Override
@@ -266,7 +266,7 @@ public class WithEntity extends BlazeEntity {
 
                   if (this.field_7218 > 1) {
                      float float_1 = MathHelper.sqrt(MathHelper.sqrt(double_1)) * 0.5F;
-                     this.blaze.world.playLevelEvent((PlayerEntity) null, 1018, new BlockPos(this.blaze), 0);
+                     this.blaze.world.syncWorldEvent((PlayerEntity) null, 1018, this.blaze.getBlockPos(), 0);
 
                      for (int int_1 = 0; int_1 < 1; ++int_1) {
                         SmallFireballEntity smallFireballEntity_1 = new SmallFireballEntity(this.blaze.world,
@@ -290,7 +290,7 @@ public class WithEntity extends BlazeEntity {
       }
 
       private double method_6995() {
-         return this.blaze.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).getValue();
+         return this.blaze.getAttributeInstance(EntityAttributes.GENERIC_FOLLOW_RANGE).getValue();
       }
    }
 }

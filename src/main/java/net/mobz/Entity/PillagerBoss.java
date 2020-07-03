@@ -8,10 +8,12 @@ import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.WanderAroundGoal;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -37,6 +39,17 @@ public class PillagerBoss extends PillagerEntity {
         this.equipStack(EquipmentSlot.OFFHAND, itemStack);
     }
 
+    public static DefaultAttributeContainer.Builder createPillagerBossAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                        Configinit.CONFIGZ.PillagerBossLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                        Configinit.CONFIGZ.PillagerBossAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0D)
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1D);
+    }
+
     @Override
     protected void initGoals() {
         super.initGoals();
@@ -46,17 +59,6 @@ public class PillagerBoss extends PillagerEntity {
         this.goalSelector.add(6, new LookAtEntityGoal(this, MobEntity.class, 15.0F));
         this.goalSelector.add(5, new WanderAroundGoal(this, 1.0D));
         this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
-    }
-
-    @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(Configinit.CONFIGZ.PillagerBossLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
-        this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(Configinit.CONFIGZ.PillagerBossAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     @Override

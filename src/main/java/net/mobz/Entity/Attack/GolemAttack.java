@@ -25,7 +25,7 @@ public class GolemAttack extends MeleeAttackGoal {
    public void tick() {
       super.tick();
       ++this.ticks;
-      if (this.ticks >= 5 && this.ticksUntilAttack < 10) {
+      if (this.ticks >= 5 && this.ticks < 10) {
          this.golem.setAttacking(true);
       } else {
          this.golem.setAttacking(false);

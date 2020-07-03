@@ -4,10 +4,12 @@ import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -26,23 +28,21 @@ public class TankEntity extends ZombieEntity {
         this.experiencePoints = 10;
     }
 
-    @Override
-    public boolean canPickUpLoot() {
-        return false;
+    public static DefaultAttributeContainer.Builder createTankEntityAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                        Configinit.CONFIGZ.TankLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                        Configinit.CONFIGZ.TankAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40.0D)
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1.5D)
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.2D).add(EntityAttributes.GENERIC_ARMOR, 3D);
     }
 
     @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(Configinit.CONFIGZ.TankLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(3.0D);
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
-        this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(20.0D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(Configinit.CONFIGZ.TankAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(40.0D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_KNOCKBACK).setBaseValue(1.2D);
+    public boolean canPickUpLoot() {
+        return false;
     }
 
     @Override
@@ -63,14 +63,13 @@ public class TankEntity extends ZombieEntity {
                 && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(posentity) <= 7
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-                && this.world.getBlockState(blockunderentity).getBlock()
-                        .allowsSpawning(world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.TANK)
+                && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.TANK)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().TankSpawn;
 
     }
 
     @Override
-    protected void dealDamage(LivingEntity attacker, Entity target) {
+    public void dealDamage(LivingEntity attacker, Entity target) {
         LivingEntity bob = (LivingEntity) target;
         StatusEffectInstance weakness = new StatusEffectInstance(StatusEffect.byRawId(18), 100, 0, false, false);
         if (target instanceof LivingEntity && !world.isClient) {

@@ -14,10 +14,12 @@ import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.ProjectileAttackGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.EndermanEntity;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundEvent;
@@ -35,6 +37,14 @@ public class Withender extends WitherEntity {
         this.experiencePoints = 50;
     }
 
+    public static DefaultAttributeContainer.Builder createWithenderAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                        Configinit.CONFIGZ.WithenderLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.6D).add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40.0D)
+                .add(EntityAttributes.GENERIC_ARMOR, 4.0D);
+    }
+
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new Withender.DescendAtHalfHealthGoal());
@@ -46,16 +56,6 @@ public class Withender extends WitherEntity {
         this.targetSelector.add(2, (new RevengeGoal(this, new Class[0])).setGroupRevenge(EnderEntity.class));
         this.targetSelector.add(3,
                 new FollowTargetGoal<>(this, MobEntity.class, 0, false, false, CAN_ATTACK_PREDICATE));
-    }
-
-    @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(Configinit.CONFIGZ.WithenderLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
-        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(44D);
-        this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(4.0D);
     }
 
     @Override
@@ -100,7 +100,7 @@ public class Withender extends WitherEntity {
     static {
 
         CAN_ATTACK_PREDICATE = (livingEntity) -> {
-            return livingEntity.getGroup() != EntityGroup.UNDEAD && livingEntity.method_6102();
+            return livingEntity.getGroup() != EntityGroup.UNDEAD && livingEntity.isMobOrPlayer();
         };
 
     }

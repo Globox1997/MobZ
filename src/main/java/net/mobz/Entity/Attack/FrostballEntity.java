@@ -1,6 +1,8 @@
 package net.mobz.Entity.Attack;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SnowBlock;
+import net.minecraft.block.SnowyBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -13,6 +15,8 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+
+import net.minecraft.entity.projectile.SmallFireballEntity;
 
 public class FrostballEntity extends AbstractFireballEntity {
    public FrostballEntity(EntityType<? extends FrostballEntity> entityType_1, World world_1) {
@@ -30,30 +34,45 @@ public class FrostballEntity extends AbstractFireballEntity {
    }
 
    @Override
-   protected void onCollision(HitResult hitResult_1) {
-      super.onCollision(hitResult_1);
+   protected void onEntityHit(EntityHitResult entityHitResult) {
+      super.onEntityHit(entityHitResult);
       if (!this.world.isClient) {
-         if (hitResult_1.getType() == HitResult.Type.ENTITY) {
-            Entity entity_1 = ((EntityHitResult) hitResult_1).getEntity();
-            if (!entity_1.isFireImmune()) {
-               int int_1 = entity_1.getFireTicks();
-               entity_1.setOnFireFor(0);
-               boolean boolean_1 = entity_1.damage(DamageSource.explosiveProjectile(this, this.owner), 5.0F);
-               if (boolean_1) {
-                  this.dealDamage(this.owner, entity_1);
-               } else {
-                  entity_1.setFireTicks(int_1);
-               }
-            }
-         } else if (this.owner == null || !(this.owner instanceof MobEntity)
-               || this.world.getGameRules().getBoolean(GameRules.MOB_GRIEFING)) {
-            BlockHitResult blockHitResult_1 = (BlockHitResult) hitResult_1;
-            BlockPos blockPos_1 = blockHitResult_1.getBlockPos().offset(blockHitResult_1.getSide());
-            if (this.world.isAir(blockPos_1)) {
-               this.world.setBlockState(blockPos_1, Blocks.SNOW.getDefaultState());
+         Entity entity = entityHitResult.getEntity();
+         if (!entity.isFireImmune()) {
+            Entity entity2 = this.getOwner();
+            int i = entity.getFireTicks();
+            entity.setOnFireFor(5);
+            boolean bl = entity.damage(DamageSource.fireball(this, entity2), 5.0F);
+            if (!bl) {
+               entity.setFireTicks(i);
+            } else if (entity2 instanceof LivingEntity) {
+               this.dealDamage((LivingEntity) entity2, entity);
             }
          }
 
+      }
+   }
+
+   @Override
+   protected void onBlockHit(BlockHitResult blockHitResult) {
+      super.onBlockHit(blockHitResult);
+      if (!this.world.isClient) {
+         Entity entity = this.getOwner();
+         if (entity == null || !(entity instanceof MobEntity)
+               || this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
+            BlockPos blockPos = blockHitResult.getBlockPos().offset(blockHitResult.getSide());
+            if (this.world.isAir(blockPos)) {
+               // this.world.setBlockState(blockPos, SnowBlock.def);
+            }
+         }
+
+      }
+   }
+
+   @Override
+   protected void onCollision(HitResult hitResult) {
+      super.onCollision(hitResult);
+      if (!this.world.isClient) {
          this.remove();
       }
 

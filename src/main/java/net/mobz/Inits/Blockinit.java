@@ -12,18 +12,18 @@ import net.mobz.Blocks.*;
 public class Blockinit {
 
         public static final Enderheader ENDERHEADER = new Enderheader(FabricBlockSettings.copy(Blocks.ZOMBIE_HEAD));
-        public static final TotemBase TOTEM_BASE = new TotemBase(FabricBlockSettings.copy(Blocks.OAK_LOG));
-        public static final TotemMiddle TOTEM_MIDDLE = new TotemMiddle(FabricBlockSettings.copy(Blocks.OAK_LOG));
-        public static final TotemTop TOTEM_TOP = new TotemTop(FabricBlockSettings.copy(Blocks.OAK_LOG));
+        public static final TotemBase TOTEM_BASE = new TotemBase(FabricBlockSettings.copy(Blocks.OAK_WOOD));
+        public static final TotemMiddle TOTEM_MIDDLE = new TotemMiddle(FabricBlockSettings.copy(Blocks.OAK_WOOD));
+        public static final TotemTop TOTEM_TOP = new TotemTop(FabricBlockSettings.copy(Blocks.OAK_WOOD));
         public static final Bosstrophy BOSS_TROPHY = new Bosstrophy(FabricBlockSettings.copy(Blocks.ZOMBIE_HEAD));
         public static final Spawnblock SPAWN_BLOCK = new Spawnblock(FabricBlockSettings.copy(Blocks.SPAWNER));
         public static final Bossblock BOSS_BLOCK = new Bossblock(
                         FabricBlockSettings.copy(Blocks.IRON_BLOCK).lightLevel((state) -> {
-                                return 10;
+                                return 5;
                         }));
         public static final Amatblock AMAT_BLOCK = new Amatblock(
                         FabricBlockSettings.copy(Blocks.IRON_BLOCK).lightLevel((state) -> {
-                                return 9;
+                                return 4;
                         }));
         public static final HardenedMetalblock HARDENED_METALBLOCK = new HardenedMetalblock(
                         FabricBlockSettings.copy(Blocks.IRON_BLOCK));

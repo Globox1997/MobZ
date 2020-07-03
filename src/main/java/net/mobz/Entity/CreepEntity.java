@@ -6,9 +6,11 @@ import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.Soundinit;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.CreeperEntity;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
@@ -21,12 +23,11 @@ public class CreepEntity extends CreeperEntity {
       super(entityType, world);
    }
 
-   @Override
-   protected void initAttributes() {
-      super.initAttributes();
-      this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.26D);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-            .setBaseValue(Configinit.CONFIGZ.FrostCreeperLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
+   public static DefaultAttributeContainer.Builder createCreepEntityAttributes() {
+      return HostileEntity.createHostileAttributes()
+            .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                  Configinit.CONFIGZ.FrostCreeperLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D).add(EntityAttributes.GENERIC_FOLLOW_RANGE, 32.0D);
    }
 
    @Override
@@ -47,8 +48,7 @@ public class CreepEntity extends CreeperEntity {
             && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
             && this.world.getLightLevel(posentity) <= 7
             && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-            && this.world.getBlockState(blockunderentity).getBlock()
-                  .allowsSpawning(world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.CREEP)
+            && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.CREEP)
             && AutoConfig.getConfigHolder(configz.class).getConfig().FrostCreeperSpawn;
 
    }

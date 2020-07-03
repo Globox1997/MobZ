@@ -4,6 +4,7 @@ import net.mobz.Config.configz;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.Soundinit;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -23,6 +24,7 @@ import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.world.Difficulty;
@@ -37,15 +39,14 @@ public class ArcherEntity extends SkeletonEntity {
         this.experiencePoints = 20;
     }
 
-    @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.33D);
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(Configinit.CONFIGZ.BowmanLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(Configinit.CONFIGZ.BowmanAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(34.0D);
+    public static DefaultAttributeContainer.Builder createArcherEntityAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                        Configinit.CONFIGZ.BowmanLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.33D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                        Configinit.CONFIGZ.BowmanAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 34.0D);
     }
 
     @Override
@@ -107,9 +108,8 @@ public class ArcherEntity extends SkeletonEntity {
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
         return view.intersectsEntities(this) && this.world.isDay()
                 && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-                && this.world.getBlockState(blockunderentity).getBlock().allowsSpawning(
-                        world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.ARCHERENTITY)
+                && this.world.getBlockState(posentity).getBlock().canMobSpawnInside() && this.world
+                        .getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.ARCHERENTITY)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().BowmanSpawn;
 
     }

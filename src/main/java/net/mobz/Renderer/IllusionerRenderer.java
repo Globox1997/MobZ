@@ -5,13 +5,13 @@ import net.mobz.Entity.*;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 
-import net.minecraft.client.render.entity.EvokerIllagerEntityRenderer;
+import net.minecraft.client.render.entity.EvokerEntityRenderer;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 
-public class IllusionerRenderer extends EvokerIllagerEntityRenderer<Illusioner> {
+public class IllusionerRenderer extends EvokerEntityRenderer<Illusioner> {
 
     public IllusionerRenderer(EntityRenderDispatcher dispatcher) {
         super(dispatcher);

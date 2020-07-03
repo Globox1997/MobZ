@@ -1,5 +1,6 @@
 package net.mobz.Entity;
 
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -7,6 +8,7 @@ import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.RevengeGoal;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.world.Difficulty;
@@ -23,12 +25,11 @@ public class skeli3 extends SkeletonEntity {
         super(entityType, world);
     }
 
-    @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(Configinit.CONFIGZ.NetherSkeletonLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.26D);
+    public static DefaultAttributeContainer.Builder createskeli3Attributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                        Configinit.CONFIGZ.NetherSkeletonLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.26D).add(EntityAttributes.GENERIC_FOLLOW_RANGE, 30.0D);
     }
 
     @Override
@@ -65,8 +66,7 @@ public class skeli3 extends SkeletonEntity {
         return view.intersectsEntities(this)
                 && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-                && this.world.getBlockState(blockunderentity).getBlock().allowsSpawning(
-                        world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.SKELI3)
+                && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.SKELI3)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().NetherSkeletonSpawn;
 
     }

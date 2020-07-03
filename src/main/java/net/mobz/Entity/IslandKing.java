@@ -1,5 +1,6 @@
 package net.mobz.Entity;
 
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.VindicatorEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
@@ -12,7 +13,8 @@ import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SpawnType;
+import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
@@ -38,22 +40,21 @@ public class IslandKing extends VindicatorEntity {
 
   }
 
+  public static DefaultAttributeContainer.Builder createIslandKingAttributes() {
+    return HostileEntity.createHostileAttributes()
+        .add(EntityAttributes.GENERIC_MAX_HEALTH,
+            Configinit.CONFIGZ.KingCharlesLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+        .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.32D)
+        .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+            Configinit.CONFIGZ.KingCharlesAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+        .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 18.0D);
+  }
+
   @Override
   protected void playStepSound(BlockPos pos, BlockState state) {
     if (!state.getMaterial().isLiquid()) {
       this.playSound(Soundinit.LEATHERWALKEVENT, 0.15F, 1F);
     }
-  }
-
-  @Override
-  protected void initAttributes() {
-    super.initAttributes();
-    this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-    this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(18.0D);
-    this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-        .setBaseValue(Configinit.CONFIGZ.KingCharlesLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-    this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-        .setBaseValue(Configinit.CONFIGZ.KingCharlesAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
   }
 
   @Override
@@ -114,12 +115,12 @@ public class IslandKing extends VindicatorEntity {
   }
 
   public void attack(LivingEntity target, float f) {
-    BlockPos blockPos = (new BlockPos(IslandKing.this)).add(-2 + IslandKing.this.random.nextInt(5), 1,
+    BlockPos blockPos = IslandKing.this.getBlockPos().add(-2 + IslandKing.this.random.nextInt(5), 1,
         -2 + IslandKing.this.random.nextInt(5));
     IslandVexEntity vexEntity = (IslandVexEntity) Entityinit.ISLANDVEXENTITY.create(IslandKing.this.world);
     vexEntity.refreshPositionAndAngles(blockPos, 0.0F, 0.0F);
     vexEntity.initialize(IslandKing.this.world, IslandKing.this.world.getLocalDifficulty(blockPos),
-        SpawnType.MOB_SUMMONED, (EntityData) null, (CompoundTag) null);
+        SpawnReason.MOB_SUMMONED, (EntityData) null, (CompoundTag) null);
     IslandKing.this.world.spawnEntity(vexEntity);
 
   }

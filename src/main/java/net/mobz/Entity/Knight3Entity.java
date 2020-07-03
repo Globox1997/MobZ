@@ -1,5 +1,6 @@
 package net.mobz.Entity;
 
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.VindicatorEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
@@ -11,6 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
@@ -33,6 +35,16 @@ public class Knight3Entity extends VindicatorEntity {
 
     }
 
+    public static DefaultAttributeContainer.Builder createKnight3EntityAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                        Configinit.CONFIGZ.EnderKnightLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.32D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                        Configinit.CONFIGZ.EnderKnightAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 26.0D);
+    }
+
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
         if (!state.getMaterial().isLiquid()) {
@@ -41,23 +53,12 @@ public class Knight3Entity extends VindicatorEntity {
     }
 
     @Override
-    protected void dealDamage(LivingEntity attacker, Entity target) {
+    public void dealDamage(LivingEntity attacker, Entity target) {
         LivingEntity bob = (LivingEntity) target;
         StatusEffectInstance weakness = new StatusEffectInstance(StatusEffect.byRawId(18), 100, 0, false, false);
         if (target instanceof LivingEntity && !world.isClient) {
             bob.addStatusEffect(weakness);
         }
-    }
-
-    @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(18.0D);
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(Configinit.CONFIGZ.EnderKnightLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(Configinit.CONFIGZ.EnderKnightAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     @Override
@@ -97,8 +98,8 @@ public class Knight3Entity extends VindicatorEntity {
                 && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(posentity) <= 10
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-                && this.world.getBlockState(blockunderentity).getBlock().allowsSpawning(
-                        world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.KNIGHT3ENTITY)
+                && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity,
+                        Entityinit.KNIGHT3ENTITY)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().EnderKnightSpawn;
 
     }

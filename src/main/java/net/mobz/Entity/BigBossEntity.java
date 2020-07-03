@@ -2,8 +2,10 @@ package net.mobz.Entity;
 
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -22,22 +24,20 @@ public class BigBossEntity extends ZombieEntity {
         this.experiencePoints = 60;
     }
 
-    @Override
-    public boolean canPickUpLoot() {
-        return false;
+    public static DefaultAttributeContainer.Builder createBigBossEntityAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                        Configinit.CONFIGZ.BigBossLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.21D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                        Configinit.CONFIGZ.BigBossAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 32.0D)
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 10D);
     }
 
     @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(Configinit.CONFIGZ.BigBossLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(30.0D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(Configinit.CONFIGZ.BigBossAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-        this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
-        this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(0D);
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.21D);
+    public boolean canPickUpLoot() {
+        return false;
     }
 
     @Override
@@ -73,8 +73,8 @@ public class BigBossEntity extends ZombieEntity {
                 && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(posentity) <= 5 && this.world.isNight()
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-                && this.world.getBlockState(blockunderentity).getBlock().allowsSpawning(
-                        world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.BIGBOSSENTITY)
+                && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity,
+                        Entityinit.BIGBOSSENTITY)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().BigBossSpawn;
 
     }

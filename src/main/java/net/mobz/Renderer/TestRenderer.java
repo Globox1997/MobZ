@@ -19,11 +19,6 @@ public class TestRenderer extends BipedEntityRenderer<VexEntity, VexEntityModel>
    }
 
    @Override
-   protected int getBlockLight(VexEntity vexEntity, float f) {
-      return 15;
-   }
-
-   @Override
    public Identifier getTexture(VexEntity vexEntity) {
       return vexEntity.isCharging() ? CHARGING_TEXTURE : TEXTURE;
    }

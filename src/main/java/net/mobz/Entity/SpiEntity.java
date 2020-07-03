@@ -6,9 +6,11 @@ import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.SpiderEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
@@ -23,18 +25,16 @@ public class SpiEntity extends SpiderEntity {
         super(entityType, world);
     }
 
-    @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(Configinit.CONFIGZ.BlueSpiderLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.31D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(Configinit.CONFIGZ.BlueSpiderAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
+    public static DefaultAttributeContainer.Builder createSpiEntityAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                        Configinit.CONFIGZ.BlueSpiderLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.31D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                        Configinit.CONFIGZ.BlueSpiderAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     @Override
-    protected void dealDamage(LivingEntity attacker, Entity target) {
+    public void dealDamage(LivingEntity attacker, Entity target) {
         Random random = new Random();
         int randomNumber = (random.nextInt() + 7) % 5;
         if (randomNumber < 0) {
@@ -55,8 +55,7 @@ public class SpiEntity extends SpiderEntity {
                 && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(posentity) <= 7
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-                && this.world.getBlockState(blockunderentity).getBlock()
-                        .allowsSpawning(world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.SPI)
+                && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.SPI)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().BlueSpiderSpawn;
 
     }

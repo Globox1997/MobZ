@@ -65,9 +65,8 @@ public class Archer2Entity extends PillagerEntity {
         return view.intersectsEntities(this) && this.world.isDay() && !this.isPatrolLeader()
                 && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-                // && this.world.getBlockState(blockunderentity).getBlock().allowsSpawning(
-                // world.getBlockState(blockunderentity), view, blockunderentity,
-                // Entityinit.ARCHER2ENTITY)
+                && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity,
+                        Entityinit.ARCHER2ENTITY)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().ArcherSpawn;
 
     }

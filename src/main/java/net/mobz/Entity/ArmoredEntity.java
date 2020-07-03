@@ -7,8 +7,10 @@ import net.mobz.Inits.SwordItems;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -24,24 +26,19 @@ public class ArmoredEntity extends ZombieEntity {
       this.experiencePoints = 20;
    }
 
-   @Override
-   public boolean canPickUpLoot() {
-      return false;
+   public static DefaultAttributeContainer.Builder createArmoredEntityAttributes() {
+      return HostileEntity.createHostileAttributes()
+            .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                  Configinit.CONFIGZ.ArmoredZombieLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23D)
+            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                  Configinit.CONFIGZ.ArmoredZombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+            .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0D).add(EntityAttributes.GENERIC_ARMOR, 3D);
    }
 
    @Override
-   protected void initAttributes() {
-      super.initAttributes();
-      this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(35.0D);
-      this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-            .setBaseValue(Configinit.CONFIGZ.ArmoredZombieLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-      this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-            .setBaseValue(Configinit.CONFIGZ.ArmoredZombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-      this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(3.0D);
-      this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
-
+   public boolean canPickUpLoot() {
+      return false;
    }
 
    @Override
@@ -80,8 +77,7 @@ public class ArmoredEntity extends ZombieEntity {
             && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
             && this.world.getLightLevel(posentity) <= 7
             && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-            && this.world.getBlockState(blockunderentity).getBlock()
-                  .allowsSpawning(world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.ARMORED)
+            && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.ARMORED)
             && AutoConfig.getConfigHolder(configz.class).getConfig().ArmoredZombieSpawn;
 
    }

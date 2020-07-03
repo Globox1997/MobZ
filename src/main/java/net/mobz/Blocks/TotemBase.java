@@ -6,27 +6,26 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
+import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.mobz.Entity.Nullable;
 
 public class TotemBase extends Block {
-  public static final IntProperty ROTATION;
   protected static final VoxelShape SHAPE;
+  public static final DirectionProperty FACING;
 
   public TotemBase(Settings settings) {
     super(settings);
@@ -46,27 +45,21 @@ public class TotemBase extends Block {
 
   @Override
   public BlockState getPlacementState(ItemPlacementContext ctx) {
-    return (BlockState) this.getDefaultState().with(ROTATION,
-        MathHelper.floor((double) (ctx.getPlayerYaw() * 16.0F / 360.0F) + 0.5D) & 15);
+    return (BlockState) this.getDefaultState().with(FACING, ctx.getPlayerFacing().rotateYClockwise());
   }
 
   @Override
   public BlockState rotate(BlockState state, BlockRotation rotation) {
-    return (BlockState) state.with(ROTATION, rotation.rotate((Integer) state.get(ROTATION), 16));
-  }
-
-  @Override
-  public BlockState mirror(BlockState state, BlockMirror mirror) {
-    return (BlockState) state.with(ROTATION, mirror.mirror((Integer) state.get(ROTATION), 16));
+    return (BlockState) state.with(FACING, rotation.rotate((Direction) state.get(FACING)));
   }
 
   @Override
   protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-    builder.add(ROTATION);
+    builder.add(FACING);
   }
 
   static {
-    ROTATION = Properties.ROTATION;
+    FACING = HorizontalFacingBlock.FACING;
     SHAPE = VoxelShapes.union(createCuboidShape(1D, 0, 1D, 15D, 1D, 15D), createCuboidShape(2D, 1D, 2D, 14D, 2D, 14D),
         createCuboidShape(4D, 2D, 4D, 12D, 16D, 12D), createCuboidShape(3D, 5D, 4D, 4D, 8D, 5D),
         createCuboidShape(3D, 5D, 11D, 4D, 8D, 12D), createCuboidShape(2D, 6D, 4D, 3D, 9D, 5D),

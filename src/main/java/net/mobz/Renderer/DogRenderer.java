@@ -10,25 +10,14 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class DogRenderer extends MobEntityRenderer<WolfEntity, WolfEntityModel<WolfEntity>> {
-   private static final Identifier WILD_SKIN = new Identifier("mobz:textures/entity/dog.png");
-   private static final Identifier TAMED_SKIN = new Identifier("mobz:textures/entity/dog.png");
-   private static final Identifier ANGRY_SKIN = new Identifier("mobz:textures/entity/dog.png");
+   private static final Identifier TEXTURE = new Identifier("mobz:textures/entity/dog.png");
 
    public DogRenderer(EntityRenderDispatcher entityRenderDispatcher) {
       super(entityRenderDispatcher, new WolfEntityModel<>(), 0.5F);
    }
 
    @Override
-   protected float getAnimationProgress(WolfEntity wolfEntity, float f) {
-      return wolfEntity.method_6714();
-   }
-
-   @Override
    public Identifier getTexture(WolfEntity wolfEntity) {
-      if (wolfEntity.isTamed()) {
-         return TAMED_SKIN;
-      } else {
-         return wolfEntity.isAngry() ? ANGRY_SKIN : WILD_SKIN;
-      }
+      return TEXTURE;
    }
 }

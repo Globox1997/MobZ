@@ -2,8 +2,10 @@ package net.mobz.Entity;
 
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -21,20 +23,18 @@ public class PigmanEntity extends PiglinEntity {
         super(entityType, world);
     }
 
-    @Override
-    public boolean canPickUpLoot() {
-        return false;
+    public static DefaultAttributeContainer.Builder createPigmanEntityAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                        Configinit.CONFIGZ.PigmanLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23D)
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1.5D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                        Configinit.CONFIGZ.PigmanAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(Configinit.CONFIGZ.PigmanLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(Configinit.CONFIGZ.PigmanAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-        this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.23D);
+    public boolean canPickUpLoot() {
+        return false;
     }
 
     @Override
@@ -59,8 +59,7 @@ public class PigmanEntity extends PiglinEntity {
         return view.intersectsEntities(this)
                 && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-                && this.world.getBlockState(blockunderentity).getBlock()
-                        .allowsSpawning(world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.PIG)
+                && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.PIG)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().PigmanSpawn;
 
     }

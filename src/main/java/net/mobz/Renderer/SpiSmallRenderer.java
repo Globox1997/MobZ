@@ -15,7 +15,7 @@ public class SpiSmallRenderer extends SpiderEntityRenderer<SpiSmall> {
 
    public SpiSmallRenderer(EntityRenderDispatcher dispatcher) {
       super(dispatcher);
-      this.shadowSize *= 0.7F;
+      this.shadowRadius *= 0.7F;
       this.addFeature(new SpiderEyesFeatureRenderer<>(this));
    }
 

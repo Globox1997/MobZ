@@ -1,5 +1,6 @@
 package net.mobz.Entity;
 
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.VindicatorEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
@@ -11,6 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
@@ -33,6 +35,16 @@ public class DwarfEntity extends VindicatorEntity {
         this.experiencePoints = 20;
     }
 
+    public static DefaultAttributeContainer.Builder createDwarfEntityAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                        Configinit.CONFIGZ.DwarfLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                        Configinit.CONFIGZ.DwarfAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 24.0D);
+    }
+
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
         if (!state.getMaterial().isLiquid()) {
@@ -41,7 +53,7 @@ public class DwarfEntity extends VindicatorEntity {
     }
 
     @Override
-    protected void dealDamage(LivingEntity attacker, Entity target) {
+    public void dealDamage(LivingEntity attacker, Entity target) {
         LivingEntity bob = (LivingEntity) target;
         StatusEffectInstance slow = new StatusEffectInstance(StatusEffect.byRawId(2), 70, 0, false, false);
         if (target instanceof LivingEntity && !world.isClient) {
@@ -79,26 +91,14 @@ public class DwarfEntity extends VindicatorEntity {
     }
 
     @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.3D);
-        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(Configinit.CONFIGZ.DwarfLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(Configinit.CONFIGZ.DwarfAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-    }
-
-    @Override
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
         return view.intersectsEntities(this) && !this.isPatrolLeader()
                 && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(posentity) <= 10 && posentity.getY() < view.getSeaLevel() - 10
-                && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-                && this.world.getBlockState(blockunderentity).getBlock().allowsSpawning(
-                        world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.DWARFENTITY)
+                && this.world.getBlockState(posentity).getBlock().canMobSpawnInside() && this.world
+                        .getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.DWARFENTITY)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().DwarfSpawn;
 
     }

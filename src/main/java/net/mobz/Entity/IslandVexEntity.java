@@ -2,7 +2,9 @@ package net.mobz.Entity;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.VexEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.LocalDifficulty;
@@ -17,13 +19,13 @@ public class IslandVexEntity extends VexEntity {
 
   }
 
-  @Override
-  protected void initAttributes() {
-    super.initAttributes();
-    this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-        .setBaseValue(Configinit.CONFIGZ.DeathSpiritLife * Configinit.CONFIGZ.DamageMultiplicatorMob);
-    this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-        .setBaseValue(Configinit.CONFIGZ.DeathSpiritAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
+  public static DefaultAttributeContainer.Builder createIslandVexEntityAttributes() {
+    return HostileEntity.createHostileAttributes()
+        .add(EntityAttributes.GENERIC_MAX_HEALTH,
+            Configinit.CONFIGZ.DeathSpiritLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+        .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+            Configinit.CONFIGZ.DeathSpiritAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+        .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 18.0D);
   }
 
   @Override

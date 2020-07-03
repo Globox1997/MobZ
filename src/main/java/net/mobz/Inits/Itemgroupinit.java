@@ -60,8 +60,8 @@ public class Itemgroupinit {
                 stacks.add(new ItemStack(Blockinit.TOTEM_BASE));
                 stacks.add(new ItemStack(Blockinit.TOTEM_MIDDLE));
                 stacks.add(new ItemStack(Blockinit.TOTEM_TOP));
-                stacks.add(ItemStack.EMPTY);
                 stacks.add(new ItemStack(Blockinit.HARDENED_METALBLOCK));
+                stacks.add(new ItemStack(Blockinit.AMAT_BLOCK));
                 stacks.add(new ItemStack(Blockinit.BOSS_BLOCK));
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(new ItemStack(Blockinit.ENDERHEADER));

@@ -1,5 +1,6 @@
 package net.mobz.Entity;
 
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.VindicatorEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
@@ -11,6 +12,7 @@ import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
@@ -27,7 +29,16 @@ public class IslandKnightSpecial2 extends VindicatorEntity {
   public IslandKnightSpecial2(EntityType<? extends VindicatorEntity> entityType, World world) {
     super(entityType, world);
     this.experiencePoints = 30;
+  }
 
+  public static DefaultAttributeContainer.Builder createIslandKnightSpecial2Attributes() {
+    return HostileEntity.createHostileAttributes()
+        .add(EntityAttributes.GENERIC_MAX_HEALTH,
+            Configinit.CONFIGZ.AndriuLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+        .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.32D)
+        .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+            Configinit.CONFIGZ.AndriuAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+        .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 18.0D);
   }
 
   @Override
@@ -35,17 +46,6 @@ public class IslandKnightSpecial2 extends VindicatorEntity {
     if (!state.getMaterial().isLiquid()) {
       this.playSound(Soundinit.LEATHERWALKEVENT, 0.15F, 1F);
     }
-  }
-
-  @Override
-  protected void initAttributes() {
-    super.initAttributes();
-    this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-    this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(18.0D);
-    this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-        .setBaseValue(Configinit.CONFIGZ.AndriuLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-    this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-        .setBaseValue(Configinit.CONFIGZ.AndriuAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
   }
 
   @Override
@@ -87,7 +87,7 @@ public class IslandKnightSpecial2 extends VindicatorEntity {
   }
 
   @Override
-  protected void dealDamage(LivingEntity attacker, Entity target) {
+  public void dealDamage(LivingEntity attacker, Entity target) {
     LivingEntity bob = (LivingEntity) target;
     StatusEffectInstance slow = new StatusEffectInstance(StatusEffect.byRawId(2), 120, 0, false, false);
     if (target instanceof LivingEntity) {

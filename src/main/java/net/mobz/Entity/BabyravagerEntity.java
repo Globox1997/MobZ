@@ -1,8 +1,10 @@
 package net.mobz.Entity;
 
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.RavagerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.World;
@@ -15,16 +17,15 @@ public class BabyravagerEntity extends RavagerEntity {
     super(type, world);
   }
 
-  protected void initAttributes() {
-    super.initAttributes();
-    this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-        .setBaseValue(Configinit.CONFIGZ.BabyRavagerLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-    this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.3D);
-    this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.5D);
-    this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-        .setBaseValue(Configinit.CONFIGZ.BabyRavagerAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-    this.getAttributeInstance(EntityAttributes.ATTACK_KNOCKBACK).setBaseValue(1.5D);
-    this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
+  public static DefaultAttributeContainer.Builder createBabyRavagerEntityAttributes() {
+    return HostileEntity.createHostileAttributes()
+        .add(EntityAttributes.GENERIC_MAX_HEALTH,
+            Configinit.CONFIGZ.BabyRavagerLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+        .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3D)
+        .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+            Configinit.CONFIGZ.BabyRavagerAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+        .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 32.0D).add(EntityAttributes.GENERIC_ARMOR, 1.5D)
+        .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0.5D).add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.5D);
   }
 
   @Override

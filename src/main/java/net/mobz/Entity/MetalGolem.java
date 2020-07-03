@@ -9,7 +9,6 @@ import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
-import net.minecraft.entity.ai.goal.GoToEntityTargetGoal;
 import net.minecraft.entity.ai.goal.IronGolemLookGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
@@ -19,6 +18,8 @@ import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.TrackIronGolemTargetGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.ai.goal.WanderAroundPointOfInterestGoal;
+import net.minecraft.entity.ai.goal.WanderNearTargetGoal;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.CreeperEntity;
@@ -29,6 +30,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -41,11 +43,20 @@ public class MetalGolem extends IronGolemEntity {
     this.experiencePoints = 25;
   }
 
+  public static DefaultAttributeContainer.Builder createMetalGolemAttributes() {
+    return MobEntity.createMobAttributes()
+        .add(EntityAttributes.GENERIC_MAX_HEALTH,
+            Configinit.CONFIGZ.MetalGolemLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+        .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D).add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1.5D)
+        .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+            Configinit.CONFIGZ.MetalGolemAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
+  }
+
   @Override
   protected void initGoals() {
     this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, true));
-    this.goalSelector.add(2, new GoToEntityTargetGoal(this, 0.9D, 36.0F));
-    this.goalSelector.add(2, new WanderAroundPointOfInterestGoal(this, 0.8D));
+    this.goalSelector.add(2, new WanderNearTargetGoal(this, 0.9D, 36.0F));
+    this.goalSelector.add(2, new WanderAroundPointOfInterestGoal(this, 0.8D, false));
     this.goalSelector.add(3, new MoveThroughVillageGoal(this, 0.9D, false, 10, () -> {
       return false;
     }));
@@ -97,32 +108,21 @@ public class MetalGolem extends IronGolemEntity {
   }
 
   @Override
-  protected void initAttributes() {
-    super.initAttributes();
-    this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-        .setBaseValue(Configinit.CONFIGZ.MetalGolemLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-    this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.27D);
-    this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.5D);
-    this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-        .setBaseValue(Configinit.CONFIGZ.MetalGolemAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-  }
-
-  @Override
   public boolean canSpawn(WorldView view) {
     return AutoConfig.getConfigHolder(configz.class).getConfig().MetalGolemSpawn;
   }
 
   @Override
-  protected boolean interactMob(PlayerEntity player, Hand hand) {
+  protected ActionResult interactMob(PlayerEntity player, Hand hand) {
     ItemStack itemStack = player.getStackInHand(hand);
     Item item = itemStack.getItem();
     if (item != Iteminit.HARDENEDMETAL_INGOT) {
-      return false;
+      return ActionResult.PASS;
     } else {
       float f = this.getHealth();
       this.heal(40.0F);
       if (this.getHealth() == f) {
-        return false;
+        return ActionResult.PASS;
       } else {
         float g = 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F;
         this.playSound(SoundEvents.ENTITY_IRON_GOLEM_REPAIR, 1.0F, g);
@@ -130,7 +130,7 @@ public class MetalGolem extends IronGolemEntity {
           itemStack.decrement(1);
         }
 
-        return true;
+        return ActionResult.success(this.world.isClient);
       }
     }
   }

@@ -7,7 +7,7 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.entity.BipedEntityRenderer;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
-import net.minecraft.client.render.entity.feature.ArmorBipedFeatureRenderer;
+import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
@@ -16,8 +16,7 @@ public class FriendRenderer extends BipedEntityRenderer<FriendEntity, PlayerEnti
 
     public FriendRenderer(EntityRenderDispatcher dispatcher) {
         super(dispatcher, new PlayerEntityModel<>(0.0F, true), 0.5F);
-        this.addFeature(
-                new ArmorBipedFeatureRenderer<>(this, new BipedEntityModel<>(0.5F), new BipedEntityModel<>(1.0F)));
+        this.addFeature(new ArmorFeatureRenderer<>(this, new BipedEntityModel<>(0.5F), new BipedEntityModel<>(1.0F)));
     }
 
     @Override

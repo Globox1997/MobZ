@@ -9,7 +9,7 @@ import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SpawnType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
@@ -17,9 +17,11 @@ import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.WanderAroundGoal;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.EvokerFangsEntity;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.SpellcastingIllagerEntity;
 import net.minecraft.entity.passive.AbstractTraderEntity;
@@ -51,6 +53,16 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       this.experiencePoints = 20;
    }
 
+   public static DefaultAttributeContainer.Builder createMage2EntityAttributes() {
+      return HostileEntity.createHostileAttributes()
+            .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                  Configinit.CONFIGZ.ZombieMageLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5D)
+            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                  Configinit.CONFIGZ.ZombieMageAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+            .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20.0D);
+   }
+
    @Override
    protected void initGoals() {
       super.initGoals();
@@ -72,25 +84,13 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
    }
 
    @Override
-   protected void initAttributes() {
-      super.initAttributes();
-      this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
-      this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-            .setBaseValue(Configinit.CONFIGZ.ZombieMageLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-      this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-            .setBaseValue(Configinit.CONFIGZ.ZombieMageAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-   }
-
-   @Override
    public boolean canSpawn(WorldView view) {
       BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
       return view.intersectsEntities(this) && !this.isPatrolLeader()
             && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
             && this.world.isDay() && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-            && this.world.getBlockState(blockunderentity).getBlock()
-                  .allowsSpawning(world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.MAGE2ENTITY)
+            && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.MAGE2ENTITY)
             && AutoConfig.getConfigHolder(configz.class).getConfig().ZombieMageSpawn;
 
    }
@@ -187,7 +187,7 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
             return false;
          } else if (Mage2Entity.this.age < this.startTime) {
             return false;
-         } else if (!Mage2Entity.this.world.getGameRules().getBoolean(GameRules.MOB_GRIEFING)) {
+         } else if (!Mage2Entity.this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
             return false;
          } else {
             List<SheepEntity> list = Mage2Entity.this.world.getTargets(SheepEntity.class, this.purpleSheepPredicate,
@@ -268,12 +268,12 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
 
       protected void castSpell() {
          for (int i = 0; i < 3; ++i) {
-            BlockPos blockPos = (new BlockPos(Mage2Entity.this)).add(-2 + Mage2Entity.this.random.nextInt(5), 1,
+            BlockPos blockPos = Mage2Entity.this.getBlockPos().add(-2 + Mage2Entity.this.random.nextInt(5), 1,
                   -2 + Mage2Entity.this.random.nextInt(5));
             SmallZombie SmallZombie = (SmallZombie) Entityinit.SMALLZOMBIE.create(Mage2Entity.this.world);
             SmallZombie.refreshPositionAndAngles(blockPos, 0.0F, 0.0F);
             SmallZombie.initialize(Mage2Entity.this.world, Mage2Entity.this.world.getLocalDifficulty(blockPos),
-                  SpawnType.MOB_SUMMONED, (EntityData) null, (CompoundTag) null);
+                  SpawnReason.MOB_SUMMONED, (EntityData) null, (CompoundTag) null);
             SmallZombie.setOwner(Mage2Entity.this);
             SmallZombie.setBounds(blockPos);
             SmallZombie.setLifeTicks(20 * (30 + Mage2Entity.this.random.nextInt(90)));
@@ -348,7 +348,7 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
                   BlockState blockState2 = Mage2Entity.this.world.getBlockState(blockPos);
                   VoxelShape voxelShape = blockState2.getCollisionShape(Mage2Entity.this.world, blockPos);
                   if (!voxelShape.isEmpty()) {
-                     d = voxelShape.getMaximum(Direction.Axis.Y);
+                     d = voxelShape.getMax(Direction.Axis.Y);
                   }
                }
 

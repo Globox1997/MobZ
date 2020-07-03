@@ -1,5 +1,6 @@
 package net.mobz.Entity;
 
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.VindicatorEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
@@ -9,6 +10,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
@@ -31,8 +33,18 @@ public class Knight5Entity extends VindicatorEntity {
 
     }
 
+    public static DefaultAttributeContainer.Builder createKnight5EntityAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                        Configinit.CONFIGZ.LordofDarknessLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.32D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                        Configinit.CONFIGZ.LordofDarknessAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 26.0D);
+    }
+
     @Override
-    protected void dealDamage(LivingEntity attacker, Entity target) {
+    public void dealDamage(LivingEntity attacker, Entity target) {
         LivingEntity bob = (LivingEntity) target;
         StatusEffectInstance nausea = new StatusEffectInstance(StatusEffect.byRawId(9), 100, 0, false, false);
         StatusEffectInstance wither = new StatusEffectInstance(StatusEffect.byRawId(20), 80, 0, false, false);
@@ -40,17 +52,6 @@ public class Knight5Entity extends VindicatorEntity {
             bob.addStatusEffect(nausea);
             bob.addStatusEffect(wither);
         }
-    }
-
-    @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(20.0D);
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(Configinit.CONFIGZ.LordofDarknessLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(Configinit.CONFIGZ.LordofDarknessAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
     }
 
     @Override
@@ -90,8 +91,8 @@ public class Knight5Entity extends VindicatorEntity {
                 && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(posentity) <= 7
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-                && this.world.getBlockState(blockunderentity).getBlock().allowsSpawning(
-                        world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.KNIGHT5ENTITY)
+                && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity,
+                        Entityinit.KNIGHT5ENTITY)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().LordofDarknessSpawn;
 
     }

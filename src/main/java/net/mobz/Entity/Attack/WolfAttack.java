@@ -25,7 +25,7 @@ public class WolfAttack extends MeleeAttackGoal {
   public void tick() {
     super.tick();
     ++this.ticks;
-    if (this.ticks >= 5 && this.ticksUntilAttack < 10) {
+    if (this.ticks >= 5 && this.ticks < 10) {
       this.wolf.setAttacking(true);
     } else {
       this.wolf.setAttacking(false);

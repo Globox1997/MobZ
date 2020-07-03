@@ -3,22 +3,21 @@ package net.mobz.Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.BlockMirror;
+import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.mobz.Inits.Blockinit;
 
 public class Enderheader extends Block {
-  public static final IntProperty ROTATION;
+  public static final DirectionProperty FACING;
   protected static final VoxelShape SHAPE;
 
   public Enderheader(Settings settings) {
@@ -27,23 +26,17 @@ public class Enderheader extends Block {
 
   @Override
   public BlockState getPlacementState(ItemPlacementContext ctx) {
-    return (BlockState) this.getDefaultState().with(ROTATION,
-        MathHelper.floor((double) (ctx.getPlayerYaw() * 16.0F / 360.0F) + 0.5D) & 15);
+    return (BlockState) this.getDefaultState().with(FACING, ctx.getPlayerFacing().rotateYClockwise());
   }
 
   @Override
   public BlockState rotate(BlockState state, BlockRotation rotation) {
-    return (BlockState) state.with(ROTATION, rotation.rotate((Integer) state.get(ROTATION), 16));
-  }
-
-  @Override
-  public BlockState mirror(BlockState state, BlockMirror mirror) {
-    return (BlockState) state.with(ROTATION, mirror.mirror((Integer) state.get(ROTATION), 16));
+    return (BlockState) state.with(FACING, rotation.rotate((Direction) state.get(FACING)));
   }
 
   @Override
   protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-    builder.add(ROTATION);
+    builder.add(FACING);
   }
 
   public static boolean isValid(World world, BlockPos pos, BlockState state) {
@@ -119,7 +112,7 @@ public class Enderheader extends Block {
   }
 
   static {
-    ROTATION = Properties.ROTATION;
+    FACING = HorizontalFacingBlock.FACING;
     SHAPE = Block.createCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 8.0D, 12.0D);
   }
 

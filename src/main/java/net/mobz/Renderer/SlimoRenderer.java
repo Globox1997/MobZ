@@ -24,7 +24,7 @@ public class SlimoRenderer extends MobEntityRenderer<SlimeEntity, SlimeEntityMod
    @Override
    public void render(SlimeEntity slimeEntity, float f, float g, MatrixStack matrixStack,
          VertexConsumerProvider vertexConsumerProvider, int i) {
-      this.shadowSize = 0.25F * (float) slimeEntity.getSize();
+      this.shadowRadius = 0.25F * (float) slimeEntity.getSize();
       super.render((SlimeEntity) slimeEntity, f, g, matrixStack, vertexConsumerProvider, i);
    }
 

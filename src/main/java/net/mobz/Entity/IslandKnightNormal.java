@@ -1,5 +1,6 @@
 package net.mobz.Entity;
 
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.VindicatorEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -10,6 +11,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.world.Difficulty;
@@ -25,22 +27,21 @@ public class IslandKnightNormal extends VindicatorEntity {
     super(entityType, world);
   }
 
+  public static DefaultAttributeContainer.Builder createIslandKnightNormalAttributes() {
+    return HostileEntity.createHostileAttributes()
+        .add(EntityAttributes.GENERIC_MAX_HEALTH,
+            Configinit.CONFIGZ.IslandKnightLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+        .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.32D)
+        .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+            Configinit.CONFIGZ.IslandKnightAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+        .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 18.0D);
+  }
+
   @Override
   protected void playStepSound(BlockPos pos, BlockState state) {
     if (!state.getMaterial().isLiquid()) {
       this.playSound(Soundinit.LEATHERWALKEVENT, 0.15F, 1F);
     }
-  }
-
-  @Override
-  protected void initAttributes() {
-    super.initAttributes();
-    this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.32D);
-    this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(18.0D);
-    this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-        .setBaseValue(Configinit.CONFIGZ.IslandKnightLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-    this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-        .setBaseValue(Configinit.CONFIGZ.IslandKnightAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
   }
 
   @Override

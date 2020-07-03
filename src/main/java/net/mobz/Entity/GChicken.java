@@ -12,9 +12,10 @@ import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
-import net.minecraft.entity.ai.pathing.PathNodeType;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -43,10 +44,11 @@ public class GChicken extends ChickenEntity {
    public GChicken(EntityType<? extends GChicken> entityType_1, World world_1) {
       super(entityType_1, world_1);
       this.eggLayTime = this.random.nextInt(6000) + 6000;
-      this.setPathNodeTypeWeight(PathNodeType.WATER, 0.0F);
    }
 
-   private void setPathNodeTypeWeight(PathNodeType water, float f) {
+   public static DefaultAttributeContainer.Builder createGChickenAttributes() {
+      return MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 4.0D)
+            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D);
    }
 
    @Override
@@ -64,13 +66,6 @@ public class GChicken extends ChickenEntity {
    @Override
    protected float getActiveEyeHeight(EntityPose entityPose_1, EntityDimensions entityDimensions_1) {
       return this.isBaby() ? entityDimensions_1.height * 0.85F : entityDimensions_1.height * 0.92F;
-   }
-
-   @Override
-   protected void initAttributes() {
-      super.initAttributes();
-      this.getAttributeInstance(EntityAttributes.MAX_HEALTH).setBaseValue(4.0D);
-      this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
    }
 
    @Override

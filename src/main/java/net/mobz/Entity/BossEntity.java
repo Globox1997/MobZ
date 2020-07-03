@@ -10,10 +10,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -30,22 +32,21 @@ public class BossEntity extends ZombieEntity {
         this.experiencePoints = 60;
     }
 
-    @Override
-    public boolean canPickUpLoot() {
-        return false;
+    public static DefaultAttributeContainer.Builder createBossEntityAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                        Configinit.CONFIGZ.BossZombieLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                        Configinit.CONFIGZ.BossZombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 36.0D).add(EntityAttributes.GENERIC_ARMOR, -4D)
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1D)
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 0.1D);
     }
 
     @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(Configinit.CONFIGZ.BossZombieLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.KNOCKBACK_RESISTANCE).setBaseValue(4.0D);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(Configinit.CONFIGZ.BossZombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-        this.getAttributeInstance(SPAWN_REINFORCEMENTS).setBaseValue(0.0D);
-        this.getAttributeInstance(EntityAttributes.ARMOR).setBaseValue(-4.0D);
-        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(36.0D);
+    public boolean canPickUpLoot() {
+        return false;
     }
 
     @Override
@@ -97,13 +98,12 @@ public class BossEntity extends ZombieEntity {
                 && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getLightLevel(posentity) <= 5
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-                && this.world.getBlockState(blockunderentity).getBlock()
-                        .allowsSpawning(world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.BOSS)
+                && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.BOSS)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().BossZombieSpawn;
     }
 
     @Override
-    protected void dealDamage(LivingEntity attacker, Entity target) {
+    public void dealDamage(LivingEntity attacker, Entity target) {
         LivingEntity bob = (LivingEntity) target;
         StatusEffectInstance fatigue = new StatusEffectInstance(StatusEffect.byRawId(4), 120, 0, false, false);
         if (target instanceof LivingEntity) {
