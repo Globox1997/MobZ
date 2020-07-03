@@ -13,7 +13,6 @@ public class Spawnblock extends Block implements BlockEntityProvider {
 
   @Override
   public BlockEntity createBlockEntity(BlockView view) {
-
     return new SpawnblockEntity();
   }
 

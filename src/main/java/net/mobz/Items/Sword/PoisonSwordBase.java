@@ -2,10 +2,8 @@ package net.mobz.Items.Sword;
 
 import java.util.List;
 import java.util.Random;
-import java.util.function.Consumer;
 
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -33,9 +31,7 @@ public class PoisonSwordBase extends SwordItem {
 
     @Override
     public boolean postHit(ItemStack itemStack_1, LivingEntity livingEntity_1, LivingEntity livingEntity_2) {
-        itemStack_1.damage(1, (LivingEntity) livingEntity_2, (Consumer) ((livingEntity_1x) -> {
-            ((LivingEntity) livingEntity_1x).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
-        }));
+        itemStack_1.damage(1, livingEntity_2, (p) -> p.sendToolBreakStatus(p.getActiveHand()));
 
         Random random = new Random();
         int randomNumber = random.nextInt() % 3;

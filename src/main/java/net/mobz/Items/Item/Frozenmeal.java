@@ -22,7 +22,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.RayTraceContext;
 
 public class Frozenmeal extends Item {
-  int particleNumber = 6;
 
   public Frozenmeal(Settings settings) {
     super(settings);
@@ -52,13 +51,13 @@ public class Frozenmeal extends Item {
     }
     if (((blockState.getBlock() == Blocks.WATER || blockState.getBlock() == Blocks.ICE)
         && context.getWorld().isClient)) {
-      for (int i = 0; i < particleNumber; ++i) {
+      for (int i = 0; i < 16; ++i) {
         double d = RANDOM.nextGaussian() * 0.02D;
         double e = RANDOM.nextGaussian() * 0.02D;
         double f = RANDOM.nextGaussian() * 0.02D;
         world.addParticle(ParticleTypes.HAPPY_VILLAGER, (double) ((float) pos.getX() + RANDOM.nextFloat()),
             (double) pos.getY()
-                + (double) RANDOM.nextFloat() * blockState.getOutlineShape(world, pos).getMaximum(Direction.Axis.Y),
+                + (double) RANDOM.nextFloat() * blockState.getOutlineShape(world, pos).getMax(Direction.Axis.Y),
             (double) ((float) pos.getZ() + RANDOM.nextFloat()), d, e, f);
       }
       return ActionResult.SUCCESS;

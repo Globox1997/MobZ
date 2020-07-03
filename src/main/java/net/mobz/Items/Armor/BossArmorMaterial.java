@@ -46,4 +46,9 @@ public class BossArmorMaterial implements ArmorMaterial {
         return 2;
     }
 
+    @Override
+    public float getKnockbackResistance() {
+        return 0;
+    }
+
 }

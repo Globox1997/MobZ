@@ -29,7 +29,7 @@ public class ArmorBase extends ArmorItem {
     }
 
     @Override
-    public boolean hasEnchantmentGlint(ItemStack stack) {
+    public boolean hasGlint(ItemStack stack) {
         return true;
     }
 

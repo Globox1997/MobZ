@@ -28,7 +28,6 @@ public class HardenedMetalblock extends Block implements BlockEntityProvider {
 
   @Override
   public BlockEntity createBlockEntity(BlockView view) {
-
     return new HardenedMetalblockEntity();
   }
 

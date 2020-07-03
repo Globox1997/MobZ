@@ -3,8 +3,10 @@ package net.mobz.Entity;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.PillagerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -24,15 +26,14 @@ public class Archer2Entity extends PillagerEntity {
         this.experiencePoints = 20;
     }
 
-    @Override
-    protected void initAttributes() {
-        super.initAttributes();
-        this.getAttributeInstance(EntityAttributes.MOVEMENT_SPEED).setBaseValue(0.345D);
-        this.getAttributeInstance(EntityAttributes.MAX_HEALTH)
-                .setBaseValue(Configinit.CONFIGZ.ArcherLife * Configinit.CONFIGZ.LifeMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.ATTACK_DAMAGE)
-                .setBaseValue(Configinit.CONFIGZ.ArcherAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
-        this.getAttributeInstance(EntityAttributes.FOLLOW_RANGE).setBaseValue(32.0D);
+    public static DefaultAttributeContainer.Builder createArcher2EntityAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH,
+                        Configinit.CONFIGZ.ArcherLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.345D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                        Configinit.CONFIGZ.ArcherAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 32.0D);
     }
 
     @Override
@@ -64,8 +65,9 @@ public class Archer2Entity extends PillagerEntity {
         return view.intersectsEntities(this) && this.world.isDay() && !this.isPatrolLeader()
                 && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-                && this.world.getBlockState(blockunderentity).getBlock().allowsSpawning(
-                        world.getBlockState(blockunderentity), view, blockunderentity, Entityinit.ARCHER2ENTITY)
+                // && this.world.getBlockState(blockunderentity).getBlock().allowsSpawning(
+                // world.getBlockState(blockunderentity), view, blockunderentity,
+                // Entityinit.ARCHER2ENTITY)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().ArcherSpawn;
 
     }

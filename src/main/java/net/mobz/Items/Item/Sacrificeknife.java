@@ -3,6 +3,7 @@ package net.mobz.Items.Item;
 import java.util.List;
 
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
@@ -30,73 +31,73 @@ public class Sacrificeknife extends Item {
 
   public Sacrificeknife(Settings settings) {
     super(settings);
-    this.addPropertyGetter(new Identifier("blood1"), (stack, world, entity) -> {
+    FabricModelPredicateProviderRegistry.register(new Identifier("blood1"), (stack, world, entity) -> {
       if (bloodCounter < 1000 && bloodCounter > 600 && dryingNumber == 1) {
         return 0.11F;
       }
       return 0F;
     });
-    this.addPropertyGetter(new Identifier("blood2"), (stack, world, entity) -> {
+    FabricModelPredicateProviderRegistry.register(new Identifier("blood2"), (stack, world, entity) -> {
       if (bloodCounter < 2000 && bloodCounter >= 1400 && dryingNumber == 2) {
         return 0.22F;
       }
       return 0F;
     });
-    this.addPropertyGetter(new Identifier("blood3"), (stack, world, entity) -> {
+    FabricModelPredicateProviderRegistry.register(new Identifier("blood3"), (stack, world, entity) -> {
       if (bloodCounter < 3000 && bloodCounter >= 2000 && dryingNumber == 3) {
         return 0.33F;
       }
       return 0F;
     });
-    this.addPropertyGetter(new Identifier("blood4"), (stack, world, entity) -> {
+    FabricModelPredicateProviderRegistry.register(new Identifier("blood4"), (stack, world, entity) -> {
       if (bloodCounter > 3000 && dryingNumber == 4) {
         return 0.44F;
       }
       return 0F;
     });
-    this.addPropertyGetter(new Identifier("blood1dry1"), (stack, world, entity) -> {
+    FabricModelPredicateProviderRegistry.register(new Identifier("blood1dry1"), (stack, world, entity) -> {
       if (bloodCounter <= 600 && bloodCounter > 300 && dryingNumber == 1) {
         return 0.15F;
       }
       return 0F;
     });
-    this.addPropertyGetter(new Identifier("blood1dry2"), (stack, world, entity) -> {
+    FabricModelPredicateProviderRegistry.register(new Identifier("blood1dry2"), (stack, world, entity) -> {
       if (bloodCounter <= 300 && bloodCounter > 0 && dryingNumber == 1) {
         return 0.19F;
       }
       return 0F;
     });
-    this.addPropertyGetter(new Identifier("blood2dry1"), (stack, world, entity) -> {
+    FabricModelPredicateProviderRegistry.register(new Identifier("blood2dry1"), (stack, world, entity) -> {
       if (bloodCounter <= 1400 && bloodCounter > 600 && dryingNumber == 2) {
         return 0.25F;
       }
       return 0F;
     });
-    this.addPropertyGetter(new Identifier("blood2dry2"), (stack, world, entity) -> {
+    FabricModelPredicateProviderRegistry.register(new Identifier("blood2dry2"), (stack, world, entity) -> {
       if (bloodCounter <= 600 && bloodCounter > 0 && dryingNumber == 2) {
         return 0.29F;
       }
       return 0F;
     });
-    this.addPropertyGetter(new Identifier("blood3dry1"), (stack, world, entity) -> {
+    FabricModelPredicateProviderRegistry.register(new Identifier("blood3dry1"), (stack, world, entity) -> {
       if (bloodCounter <= 2000 && bloodCounter > 1000 && dryingNumber == 3) {
         return 0.35F;
       }
       return 0F;
     });
-    this.addPropertyGetter(new Identifier("blood3dry2"), (stack, world, entity) -> {
+    FabricModelPredicateProviderRegistry.register(new Identifier("blood3dry2"), (stack, world, entity) -> {
       if (bloodCounter <= 1000 && bloodCounter > 0 && dryingNumber == 3) {
         return 0.39F;
       }
       return 0F;
     });
-    this.addPropertyGetter(new Identifier("blood4dry1"), (stack, world, entity) -> {
+    FabricModelPredicateProviderRegistry.register(new Identifier("blood4dry1"), (stack, world, entity) -> {
       if (bloodCounter <= 3000 && bloodCounter > 1500 && dryingNumber == 4) {
         return 0.45F;
       }
       return 0F;
     });
-    this.addPropertyGetter(new Identifier("blood4dry2"), (stack, world, entity) -> {
+    FabricModelPredicateProviderRegistry.register(new Identifier("blood4dry2"), (stack, world, entity) -> {
       if (bloodCounter <= 1500 && bloodCounter > 0 && dryingNumber == 4) {
         return 0.49F;
       }
@@ -158,15 +159,15 @@ public class Sacrificeknife extends Item {
               return ActionResult.PASS;
             }
           } else {
-            player.addChatMessage(new TranslatableText("text.mobz.sacrificeknifeblood"), true);
+            player.sendMessage(new TranslatableText("text.mobz.sacrificeknifeblood"), true);
             return ActionResult.PASS;
           }
         } else {
-          player.addChatMessage(new TranslatableText("text.mobz.pillagerspawnable"), true);
+          player.sendMessage(new TranslatableText("text.mobz.pillagerspawnable"), true);
           return ActionResult.PASS;
         }
       } else {
-        player.addChatMessage(new TranslatableText("text.mobz.pillagermissing"), true);
+        player.sendMessage(new TranslatableText("text.mobz.pillagermissing"), true);
         return ActionResult.PASS;
       }
     } else {

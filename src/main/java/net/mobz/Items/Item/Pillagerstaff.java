@@ -29,7 +29,6 @@ import net.mobz.Inits.Blockinit;
 import net.mobz.Inits.Entityinit;
 
 public class Pillagerstaff extends Item {
-    int particlecounter = 0;
 
     public Pillagerstaff(Settings settings) {
         super(settings);
@@ -58,7 +57,7 @@ public class Pillagerstaff extends Item {
                     world.spawnEntity(wither);
                     return ActionResult.SUCCESS;
                 } else {
-                    player.addChatMessage(new TranslatableText("text.mobz.withendermissing"), true);
+                    player.sendMessage(new TranslatableText("text.mobz.withendermissing"), true);
                 }
 
             }
@@ -99,13 +98,9 @@ public class Pillagerstaff extends Item {
                     world.spawnEntity(skull1);
                     playerEntity.damage(DamageSource.WITHER, 2F);
                     playerEntity.playSound(SoundEvents.ENTITY_WITHER_HURT, SoundCategory.AMBIENT, 1F, 1F);
-                    while (particlecounter < 20) {
+                    for (int i = 0; i < 16; ++i) {
                         world.addParticle(ParticleTypes.MYCELIUM, true, playerEntity.getX() + z2,
                                 playerEntity.getY() + z6, playerEntity.getZ() + z4, 0D, 0D, 0D);
-                        particlecounter++;
-                    }
-                    if (particlecounter >= 20) {
-                        particlecounter = 0;
                     }
                     return TypedActionResult.success(user.getStackInHand(hand));
                 } else {

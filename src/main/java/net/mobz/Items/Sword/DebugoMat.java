@@ -11,11 +11,6 @@ public class DebugoMat implements ToolMaterial {
     }
 
     @Override
-    public float getMiningSpeed() {
-        return 5.0F;
-    }
-
-    @Override
     public float getAttackDamage() {
         return 1995;
     }
@@ -33,6 +28,11 @@ public class DebugoMat implements ToolMaterial {
     @Override
     public Ingredient getRepairIngredient() {
         return Ingredient.ofItems(Items.DRAGON_EGG);
+    }
+
+    @Override
+    public float getMiningSpeedMultiplier() {
+        return 10F;
     }
 
 }

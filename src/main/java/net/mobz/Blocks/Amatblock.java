@@ -5,7 +5,6 @@ import java.util.List;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -23,12 +22,6 @@ public class Amatblock extends Block {
   @Environment(EnvType.CLIENT)
   public void buildTooltip(ItemStack stack, @Nullable BlockView view, List<Text> tooltip, TooltipContext options) {
     tooltip.add(new TranslatableText("block.mobz.amat_block.tooltip"));
-  }
-
-  @Override
-  @Environment(EnvType.CLIENT)
-  public boolean hasEmissiveLighting(BlockState state) {
-    return true;
   }
 
 }

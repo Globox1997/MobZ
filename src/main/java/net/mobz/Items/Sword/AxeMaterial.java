@@ -11,11 +11,6 @@ public class AxeMaterial implements ToolMaterial {
     }
 
     @Override
-    public float getMiningSpeed() {
-        return 1.0F;
-    }
-
-    @Override
     public float getAttackDamage() {
         return 11;
     }
@@ -33,6 +28,11 @@ public class AxeMaterial implements ToolMaterial {
     @Override
     public Ingredient getRepairIngredient() {
         return Ingredient.EMPTY;
+    }
+
+    @Override
+    public float getMiningSpeedMultiplier() {
+        return 1F;
     }
 
 }

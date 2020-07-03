@@ -19,7 +19,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 public class Withermeal extends Item {
-    int particleNumber = 6;
 
     public Withermeal(Settings settings) {
         super(settings);
@@ -37,9 +36,7 @@ public class Withermeal extends Item {
         ItemStack mealitem = player.getMainHandStack();
         BlockPos pos = context.getBlockPos();
         BlockState blockState = world.getBlockState(pos);
-        // if (context.getWorld().isClient) {
-        // return ActionResult.PASS;
-        // } else {
+
         if (blockState.getBlock() == Blocks.SOUL_SAND && !context.getWorld().isClient) {
             Random random = new Random();
             int randomNumber = (random.nextInt() % 2);
@@ -65,13 +62,13 @@ public class Withermeal extends Item {
 
         if (((blockState.getBlock() == Blocks.SOUL_SAND || blockState.getBlock() == Blocks.FARMLAND)
                 && context.getWorld().isClient)) {
-            for (int i = 0; i < particleNumber; ++i) {
+            for (int i = 0; i < 12; ++i) {
                 double d = RANDOM.nextGaussian() * 0.02D;
                 double e = RANDOM.nextGaussian() * 0.02D;
                 double f = RANDOM.nextGaussian() * 0.02D;
                 world.addParticle(ParticleTypes.HAPPY_VILLAGER, (double) ((float) pos.getX() + RANDOM.nextFloat()),
                         (double) pos.getY() + (double) RANDOM.nextFloat()
-                                * blockState.getOutlineShape(world, pos).getMaximum(Direction.Axis.Y) + 1,
+                                * blockState.getOutlineShape(world, pos).getMax(Direction.Axis.Y) + 1,
                         (double) ((float) pos.getZ() + RANDOM.nextFloat()), d, e, f);
             }
             return ActionResult.SUCCESS;

@@ -11,11 +11,6 @@ public class SwordBossMaterial implements ToolMaterial {
     }
 
     @Override
-    public float getMiningSpeed() {
-        return 1.0F;
-    }
-
-    @Override
     public float getAttackDamage() {
         return 8;
     }
@@ -33,6 +28,11 @@ public class SwordBossMaterial implements ToolMaterial {
     @Override
     public Ingredient getRepairIngredient() {
         return Ingredient.ofItems(Iteminit.BOSS_INGOT);
+    }
+
+    @Override
+    public float getMiningSpeedMultiplier() {
+        return 1F;
     }
 
 }

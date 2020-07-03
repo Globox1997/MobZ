@@ -48,59 +48,55 @@ public class Lootinit {
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             if (isone(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .withRolls(new BinomialLootTableRange(1, 0.3f)).withEntry(ItemEntry.builder(Iteminit.WHITEBAG));
+                        .rolls(new BinomialLootTableRange(1, 0.3f)).with(ItemEntry.builder(Iteminit.WHITEBAG));
 
-                supplier.withPool(poolBuilder);
+                supplier.pool(poolBuilder);
             }
         });
 
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             if (istwo(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .withRolls(new BinomialLootTableRange(5, 0.3f))
-                        .withEntry(ItemEntry.builder(Iteminit.HARDENEDMETAL_INGOT));
+                        .rolls(new BinomialLootTableRange(5, 0.3f))
+                        .with(ItemEntry.builder(Iteminit.HARDENEDMETAL_INGOT));
 
-                supplier.withPool(poolBuilder);
+                supplier.pool(poolBuilder);
             }
         });
 
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             if (istwo(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .withRolls(new BinomialLootTableRange(2, 0.1f))
-                        .withEntry(ItemEntry.builder(Iteminit.BOSS_INGOT));
+                        .rolls(new BinomialLootTableRange(2, 0.1f)).with(ItemEntry.builder(Iteminit.BOSS_INGOT));
 
-                supplier.withPool(poolBuilder);
+                supplier.pool(poolBuilder);
             }
         });
 
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             if (istwo(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .withRolls(new BinomialLootTableRange(1, 0.05f))
-                        .withEntry(ItemEntry.builder(Iteminit.AMAT_INGOT));
+                        .rolls(new BinomialLootTableRange(1, 0.05f)).with(ItemEntry.builder(Iteminit.AMAT_INGOT));
 
-                supplier.withPool(poolBuilder);
+                supplier.pool(poolBuilder);
             }
         });
 
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             if (isthree(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .withRolls(new BinomialLootTableRange(2, 0.2f))
-                        .withEntry(ItemEntry.builder(Iteminit.WITHERMEAL));
+                        .rolls(new BinomialLootTableRange(2, 0.2f)).with(ItemEntry.builder(Iteminit.WITHERMEAL));
 
-                supplier.withPool(poolBuilder);
+                supplier.pool(poolBuilder);
             }
         });
 
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplier, setter) -> {
             if ("minecraft:entities/wither_skeleton".equals(id.toString())) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .withRolls(BinomialLootTableRange.create(1, 0.1f))
-                        .withEntry(ItemEntry.builder(Iteminit.WITHERMEAL));
+                        .rolls(BinomialLootTableRange.create(1, 0.1f)).with(ItemEntry.builder(Iteminit.WITHERMEAL));
 
-                supplier.withPool(poolBuilder);
+                supplier.pool(poolBuilder);
             }
         });
 

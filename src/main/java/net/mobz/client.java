@@ -140,6 +140,7 @@ public class client implements ClientModInitializer {
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.BOSS_BLOCK, RenderLayer.getSolid());
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.HARDENED_METALBLOCK, RenderLayer.getSolid());
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.TREASURE_BLOCK, RenderLayer.getSolid());
+                BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.AMAT_BLOCK, RenderLayer.getSolid());
 
         }
 

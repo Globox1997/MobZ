@@ -3,7 +3,7 @@ package net.mobz.Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityContext;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
@@ -114,13 +114,9 @@ public class Enderheader extends Block {
   }
 
   @Override
-  public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
+  public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
     return SHAPE;
   }
-  /*
-   * @Environment(EnvType.CLIENT) public boolean hasEmissiveLighting(BlockState
-   * state) { return true; }
-   */
 
   static {
     ROTATION = Properties.ROTATION;
@@ -128,17 +124,3 @@ public class Enderheader extends Block {
   }
 
 }
-
-/*
- * public void onStacksDropped(BlockState state, World world, BlockPos pos,
- * ItemStack stack) { ItemStack headdrop = new ItemStack(Blockinit.ENDERHEADER);
- * super.onStacksDropped(state, world, pos, stack); if
- * (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 1) {
- * Block.dropStack(world, pos, headdrop); } }
- */
-
-/*
- * public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity
- * player) { world.playSound(player, pos, SoundEvents.ENTITY_WITHER_SPAWN,
- * SoundCategory.AMBIENT, 1F, 0.3F); }
- */

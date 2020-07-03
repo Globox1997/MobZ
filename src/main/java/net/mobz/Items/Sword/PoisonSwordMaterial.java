@@ -10,11 +10,6 @@ public class PoisonSwordMaterial implements ToolMaterial {
     }
 
     @Override
-    public float getMiningSpeed() {
-        return 1.0F;
-    }
-
-    @Override
     public float getAttackDamage() {
         return 4;
     }
@@ -32,5 +27,10 @@ public class PoisonSwordMaterial implements ToolMaterial {
     @Override
     public Ingredient getRepairIngredient() {
         return Ingredient.EMPTY;
+    }
+
+    @Override
+    public float getMiningSpeedMultiplier() {
+        return 1F;
     }
 }

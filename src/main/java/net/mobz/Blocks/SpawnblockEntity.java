@@ -2,8 +2,8 @@ package net.mobz.Blocks;
 
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.SpawnRestriction;
-import net.minecraft.entity.SpawnType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.Tickable;
@@ -45,7 +45,7 @@ public class SpawnblockEntity extends BlockEntity implements Tickable {
       World world = this.getWorld();
       BlockPos blockPos = this.getPos();
 
-      PlayerEntity player = world.getClosestPlayer(pos.getX(), pos.getZ(), 16D);
+      PlayerEntity player = world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), 16D, false);
       if (world.isClient) {
         double d = (double) blockPos.getX() + (double) world.random.nextFloat();
         double e = (double) blockPos.getY() + (double) world.random.nextFloat();
@@ -70,10 +70,10 @@ public class SpawnblockEntity extends BlockEntity implements Tickable {
             double k = (double) blockPos.getZ()
                 + (world.random.nextDouble() - world.random.nextDouble()) * (double) this.spawnRange + 0.5D;
             if (world.doesNotCollide((Entityinit.BABYRAVAGERENTITY.createSimpleBoundingBox(g, h, k)))
-                && SpawnRestriction.canSpawn(Entityinit.BABYRAVAGERENTITY, world.getWorld(), SpawnType.SPAWNER,
+                && SpawnRestriction.canSpawn(Entityinit.BABYRAVAGERENTITY, world.getWorld(), SpawnReason.SPAWNER,
                     new BlockPos(g, h, k), world.getRandom())) {
               entity.updatePosition(g, h, k);
-              world.playLevelEvent(2004, blockPos, 0);
+              world.syncWorldEvent(2004, blockPos, 0);
               entity.playSpawnEffects();
               world.spawnEntity(entity);
               maxCapofSpawns--;

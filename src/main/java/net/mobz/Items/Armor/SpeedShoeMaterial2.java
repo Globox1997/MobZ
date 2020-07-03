@@ -46,4 +46,9 @@ public class SpeedShoeMaterial2 implements ArmorMaterial {
         return 0;
     }
 
+    @Override
+    public float getKnockbackResistance() {
+        return 0;
+    }
+
 }

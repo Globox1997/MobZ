@@ -6,9 +6,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.Screen;
 
-import java.util.Optional;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 @Environment(EnvType.CLIENT)
 
@@ -17,12 +15,6 @@ public class ModMenuIntegration implements ModMenuApi {
     @Override
     public String getModId() {
         return "mobz";
-    }
-
-    @Override
-
-    public Optional<Supplier<Screen>> getConfigScreen(Screen screen) {
-        return Optional.of(AutoConfig.getConfigScreen(configz.class, screen));
     }
 
     @Override

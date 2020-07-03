@@ -4,7 +4,7 @@ import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.mob.ZombiePigmanEntity;
+import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
@@ -15,9 +15,9 @@ import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.Soundinit;
 
-public class PigmanEntity extends ZombiePigmanEntity {
+public class PigmanEntity extends PiglinEntity {
 
-    public PigmanEntity(EntityType<? extends ZombiePigmanEntity> entityType, World world) {
+    public PigmanEntity(EntityType<? extends PiglinEntity> entityType, World world) {
         super(entityType, world);
     }
 

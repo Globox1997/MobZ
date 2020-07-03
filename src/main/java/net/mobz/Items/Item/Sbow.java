@@ -2,6 +2,7 @@ package net.mobz.Items.Item;
 
 import java.util.List;
 
+import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -17,7 +18,7 @@ import net.minecraft.world.World;
 public class Sbow extends BowItem {
    public Sbow(Settings settings) {
       super(settings);
-      this.addPropertyGetter(new Identifier("pull"), (stack, world, entity) -> {
+      FabricModelPredicateProviderRegistry.register(new Identifier("pull"), (stack, world, entity) -> {
          if (entity == null) {
             return 0.0F;
          } else {
@@ -25,7 +26,7 @@ public class Sbow extends BowItem {
                   : (float) (stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0F;
          }
       });
-      this.addPropertyGetter(new Identifier("pulling"), (stack, world, entity) -> {
+      FabricModelPredicateProviderRegistry.register(new Identifier("pulling"), (stack, world, entity) -> {
          return entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F;
       });
    }

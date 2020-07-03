@@ -1,7 +1,8 @@
 package net.mobz.Inits;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.entity.EntityCategory;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
@@ -15,166 +16,160 @@ import net.mobz.Entity.*;
 public class Entityinit {
 
         public static final EntityType<TankEntity> TANK = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, TankEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, TankEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
         public static final EntityType<FastEntity> FAST = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, FastEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, FastEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
         public static final EntityType<TestEntity> TEST = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, TestEntity::new).trackable(74, 2).fireImmune()
+                        .create(SpawnGroup.MONSTER, TestEntity::new).trackable(74, 2).fireImmune()
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
         public static final EntityType<ArmoredEntity> ARMORED = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, ArmoredEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, ArmoredEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
         public static final EntityType<BossEntity> BOSS = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, BossEntity::new).trackable(74, 2).fireImmune()
+                        .create(SpawnGroup.MONSTER, BossEntity::new).trackable(74, 2).fireImmune()
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
         public static final EntityType<CreepEntity> CREEP = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, CreepEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, CreepEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build();
         public static final EntityType<CripEntity> CRIP = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, CripEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, CripEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build();
         public static final EntityType<EnderEntity> ENDER = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, EnderEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, EnderEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 2.9F)).build();
         public static final EntityType<EnderZombieEntity> ENDERZOMBIE = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, EnderZombieEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, EnderZombieEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
         public static final EntityType<SpiEntity> SPI = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, SpiEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, SpiEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(1.4F, 0.9F)).build();
         public static final EntityType<SpoEntity> SPO = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, SpoEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, SpoEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(1.4F, 0.9F)).build();
         public static final EntityType<PigmanEntity> PIG = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, PigmanEntity::new).trackable(74, 2).fireImmune()
+                        .create(SpawnGroup.MONSTER, PigmanEntity::new).trackable(74, 2).fireImmune()
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
         public static final EntityType<LavaGolem> LAVAGOLEM = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, LavaGolem::new).trackable(74, 2).fireImmune()
+                        .create(SpawnGroup.MONSTER, LavaGolem::new).trackable(74, 2).fireImmune()
                         .dimensions(EntityDimensions.fixed(1.4F, 2.7F)).build();
         public static final EntityType<IceGolem> ICEGOLEM = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, IceGolem::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, IceGolem::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(1.54F, 3F)).build();
-        public static final EntityType<skeli1> SKELI1 = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, skeli1::new).trackable(74, 2).fireImmune()
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
-        public static final EntityType<skeli2> SKELI2 = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, skeli2::new).trackable(74, 2).fireImmune()
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
-        public static final EntityType<skeli3> SKELI3 = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, skeli3::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
+        public static final EntityType<skeli1> SKELI1 = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, skeli1::new)
+                        .trackable(74, 2).fireImmune().dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
+        public static final EntityType<skeli2> SKELI2 = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, skeli2::new)
+                        .trackable(74, 2).fireImmune().dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
+        public static final EntityType<skeli3> SKELI3 = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, skeli3::new)
+                        .trackable(74, 2).dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<ArcherEntity> ARCHERENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, ArcherEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, ArcherEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<Archer2Entity> ARCHER2ENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, Archer2Entity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, Archer2Entity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<BigBossEntity> BIGBOSSENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, BigBossEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, BigBossEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(1.5F, 4.875F)).build();
         public static final EntityType<KnightEntity> KNIGHTENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, KnightEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, KnightEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<Knight2Entity> KNIGHT2ENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, Knight2Entity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, Knight2Entity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<MageEntity> MAGEENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, MageEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, MageEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
         public static final EntityType<Mage2Entity> MAGE2ENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, Mage2Entity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, Mage2Entity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
         public static final EntityType<SmallZombie> SMALLZOMBIE = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, SmallZombie::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, SmallZombie::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.3F, 1.0F)).build();
         public static final EntityType<FullIronEntity> FULLIRONENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, FullIronEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, FullIronEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<FrostEntity> FROSTENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, FrostEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, FrostEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
-        public static final EntityType<Dog> DOG = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Dog::new)
+        public static final EntityType<Dog> DOG = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, Dog::new)
                         .trackable(74, 2).fireImmune().dimensions(EntityDimensions.fixed(0.6F, 0.85F)).build();
         public static final EntityType<StoneGolem> STONEGOLEM = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, StoneGolem::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, StoneGolem::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(1.4F, 2.7F)).build();
         public static final EntityType<Illusioner> ILLUSIONER = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, Illusioner::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, Illusioner::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
         public static final EntityType<DwarfEntity> DWARFENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, DwarfEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, DwarfEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<SpiSmall> SPISMALL = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, SpiSmall::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, SpiSmall::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.7F, 0.5F)).build();
         public static final EntityType<Blackbear> BLACKBEAR = FabricEntityTypeBuilder
-                        .create(EntityCategory.CREATURE, Blackbear::new).trackable(74, 2)
+                        .create(SpawnGroup.CREATURE, Blackbear::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(1.25F, 1.3F)).build();
         public static final EntityType<Brownbear> BROWNBEAR = FabricEntityTypeBuilder
-                        .create(EntityCategory.CREATURE, Brownbear::new).trackable(74, 2)
+                        .create(SpawnGroup.CREATURE, Brownbear::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(1.3F, 1.4F)).build();
         public static final EntityType<GChicken> GCHICKEN = FabricEntityTypeBuilder
-                        .create(EntityCategory.CREATURE, GChicken::new).trackable(74, 2)
+                        .create(SpawnGroup.CREATURE, GChicken::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.4F, 0.35F)).build();
-        public static final EntityType<Boar> BOAR = FabricEntityTypeBuilder.create(EntityCategory.CREATURE, Boar::new)
+        public static final EntityType<Boar> BOAR = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, Boar::new)
                         .trackable(74, 2).dimensions(EntityDimensions.fixed(0.9F, 0.9F)).build();
-        public static final EntityType<Boar2> BOAR2 = FabricEntityTypeBuilder
-                        .create(EntityCategory.CREATURE, Boar2::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.9F, 0.9F)).build();
-        public static final EntityType<Boar3> BOAR3 = FabricEntityTypeBuilder
-                        .create(EntityCategory.CREATURE, Boar3::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.9F, 0.9F)).build();
+        public static final EntityType<Boar2> BOAR2 = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, Boar2::new)
+                        .trackable(74, 2).dimensions(EntityDimensions.fixed(0.9F, 0.9F)).build();
+        public static final EntityType<Boar3> BOAR3 = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, Boar3::new)
+                        .trackable(74, 2).dimensions(EntityDimensions.fixed(0.9F, 0.9F)).build();
         public static final EntityType<FriendEntity> FRIEND = FabricEntityTypeBuilder
-                        .create(EntityCategory.CREATURE, FriendEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.CREATURE, FriendEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<Knight3Entity> KNIGHT3ENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, Knight3Entity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, Knight3Entity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<Knight4Entity> KNIGHT4ENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.CREATURE, Knight4Entity::new).trackable(74, 2)
+                        .create(SpawnGroup.CREATURE, Knight4Entity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<Knight5Entity> KNIGHT5ENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, Knight5Entity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, Knight5Entity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<WithEntity> WITHENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, WithEntity::new).trackable(74, 2).fireImmune()
+                        .create(SpawnGroup.MONSTER, WithEntity::new).trackable(74, 2).fireImmune()
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
-        public static final EntityType<skeli4> SKELI4 = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, skeli4::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.9F, 3.5F)).build();
+        public static final EntityType<skeli4> SKELI4 = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, skeli4::new)
+                        .trackable(74, 2).dimensions(EntityDimensions.fixed(0.9F, 3.5F)).build();
         public static final EntityType<Withender> WITHENDER = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, Withender::new).trackable(74, 2).fireImmune()
+                        .create(SpawnGroup.MONSTER, Withender::new).trackable(74, 2).fireImmune()
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
-        public static final EntityType<Slimo> SLIMO = FabricEntityTypeBuilder.create(EntityCategory.MONSTER, Slimo::new)
+        public static final EntityType<Slimo> SLIMO = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, Slimo::new)
                         .trackable(74, 2).dimensions(EntityDimensions.fixed(0.51F, 0.51F)).build();
         public static final EntityType<TSpider> TSPIDER = FabricEntityTypeBuilder
-                        .create(EntityCategory.AMBIENT, TSpider::new).trackable(74, 2)
+                        .create(SpawnGroup.AMBIENT, TSpider::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.2F, 0.1F)).build();
         public static final EntityType<PillagerBoss> PILLAGERBOSS = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, PillagerBoss::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, PillagerBoss::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.78F, 2.675F)).build();
         public static final EntityType<BabyravagerEntity> BABYRAVAGERENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, BabyravagerEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, BabyravagerEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.78F, 0.88F)).build();
         public static final EntityType<IslandKing> ISLANDKING = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, IslandKing::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, IslandKing::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<IslandKnightNormal> ISLANDKNIGHTNORMAL = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, IslandKnightNormal::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, IslandKnightNormal::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<IslandKnightSpecial> ISLANDKNIGHTSPECIAL = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, IslandKnightSpecial::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, IslandKnightSpecial::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<IslandKnightSpecial2> ISLANDKNIGHTSPECIAL2 = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, IslandKnightSpecial2::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, IslandKnightSpecial2::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<IslandVexEntity> ISLANDVEXENTITY = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, IslandVexEntity::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, IslandVexEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.4F, 0.8F)).build();
         public static final EntityType<MetalGolem> METALGOLEM = FabricEntityTypeBuilder
-                        .create(EntityCategory.MONSTER, MetalGolem::new).trackable(74, 2)
+                        .create(SpawnGroup.MONSTER, MetalGolem::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(1.59F, 3F)).build();
 
         public static void init() {
@@ -377,6 +372,10 @@ public class Entityinit {
                 // Z
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_test"), new SpawnEggItem(TEST, 2039583,
                                 9109643, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+
+                // Atributes
+
+                FabricDefaultAttributeRegistry.register(ARCHER2ENTITY, Archer2Entity.createArcher2EntityAttributes());
 
         }
 
