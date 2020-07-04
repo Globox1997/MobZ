@@ -11,8 +11,8 @@
               "function": "minecraft:set_count",
               "count": {
                 "n": 1,
-                "p": 0.02,
-                "type": "minecraft:binomial"
+                "p": 0.05,
+                "type": "minecraft:uniform"
               }
             }
           ],
@@ -25,17 +25,17 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "n": 1,
-                "p": 0.02,
-                "type": "minecraft:binomial"
-              }
-            }
-          ],
           "name": "mobz:shield"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        },
+        {
+          "condition": "minecraft:random_chance_with_looting",
+          "chance": 0.08,
+          "looting_multiplier": 0.01
         }
       ]
     }

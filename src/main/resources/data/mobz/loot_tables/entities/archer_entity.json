@@ -10,47 +10,16 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"n": 1,
-								"p": 0.005,
-								"type": "minecraft:binomial"
+								"min": 0.0,
+								"max": 6.0,
+								"type": "minecraft:uniform"
 							}
-						}
-					],
-					"name": "minecraft:bow"
-				}
-			]
-		},
-		{
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"functions": [
+						},
 						{
-							"function": "minecraft:set_count",
+							"function": "minecraft:looting_enchant",
 							"count": {
-								"n": 1,
-								"p": 0.001,
-								"type": "minecraft:binomial"
-							}
-						}
-					],
-					"name": "minecraft:experience_bottle"
-				}
-			]
-		},
-		{
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"n": 2,
-								"p": 0.7,
-								"type": "minecraft:binomial"
+								"min": 0.0,
+								"max": 1.0
 							}
 						}
 					],
@@ -63,17 +32,25 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"n": 1,
-								"p": 0.2,
-								"type": "minecraft:binomial"
-							}
-						}
-					],
+					"name": "minecraft:bow"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:experience_bottle"
+				},
+				{
+					"type": "minecraft:item",
 					"name": "mobz:totembase"
+				}
+			],
+			"conditions": [
+				{
+					"condition": "minecraft:killed_by_player"
+				},
+				{
+					"condition": "minecraft:random_chance_with_looting",
+					"chance": 0.2,
+					"looting_multiplier": 0.01
 				}
 			]
 		}

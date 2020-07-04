@@ -10,13 +10,20 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"n": 1,
-								"p": 0.2,
-								"type": "minecraft:binomial"
+								"min": -1.0,
+								"max": 1.0,
+								"type": "minecraft:uniform"
+							}
+						},
+						{
+							"function": "minecraft:looting_enchant",
+							"count": {
+								"min": 0.0,
+								"max": 1.0
 							}
 						}
 					],
-					"name": "mobz:withermeal"
+					"name": "minecraft:coal"
 				}
 			]
 		},
@@ -30,12 +37,31 @@
 							"function": "minecraft:set_count",
 							"count": {
 								"n": 1,
-								"p": 0.005,
-								"type": "minecraft:binomial"
+								"p": 0.01,
+								"type": "minecraft:uniform"
 							}
 						}
 					],
+					"name": "mobz:withermeal"
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
 					"name": "minecraft:wither_skeleton_skull"
+				}
+			],
+			"conditions": [
+				{
+					"condition": "minecraft:killed_by_player"
+				},
+				{
+					"condition": "minecraft:random_chance_with_looting",
+					"chance": 0.025,
+					"looting_multiplier": 0.01
 				}
 			]
 		}

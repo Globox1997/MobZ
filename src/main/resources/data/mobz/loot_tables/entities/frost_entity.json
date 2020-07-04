@@ -10,28 +10,16 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"n": 1,
-								"p": 0.2,
-								"type": "minecraft:binomial"
+								"min": 0.0,
+								"max": 2.0,
+								"type": "minecraft:uniform"
 							}
-						}
-					],
-					"name": "minecraft:ice"
-				}
-			]
-		},
-		{
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"functions": [
+						},
 						{
-							"function": "minecraft:set_count",
+							"function": "minecraft:looting_enchant",
 							"count": {
-								"n": 3,
-								"p": 0.4,
-								"type": "minecraft:binomial"
+								"min": 0.0,
+								"max": 1.0
 							}
 						}
 					],
@@ -40,21 +28,25 @@
 			]
 		},
 		{
-			"rolls": 1,
+			"rolls": 2,
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"n": 1,
-								"p": 0.3,
-								"type": "minecraft:binomial"
-							}
-						}
-					],
 					"name": "mobz:frozenmeal"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:ice"
+				}
+			],
+			"conditions": [
+				{
+					"condition": "minecraft:killed_by_player"
+				},
+				{
+					"condition": "minecraft:random_chance_with_looting",
+					"chance": 0.5,
+					"looting_multiplier": 0.1
 				}
 			]
 		}

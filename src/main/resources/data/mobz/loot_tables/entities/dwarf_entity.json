@@ -10,9 +10,16 @@
                         {
                             "function": "minecraft:set_count",
                             "count": {
-                                "n": 6,
-                                "p": 0.4,
-                                "type": "minecraft:binomial"
+                                "min": 0.0,
+                                "max": 6.0,
+                                "type": "minecraft:uniform"
+                            }
+                        },
+                        {
+                            "function": "minecraft:looting_enchant",
+                            "count": {
+                                "min": 0.0,
+                                "max": 1.0
                             }
                         }
                     ],
@@ -29,9 +36,16 @@
                         {
                             "function": "minecraft:set_count",
                             "count": {
-                                "n": 2,
-                                "p": 0.3,
-                                "type": "minecraft:binomial"
+                                "min": 0.0,
+                                "max": 2.0,
+                                "type": "minecraft:uniform"
+                            }
+                        },
+                        {
+                            "function": "minecraft:looting_enchant",
+                            "count": {
+                                "min": 0.0,
+                                "max": 1.0
                             }
                         }
                     ],
@@ -44,36 +58,21 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "functions": [
-                        {
-                            "function": "minecraft:set_count",
-                            "count": {
-                                "n": 1,
-                                "p": 0.1,
-                                "type": "minecraft:binomial"
-                            }
-                        }
-                    ],
+                    "name": "mobz:shield"
+                },
+                {
+                    "type": "minecraft:item",
                     "name": "mobz:axe"
                 }
-            ]
-        },
-        {
-            "rolls": 1,
-            "entries": [
+            ],
+            "conditions": [
                 {
-                    "type": "minecraft:item",
-                    "functions": [
-                        {
-                            "function": "minecraft:set_count",
-                            "count": {
-                                "n": 1,
-                                "p": 0.1,
-                                "type": "minecraft:binomial"
-                            }
-                        }
-                    ],
-                    "name": "mobz:shield"
+                    "condition": "minecraft:killed_by_player"
+                },
+                {
+                    "condition": "minecraft:random_chance_with_looting",
+                    "chance": 0.2,
+                    "looting_multiplier": 0.01
                 }
             ]
         },
@@ -82,17 +81,17 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "functions": [
-                        {
-                            "function": "minecraft:set_count",
-                            "count": {
-                                "n": 1,
-                                "p": 0.0001,
-                                "type": "minecraft:binomial"
-                            }
-                        }
-                    ],
                     "name": "mobz:whitebag"
+                }
+            ],
+            "conditions": [
+                {
+                    "condition": "minecraft:killed_by_player"
+                },
+                {
+                    "condition": "minecraft:random_chance_with_looting",
+                    "chance": 0.0005,
+                    "looting_multiplier": 0.01
                 }
             ]
         }

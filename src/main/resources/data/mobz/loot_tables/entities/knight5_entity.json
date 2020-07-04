@@ -10,9 +10,16 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"n": 9,
-								"p": 0.7,
-								"type": "minecraft:binomial"
+								"min": 0.0,
+								"max": 5.0,
+								"type": "minecraft:uniform"
+							}
+						},
+						{
+							"function": "minecraft:looting_enchant",
+							"count": {
+								"min": 0.0,
+								"max": 1.0
 							}
 						}
 					],
@@ -25,17 +32,17 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"n": 1,
-								"p": 0.3,
-								"type": "minecraft:binomial"
-							}
-						}
-					],
 					"name": "mobz:wither_sword"
+				}
+			],
+			"conditions": [
+				{
+					"condition": "minecraft:killed_by_player"
+				},
+				{
+					"condition": "minecraft:random_chance_with_looting",
+					"chance": 0.3,
+					"looting_multiplier": 0.01
 				}
 			]
 		},
@@ -44,17 +51,17 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"n": 1,
-								"p": 0.000001,
-								"type": "minecraft:binomial"
-							}
-						}
-					],
 					"name": "mobz:whitebag"
+				}
+			],
+			"conditions": [
+				{
+					"condition": "minecraft:killed_by_player"
+				},
+				{
+					"condition": "minecraft:random_chance_with_looting",
+					"chance": 0.0005,
+					"looting_multiplier": 0.01
 				}
 			]
 		}

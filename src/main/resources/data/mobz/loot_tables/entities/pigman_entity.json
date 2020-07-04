@@ -10,51 +10,39 @@
 						{
 							"function": "minecraft:set_count",
 							"count": {
-								"n": 2,
-								"p": 0.5,
-								"type": "minecraft:binomial"
+								"min": 0.0,
+								"max": 5.0,
+								"type": "minecraft:uniform"
 							}
-						}
-					],
-					"name": "minecraft:rotten_flesh"
-				}
-			]
-		},
-		{
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"functions": [
+						},
 						{
-							"function": "minecraft:set_count",
+							"function": "minecraft:looting_enchant",
 							"count": {
-								"n": 1,
-								"p": 0.3,
-								"type": "minecraft:binomial"
-							}
-						}
-					],
-					"name": "minecraft:gold_ingot"
-				}
-			]
-		},
-		{
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"n": 2,
-								"p": 0.3,
-								"type": "minecraft:binomial"
+								"min": 0.0,
+								"max": 1.0
 							}
 						}
 					],
 					"name": "minecraft:gold_nugget"
+				}
+			]
+		},
+		{
+			"rolls": 3,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:gold_ingot"
+				}
+			],
+			"conditions": [
+				{
+					"condition": "minecraft:killed_by_player"
+				},
+				{
+					"condition": "minecraft:random_chance_with_looting",
+					"chance": 0.5,
+					"looting_multiplier": 0.01
 				}
 			]
 		}

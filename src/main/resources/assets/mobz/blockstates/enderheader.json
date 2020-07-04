@@ -2,11 +2,11 @@
   "variants": {
     "facing=east": {
       "model": "mobz:block/enderheader",
-      "y": 90
+      "y": 270
     },
     "facing=north": {
       "model": "mobz:block/enderheader",
-      "y": 270
+      "y": 90
     },
     "facing=south": {
       "model": "mobz:block/enderheader"
