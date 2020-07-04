@@ -52,20 +52,20 @@ public class Itemgroupinit {
                 stacks.add(new ItemStack(Iteminit.BEARLEATHER));
                 stacks.add(new ItemStack(Iteminit.WITHERMEAL));
                 stacks.add(new ItemStack(Iteminit.FROZENMEAL));
+                stacks.add(ItemStack.EMPTY);
+                stacks.add(new ItemStack(Iteminit.SEALITEM));
                 stacks.add(new ItemStack(Iteminit.HARDENEDMETAL_INGOT));
                 stacks.add(new ItemStack(Iteminit.AMAT_INGOT));
                 stacks.add(new ItemStack(Iteminit.BOSS_INGOT));
-                stacks.add(ItemStack.EMPTY);
-                stacks.add(ItemStack.EMPTY);
                 stacks.add(new ItemStack(Blockinit.TOTEM_BASE));
                 stacks.add(new ItemStack(Blockinit.TOTEM_MIDDLE));
                 stacks.add(new ItemStack(Blockinit.TOTEM_TOP));
+                stacks.add(ItemStack.EMPTY);
+                stacks.add(ItemStack.EMPTY);
+                stacks.add(new ItemStack(Blockinit.TREASURE_BLOCK));
                 stacks.add(new ItemStack(Blockinit.HARDENED_METALBLOCK));
                 stacks.add(new ItemStack(Blockinit.AMAT_BLOCK));
                 stacks.add(new ItemStack(Blockinit.BOSS_BLOCK));
-                stacks.add(ItemStack.EMPTY);
-                stacks.add(new ItemStack(Blockinit.ENDERHEADER));
-                stacks.add(new ItemStack(Blockinit.BOSS_TROPHY));
                 stacks.add(new ItemStack(Iteminit.MEDIVEAL_DISC));
                 stacks.add(new ItemStack(Iteminit.MEDIVEAL_DISC2));
                 stacks.add(new ItemStack(Iteminit.ORB));
@@ -73,6 +73,8 @@ public class Itemgroupinit {
                 stacks.add(new ItemStack(Iteminit.WHITEBAG));
                 stacks.add(ItemStack.EMPTY);
                 stacks.add(ItemStack.EMPTY);
+                stacks.add(new ItemStack(Blockinit.ENDERHEADER));
+                stacks.add(new ItemStack(Blockinit.BOSS_TROPHY));
                 stacks.add(new ItemStack(Blockinit.SPAWN_BLOCK));
                 stacks.add(new ItemStack(SwordItems.Debuger));
 

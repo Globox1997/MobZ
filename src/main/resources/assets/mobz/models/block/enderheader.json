@@ -1,181 +1,48 @@
 {
-  "textures": {
-    "particle": "block/soul_sand",
-    "enderheader": "mobz:block/enderheader"
-  },
-  "display": {
-    "gui": {
-      "rotation": [
-        30,
-        140,
-        0
-      ],
-      "translation": [
-        0,
-        3,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
-    },
-    "ground": {
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "translation": [
-        0,
-        1,
-        0
-      ],
-      "scale": [
-        0.5,
-        0.5,
-        0.5
-      ]
-    },
-    "fixed": {
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "translation": [
-        0,
-        4,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
-    },
-    "head": {
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "translation": [
-        0,
-        4,
-        0
-      ],
-      "scale": [
-        2,
-        2,
-        2
-      ]
-    },
-    "firstperson_righthand": {
-      "rotation": [
-        0,
-        315,
-        0
-      ],
-      "translation": [
-        0,
-        2.5,
-        0
-      ],
-      "scale": [
-        1,
-        1,
-        1
-      ]
-    },
-    "thirdperson_righthand": {
-      "rotation": [
-        0,
-        360,
-        0
-      ],
-      "translation": [
-        0,
-        2.5,
-        0
-      ],
-      "scale": [
-        0.375,
-        0.375,
-        0.375
-      ]
-    }
-  },
-  "elements": [
-    {
-      "name": "Head",
-      "from": [
-        4,
-        0,
-        4
-      ],
-      "to": [
-        12,
-        8,
-        12
-      ],
-      "faces": {
-        "north": {
-          "texture": "#enderheader",
-          "uv": [
-            4,
-            4,
-            8,
-            8
-          ]
-        },
-        "east": {
-          "texture": "#enderheader",
-          "uv": [
-            0,
-            4,
-            4,
-            8
-          ]
-        },
-        "south": {
-          "texture": "#enderheader",
-          "uv": [
-            12,
-            4,
-            16,
-            8
-          ]
-        },
-        "west": {
-          "texture": "#enderheader",
-          "uv": [
-            8,
-            4,
-            12,
-            8
-          ]
-        },
-        "up": {
-          "texture": "#enderheader",
-          "uv": [
-            4,
-            0,
-            8,
-            4
-          ]
-        },
-        "down": {
-          "texture": "#enderheader",
-          "uv": [
-            8,
-            8,
-            12,
-            12
-          ]
-        }
-      }
-    }
-  ]
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "block/soul_sand",
+		"enderheader": "mobz:block/enderheader"
+	},
+	"elements": [
+		{
+			"name": "Head",
+			"from": [4, 0, 4],
+			"to": [12, 8, 12],
+			"faces": {
+				"north": {"uv": [12, 4, 16, 8], "texture": "#enderheader"},
+				"east": {"uv": [8, 4, 12, 8], "texture": "#enderheader"},
+				"south": {"uv": [4, 4, 8, 8], "texture": "#enderheader"},
+				"west": {"uv": [0, 4, 4, 8], "texture": "#enderheader"},
+				"up": {"uv": [4, 0, 8, 4], "rotation": 180, "texture": "#enderheader"},
+				"down": {"uv": [8, 8, 12, 12], "rotation": 180, "texture": "#enderheader"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 360, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 315, 0],
+			"translation": [0, 2.5, 0]
+		},
+		"ground": {
+			"translation": [0, 1, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [30, 140, 0],
+			"translation": [0, 3, 0]
+		},
+		"head": {
+			"translation": [0, 4, 0],
+			"scale": [2, 2, 2]
+		},
+		"fixed": {
+			"translation": [0, 4, 0]
+		}
+	}
 }

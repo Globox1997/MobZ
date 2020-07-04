@@ -81,6 +81,8 @@ public class configz implements ConfigData {
     @ConfigEntry.Category("spawnsetting")
     public boolean PurpleSpiderSpawn = true;
     @ConfigEntry.Category("spawnsetting")
+    public boolean SoulCreeperSpawn = true;
+    @ConfigEntry.Category("spawnsetting")
     public boolean SpeedyZombieSpawn = true;
     @ConfigEntry.Category("spawnsetting")
     public boolean SpiderMageSpawn = true;
@@ -162,6 +164,8 @@ public class configz implements ConfigData {
     public double PillagerBossLife = 300D;
     @ConfigEntry.Category("lifesetting")
     public double PurpleSpiderLife = 26D;
+    @ConfigEntry.Category("lifesetting")
+    public double SoulCreeperLife = 25D;
     @ConfigEntry.Category("lifesetting")
     public double SpeedyZombieLife = 15D;
     @ConfigEntry.Category("lifesetting")
@@ -380,6 +384,9 @@ public class configz implements ConfigData {
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int PurpleSpiderSpawnRate = 15;
+    @ConfigEntry.Category("spawnratesetting")
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
+    public int SoulCreeperSpawnRate = 5;
     @ConfigEntry.Category("spawnratesetting")
     @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
     public int SpeedyZombieSpawnRate = 30;

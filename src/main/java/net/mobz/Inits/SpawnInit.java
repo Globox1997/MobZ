@@ -108,6 +108,8 @@ public class SpawnInit {
                                         Entityinit.SKELI3, Configinit.CONFIGZ.NetherSkeletonSpawnRate, 1, 2));
                         biome.getEntitySpawnList(Entityinit.WITHENTITY.getSpawnGroup()).add(new Biome.SpawnEntry(
                                         Entityinit.WITHENTITY, Configinit.CONFIGZ.WitherBlazeSpawnRate, 1, 3));
+                        biome.getEntitySpawnList(Entityinit.SCREEPER.getSpawnGroup()).add(new Biome.SpawnEntry(
+                                        Entityinit.SCREEPER, Configinit.CONFIGZ.SoulCreeperSpawnRate, 1, 2));
                 }
         }
 

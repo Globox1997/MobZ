@@ -7,6 +7,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.PiglinEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
@@ -30,6 +31,21 @@ public class PigmanEntity extends PiglinEntity {
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23D)
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1.5D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                         Configinit.CONFIGZ.PigmanAttack * Configinit.CONFIGZ.DamageMultiplicatorMob);
+    }
+
+    @Override
+    protected boolean canInsertIntoInventory(ItemStack stack) {
+        return false;
+    }
+
+    @Override
+    public boolean isBaby() {
+        return true;
+    }
+
+    @Override
+    public boolean canConvert() {
+        return false;
     }
 
     @Override

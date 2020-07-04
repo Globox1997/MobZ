@@ -17,6 +17,11 @@ public class DogRenderer extends MobEntityRenderer<WolfEntity, WolfEntityModel<W
    }
 
    @Override
+   protected float getAnimationProgress(WolfEntity wolfEntity, float f) {
+      return wolfEntity.getTailAngle();
+   }
+
+   @Override
    public Identifier getTexture(WolfEntity wolfEntity) {
       return TEXTURE;
    }

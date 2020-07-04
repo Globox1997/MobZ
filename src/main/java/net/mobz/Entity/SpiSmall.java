@@ -7,15 +7,11 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.CaveSpiderEntity;
 import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.mobz.Inits.Configinit;
 
 public class SpiSmall extends CaveSpiderEntity {
 
-    private MobEntity owner;
-    private BlockPos bounds;
     private int lifeTicks;
     private boolean alive;
 
@@ -49,14 +45,6 @@ public class SpiSmall extends CaveSpiderEntity {
     @Override
     public boolean tryAttack(Entity target) {
         return true;
-    }
-
-    public void setOwner(MobEntity owner) {
-        this.owner = owner;
-    }
-
-    public void setBounds(@Nullable BlockPos pos) {
-        this.bounds = pos;
     }
 
 }

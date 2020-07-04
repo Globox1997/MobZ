@@ -1,8 +1,5 @@
 package net.mobz.Entity.Attack;
 
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SnowBlock;
-import net.minecraft.block.SnowyBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -15,8 +12,6 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
-
-import net.minecraft.entity.projectile.SmallFireballEntity;
 
 public class FrostballEntity extends AbstractFireballEntity {
    public FrostballEntity(EntityType<? extends FrostballEntity> entityType_1, World world_1) {

@@ -57,7 +57,7 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       return HostileEntity.createHostileAttributes()
             .add(EntityAttributes.GENERIC_MAX_HEALTH,
                   Configinit.CONFIGZ.ZombieMageLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
-            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5D)
+            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.45D)
             .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                   Configinit.CONFIGZ.ZombieMageAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
             .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20.0D);

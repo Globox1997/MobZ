@@ -6,7 +6,6 @@ import net.mobz.Inits.Entityinit;
 import net.mobz.Inits.Soundinit;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.PillagerEntity;
-import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -71,10 +70,6 @@ public class ArcherEntity extends PillagerEntity {
         if (!state.getMaterial().isLiquid()) {
             this.playSound(Soundinit.LEATHERWALKEVENT, 0.15F, 1F);
         }
-    }
-
-    SoundEvent getStepSound() {
-        return Soundinit.LEATHERWALKEVENT;
     }
 
     @Override

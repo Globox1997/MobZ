@@ -39,6 +39,11 @@ public class Enderheader extends Block {
     builder.add(FACING);
   }
 
+  @Override
+  public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    return SHAPE;
+  }
+
   public static boolean isValid(World world, BlockPos pos, BlockState state) {
     if (state.getBlock() != Blockinit.ENDERHEADER) {
       return false;
@@ -104,11 +109,6 @@ public class Enderheader extends Block {
 
     return false;
 
-  }
-
-  @Override
-  public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-    return SHAPE;
   }
 
   static {

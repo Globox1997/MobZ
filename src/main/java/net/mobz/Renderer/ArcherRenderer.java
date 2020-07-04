@@ -9,8 +9,6 @@ import net.minecraft.client.render.entity.BipedEntityRenderer;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.util.Identifier;
 
-import net.minecraft.client.render.entity.PillagerEntityRenderer;
-
 @Environment(EnvType.CLIENT)
 
 public class ArcherRenderer extends BipedEntityRenderer<ArcherEntity, PlayerEntityModel<ArcherEntity>> {

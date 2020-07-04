@@ -44,7 +44,7 @@ public class IslandKnightSpecial extends ZombieEntity {
         .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.32D)
         .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
             Configinit.CONFIGZ.WilliamAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
-        .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 18.0D);
+        .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 18.0D).add(EntityAttributes.ZOMBIE_SPAWN_REINFORCEMENTS, 0D);
   }
 
   @Override

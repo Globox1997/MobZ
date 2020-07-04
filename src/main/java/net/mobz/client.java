@@ -130,6 +130,8 @@ public class client implements ClientModInitializer {
                                 (dispatcher, context) -> new IslandVexEntityRenderer(dispatcher));
                 EntityRendererRegistry.INSTANCE.register(Entityinit.METALGOLEM,
                                 (dispatcher, context) -> new MetalGolemRenderer(dispatcher));
+                EntityRendererRegistry.INSTANCE.register(Entityinit.SCREEPER,
+                                (dispatcher, context) -> new SCreeperRenderer(dispatcher));
 
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.ENDERHEADER, RenderLayer.getCutout());
                 BlockRenderLayerMap.INSTANCE.putBlock(Blockinit.TOTEM_BASE, RenderLayer.getCutout());

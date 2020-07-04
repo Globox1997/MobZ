@@ -8,6 +8,7 @@ import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.entity.BipedEntityRenderer;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.util.Identifier;
+import net.minecraft.client.render.entity.feature.StrayOverlayFeatureRenderer;
 
 @Environment(EnvType.CLIENT)
 
@@ -15,6 +16,7 @@ public class skeli1renderer extends BipedEntityRenderer<skeli1, SkeletonEntityMo
 
     public skeli1renderer(EntityRenderDispatcher dispatcher) {
         super(dispatcher, new SkeletonEntityModel<>(), 0.5F);
+        this.addFeature(new StrayOverlayFeatureRenderer<>(this));
     }
 
     @Override

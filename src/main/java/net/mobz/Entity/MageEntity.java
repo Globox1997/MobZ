@@ -57,7 +57,7 @@ public class MageEntity extends SpellcastingIllagerEntity {
       return HostileEntity.createHostileAttributes()
             .add(EntityAttributes.GENERIC_MAX_HEALTH,
                   Configinit.CONFIGZ.SpiderMageLife * Configinit.CONFIGZ.LifeMultiplicatorMob)
-            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5D)
+            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.45D)
             .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                   Configinit.CONFIGZ.SpiderMageAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
             .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20.0D);
@@ -272,8 +272,8 @@ public class MageEntity extends SpellcastingIllagerEntity {
             vexEntity.refreshPositionAndAngles(blockPos, 0.0F, 0.0F);
             vexEntity.initialize(MageEntity.this.world, MageEntity.this.world.getLocalDifficulty(blockPos),
                   SpawnReason.MOB_SUMMONED, (EntityData) null, (CompoundTag) null);
-            vexEntity.setOwner(MageEntity.this);
-            vexEntity.setBounds(blockPos);
+            // vexEntity.setOwner(MageEntity.this);
+            // vexEntity.setBounds(blockPos);
             vexEntity.setLifeTicks(20 * (30 + MageEntity.this.random.nextInt(90)));
             MageEntity.this.world.spawnEntity(vexEntity);
          }

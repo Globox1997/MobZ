@@ -171,6 +171,9 @@ public class Entityinit {
         public static final EntityType<MetalGolem> METALGOLEM = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, MetalGolem::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(1.59F, 3F)).build();
+        public static final EntityType<SCreeperEntity> SCREEPER = FabricEntityTypeBuilder
+                        .create(SpawnGroup.MONSTER, SCreeperEntity::new).trackable(74, 2)
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.7F)).build();
 
         public static void init() {
 
@@ -233,6 +236,7 @@ public class Entityinit {
                                 ISLANDKNIGHTSPECIAL2);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "islandvex_entity"), ISLANDVEXENTITY);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "metalgolem_entity"), METALGOLEM);
+                Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "screeper_entity"), SCREEPER);
                 // A
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_friend"), new SpawnEggItem(FRIEND,
                                 11123336, 15043903, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
@@ -333,6 +337,8 @@ public class Entityinit {
                 // Q
                 // R
                 // S
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_screeper"), new SpawnEggItem(SCREEPER,
+                                3483938, 3691854, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_fast"), new SpawnEggItem(FAST, 6109639,
                                 2968097, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_mage"), new SpawnEggItem(MAGEENTITY,
@@ -437,6 +443,7 @@ public class Entityinit {
                 FabricDefaultAttributeRegistry.register(TSPIDER, TSpider.createTSpiderAttributes());
                 FabricDefaultAttributeRegistry.register(WITHENDER, Withender.createWithenderAttributes());
                 FabricDefaultAttributeRegistry.register(WITHENTITY, WithEntity.createWithEntityAttributes());
+                FabricDefaultAttributeRegistry.register(SCREEPER, SCreeperEntity.createSCreeperEntityAttributes());
 
         }
 
