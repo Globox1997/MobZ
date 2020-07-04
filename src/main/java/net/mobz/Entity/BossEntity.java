@@ -41,7 +41,8 @@ public class BossEntity extends ZombieEntity {
                         Configinit.CONFIGZ.BossZombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 36.0D).add(EntityAttributes.GENERIC_ARMOR, -4D)
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1D)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 0.1D);
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 0.1D)
+                .add(EntityAttributes.ZOMBIE_SPAWN_REINFORCEMENTS, 0D);
     }
 
     @Override

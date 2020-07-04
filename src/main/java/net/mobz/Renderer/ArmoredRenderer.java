@@ -9,6 +9,9 @@ import net.minecraft.client.render.entity.model.ZombieEntityModel;
 import net.mobz.Entity.*;
 import net.minecraft.util.Identifier;
 
+import net.minecraft.client.render.entity.ZombieBaseEntityRenderer;
+import net.minecraft.client.render.entity.ZombieEntityRenderer;
+
 @Environment(EnvType.CLIENT)
 public class ArmoredRenderer extends BipedEntityRenderer<ArmoredEntity, ZombieEntityModel<ArmoredEntity>> {
     private static final Identifier SKIN = new Identifier("mobz:textures/entity/armored.png");

@@ -103,7 +103,7 @@ public class Entityinit {
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
         public static final EntityType<DwarfEntity> DWARFENTITY = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, DwarfEntity::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.5F)).build();
         public static final EntityType<SpiSmall> SPISMALL = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, SpiSmall::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.7F, 0.5F)).build();
@@ -376,6 +376,67 @@ public class Entityinit {
                 // Atributes
 
                 FabricDefaultAttributeRegistry.register(ARCHER2ENTITY, Archer2Entity.createArcher2EntityAttributes());
+                FabricDefaultAttributeRegistry.register(ARCHERENTITY, ArcherEntity.createArcherEntityAttributes());
+                FabricDefaultAttributeRegistry.register(ARMORED, ArmoredEntity.createArmoredEntityAttributes());
+                FabricDefaultAttributeRegistry.register(BABYRAVAGERENTITY,
+                                BabyravagerEntity.createBabyravagerEntityAttributes());
+                FabricDefaultAttributeRegistry.register(BIGBOSSENTITY, BigBossEntity.createBigBossEntityAttributes());
+                FabricDefaultAttributeRegistry.register(BLACKBEAR, Blackbear.createBlackbearAttributes());
+                FabricDefaultAttributeRegistry.register(BOAR, Boar.createBoarAttributes());
+                FabricDefaultAttributeRegistry.register(BOAR2, Boar2.createBoar2Attributes());
+                FabricDefaultAttributeRegistry.register(BOAR3, Boar3.createBoar3Attributes());
+                FabricDefaultAttributeRegistry.register(BOSS, BossEntity.createBossEntityAttributes());
+                FabricDefaultAttributeRegistry.register(BROWNBEAR, Brownbear.createBrownbearAttributes());
+                FabricDefaultAttributeRegistry.register(CREEP, CreepEntity.createCreepEntityAttributes());
+                FabricDefaultAttributeRegistry.register(CRIP, CripEntity.createCripEntityAttributes());
+                FabricDefaultAttributeRegistry.register(DOG, Dog.createDogAttributes());
+                FabricDefaultAttributeRegistry.register(DWARFENTITY, DwarfEntity.createDwarfEntityAttributes());
+                FabricDefaultAttributeRegistry.register(ENDER, EnderEntity.createEnderEntityAttributes());
+                FabricDefaultAttributeRegistry.register(ENDERZOMBIE,
+                                EnderZombieEntity.createEnderZombieEntityAttributes());
+                FabricDefaultAttributeRegistry.register(FAST, FastEntity.createFastEntityAttributes());
+                FabricDefaultAttributeRegistry.register(FRIEND, FriendEntity.createFriendEntityAttributes());
+                FabricDefaultAttributeRegistry.register(FROSTENTITY, FrostEntity.createFrostEntityAttributes());
+                FabricDefaultAttributeRegistry.register(FULLIRONENTITY,
+                                FullIronEntity.createFullIronEntityAttributes());
+                FabricDefaultAttributeRegistry.register(GCHICKEN, GChicken.createGChickenAttributes());
+                FabricDefaultAttributeRegistry.register(ICEGOLEM, IceGolem.createIceGolemAttributes());
+                FabricDefaultAttributeRegistry.register(ILLUSIONER, Illusioner.createIllusionerAttributes());
+                FabricDefaultAttributeRegistry.register(ISLANDKING, IslandKing.createIslandKingAttributes());
+                FabricDefaultAttributeRegistry.register(ISLANDKNIGHTNORMAL,
+                                IslandKnightNormal.createIslandKnightNormalAttributes());
+                FabricDefaultAttributeRegistry.register(ISLANDKNIGHTSPECIAL,
+                                IslandKnightSpecial.createIslandKnightSpecialAttributes());
+                FabricDefaultAttributeRegistry.register(ISLANDKNIGHTSPECIAL2,
+                                IslandKnightSpecial2.createIslandKnightSpecial2Attributes());
+                FabricDefaultAttributeRegistry.register(ISLANDVEXENTITY,
+                                IslandVexEntity.createIslandVexEntityAttributes());
+                FabricDefaultAttributeRegistry.register(KNIGHT2ENTITY, Knight2Entity.createKnight2EntityAttributes());
+                FabricDefaultAttributeRegistry.register(KNIGHT3ENTITY, Knight3Entity.createKnight3EntityAttributes());
+                FabricDefaultAttributeRegistry.register(KNIGHT4ENTITY, Knight4Entity.createKnight4EntityAttributes());
+                FabricDefaultAttributeRegistry.register(KNIGHT5ENTITY, Knight5Entity.createKnight5EntityAttributes());
+                FabricDefaultAttributeRegistry.register(KNIGHTENTITY, KnightEntity.createKnightEntityAttributes());
+                FabricDefaultAttributeRegistry.register(LAVAGOLEM, LavaGolem.createLavaGolemAttributes());
+                FabricDefaultAttributeRegistry.register(MAGE2ENTITY, Mage2Entity.createMage2EntityAttributes());
+                FabricDefaultAttributeRegistry.register(MAGEENTITY, MageEntity.createMageEntityAttributes());
+                FabricDefaultAttributeRegistry.register(METALGOLEM, MetalGolem.createMetalGolemAttributes());
+                FabricDefaultAttributeRegistry.register(PIG, PigmanEntity.createPigmanEntityAttributes());
+                FabricDefaultAttributeRegistry.register(PILLAGERBOSS, PillagerBoss.createPillagerBossAttributes());
+                FabricDefaultAttributeRegistry.register(SKELI1, skeli1.createskeli1Attributes());
+                FabricDefaultAttributeRegistry.register(SKELI2, skeli2.createskeli2Attributes());
+                FabricDefaultAttributeRegistry.register(SKELI3, skeli3.createskeli3Attributes());
+                FabricDefaultAttributeRegistry.register(SKELI4, skeli4.createskeli4Attributes());
+                FabricDefaultAttributeRegistry.register(SLIMO, Slimo.createSlimoAttributes());
+                FabricDefaultAttributeRegistry.register(SMALLZOMBIE, SmallZombie.createSmallZombieAttributes());
+                FabricDefaultAttributeRegistry.register(SPI, SpiEntity.createSpiEntityAttributes());
+                FabricDefaultAttributeRegistry.register(SPISMALL, SpiSmall.createSpiSmallAttributes());
+                FabricDefaultAttributeRegistry.register(SPO, SpoEntity.createSpoEntityAttributes());
+                FabricDefaultAttributeRegistry.register(STONEGOLEM, StoneGolem.createStoneGolemAttributes());
+                FabricDefaultAttributeRegistry.register(TANK, TankEntity.createTankEntityAttributes());
+                FabricDefaultAttributeRegistry.register(TEST, TestEntity.createTestEntityAttributes());
+                FabricDefaultAttributeRegistry.register(TSPIDER, TSpider.createTSpiderAttributes());
+                FabricDefaultAttributeRegistry.register(WITHENDER, Withender.createWithenderAttributes());
+                FabricDefaultAttributeRegistry.register(WITHENTITY, WithEntity.createWithEntityAttributes());
 
         }
 

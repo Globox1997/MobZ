@@ -33,7 +33,8 @@ public class ArmoredEntity extends ZombieEntity {
             .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23D)
             .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                   Configinit.CONFIGZ.ArmoredZombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
-            .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0D).add(EntityAttributes.GENERIC_ARMOR, 3D);
+            .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0D).add(EntityAttributes.GENERIC_ARMOR, 3D)
+            .add(EntityAttributes.ZOMBIE_SPAWN_REINFORCEMENTS, 0D);
    }
 
    @Override

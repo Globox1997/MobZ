@@ -21,7 +21,6 @@ public class Treasureblock extends Block implements BlockEntityProvider {
 
   public Treasureblock(Settings settings) {
     super(settings);
-
   }
 
   @Override

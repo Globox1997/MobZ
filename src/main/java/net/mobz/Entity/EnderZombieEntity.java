@@ -30,7 +30,8 @@ public class EnderZombieEntity extends ZombieEntity {
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                         Configinit.CONFIGZ.EnderzombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0D).add(EntityAttributes.GENERIC_ARMOR, 2D)
-                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 10D);
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 10D)
+                .add(EntityAttributes.ZOMBIE_SPAWN_REINFORCEMENTS, 0D);
     }
 
     @Override

@@ -2,11 +2,11 @@
   "variants": {
     "facing=east": {
       "model": "mobz:block/totemtop",
-      "y": 270
+      "y": 90
     },
     "facing=north": {
       "model": "mobz:block/totemtop",
-      "y": 180
+      "y": 270
     },
     "facing=south": {
       "model": "mobz:block/totemtop"

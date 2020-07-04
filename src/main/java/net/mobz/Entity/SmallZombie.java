@@ -25,7 +25,8 @@ public class SmallZombie extends ZombieEntity {
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 6D * Configinit.CONFIGZ.LifeMultiplicatorMob)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.24D)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3D * Configinit.CONFIGZ.DamageMultiplicatorMob)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 15.0D);
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 15.0D)
+                .add(EntityAttributes.ZOMBIE_SPAWN_REINFORCEMENTS, 0D);
     }
 
     @Override

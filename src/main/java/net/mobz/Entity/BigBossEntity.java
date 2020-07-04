@@ -32,7 +32,8 @@ public class BigBossEntity extends ZombieEntity {
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                         Configinit.CONFIGZ.BigBossAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 32.0D)
-                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 10D);
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 10D)
+                .add(EntityAttributes.ZOMBIE_SPAWN_REINFORCEMENTS, 0D);
     }
 
     @Override

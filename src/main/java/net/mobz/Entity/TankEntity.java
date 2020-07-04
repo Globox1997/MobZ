@@ -37,7 +37,8 @@ public class TankEntity extends ZombieEntity {
                         Configinit.CONFIGZ.TankAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40.0D)
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1.5D)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.2D).add(EntityAttributes.GENERIC_ARMOR, 3D);
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.2D).add(EntityAttributes.GENERIC_ARMOR, 3D)
+                .add(EntityAttributes.ZOMBIE_SPAWN_REINFORCEMENTS, 0D);
     }
 
     @Override

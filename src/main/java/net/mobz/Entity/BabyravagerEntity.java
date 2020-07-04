@@ -17,7 +17,7 @@ public class BabyravagerEntity extends RavagerEntity {
     super(type, world);
   }
 
-  public static DefaultAttributeContainer.Builder createBabyRavagerEntityAttributes() {
+  public static DefaultAttributeContainer.Builder createBabyravagerEntityAttributes() {
     return HostileEntity.createHostileAttributes()
         .add(EntityAttributes.GENERIC_MAX_HEALTH,
             Configinit.CONFIGZ.BabyRavagerLife * Configinit.CONFIGZ.LifeMultiplicatorMob)

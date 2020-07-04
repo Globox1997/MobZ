@@ -3,6 +3,7 @@ package net.mobz.Renderer;
 import net.mobz.Entity.*;
 
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
+import net.minecraft.client.util.math.MatrixStack;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.entity.BipedEntityRenderer;
@@ -18,6 +19,11 @@ public class DwarfEntityRenderer extends BipedEntityRenderer<DwarfEntity, Player
         super(dispatcher, new PlayerEntityModel<>(0.0F, false), 0.5F);
         this.addFeature(new ArmorFeatureRenderer<>(this, new PlayerEntityModel<>(0.5F, true),
                 new PlayerEntityModel<>(1.0F, true)));
+    }
+
+    @Override
+    protected void scale(DwarfEntity dwarf, MatrixStack matrixStack, float f) {
+        matrixStack.scale(1F, 0.75F, 1F);
     }
 
     @Override

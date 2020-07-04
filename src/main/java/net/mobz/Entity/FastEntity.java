@@ -30,7 +30,8 @@ public class FastEntity extends ZombieEntity {
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.27D)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                         Configinit.CONFIGZ.SpeedyZombieAttack * Configinit.CONFIGZ.DamageMultiplicatorMob)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0D);
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0D)
+                .add(EntityAttributes.ZOMBIE_SPAWN_REINFORCEMENTS, 0D);
     }
 
     @Override
