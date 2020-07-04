@@ -11,7 +11,6 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -23,6 +22,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.mobz.Entity.Nullable;
 import net.mobz.Inits.Blockinit;
+import net.mobz.Inits.Iteminit;
 import net.mobz.Inits.Soundinit;
 
 public class Treasureblock extends Block implements BlockEntityProvider {
@@ -47,12 +47,12 @@ public class Treasureblock extends Block implements BlockEntityProvider {
   public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
       BlockHitResult hit) {
     ItemStack heldItem = player.getMainHandStack();
-    if (heldItem.isItemEqual(new ItemStack(Items.IRON_INGOT))) {
+    if (heldItem.isItemEqual(new ItemStack(Iteminit.SEALITEM))) {
       if (!world.isClient) {
         heldItem.decrement(1);
         Blockinit.TREASUREBLOCKENTITY.get(world, pos).unlocked = true;
       }
-      world.playSound(null, pos, Soundinit.UNSEALEVENT, SoundCategory.MUSIC, 1F, 0.6F);
+      world.playSound(null, pos, Soundinit.UNSEALEVENT, SoundCategory.BLOCKS, 1F, 1F);
       return ActionResult.SUCCESS;
     }
     return ActionResult.PASS;

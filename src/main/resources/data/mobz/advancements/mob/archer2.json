@@ -2,7 +2,7 @@
     "parent": "mobz:mob/archer",
     "display": {
         "icon": {
-            "item": "mobz:archerhead"
+            "item": "mobz:archer2head"
         },
         "title": {
             "translate": "mobz.advancements.archer2.title"

@@ -50,10 +50,10 @@ public class Entityinit {
                         .dimensions(EntityDimensions.fixed(1.4F, 0.9F)).build();
         public static final EntityType<PigmanEntity> PIG = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, PigmanEntity::new).trackable(74, 2).fireImmune()
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
+                        .dimensions(EntityDimensions.fixed(0.5F, 0.9F)).build();
         public static final EntityType<LavaGolem> LAVAGOLEM = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, LavaGolem::new).trackable(74, 2).fireImmune()
-                        .dimensions(EntityDimensions.fixed(1.4F, 2.7F)).build();
+                        .dimensions(EntityDimensions.fixed(1.35F, 2.6F)).build();
         public static final EntityType<IceGolem> ICEGOLEM = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, IceGolem::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(1.54F, 3F)).build();
@@ -65,19 +65,19 @@ public class Entityinit {
                         .trackable(74, 2).dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<ArcherEntity> ARCHERENTITY = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, ArcherEntity::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<Archer2Entity> ARCHER2ENTITY = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, Archer2Entity::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<BigBossEntity> BIGBOSSENTITY = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, BigBossEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(1.5F, 4.875F)).build();
         public static final EntityType<KnightEntity> KNIGHTENTITY = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, KnightEntity::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<Knight2Entity> KNIGHT2ENTITY = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, Knight2Entity::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<MageEntity> MAGEENTITY = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, MageEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
@@ -89,7 +89,7 @@ public class Entityinit {
                         .dimensions(EntityDimensions.fixed(0.3F, 1.0F)).build();
         public static final EntityType<FullIronEntity> FULLIRONENTITY = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, FullIronEntity::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<FrostEntity> FROSTENTITY = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, FrostEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
@@ -115,7 +115,7 @@ public class Entityinit {
                         .dimensions(EntityDimensions.fixed(1.3F, 1.4F)).build();
         public static final EntityType<GChicken> GCHICKEN = FabricEntityTypeBuilder
                         .create(SpawnGroup.CREATURE, GChicken::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.4F, 0.35F)).build();
+                        .dimensions(EntityDimensions.fixed(0.4F, 0.7F)).build();
         public static final EntityType<Boar> BOAR = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, Boar::new)
                         .trackable(74, 2).dimensions(EntityDimensions.fixed(0.9F, 0.9F)).build();
         public static final EntityType<Boar2> BOAR2 = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, Boar2::new)
@@ -124,21 +124,21 @@ public class Entityinit {
                         .trackable(74, 2).dimensions(EntityDimensions.fixed(0.9F, 0.9F)).build();
         public static final EntityType<FriendEntity> FRIEND = FabricEntityTypeBuilder
                         .create(SpawnGroup.CREATURE, FriendEntity::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<Knight3Entity> KNIGHT3ENTITY = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, Knight3Entity::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<Knight4Entity> KNIGHT4ENTITY = FabricEntityTypeBuilder
                         .create(SpawnGroup.CREATURE, Knight4Entity::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<Knight5Entity> KNIGHT5ENTITY = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, Knight5Entity::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<WithEntity> WITHENTITY = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, WithEntity::new).trackable(74, 2).fireImmune()
                         .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
         public static final EntityType<skeli4> SKELI4 = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, skeli4::new)
-                        .trackable(74, 2).dimensions(EntityDimensions.fixed(0.9F, 3.5F)).build();
+                        .trackable(74, 2).dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<Withender> WITHENDER = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, Withender::new).trackable(74, 2).fireImmune()
                         .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).build();
@@ -155,16 +155,16 @@ public class Entityinit {
                         .dimensions(EntityDimensions.fixed(0.78F, 0.88F)).build();
         public static final EntityType<IslandKing> ISLANDKING = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, IslandKing::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<IslandKnightNormal> ISLANDKNIGHTNORMAL = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, IslandKnightNormal::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<IslandKnightSpecial> ISLANDKNIGHTSPECIAL = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, IslandKnightSpecial::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<IslandKnightSpecial2> ISLANDKNIGHTSPECIAL2 = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, IslandKnightSpecial2::new).trackable(74, 2)
-                        .dimensions(EntityDimensions.fixed(0.6F, 1.8F)).build();
+                        .dimensions(EntityDimensions.fixed(0.6F, 1.99F)).build();
         public static final EntityType<IslandVexEntity> ISLANDVEXENTITY = FabricEntityTypeBuilder
                         .create(SpawnGroup.MONSTER, IslandVexEntity::new).trackable(74, 2)
                         .dimensions(EntityDimensions.fixed(0.4F, 0.8F)).build();
@@ -238,13 +238,11 @@ public class Entityinit {
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "metalgolem_entity"), METALGOLEM);
                 Registry.register(Registry.ENTITY_TYPE, new Identifier("mobz", "screeper_entity"), SCREEPER);
                 // A
-                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_friend"), new SpawnEggItem(FRIEND,
-                                11123336, 15043903, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_islandknightspecial2"),
                                 new SpawnEggItem(ISLANDKNIGHTSPECIAL2, 3882305, 3161413,
                                                 new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_archer2"), new SpawnEggItem(
-                                ARCHER2ENTITY, 2123813, 1117987, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                                ARCHER2ENTITY, 7691600, 4269851, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_armored"), new SpawnEggItem(ARMORED,
                                 1397590, 3165729, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 // B
@@ -260,11 +258,11 @@ public class Entityinit {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_boar2"), new SpawnEggItem(BOAR2,
                                 14601929, 2962756, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_skeli1"), new SpawnEggItem(SKELI1,
-                                5066061, 3932162, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                                2697513, 4934989, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_boss"), new SpawnEggItem(BOSS, 1181988,
                                 3560490, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_archer"), new SpawnEggItem(ARCHERENTITY,
-                                2123875, 1117987, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                                3218704, 11711154, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_brownbear"), new SpawnEggItem(BROWNBEAR,
                                 2169097, 4403731, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 // C
@@ -274,17 +272,17 @@ public class Entityinit {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_boar3"), new SpawnEggItem(BOAR3,
                                 13284514, 2890508, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_dwarf"), new SpawnEggItem(DWARFENTITY,
-                                8551531, 6755862, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                                5392946, 11882545, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 // E
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_knight3"), new SpawnEggItem(
-                                KNIGHT3ENTITY, 2303296, 11497623, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                                KNIGHT3ENTITY, 1447190, 4917648, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_ender"), new SpawnEggItem(ENDER, 7884109,
                                 2167558, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_enderzombie"), new SpawnEggItem(
                                 ENDERZOMBIE, 656405, 3876927, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 // F
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_knight4"), new SpawnEggItem(
-                                KNIGHT4ENTITY, 2120818, 12160610, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                                KNIGHT4ENTITY, 5308416, 16039829, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_frost"), new SpawnEggItem(FROSTENTITY,
                                 8709375, 86111, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_creep"), new SpawnEggItem(CREEP, 4897722,
@@ -292,24 +290,26 @@ public class Entityinit {
                 // G
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_gchicken"), new SpawnEggItem(GCHICKEN,
                                 13027014, 15315221, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
-                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_slimo"), new SpawnEggItem(SLIMO, 7121986,
-                                7951674, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_slimo"), new SpawnEggItem(SLIMO,
+                                16752702, 16564078, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 // H
                 // I
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_icegolem"), new SpawnEggItem(ICEGOLEM,
                                 7499112, 1572516, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_illusioner"), new SpawnEggItem(
-                                ILLUSIONER, 6376248, 4344910, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                                ILLUSIONER, 2763306, 2507353, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 // J
                 // K
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_friend"), new SpawnEggItem(FRIEND,
+                                5132380, 7164237, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_islandking"), new SpawnEggItem(
-                                ISLANDKING, 4851200, 6176010, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                                ISLANDKING, 8222839, 12891527, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_islandknightnormal"),
                                 new SpawnEggItem(ISLANDKNIGHTNORMAL, 3815735, 723723,
                                                 new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 // L
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_lavagolem"), new SpawnEggItem(LAVAGOLEM,
-                                7806478, 16652145, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                                6098704, 3039578, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_knight5"), new SpawnEggItem(
                                 KNIGHT5ENTITY, 1118487, 5000017, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_skeli4"), new SpawnEggItem(SKELI4,
@@ -320,14 +320,14 @@ public class Entityinit {
                 // N
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_skeli3"), new SpawnEggItem(SKELI3,
                                 4801614, 5121582, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
-                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_dog"), new SpawnEggItem(DOG, 7734790,
-                                12550144, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_dog"), new SpawnEggItem(DOG, 4785691,
+                                6700094, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 // O
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_skeli2"), new SpawnEggItem(SKELI2,
                                 5263682, 11534, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 // P
-                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_pig"), new SpawnEggItem(PIG, 9856837,
-                                3169838, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_pig"), new SpawnEggItem(PIG, 7026980,
+                                15245428, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_pillagerboss"), new SpawnEggItem(
                                 PILLAGERBOSS, 4984603, 1453610, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_spo"), new SpawnEggItem(SPO, 4864065,
@@ -338,13 +338,13 @@ public class Entityinit {
                 // R
                 // S
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_screeper"), new SpawnEggItem(SCREEPER,
-                                3483938, 3691854, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                                4798252, 107176, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_fast"), new SpawnEggItem(FAST, 6109639,
                                 2968097, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_mage"), new SpawnEggItem(MAGEENTITY,
                                 5128776, 12342593, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_islandvex"),
-                                new SpawnEggItem(ISLANDVEXENTITY, 4200731, 12235160,
+                                new SpawnEggItem(ISLANDVEXENTITY, 2039583, 9014412,
                                                 new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_fulliron"), new SpawnEggItem(
                                 FULLIRONENTITY, 888205, 4800672, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
@@ -354,21 +354,21 @@ public class Entityinit {
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_tank"), new SpawnEggItem(TANK, 5055902,
                                 2507798, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_knight"), new SpawnEggItem(KNIGHTENTITY,
-                                7165479, 7678221, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                                5914402, 2499613, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_spismall"), new SpawnEggItem(SPISMALL,
                                 3806513, 146458, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 // U
                 // V
                 // W
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_knight2"), new SpawnEggItem(
-                                KNIGHT2ENTITY, 8881541, 4797474, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                                KNIGHT2ENTITY, 4464921, 2173756, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_boar"), new SpawnEggItem(BOAR, 3211264,
                                 9984303, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_islandknightspecial"),
                                 new SpawnEggItem(ISLANDKNIGHTSPECIAL, 2434859, 3481123,
                                                 new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_withender"), new SpawnEggItem(WITHENDER,
-                                11797152, 1710618, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
+                                1452605, 1982799, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_with"), new SpawnEggItem(WITHENTITY,
                                 1841947, 8157561, new Item.Settings().group(Itemgroupinit.EGGZ_GROUP)));
                 Registry.register(Registry.ITEM, new Identifier("mobz", "spawn_mage2"), new SpawnEggItem(MAGE2ENTITY,

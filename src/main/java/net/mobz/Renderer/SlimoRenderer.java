@@ -17,7 +17,7 @@ public class SlimoRenderer extends MobEntityRenderer<SlimeEntity, SlimeEntityMod
    private static final Identifier SKIN = new Identifier("mobz:textures/entity/grassslime.png");
 
    public SlimoRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-      super(entityRenderDispatcher, new SlimeEntityModel<>(16), 0.25F);
+      super(entityRenderDispatcher, new SlimeEntityModel<>(1), 0.25F);
       this.addFeature(new SlimeOverlayFeatureRenderer<>(this));
    }
 

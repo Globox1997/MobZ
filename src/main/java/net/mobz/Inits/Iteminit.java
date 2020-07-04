@@ -67,6 +67,8 @@ public class Iteminit {
                         new Item.Settings().maxCount(1));
         public static final Metalgolemhead METALGOLEMHEAD = new Metalgolemhead(new Item.Settings().maxCount(1));
         public static final SealItem SEALITEM = new SealItem(new Item.Settings().maxCount(1));
+        public static final Archer2head ARCHER2HEAD = new Archer2head(new Item.Settings().maxCount(1));
+        public static final SCreeperhead SCREEPERHEAD = new SCreeperhead(new Item.Settings().maxCount(1));
 
         public static void init() {
 
@@ -125,6 +127,8 @@ public class Iteminit {
                                 ISLANDKNIGHTSPECIAL2HEAD);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "metalgolemhead"), METALGOLEMHEAD);
                 Registry.register(Registry.ITEM, new Identifier("mobz", "sealitem"), SEALITEM);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "archer2head"), ARCHER2HEAD);
+                Registry.register(Registry.ITEM, new Identifier("mobz", "screeperhead"), SCREEPERHEAD);
         }
 
 }

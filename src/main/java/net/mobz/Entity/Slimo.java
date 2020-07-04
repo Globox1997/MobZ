@@ -6,6 +6,8 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.SlimeEntity;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
@@ -40,6 +42,11 @@ public class Slimo extends SlimeEntity {
     @Override
     public boolean isSmall() {
         return true;
+    }
+
+    @Override
+    protected ParticleEffect getParticles() {
+        return ParticleTypes.FALLING_HONEY;
     }
 
 }
