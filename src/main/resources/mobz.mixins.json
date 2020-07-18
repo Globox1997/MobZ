@@ -4,7 +4,8 @@
   "package": "net.mobz.Mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "SpawnRestrictionMixin"
   ],
   "client": [],
   "injectors": {
