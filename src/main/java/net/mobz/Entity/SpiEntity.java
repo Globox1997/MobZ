@@ -13,7 +13,6 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.SpiderEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.mobz.Config.configz;
@@ -51,9 +50,7 @@ public class SpiEntity extends SpiderEntity {
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
-        return view.intersectsEntities(this)
-                && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getLightLevel(posentity) <= 7
+        return view.intersectsEntities(this) && !world.containsFluid(this.getBoundingBox())
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
                 && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.SPI)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().BlueSpiderSpawn;

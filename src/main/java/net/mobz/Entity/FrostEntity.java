@@ -29,7 +29,6 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.mobz.Config.configz;
@@ -63,8 +62,7 @@ public class FrostEntity extends BlazeEntity {
    public boolean canSpawn(WorldView view) {
       BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
-      return view.intersectsEntities(this) && this.world.isDay()
-            && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
+      return view.intersectsEntities(this) && !world.containsFluid(this.getBoundingBox())
             && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
             && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.FROSTENTITY)
             && AutoConfig.getConfigHolder(configz.class).getConfig().FrostBlazeSpawn;

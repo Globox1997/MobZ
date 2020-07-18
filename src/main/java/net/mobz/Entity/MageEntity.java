@@ -36,7 +36,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
@@ -92,9 +91,8 @@ public class MageEntity extends SpellcastingIllagerEntity {
    public boolean canSpawn(WorldView view) {
       BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
-      return view.intersectsEntities(this) && !this.isPatrolLeader()
-            && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
-            && this.world.isNight() && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
+      return view.intersectsEntities(this) && !this.isPatrolLeader() && !world.containsFluid(this.getBoundingBox())
+            && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
             && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.MAGEENTITY)
             && AutoConfig.getConfigHolder(configz.class).getConfig().SpiderMageSpawn;
 

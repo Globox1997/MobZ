@@ -9,7 +9,6 @@ import net.minecraft.entity.mob.SlimeEntity;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.mobz.Config.configz;
@@ -30,9 +29,7 @@ public class Slimo extends SlimeEntity {
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
-        return view.intersectsEntities(this) && this.world.isDay()
-                && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getLightLevel(posentity) <= 7
+        return view.intersectsEntities(this) && this.world.isDay() && !world.containsFluid(this.getBoundingBox())
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
                 && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.SLIMO)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().GrassSlimeSpawn;

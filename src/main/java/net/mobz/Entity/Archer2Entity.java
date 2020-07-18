@@ -14,7 +14,6 @@ import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.mobz.Config.configz;
@@ -66,8 +65,7 @@ public class Archer2Entity extends PillagerEntity {
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
-        return view.intersectsEntities(this) && this.world.isDay() && !this.isPatrolLeader()
-                && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
+        return view.intersectsEntities(this) && !this.isPatrolLeader() && !world.containsFluid(this.getBoundingBox())
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
                 && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity,
                         Entityinit.ARCHER2ENTITY)

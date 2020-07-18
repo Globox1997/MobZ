@@ -10,7 +10,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.mobz.Config.configz;
@@ -59,9 +58,7 @@ public class skeli1 extends SkeletonEntity {
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
-        return view.intersectsEntities(this) && this.world.isNight()
-                && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getLightLevel(posentity) <= 7
+        return view.intersectsEntities(this) && this.world.isNight() && !world.containsFluid(this.getBoundingBox())
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
                 && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.SKELI1)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().BossSkeletonSpawn;

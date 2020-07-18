@@ -116,11 +116,9 @@ public class KnightEntity extends ZombieEntity {
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
-        return view.intersectsEntities(this) && this.world.getLightLevel(posentity) < 11
-                && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.isDay() && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
-                && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity,
-                        Entityinit.KNIGHTENTITY)
+        return view.intersectsEntities(this) && !world.containsFluid(this.getBoundingBox()) && this.world.isDay()
+                && this.world.getBlockState(posentity).getBlock().canMobSpawnInside() && this.world
+                        .getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.KNIGHTENTITY)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().TemplarSpawn;
 
     }

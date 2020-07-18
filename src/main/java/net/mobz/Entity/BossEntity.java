@@ -20,7 +20,6 @@ import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
@@ -95,9 +94,7 @@ public class BossEntity extends ZombieEntity {
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
-        return view.intersectsEntities(this) && this.world.isNight()
-                && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getLightLevel(posentity) <= 5
+        return view.intersectsEntities(this) && this.world.isNight() && !world.containsFluid(this.getBoundingBox())
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
                 && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.BOSS)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().BossZombieSpawn;

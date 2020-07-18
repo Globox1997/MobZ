@@ -94,9 +94,7 @@ public class Knight3Entity extends VindicatorEntity {
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
-        return view.intersectsEntities(this) && !this.isPatrolLeader()
-                && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
-                && this.world.getLightLevel(posentity) <= 10
+        return view.intersectsEntities(this) && !this.isPatrolLeader() && !world.containsFluid(this.getBoundingBox())
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
                 && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity,
                         Entityinit.KNIGHT3ENTITY)

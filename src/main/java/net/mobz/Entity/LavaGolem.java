@@ -94,7 +94,7 @@ public class LavaGolem extends IronGolemEntity {
    public boolean canSpawn(WorldView view) {
       BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
       BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
-      return view.intersectsEntities(this)
+      return view.intersectsEntities(this) && !world.containsFluid(this.getBoundingBox())
             && this.world.getLocalDifficulty(posentity).getGlobalDifficulty() != Difficulty.PEACEFUL
             && this.world.getBlockState(posentity).getBlock().canMobSpawnInside()
             && this.world.getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.LAVAGOLEM)
