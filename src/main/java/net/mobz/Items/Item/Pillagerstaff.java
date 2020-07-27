@@ -75,6 +75,7 @@ public class Pillagerstaff extends Item {
         return UseAction.BOW;
     }
 
+    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (user instanceof PlayerEntity) {
             PlayerEntity playerEntity = (PlayerEntity) user;
@@ -93,8 +94,9 @@ public class Pillagerstaff extends Item {
                     double double_3 = vec3d_1.x;
                     double double_4 = vec3d_1.y;
                     double double_5 = vec3d_1.z;
-                    WitherSkullEntity skull1 = new WitherSkullEntity(world, playerEntity.getX() + vec3d_1.x,
-                            playerEntity.getY() + 1.2D, playerEntity.getZ() + vec3d_1.z, double_3, double_4, double_5);
+                    WitherSkullEntity skull1 = new WitherSkullEntity(world, playerEntity, double_3, double_4, double_5);
+                    skull1.setPos(playerEntity.getX() + vec3d_1.x, playerEntity.getY() + 1.2D,
+                            playerEntity.getZ() + vec3d_1.z);
                     world.spawnEntity(skull1);
                     playerEntity.damage(DamageSource.WITHER, 2F);
                     playerEntity.playSound(SoundEvents.ENTITY_WITHER_HURT, SoundCategory.AMBIENT, 1F, 1F);
