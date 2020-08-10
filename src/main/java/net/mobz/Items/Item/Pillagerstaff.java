@@ -79,35 +79,35 @@ public class Pillagerstaff extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (user instanceof PlayerEntity) {
             PlayerEntity playerEntity = (PlayerEntity) user;
-            if (!world.isClient) {
-                if (!playerEntity.isSneaking()) {
-                    Random random = new Random();
-                    Random random2 = new Random();
-                    Random random3 = new Random();
-                    double z1 = (random.nextInt() % 50);
-                    double z2 = z1 / 100;
-                    double z3 = random2.nextInt() % 50;
-                    double z4 = z3 / 100;
-                    double z5 = random3.nextInt() % 180;
-                    double z6 = z5 / 100;
-                    Vec3d vec3d_1 = playerEntity.getRotationVec(1.0F);
-                    double double_3 = vec3d_1.x;
-                    double double_4 = vec3d_1.y;
-                    double double_5 = vec3d_1.z;
-                    WitherSkullEntity skull1 = new WitherSkullEntity(world, playerEntity, double_3, double_4, double_5);
-                    skull1.setPos(playerEntity.getX() + vec3d_1.x, playerEntity.getY() + 1.2D,
-                            playerEntity.getZ() + vec3d_1.z);
-                    world.spawnEntity(skull1);
-                    playerEntity.damage(DamageSource.WITHER, 2F);
-                    playerEntity.playSound(SoundEvents.ENTITY_WITHER_HURT, SoundCategory.AMBIENT, 1F, 1F);
+            if (!playerEntity.isSneaking()) {
+                Random random = new Random();
+                Random random2 = new Random();
+                Random random3 = new Random();
+                double z1 = (random.nextInt() % 50);
+                double z2 = z1 / 100;
+                double z3 = random2.nextInt() % 50;
+                double z4 = z3 / 100;
+                double z5 = random3.nextInt() % 180;
+                double z6 = z5 / 100;
+                Vec3d vec3d_1 = playerEntity.getRotationVec(1.0F);
+                double double_3 = vec3d_1.x;
+                double double_4 = vec3d_1.y;
+                double double_5 = vec3d_1.z;
+                WitherSkullEntity skull1 = new WitherSkullEntity(world, playerEntity, double_3, double_4, double_5);
+                skull1.setPos(playerEntity.getX() + vec3d_1.x, playerEntity.getY() + 1.2D,
+                        playerEntity.getZ() + vec3d_1.z);
+                world.spawnEntity(skull1);
+                playerEntity.damage(DamageSource.WITHER, 2F);
+                playerEntity.playSound(SoundEvents.ENTITY_WITHER_HURT, 1F, 1F);
+                if (world.isClient) {
                     for (int i = 0; i < 16; ++i) {
-                        world.addParticle(ParticleTypes.MYCELIUM, true, playerEntity.getX() + z2,
+                        world.addParticle(ParticleTypes.MYCELIUM, playerEntity.getX() + z2,
                                 playerEntity.getY() + z6, playerEntity.getZ() + z4, 0D, 0D, 0D);
                     }
-                    return TypedActionResult.success(user.getStackInHand(hand));
-                } else {
-                    return TypedActionResult.pass(user.getStackInHand(hand));
                 }
+                return TypedActionResult.success(user.getStackInHand(hand));
+            } else {
+                return TypedActionResult.pass(user.getStackInHand(hand));
             }
         }
         return TypedActionResult.pass(user.getStackInHand(hand));
