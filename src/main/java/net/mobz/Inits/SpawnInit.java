@@ -1,185 +1,206 @@
 package net.mobz.Inits;
 
+import java.util.function.Predicate;
+
+import com.google.common.base.Preconditions;
+
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
+import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
+import net.minecraft.entity.SpawnGroup;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.SpawnSettings;
 import net.mobz.Config.configz;
 
+//To use experimental APIs
+@SuppressWarnings("deprecation")
 public class SpawnInit {
+	public static void addSpawn(Predicate<BiomeSelectionContext> biomeSelector, SpawnGroup spawnGroup,
+			SpawnSettings.SpawnEntry se) {
+		// See constructor of SpawnSettings.SpawnEntry for context
+		Preconditions.checkArgument(se.type.getSpawnGroup() != SpawnGroup.MISC,
+				"Cannot add spawns for entities with spawnGroup=MISC since they'd be replaced by pigs.");
 
-        private static void normalspawn(Biome biome) {
-                if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND
-                                && biome.getCategory() != Biome.Category.ICY
-                                && biome.getCategory() != Biome.Category.OCEAN
-                                && biome.getCategory() != Biome.Category.MUSHROOM
-                                && biome.getCategory() != Biome.Category.EXTREME_HILLS
-                                && biome.getCategory() != Biome.Category.MESA
-                                && biome.getCategory() != Biome.Category.DESERT) {
+		// We need the entity type to be registered or we cannot deduce an ID otherwisea
+		Identifier id = Registry.ENTITY_TYPE.getId(se.type);
+		Preconditions.checkState(id != Registry.ENTITY_TYPE.getDefaultId(), "Unregistered entity type: %s", se.type);
 
-                        biome.getEntitySpawnList(Entityinit.ARCHERENTITY.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.ARCHERENTITY, Configinit.CONFIGZ.BowmanSpawnRate, 1, 2));
-                        biome.getEntitySpawnList(Entityinit.ARMORED.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.ARMORED, Configinit.CONFIGZ.ArmoredZombieSpawnRate, 1, 2));
-                        biome.getEntitySpawnList(Entityinit.DWARFENTITY.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.DWARFENTITY, Configinit.CONFIGZ.DwarfSpawnRate, 1, 1));
-                        biome.getEntitySpawnList(Entityinit.FAST.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.FAST, Configinit.CONFIGZ.SpeedyZombieSpawnRate, 2, 3));
-                        biome.getEntitySpawnList(Entityinit.FULLIRONENTITY.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.FULLIRONENTITY, Configinit.CONFIGZ.SteveSpawnRate, 1, 1));
-                        biome.getEntitySpawnList(Entityinit.KNIGHT2ENTITY.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.KNIGHT2ENTITY, Configinit.CONFIGZ.WarriorSpawnRate, 1, 2));
-                        biome.getEntitySpawnList(Entityinit.KNIGHTENTITY.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.KNIGHTENTITY, Configinit.CONFIGZ.TemplarSpawnRate, 1, 1));
-                        biome.getEntitySpawnList(Entityinit.MAGE2ENTITY.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.MAGE2ENTITY, Configinit.CONFIGZ.ZombieMageSpawnRate, 1, 1));
-                        biome.getEntitySpawnList(Entityinit.SKELI2.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.SKELI2, Configinit.CONFIGZ.OvergrownSkeletonSpawnRate, 2, 4));
-                        biome.getEntitySpawnList(Entityinit.SKELI4.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.SKELI4, Configinit.CONFIGZ.LostSkeletonSpawnRate, 2, 2));
-                        biome.getEntitySpawnList(Entityinit.SLIMO.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.SLIMO, Configinit.CONFIGZ.GrassSlimeSpawnRate, 1, 1));
-                        biome.getEntitySpawnList(Entityinit.SPI.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.SPI, Configinit.CONFIGZ.BlueSpiderSpawnRate, 2, 3));
-                        biome.getEntitySpawnList(Entityinit.SPO.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.SPO, Configinit.CONFIGZ.PurpleSpiderSpawnRate, 1, 4));
-                        biome.getEntitySpawnList(Entityinit.TSPIDER.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.TSPIDER, Configinit.CONFIGZ.TinySpiderSpawnRate, 1, 1));
-                        biome.getEntitySpawnList(Entityinit.TANK.getSpawnGroup()).add(
-                                        new Biome.SpawnEntry(Entityinit.TANK, Configinit.CONFIGZ.TankSpawnRate, 1, 2));
+		BiomeModifications.create(id).add(ModificationPhase.ADDITIONS, biomeSelector, context -> {
+			context.getSpawnSettings().addSpawn(spawnGroup, se);
+		});
+	}
 
-                        if (AutoConfig.getConfigHolder(configz.class).getConfig().WildBoarSpawn) {
-                                biome.getEntitySpawnList(Entityinit.BOAR.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                                Entityinit.BOAR, Configinit.CONFIGZ.WildBoarSpawnRate, 2, 4));
-                        }
-                        if (AutoConfig.getConfigHolder(configz.class).getConfig().DirtyBoarSpawn) {
-                                biome.getEntitySpawnList(Entityinit.BOAR3.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                                Entityinit.BOAR3, Configinit.CONFIGZ.DirtyBoarSpawnRate, 1, 3));
-                        }
-                        if (AutoConfig.getConfigHolder(configz.class).getConfig().BrownBearSpawn) {
-                                biome.getEntitySpawnList(Entityinit.BROWNBEAR.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                                Entityinit.BROWNBEAR, Configinit.CONFIGZ.BrownBearSpawnRate, 2, 3));
-                        }
-                        if (AutoConfig.getConfigHolder(configz.class).getConfig().AlexSpawn) {
-                                biome.getEntitySpawnList(Entityinit.FRIEND.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                                Entityinit.FRIEND, Configinit.CONFIGZ.AlexSpawnRate, 1, 1));
-                        }
-                        if (AutoConfig.getConfigHolder(configz.class).getConfig().GoldenChickenSpawn) {
-                                biome.getEntitySpawnList(Entityinit.GCHICKEN.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                                Entityinit.GCHICKEN, Configinit.CONFIGZ.GoldenChickenSpawnRate, 1, 2));
-                        }
-                        if (AutoConfig.getConfigHolder(configz.class).getConfig().FioraSpawn) {
-                                biome.getEntitySpawnList(Entityinit.KNIGHT4ENTITY.getSpawnGroup())
-                                                .add(new Biome.SpawnEntry(Entityinit.KNIGHT4ENTITY,
-                                                                Configinit.CONFIGZ.FioraSpawnRate, 1, 1));
-                        }
-                }
+	private static void normalspawn(Biome biome) {
+		Predicate<BiomeSelectionContext> biomeSelector = (context) -> biome.getCategory() != Biome.Category.NETHER
+				&& biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.ICY
+				&& biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.MUSHROOM
+				&& biome.getCategory() != Biome.Category.EXTREME_HILLS && biome.getCategory() != Biome.Category.MESA
+				&& biome.getCategory() != Biome.Category.DESERT;
 
-        }
+		addSpawn(biomeSelector, Entityinit.ARCHERENTITY.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.ARCHERENTITY, Configinit.CONFIGZ.BowmanSpawnRate, 1, 2));
 
-        private static void icespawn(Biome biome) {
-                if (biome.getCategory() == Biome.Category.ICY) {
-                        biome.getEntitySpawnList(Entityinit.CREEP.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.CREEP, Configinit.CONFIGZ.FrostCreeperSpawnRate, 1, 3));
-                        biome.getEntitySpawnList(Entityinit.FROSTENTITY.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.FROSTENTITY, Configinit.CONFIGZ.FrostBlazeSpawnRate, 1, 3));
-                        biome.getEntitySpawnList(Entityinit.ICEGOLEM.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.ICEGOLEM, Configinit.CONFIGZ.IceGolemSpawnRate, 1, 1));
-                        if (AutoConfig.getConfigHolder(configz.class).getConfig().BoarSpawn) {
-                                biome.getEntitySpawnList(Entityinit.BOAR2.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                                Entityinit.BOAR2, Configinit.CONFIGZ.BoarSpawnRate, 2, 3));
-                        }
-                        if (AutoConfig.getConfigHolder(configz.class).getConfig().BlackBearSpawn) {
-                                biome.getEntitySpawnList(Entityinit.BLACKBEAR.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                                Entityinit.BLACKBEAR, Configinit.CONFIGZ.BlackBearSpawnRate, 1, 2));
-                        }
-                }
-        }
+		addSpawn(biomeSelector, Entityinit.ARMORED.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.ARMORED, Configinit.CONFIGZ.ArmoredZombieSpawnRate, 1, 2));
+		addSpawn(biomeSelector, Entityinit.DWARFENTITY.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.DWARFENTITY, Configinit.CONFIGZ.DwarfSpawnRate, 1, 1));
+		addSpawn(biomeSelector, Entityinit.FAST.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.FAST, Configinit.CONFIGZ.SpeedyZombieSpawnRate, 2, 3));
+		addSpawn(biomeSelector, Entityinit.FULLIRONENTITY.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.FULLIRONENTITY, Configinit.CONFIGZ.SteveSpawnRate, 1, 1));
+		addSpawn(biomeSelector, Entityinit.KNIGHT2ENTITY.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.KNIGHT2ENTITY, Configinit.CONFIGZ.WarriorSpawnRate, 1, 2));
+		addSpawn(biomeSelector, Entityinit.KNIGHTENTITY.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.KNIGHTENTITY, Configinit.CONFIGZ.TemplarSpawnRate, 1, 1));
+		addSpawn(biomeSelector, Entityinit.MAGE2ENTITY.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.MAGE2ENTITY, Configinit.CONFIGZ.ZombieMageSpawnRate, 1, 1));
+		addSpawn(biomeSelector, Entityinit.SKELI2.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.SKELI2, Configinit.CONFIGZ.OvergrownSkeletonSpawnRate, 2, 4));
+		addSpawn(biomeSelector, Entityinit.SKELI4.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.SKELI4, Configinit.CONFIGZ.LostSkeletonSpawnRate, 2, 2));
+		addSpawn(biomeSelector, Entityinit.SLIMO.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.SLIMO, Configinit.CONFIGZ.GrassSlimeSpawnRate, 1, 1));
+		addSpawn(biomeSelector, Entityinit.SPI.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.SPI, Configinit.CONFIGZ.BlueSpiderSpawnRate, 2, 3));
+		addSpawn(biomeSelector, Entityinit.SPO.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.SPO, Configinit.CONFIGZ.PurpleSpiderSpawnRate, 1, 4));
+		addSpawn(biomeSelector, Entityinit.TSPIDER.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.TSPIDER, Configinit.CONFIGZ.TinySpiderSpawnRate, 1, 1));
+		addSpawn(biomeSelector, Entityinit.TANK.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.TANK, Configinit.CONFIGZ.TankSpawnRate, 1, 2));
 
-        private static void netherspawn(Biome biome) {
-                if (biome.getCategory() == Biome.Category.NETHER) {
-                        biome.getEntitySpawnList(Entityinit.DOG.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.DOG, Configinit.CONFIGZ.NetherWolfSpawnRate, 1, 3));
-                        biome.getEntitySpawnList(Entityinit.LAVAGOLEM.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.LAVAGOLEM, Configinit.CONFIGZ.LavaGolemSpawnRate, 1, 1));
-                        biome.getEntitySpawnList(Entityinit.PIG.getSpawnGroup()).add(
-                                        new Biome.SpawnEntry(Entityinit.PIG, Configinit.CONFIGZ.PigmanSpawnRate, 2, 3));
-                        biome.getEntitySpawnList(Entityinit.SKELI3.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.SKELI3, Configinit.CONFIGZ.NetherSkeletonSpawnRate, 1, 2));
-                        biome.getEntitySpawnList(Entityinit.WITHENTITY.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.WITHENTITY, Configinit.CONFIGZ.WitherBlazeSpawnRate, 1, 3));
-                        biome.getEntitySpawnList(Entityinit.SCREEPER.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.SCREEPER, Configinit.CONFIGZ.SoulCreeperSpawnRate, 1, 2));
-                }
-        }
+		if (AutoConfig.getConfigHolder(configz.class).getConfig().WildBoarSpawn) {
+			addSpawn(biomeSelector, Entityinit.BOAR.getSpawnGroup(),
+					new SpawnSettings.SpawnEntry(Entityinit.BOAR, Configinit.CONFIGZ.WildBoarSpawnRate, 2, 4));
+		}
+		if (AutoConfig.getConfigHolder(configz.class).getConfig().DirtyBoarSpawn) {
+			addSpawn(biomeSelector, Entityinit.BOAR3.getSpawnGroup(),
+					new SpawnSettings.SpawnEntry(Entityinit.BOAR3, Configinit.CONFIGZ.DirtyBoarSpawnRate, 1, 3));
+		}
+		if (AutoConfig.getConfigHolder(configz.class).getConfig().BrownBearSpawn) {
+			addSpawn(biomeSelector, Entityinit.BROWNBEAR.getSpawnGroup(),
+					new SpawnSettings.SpawnEntry(Entityinit.BROWNBEAR, Configinit.CONFIGZ.BrownBearSpawnRate, 2, 3));
+		}
+		if (AutoConfig.getConfigHolder(configz.class).getConfig().AlexSpawn) {
+			addSpawn(biomeSelector, Entityinit.FRIEND.getSpawnGroup(),
+					new SpawnSettings.SpawnEntry(Entityinit.FRIEND, Configinit.CONFIGZ.AlexSpawnRate, 1, 1));
+		}
+		if (AutoConfig.getConfigHolder(configz.class).getConfig().GoldenChickenSpawn) {
+			addSpawn(biomeSelector, Entityinit.GCHICKEN.getSpawnGroup(),
+					new SpawnSettings.SpawnEntry(Entityinit.GCHICKEN, Configinit.CONFIGZ.GoldenChickenSpawnRate, 1, 2));
+		}
+		if (AutoConfig.getConfigHolder(configz.class).getConfig().FioraSpawn) {
+			addSpawn(biomeSelector, Entityinit.KNIGHT4ENTITY.getSpawnGroup(),
+					new SpawnSettings.SpawnEntry(Entityinit.KNIGHT4ENTITY, Configinit.CONFIGZ.FioraSpawnRate, 1, 1));
+		}
 
-        private static void endspawn(Biome biome) {
-                if (biome.getCategory() == Biome.Category.THEEND) {
-                        biome.getEntitySpawnList(Entityinit.ENDER.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.ENDER, Configinit.CONFIGZ.EndermanSpawnRate, 1, 3));
-                        biome.getEntitySpawnList(Entityinit.ENDERZOMBIE.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.ENDERZOMBIE, Configinit.CONFIGZ.EnderzombieSpawnRate, 1, 3));
-                        biome.getEntitySpawnList(Entityinit.KNIGHT3ENTITY.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.KNIGHT3ENTITY, Configinit.CONFIGZ.EnderKnightSpawnRate, 1, 1));
-                }
-        }
+	}
 
-        private static void bossspawn(Biome biome) {
-                if (biome.getCategory() == Biome.Category.MESA) {
-                        biome.getEntitySpawnList(Entityinit.BIGBOSSENTITY.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.BIGBOSSENTITY, Configinit.CONFIGZ.BigBossSpawnRate, 1, 1));
-                        biome.getEntitySpawnList(Entityinit.ARCHER2ENTITY.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.ARCHER2ENTITY, Configinit.CONFIGZ.ArcherSpawnRate, 1, 2));
-                        biome.getEntitySpawnList(Entityinit.BOSS.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.BOSS, Configinit.CONFIGZ.BossZombieSpawnRate, 1, 1));
-                        biome.getEntitySpawnList(Entityinit.ILLUSIONER.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.ILLUSIONER, Configinit.CONFIGZ.IllusionerSpawnRate, 1, 1));
-                        biome.getEntitySpawnList(Entityinit.KNIGHT5ENTITY.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.KNIGHT5ENTITY, Configinit.CONFIGZ.LordofDarknessSpawnRate, 1, 1));
-                        biome.getEntitySpawnList(Entityinit.MAGEENTITY.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.MAGEENTITY, Configinit.CONFIGZ.SpiderMageSpawnRate, 1, 1));
-                        biome.getEntitySpawnList(Entityinit.SKELI1.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.SKELI1, Configinit.CONFIGZ.BossSkeletonSpawnRate, 1, 1));
-                }
-        }
+	private static void icespawn(Biome biome) {
+		Predicate<BiomeSelectionContext> biomeSelector = (
+				context) -> context.getBiome().getCategory() == Biome.Category.ICY;
 
-        private static void rockyspawn(Biome biome) {
-                if (biome.getCategory() == Biome.Category.EXTREME_HILLS) {
-                        biome.getEntitySpawnList(Entityinit.STONEGOLEM.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.STONEGOLEM, Configinit.CONFIGZ.StoneGolemSpawnRate, 1, 1));
-                }
-        }
+		addSpawn(biomeSelector, Entityinit.CREEP.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.CREEP, Configinit.CONFIGZ.FrostCreeperSpawnRate, 1, 3));
+		addSpawn(biomeSelector, Entityinit.FROSTENTITY.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.FROSTENTITY, Configinit.CONFIGZ.FrostBlazeSpawnRate, 1, 3));
+		addSpawn(biomeSelector, Entityinit.ICEGOLEM.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.ICEGOLEM, Configinit.CONFIGZ.IceGolemSpawnRate, 1, 1));
+		if (AutoConfig.getConfigHolder(configz.class).getConfig().BoarSpawn) {
+			addSpawn(biomeSelector, Entityinit.BOAR2.getSpawnGroup(),
+					new SpawnSettings.SpawnEntry(Entityinit.BOAR2, Configinit.CONFIGZ.BoarSpawnRate, 2, 3));
+		}
+		if (AutoConfig.getConfigHolder(configz.class).getConfig().BlackBearSpawn) {
+			addSpawn(biomeSelector, Entityinit.BLACKBEAR.getSpawnGroup(),
+					new SpawnSettings.SpawnEntry(Entityinit.BLACKBEAR, Configinit.CONFIGZ.BlackBearSpawnRate, 1, 2));
+		}
 
-        private static void junglespawn(Biome biome) {
-                if (biome.getCategory() == Biome.Category.JUNGLE) {
-                        biome.getEntitySpawnList(Entityinit.CRIP.getSpawnGroup()).add(new Biome.SpawnEntry(
-                                        Entityinit.CRIP, Configinit.CONFIGZ.CookieCreeperSpawnRate, 1, 2));
-                }
-        }
+	}
 
-        public static void init() {
+	private static void netherspawn(Biome biome) {
+		Predicate<BiomeSelectionContext> biomeSelector = (
+				context) -> context.getBiome().getCategory() == Biome.Category.NETHER;
 
-                Registry.BIOME.forEach(SpawnInit::normalspawn);
-                Registry.BIOME.forEach(SpawnInit::icespawn);
-                Registry.BIOME.forEach(SpawnInit::netherspawn);
-                Registry.BIOME.forEach(SpawnInit::endspawn);
-                Registry.BIOME.forEach(SpawnInit::bossspawn);
-                Registry.BIOME.forEach(SpawnInit::rockyspawn);
-                Registry.BIOME.forEach(SpawnInit::junglespawn);
+		addSpawn(biomeSelector, Entityinit.DOG.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.DOG, Configinit.CONFIGZ.NetherWolfSpawnRate, 1, 3));
+		addSpawn(biomeSelector, Entityinit.LAVAGOLEM.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.LAVAGOLEM, Configinit.CONFIGZ.LavaGolemSpawnRate, 1, 1));
+		addSpawn(biomeSelector, Entityinit.PIG.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.PIG, Configinit.CONFIGZ.PigmanSpawnRate, 2, 3));
+		addSpawn(biomeSelector, Entityinit.SKELI3.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.SKELI3, Configinit.CONFIGZ.NetherSkeletonSpawnRate, 1, 2));
+		addSpawn(biomeSelector, Entityinit.WITHENTITY.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.WITHENTITY, Configinit.CONFIGZ.WitherBlazeSpawnRate, 1, 3));
+		addSpawn(biomeSelector, Entityinit.SCREEPER.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.SCREEPER, Configinit.CONFIGZ.SoulCreeperSpawnRate, 1, 2));
+	}
 
-                // Listen for other biomes being registered
-                RegistryEntryAddedCallback.event(Registry.BIOME)
-                                .register((i, identifier, biome) -> SpawnInit.normalspawn(biome));
-        }
+	private static void endspawn(Biome biome) {
+		Predicate<BiomeSelectionContext> biomeSelector = (
+				context) -> context.getBiome().getCategory() == Biome.Category.THEEND;
 
+		addSpawn(biomeSelector, Entityinit.ENDER.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.ENDER, Configinit.CONFIGZ.EndermanSpawnRate, 1, 3));
+		addSpawn(biomeSelector, Entityinit.ENDERZOMBIE.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.ENDERZOMBIE, Configinit.CONFIGZ.EnderzombieSpawnRate, 1, 3));
+		addSpawn(biomeSelector, Entityinit.KNIGHT3ENTITY.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.KNIGHT3ENTITY, Configinit.CONFIGZ.EnderKnightSpawnRate, 1, 1));
+	}
+
+	private static void bossspawn(Biome biome) {
+		Predicate<BiomeSelectionContext> biomeSelector = (
+				context) -> context.getBiome().getCategory() == Biome.Category.MESA;
+
+		addSpawn(biomeSelector, Entityinit.BIGBOSSENTITY.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.BIGBOSSENTITY, Configinit.CONFIGZ.BigBossSpawnRate, 1, 1));
+		addSpawn(biomeSelector, Entityinit.ARCHER2ENTITY.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.ARCHER2ENTITY, Configinit.CONFIGZ.ArcherSpawnRate, 1, 2));
+		addSpawn(biomeSelector, Entityinit.BOSS.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.BOSS, Configinit.CONFIGZ.BossZombieSpawnRate, 1, 1));
+		addSpawn(biomeSelector, Entityinit.ILLUSIONER.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.ILLUSIONER, Configinit.CONFIGZ.IllusionerSpawnRate, 1, 1));
+		addSpawn(biomeSelector, Entityinit.KNIGHT5ENTITY.getSpawnGroup(), new SpawnSettings.SpawnEntry(
+				Entityinit.KNIGHT5ENTITY, Configinit.CONFIGZ.LordofDarknessSpawnRate, 1, 1));
+		addSpawn(biomeSelector, Entityinit.MAGEENTITY.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.MAGEENTITY, Configinit.CONFIGZ.SpiderMageSpawnRate, 1, 1));
+		addSpawn(biomeSelector, Entityinit.SKELI1.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.SKELI1, Configinit.CONFIGZ.BossSkeletonSpawnRate, 1, 1));
+	}
+
+	private static void rockyspawn(Biome biome) {
+		Predicate<BiomeSelectionContext> biomeSelector = (
+				context) -> context.getBiome().getCategory() == Biome.Category.EXTREME_HILLS;
+
+		addSpawn(biomeSelector, Entityinit.STONEGOLEM.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.STONEGOLEM, Configinit.CONFIGZ.StoneGolemSpawnRate, 1, 1));
+
+	}
+
+	private static void junglespawn(Biome biome) {
+		Predicate<BiomeSelectionContext> biomeSelector = (
+				context) -> context.getBiome().getCategory() == Biome.Category.JUNGLE;
+
+		addSpawn(biomeSelector, Entityinit.CRIP.getSpawnGroup(),
+				new SpawnSettings.SpawnEntry(Entityinit.CRIP, Configinit.CONFIGZ.CookieCreeperSpawnRate, 1, 2));
+
+	}
+
+	public static void init() {
+		BuiltinRegistries.BIOME.forEach(SpawnInit::normalspawn);
+		BuiltinRegistries.BIOME.forEach(SpawnInit::icespawn);
+		BuiltinRegistries.BIOME.forEach(SpawnInit::netherspawn);
+		BuiltinRegistries.BIOME.forEach(SpawnInit::endspawn);
+		BuiltinRegistries.BIOME.forEach(SpawnInit::bossspawn);
+		BuiltinRegistries.BIOME.forEach(SpawnInit::rockyspawn);
+		BuiltinRegistries.BIOME.forEach(SpawnInit::junglespawn);
+
+		// Listen for other biomes being registered
+		RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME)
+				.register((i, identifier, biome) -> SpawnInit.normalspawn(biome));
+	}
 }
-// -692144143445259 Seed for Plains Spawn
-
-// How to add to all Biomes
-// Registry.BIOME.forEach(biome ->
-// biome.getEntitySpawnList(Entityinit.FAST.getCategory())
-// .add(new Biome.SpawnEntry(Entityinit.FAST, 200, 1, 3)));
-
-// How to add to a specific Biome
-// Biomes.RIVER.getEntitySpawnList(TANK.getCategory()).add(new
-// Biome.SpawnEntry(TANK, 3, 1, 3));

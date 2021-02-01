@@ -11,8 +11,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.mobz.Entity.*;
 
-//import net.minecraft.entity.EntityType.Builder;
-
 public class Entityinit {
 
         public static final EntityType<TankEntity> TANK = FabricEntityTypeBuilder

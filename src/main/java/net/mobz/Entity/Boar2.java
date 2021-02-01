@@ -9,6 +9,7 @@ import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 import net.mobz.Inits.Entityinit;
 
@@ -44,7 +45,7 @@ public class Boar2 extends PigEntity {
     }
 
     @Override
-    public Boar2 createChild(PassiveEntity passiveEntity) {
+	public Boar2 createChild(ServerWorld world, PassiveEntity passiveEntity) {
         return (Boar2) Entityinit.BOAR2.create(this.world);
     }
 
