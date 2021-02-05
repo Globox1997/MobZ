@@ -8,10 +8,8 @@ import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
-import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.SpawnSettings;
@@ -35,16 +33,17 @@ public class SpawnInit {
 		});
 	}
 
-	private static void normalspawn(Biome biome) {
-		Predicate<BiomeSelectionContext> biomeSelector = (context) -> biome.getCategory() != Biome.Category.NETHER
-				&& biome.getCategory() != Biome.Category.THEEND && biome.getCategory() != Biome.Category.ICY
-				&& biome.getCategory() != Biome.Category.OCEAN && biome.getCategory() != Biome.Category.MUSHROOM
-				&& biome.getCategory() != Biome.Category.EXTREME_HILLS && biome.getCategory() != Biome.Category.MESA
-				&& biome.getCategory() != Biome.Category.DESERT;
+	private static void normalspawn() {
+		Predicate<BiomeSelectionContext> biomeSelector = (context) -> {
+			Biome.Category category = context.getBiome().getCategory();
+			return category != Biome.Category.NETHER && category != Biome.Category.THEEND
+					&& category != Biome.Category.ICY && category != Biome.Category.OCEAN
+					&& category != Biome.Category.MUSHROOM && category != Biome.Category.EXTREME_HILLS
+					&& category != Biome.Category.MESA && category != Biome.Category.DESERT;
+		};
 
 		addSpawn(biomeSelector, Entityinit.ARCHERENTITY.getSpawnGroup(),
 				new SpawnSettings.SpawnEntry(Entityinit.ARCHERENTITY, Configinit.CONFIGZ.BowmanSpawnRate, 1, 2));
-
 		addSpawn(biomeSelector, Entityinit.ARMORED.getSpawnGroup(),
 				new SpawnSettings.SpawnEntry(Entityinit.ARMORED, Configinit.CONFIGZ.ArmoredZombieSpawnRate, 1, 2));
 		addSpawn(biomeSelector, Entityinit.DWARFENTITY.getSpawnGroup(),
@@ -98,10 +97,9 @@ public class SpawnInit {
 			addSpawn(biomeSelector, Entityinit.KNIGHT4ENTITY.getSpawnGroup(),
 					new SpawnSettings.SpawnEntry(Entityinit.KNIGHT4ENTITY, Configinit.CONFIGZ.FioraSpawnRate, 1, 1));
 		}
-
 	}
 
-	private static void icespawn(Biome biome) {
+	private static void icespawn() {
 		Predicate<BiomeSelectionContext> biomeSelector = (
 				context) -> context.getBiome().getCategory() == Biome.Category.ICY;
 
@@ -115,14 +113,14 @@ public class SpawnInit {
 			addSpawn(biomeSelector, Entityinit.BOAR2.getSpawnGroup(),
 					new SpawnSettings.SpawnEntry(Entityinit.BOAR2, Configinit.CONFIGZ.BoarSpawnRate, 2, 3));
 		}
+
 		if (AutoConfig.getConfigHolder(configz.class).getConfig().BlackBearSpawn) {
 			addSpawn(biomeSelector, Entityinit.BLACKBEAR.getSpawnGroup(),
 					new SpawnSettings.SpawnEntry(Entityinit.BLACKBEAR, Configinit.CONFIGZ.BlackBearSpawnRate, 1, 2));
 		}
-
 	}
 
-	private static void netherspawn(Biome biome) {
+	private static void netherspawn() {
 		Predicate<BiomeSelectionContext> biomeSelector = (
 				context) -> context.getBiome().getCategory() == Biome.Category.NETHER;
 
@@ -140,7 +138,7 @@ public class SpawnInit {
 				new SpawnSettings.SpawnEntry(Entityinit.SCREEPER, Configinit.CONFIGZ.SoulCreeperSpawnRate, 1, 2));
 	}
 
-	private static void endspawn(Biome biome) {
+	private static void endspawn() {
 		Predicate<BiomeSelectionContext> biomeSelector = (
 				context) -> context.getBiome().getCategory() == Biome.Category.THEEND;
 
@@ -152,9 +150,11 @@ public class SpawnInit {
 				new SpawnSettings.SpawnEntry(Entityinit.KNIGHT3ENTITY, Configinit.CONFIGZ.EnderKnightSpawnRate, 1, 1));
 	}
 
-	private static void bossspawn(Biome biome) {
+	private static void bossspawn() {
 		Predicate<BiomeSelectionContext> biomeSelector = (
-				context) -> context.getBiome().getCategory() == Biome.Category.MESA;
+				context) -> {
+			return context.getBiome().getCategory() == Biome.Category.MESA;
+		};
 
 		addSpawn(biomeSelector, Entityinit.BIGBOSSENTITY.getSpawnGroup(),
 				new SpawnSettings.SpawnEntry(Entityinit.BIGBOSSENTITY, Configinit.CONFIGZ.BigBossSpawnRate, 1, 1));
@@ -172,7 +172,7 @@ public class SpawnInit {
 				new SpawnSettings.SpawnEntry(Entityinit.SKELI1, Configinit.CONFIGZ.BossSkeletonSpawnRate, 1, 1));
 	}
 
-	private static void rockyspawn(Biome biome) {
+	private static void rockyspawn() {
 		Predicate<BiomeSelectionContext> biomeSelector = (
 				context) -> context.getBiome().getCategory() == Biome.Category.EXTREME_HILLS;
 
@@ -181,7 +181,7 @@ public class SpawnInit {
 
 	}
 
-	private static void junglespawn(Biome biome) {
+	private static void junglespawn() {
 		Predicate<BiomeSelectionContext> biomeSelector = (
 				context) -> context.getBiome().getCategory() == Biome.Category.JUNGLE;
 
@@ -191,16 +191,16 @@ public class SpawnInit {
 	}
 
 	public static void init() {
-		BuiltinRegistries.BIOME.forEach(SpawnInit::normalspawn);
-		BuiltinRegistries.BIOME.forEach(SpawnInit::icespawn);
-		BuiltinRegistries.BIOME.forEach(SpawnInit::netherspawn);
-		BuiltinRegistries.BIOME.forEach(SpawnInit::endspawn);
-		BuiltinRegistries.BIOME.forEach(SpawnInit::bossspawn);
-		BuiltinRegistries.BIOME.forEach(SpawnInit::rockyspawn);
-		BuiltinRegistries.BIOME.forEach(SpawnInit::junglespawn);
+		normalspawn();
+		icespawn();
+		netherspawn();
+		endspawn();
+		bossspawn();
+		rockyspawn();
+		junglespawn();
 
+		// TODO: Check, maybe we no longer need this!
 		// Listen for other biomes being registered
-		RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME)
-				.register((i, identifier, biome) -> SpawnInit.normalspawn(biome));
+		// RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((i, identifier, biome) -> SpawnInit.normalspawn());
 	}
 }
