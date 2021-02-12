@@ -41,6 +41,8 @@ public class configz implements ConfigData {
     @ConfigEntry.Category("spawnsetting")
     public boolean DwarfSpawn = true;
     @ConfigEntry.Category("spawnsetting")
+    public boolean DwarfSpawn_UndergroundOnly = false;
+    @ConfigEntry.Category("spawnsetting")
     public boolean EnderKnightSpawn = true;
     @ConfigEntry.Category("spawnsetting")
     public boolean EndermanSpawn = true;

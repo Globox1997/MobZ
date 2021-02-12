@@ -43,7 +43,7 @@ public class PigmanEntity extends PiglinEntity {
     }
 
     @Override
-    public boolean canConvert() {
+    public boolean isImmuneToZombification() {
         return false;
     }
 

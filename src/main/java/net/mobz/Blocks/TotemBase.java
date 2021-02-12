@@ -34,7 +34,7 @@ public class TotemBase extends Block {
 
   @Override
   @Environment(EnvType.CLIENT)
-  public void buildTooltip(ItemStack stack, @Nullable BlockView view, List<Text> tooltip, TooltipContext options) {
+	public void appendTooltip(ItemStack stack, @Nullable BlockView view, List<Text> tooltip, TooltipContext options) {
     tooltip.add(new TranslatableText("block.mobz.totembase.tooltip"));
   }
 

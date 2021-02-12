@@ -21,6 +21,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import net.mobz.Inits.Configinit;
 import net.mobz.Inits.Entityinit;
@@ -119,7 +120,7 @@ public class IslandKing extends VindicatorEntity {
         -2 + IslandKing.this.random.nextInt(5));
     IslandVexEntity vexEntity = (IslandVexEntity) Entityinit.ISLANDVEXENTITY.create(IslandKing.this.world);
     vexEntity.refreshPositionAndAngles(blockPos, 0.0F, 0.0F);
-    vexEntity.initialize(IslandKing.this.world, IslandKing.this.world.getLocalDifficulty(blockPos),
+    vexEntity.initialize((ServerWorldAccess) IslandKing.this.world, IslandKing.this.world.getLocalDifficulty(blockPos),
         SpawnReason.MOB_SUMMONED, (EntityData) null, (CompoundTag) null);
     IslandKing.this.world.spawnEntity(vexEntity);
 

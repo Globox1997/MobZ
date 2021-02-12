@@ -34,6 +34,7 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
@@ -233,7 +234,7 @@ public class Knight4Entity extends TameableEntity implements Angerable {
     }
 
     @Override
-    public Knight4Entity createChild(PassiveEntity passiveEntity) {
+	public Knight4Entity createChild(ServerWorld world, PassiveEntity passiveEntity) {
         Knight4Entity Knight4Entity = (Knight4Entity) Entityinit.KNIGHT4ENTITY.create(this.world);
         UUID uUID = this.getOwnerUuid();
         if (uUID != null) {

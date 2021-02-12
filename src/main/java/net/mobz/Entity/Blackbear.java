@@ -27,7 +27,7 @@ public class Blackbear extends PandaEntity {
    }
 
    @Override
-   public boolean canPickUp(ItemStack stack) {
+	public boolean canPickupItem(ItemStack stack) {
       return false;
    }
 

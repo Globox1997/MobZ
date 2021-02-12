@@ -36,7 +36,7 @@ public class TotemMiddle extends Block implements BlockEntityProvider {
 
   @Override
   @Environment(EnvType.CLIENT)
-  public void buildTooltip(ItemStack stack, @Nullable BlockView view, List<Text> tooltip, TooltipContext options) {
+	public void appendTooltip(ItemStack stack, @Nullable BlockView view, List<Text> tooltip, TooltipContext options) {
     tooltip.add(new TranslatableText("block.mobz.totemmiddle.tooltip"));
   }
 

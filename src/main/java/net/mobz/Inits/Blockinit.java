@@ -18,11 +18,11 @@ public class Blockinit {
         public static final Bosstrophy BOSS_TROPHY = new Bosstrophy(FabricBlockSettings.copy(Blocks.ZOMBIE_HEAD));
         public static final Spawnblock SPAWN_BLOCK = new Spawnblock(FabricBlockSettings.copy(Blocks.SPAWNER));
         public static final Bossblock BOSS_BLOCK = new Bossblock(
-                        FabricBlockSettings.copy(Blocks.IRON_BLOCK).lightLevel((state) -> {
+			FabricBlockSettings.copy(Blocks.IRON_BLOCK).luminance((state) -> {
                                 return 5;
                         }));
         public static final Amatblock AMAT_BLOCK = new Amatblock(
-                        FabricBlockSettings.copy(Blocks.IRON_BLOCK).lightLevel((state) -> {
+			FabricBlockSettings.copy(Blocks.IRON_BLOCK).luminance((state) -> {
                                 return 4;
                         }));
         public static final HardenedMetalblock HARDENED_METALBLOCK = new HardenedMetalblock(

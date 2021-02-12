@@ -23,12 +23,13 @@ import net.minecraft.entity.mob.EvokerFangsEntity;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.SpellcastingIllagerEntity;
-import net.minecraft.entity.passive.AbstractTraderEntity;
+import net.minecraft.entity.passive.MerchantEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.raid.RaiderEntity;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.DyeColor;
@@ -78,7 +79,7 @@ public class MageEntity extends SpellcastingIllagerEntity {
       this.targetSelector.add(2,
             (new FollowTargetGoal<>(this, PlayerEntity.class, true)).setMaxTimeWithoutVisibility(300));
       this.targetSelector.add(3,
-            (new FollowTargetGoal<>(this, AbstractTraderEntity.class, false)).setMaxTimeWithoutVisibility(300));
+				(new FollowTargetGoal<>(this, MerchantEntity.class, false)).setMaxTimeWithoutVisibility(300));
       this.targetSelector.add(4, new FollowTargetGoal<>(this, IronGolemEntity.class, false));
    }
 
@@ -263,12 +264,14 @@ public class MageEntity extends SpellcastingIllagerEntity {
       }
 
       protected void castSpell() {
+			ServerWorld serverWorld = (ServerWorld) MageEntity.this.world;
+
          for (int i = 0; i < 3; ++i) {
             BlockPos blockPos = MageEntity.this.getBlockPos().add(-2 + MageEntity.this.random.nextInt(5), 1,
                   -2 + MageEntity.this.random.nextInt(5));
             SpiSmall vexEntity = (SpiSmall) Entityinit.SPISMALL.create(MageEntity.this.world);
             vexEntity.refreshPositionAndAngles(blockPos, 0.0F, 0.0F);
-            vexEntity.initialize(MageEntity.this.world, MageEntity.this.world.getLocalDifficulty(blockPos),
+				vexEntity.initialize(serverWorld, MageEntity.this.world.getLocalDifficulty(blockPos),
                   SpawnReason.MOB_SUMMONED, (EntityData) null, (CompoundTag) null);
             // vexEntity.setOwner(MageEntity.this);
             // vexEntity.setBounds(blockPos);
