@@ -2,6 +2,8 @@ package net.mobz.Entity;
 
 import java.util.List;
 
+import org.jetbrains.annotations.Nullable;
+
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -79,7 +81,7 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       this.targetSelector.add(2,
             (new FollowTargetGoal<>(this, PlayerEntity.class, true)).setMaxTimeWithoutVisibility(300));
       this.targetSelector.add(3,
-				(new FollowTargetGoal<>(this, MerchantEntity.class, false)).setMaxTimeWithoutVisibility(300));
+            (new FollowTargetGoal<>(this, MerchantEntity.class, false)).setMaxTimeWithoutVisibility(300));
       this.targetSelector.add(4, new FollowTargetGoal<>(this, IronGolemEntity.class, false));
    }
 
@@ -266,14 +268,14 @@ public class Mage2Entity extends SpellcastingIllagerEntity {
       }
 
       protected void castSpell() {
-			ServerWorld serverWorld = (ServerWorld) Mage2Entity.this.world;
+         ServerWorld serverWorld = (ServerWorld) Mage2Entity.this.world;
 
          for (int i = 0; i < 3; ++i) {
             BlockPos blockPos = Mage2Entity.this.getBlockPos().add(-2 + Mage2Entity.this.random.nextInt(5), 1,
                   -2 + Mage2Entity.this.random.nextInt(5));
             SmallZombie SmallZombie = (SmallZombie) Entityinit.SMALLZOMBIE.create(Mage2Entity.this.world);
             SmallZombie.refreshPositionAndAngles(blockPos, 0.0F, 0.0F);
-				SmallZombie.initialize(serverWorld, Mage2Entity.this.world.getLocalDifficulty(blockPos),
+            SmallZombie.initialize(serverWorld, Mage2Entity.this.world.getLocalDifficulty(blockPos),
                   SpawnReason.MOB_SUMMONED, (EntityData) null, (CompoundTag) null);
             SmallZombie.setOwner(Mage2Entity.this);
             SmallZombie.setBounds(blockPos);

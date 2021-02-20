@@ -21,11 +21,7 @@ public class Bossblock extends Block {
 
   @Override
   @Environment(EnvType.CLIENT)
-<<<<<<< HEAD
   public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-=======
-	public void appendTooltip(ItemStack stack, @Nullable BlockView view, List<Text> tooltip, TooltipContext options) {
->>>>>>> e4784737f10a32cb71f6da23d8d9d14050286952
     tooltip.add(new TranslatableText("block.mobz.boss_block.tooltip"));
   }
 

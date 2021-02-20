@@ -69,11 +69,7 @@ public class SpawnblockEntity extends BlockEntity implements Tickable {
             double h = (double) (blockPos.getY() + world.random.nextInt(3) - 1);
             double k = (double) blockPos.getZ()
                 + (world.random.nextDouble() - world.random.nextDouble()) * (double) this.spawnRange + 0.5D;
-<<<<<<< HEAD
             if (world.isSpaceEmpty((Entityinit.BABYRAVAGERENTITY.createSimpleBoundingBox(g, h, k)))
-=======
-            if (world.isSpaceEmpty(Entityinit.BABYRAVAGERENTITY.createSimpleBoundingBox(g, h, k))
->>>>>>> e4784737f10a32cb71f6da23d8d9d14050286952
                 && SpawnRestriction.canSpawn(Entityinit.BABYRAVAGERENTITY, (ServerWorld) world, SpawnReason.SPAWNER,
                     new BlockPos(g, h, k), world.getRandom())) {
               entity.updatePosition(g, h, k);

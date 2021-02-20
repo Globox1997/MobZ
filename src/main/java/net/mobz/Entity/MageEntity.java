@@ -2,6 +2,8 @@ package net.mobz.Entity;
 
 import java.util.List;
 
+import org.jetbrains.annotations.Nullable;
+
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -79,7 +81,7 @@ public class MageEntity extends SpellcastingIllagerEntity {
       this.targetSelector.add(2,
             (new FollowTargetGoal<>(this, PlayerEntity.class, true)).setMaxTimeWithoutVisibility(300));
       this.targetSelector.add(3,
-				(new FollowTargetGoal<>(this, MerchantEntity.class, false)).setMaxTimeWithoutVisibility(300));
+            (new FollowTargetGoal<>(this, MerchantEntity.class, false)).setMaxTimeWithoutVisibility(300));
       this.targetSelector.add(4, new FollowTargetGoal<>(this, IronGolemEntity.class, false));
    }
 
@@ -264,14 +266,14 @@ public class MageEntity extends SpellcastingIllagerEntity {
       }
 
       protected void castSpell() {
-			ServerWorld serverWorld = (ServerWorld) MageEntity.this.world;
+         ServerWorld serverWorld = (ServerWorld) MageEntity.this.world;
 
          for (int i = 0; i < 3; ++i) {
             BlockPos blockPos = MageEntity.this.getBlockPos().add(-2 + MageEntity.this.random.nextInt(5), 1,
                   -2 + MageEntity.this.random.nextInt(5));
             SpiSmall vexEntity = (SpiSmall) Entityinit.SPISMALL.create(MageEntity.this.world);
             vexEntity.refreshPositionAndAngles(blockPos, 0.0F, 0.0F);
-				vexEntity.initialize(serverWorld, MageEntity.this.world.getLocalDifficulty(blockPos),
+            vexEntity.initialize(serverWorld, MageEntity.this.world.getLocalDifficulty(blockPos),
                   SpawnReason.MOB_SUMMONED, (EntityData) null, (CompoundTag) null);
             // vexEntity.setOwner(MageEntity.this);
             // vexEntity.setBounds(blockPos);
