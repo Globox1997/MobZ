@@ -10,6 +10,7 @@ import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.World;
 import net.mobz.Inits.Soundinit;
@@ -62,7 +63,7 @@ public class Boar extends PigEntity {
     }
 
     @Override
-    public Boar createChild(PassiveEntity passiveEntity) {
+	public Boar createChild(ServerWorld world, PassiveEntity passiveEntity) {
         return (Boar) Entityinit.BOAR.create(this.world);
     }
 

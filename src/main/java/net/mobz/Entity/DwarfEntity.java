@@ -94,8 +94,13 @@ public class DwarfEntity extends VindicatorEntity {
     public boolean canSpawn(WorldView view) {
         BlockPos blockunderentity = new BlockPos(this.getX(), this.getY() - 1, this.getZ());
         BlockPos posentity = new BlockPos(this.getX(), this.getY(), this.getZ());
+
+        if (AutoConfig.getConfigHolder(configz.class).getConfig().DwarfSpawn_UndergroundOnly &&
+				posentity.getY() >= view.getSeaLevel() - 10) {
+        	return false;
+        }
+
         return view.intersectsEntities(this) && !this.isPatrolLeader() && !world.containsFluid(this.getBoundingBox())
-                && posentity.getY() < view.getSeaLevel() - 10
                 && this.world.getBlockState(posentity).getBlock().canMobSpawnInside() && this.world
                         .getBlockState(blockunderentity).allowsSpawning(view, blockunderentity, Entityinit.DWARFENTITY)
                 && AutoConfig.getConfigHolder(configz.class).getConfig().DwarfSpawn;

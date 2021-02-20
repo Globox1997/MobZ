@@ -34,6 +34,7 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
@@ -194,7 +195,7 @@ public class FriendEntity extends TameableEntity implements Angerable {
     }
 
     @Override
-    public FriendEntity createChild(PassiveEntity passiveEntity) {
+	public FriendEntity createChild(ServerWorld world, PassiveEntity passiveEntity) {
         FriendEntity FriendEntity = (FriendEntity) Entityinit.FRIEND.create(this.world);
         UUID uUID = this.getOwnerUuid();
         if (uUID != null) {

@@ -1,4 +1,8 @@
-# BroZ's a MobZ Mod
-MobZ is a 1.15 mod that adds mobs to make the life in minecraft a little harder
+# MobZ
+MobZ is a vanilla style mob mod.
 
-Here is a link to the mod's releases on [curseforge.com](https://www.curseforge.com/minecraft/mc-mods/mobz).
+### Installation
+MobZ is a mod built for the [Fabric Loader](https://fabricmc.net/). It requires [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) to be installed separately; all other dependencies are installed with the mod.
+
+### License
+MobZ is licensed under GLPv3.

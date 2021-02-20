@@ -39,7 +39,11 @@ public class Frozenmeal extends Item {
     ItemStack handItem = player.getMainHandStack();
     BlockPos pos = context.getBlockPos();
     BlockState blockState = world.getBlockState(pos);
+<<<<<<< HEAD
     HitResult hitResult = raycast(world, player, RaycastContext.FluidHandling.SOURCE_ONLY);
+=======
+		HitResult hitResult = raycast(world, player, RaycastContext.FluidHandling.SOURCE_ONLY);
+>>>>>>> e4784737f10a32cb71f6da23d8d9d14050286952
     BlockHitResult blockHitResult = (BlockHitResult) hitResult;
     BlockPos blockPos = blockHitResult.getBlockPos();
     BlockState blockBlock = world.getBlockState(blockPos);

@@ -23,6 +23,7 @@ public class Blockinit {
         // return 5;
         // }));
         public static final Bossblock BOSS_BLOCK = new Bossblock(
+<<<<<<< HEAD
                         ((FabricBlockSettings) FabricBlockSettings.copy(Blocks.IRON_BLOCK)).luminance(5));
         // public static final Amatblock AMAT_BLOCK = new Amatblock(
         // FabricBlockSettings.copy(Blocks.IRON_BLOCK).lightLevel((state) -> {
@@ -30,6 +31,15 @@ public class Blockinit {
         // }));
         public static final Amatblock AMAT_BLOCK = new Amatblock(
                         ((FabricBlockSettings) FabricBlockSettings.copy(Blocks.IRON_BLOCK)).luminance(5));
+=======
+			FabricBlockSettings.copy(Blocks.IRON_BLOCK).luminance((state) -> {
+                                return 5;
+                        }));
+        public static final Amatblock AMAT_BLOCK = new Amatblock(
+			FabricBlockSettings.copy(Blocks.IRON_BLOCK).luminance((state) -> {
+                                return 4;
+                        }));
+>>>>>>> e4784737f10a32cb71f6da23d8d9d14050286952
         public static final HardenedMetalblock HARDENED_METALBLOCK = new HardenedMetalblock(
                         FabricBlockSettings.copy(Blocks.IRON_BLOCK));
         public static final Treasureblock TREASURE_BLOCK = new Treasureblock(FabricBlockSettings.copy(Blocks.BEDROCK));
