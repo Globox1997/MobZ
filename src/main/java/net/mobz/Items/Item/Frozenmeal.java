@@ -19,7 +19,7 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import net.minecraft.world.RayTraceContext;
+import net.minecraft.world.RaycastContext;
 
 public class Frozenmeal extends Item {
 
@@ -39,7 +39,7 @@ public class Frozenmeal extends Item {
     ItemStack handItem = player.getMainHandStack();
     BlockPos pos = context.getBlockPos();
     BlockState blockState = world.getBlockState(pos);
-    HitResult hitResult = rayTrace(world, player, RayTraceContext.FluidHandling.SOURCE_ONLY);
+    HitResult hitResult = raycast(world, player, RaycastContext.FluidHandling.SOURCE_ONLY);
     BlockHitResult blockHitResult = (BlockHitResult) hitResult;
     BlockPos blockPos = blockHitResult.getBlockPos();
     BlockState blockBlock = world.getBlockState(blockPos);

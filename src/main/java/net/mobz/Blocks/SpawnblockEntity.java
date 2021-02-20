@@ -6,6 +6,7 @@ import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.SpawnRestriction;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
@@ -44,7 +45,6 @@ public class SpawnblockEntity extends BlockEntity implements Tickable {
     if (this.isPlayerInRange()) {
       World world = this.getWorld();
       BlockPos blockPos = this.getPos();
-
       PlayerEntity player = world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), 16D, false);
       if (world.isClient) {
         double d = (double) blockPos.getX() + (double) world.random.nextFloat();
@@ -69,8 +69,8 @@ public class SpawnblockEntity extends BlockEntity implements Tickable {
             double h = (double) (blockPos.getY() + world.random.nextInt(3) - 1);
             double k = (double) blockPos.getZ()
                 + (world.random.nextDouble() - world.random.nextDouble()) * (double) this.spawnRange + 0.5D;
-            if (world.doesNotCollide((Entityinit.BABYRAVAGERENTITY.createSimpleBoundingBox(g, h, k)))
-                && SpawnRestriction.canSpawn(Entityinit.BABYRAVAGERENTITY, world.getWorld(), SpawnReason.SPAWNER,
+            if (world.isSpaceEmpty((Entityinit.BABYRAVAGERENTITY.createSimpleBoundingBox(g, h, k)))
+                && SpawnRestriction.canSpawn(Entityinit.BABYRAVAGERENTITY, (ServerWorld) world, SpawnReason.SPAWNER,
                     new BlockPos(g, h, k), world.getRandom())) {
               entity.updatePosition(g, h, k);
               world.syncWorldEvent(2004, blockPos, 0);

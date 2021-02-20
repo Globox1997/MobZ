@@ -2,6 +2,8 @@ package net.mobz.Blocks;
 
 import java.util.List;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -20,7 +22,6 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.mobz.Entity.Nullable;
 import net.mobz.Inits.Blockinit;
 import net.mobz.Inits.Iteminit;
 import net.mobz.Inits.Soundinit;
@@ -39,7 +40,7 @@ public class Treasureblock extends Block implements BlockEntityProvider {
 
   @Override
   @Environment(EnvType.CLIENT)
-  public void buildTooltip(ItemStack stack, @Nullable BlockView view, List<Text> tooltip, TooltipContext options) {
+  public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
     tooltip.add(new TranslatableText("block.mobz.treasure_block.tooltip"));
   }
 

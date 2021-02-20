@@ -12,7 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -101,8 +100,8 @@ public class Pillagerstaff extends Item {
                 playerEntity.playSound(SoundEvents.ENTITY_WITHER_HURT, 1F, 1F);
                 if (world.isClient) {
                     for (int i = 0; i < 16; ++i) {
-                        world.addParticle(ParticleTypes.MYCELIUM, playerEntity.getX() + z2,
-                                playerEntity.getY() + z6, playerEntity.getZ() + z4, 0D, 0D, 0D);
+                        world.addParticle(ParticleTypes.MYCELIUM, playerEntity.getX() + z2, playerEntity.getY() + z6,
+                                playerEntity.getZ() + z4, 0D, 0D, 0D);
                     }
                 }
                 return TypedActionResult.success(user.getStackInHand(hand));

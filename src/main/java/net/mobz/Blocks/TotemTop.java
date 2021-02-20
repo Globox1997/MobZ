@@ -2,6 +2,8 @@ package net.mobz.Blocks;
 
 import java.util.List;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -20,7 +22,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import net.mobz.Entity.Nullable;
 
 public class TotemTop extends Block {
   public static final DirectionProperty FACING;
@@ -32,7 +33,7 @@ public class TotemTop extends Block {
 
   @Override
   @Environment(EnvType.CLIENT)
-  public void buildTooltip(ItemStack stack, @Nullable BlockView view, List<Text> tooltip, TooltipContext options) {
+  public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
     tooltip.add(new TranslatableText("block.mobz.totemtop.tooltip"));
   }
 
